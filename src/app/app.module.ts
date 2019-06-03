@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { LayoutComponent } from './layout/layout/layout.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ProductsComponent } from './layout/products/products.component';
 import { AllProductsComponent } from './layout/products/all-products/all-products.component';
@@ -14,11 +13,11 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ImportedModules } from './share/import-moudle.module';
 import { RoutingModule } from './router-module.module';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
     DashboardComponent,
     ProductsComponent,
     AllProductsComponent,
@@ -27,7 +26,8 @@ import { RoutingModule } from './router-module.module';
     CustomersComponent,
     SettingComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
