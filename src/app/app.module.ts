@@ -17,6 +17,10 @@ import { HomeComponent } from './home/home.component';
 import { MainFormComponent } from './signup/forms/main-form/main-form.component';
 import { CategoryComponent } from './layout/products/category/category.component';
 import { DiscountComponent } from './layout/products/discount/discount.component';
+import { GeneralComponent } from './layout/setting/general/general.component';
+import { ProfileComponent } from './layout/setting/profile/profile.component';
+import { SellComponent } from './layout/sell/sell.component';
+import { OrderComponent } from './layout/order/order.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { DiscountComponent } from './layout/products/discount/discount.component
     HomeComponent,
     MainFormComponent,
     CategoryComponent,
-    DiscountComponent
+    DiscountComponent,
+    GeneralComponent,
+    ProfileComponent,
+    SellComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
