@@ -25,7 +25,6 @@ import {SlideshowModule} from 'ng-simple-slideshow';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
