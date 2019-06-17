@@ -21,8 +21,7 @@ import { GeneralComponent } from './layout/setting/general/general.component';
 import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
-import {SlideshowModule} from 'ng-simple-slideshow';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -49,8 +48,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     RoutingModule,
-    SlideshowModule,
-    BrowserAnimationsModule,
     ImportedModules
   ],
   providers: [],

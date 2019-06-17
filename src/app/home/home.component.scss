@@ -86,6 +86,31 @@ swiper{
     border-radius:20px;
 }
 
+.image2{
+    width:80%;
+    height:400px;
+    border-radius:20px;
+    
+}
+
+@media only screen and (max-width:550px){
+    .image1{
+        width:80%;
+        height:350px;
+        border-radius:20px;
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width:550px){
+    .image1{
+        width:100%;
+        height:350px;
+        border-radius:20px;
+        margin-left:0;
+    }
+}
+
 
 .about{
     list-style-type: none;

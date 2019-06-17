@@ -3,7 +3,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularMaterialModule } from "./angular-material.module";
 import { HttpClientModule } from "@angular/common/http";
-
+import {SlideshowModule} from 'ng-simple-slideshow';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
@@ -11,13 +12,17 @@ import { HttpClientModule } from "@angular/common/http";
         FormsModule,
         ReactiveFormsModule,
         AngularMaterialModule,
-        HttpClientModule
+        HttpClientModule,
+        SlideshowModule,
+        BrowserAnimationsModule,
     ],
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         AngularMaterialModule,
+        SlideshowModule,
+        BrowserAnimationsModule
     ]
 })
 
