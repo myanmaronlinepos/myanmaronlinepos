@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ProductsComponent } from './layout/products/products.component';
 import { AllProductsComponent } from './layout/products/all-products/all-products.component';
-import { TransfersComponent } from './layout/products/transfers/transfers.component';
 import { InventoryComponent } from './layout/products/inventory/inventory.component';
 import { CustomersComponent } from './layout/customers/customers.component';
 import { SettingComponent } from './layout/setting/setting.component';
@@ -14,6 +13,10 @@ import { SignupComponent } from './signup/signup.component';
 import { ImportedModules } from './share/import-moudle.module';
 import { RoutingModule } from './router-module.module';
 import { LayoutComponent } from './layout/layout.component';
+import { HomeComponent } from './home/home.component';
+import { MainFormComponent } from './signup/forms/main-form/main-form.component';
+import { CategoryComponent } from './layout/products/category/category.component';
+import { DiscountComponent } from './layout/products/discount/discount.component';
 
 @NgModule({
   declarations: [
@@ -21,18 +24,21 @@ import { LayoutComponent } from './layout/layout.component';
     DashboardComponent,
     ProductsComponent,
     AllProductsComponent,
-    TransfersComponent,
     InventoryComponent,
     CustomersComponent,
     SettingComponent,
     LoginComponent,
     SignupComponent,
-    LayoutComponent
+    LayoutComponent,
+    HomeComponent,
+    MainFormComponent,
+    CategoryComponent,
+    DiscountComponent
   ],
   imports: [
     BrowserModule,
-    ImportedModules,
-    RoutingModule
+    RoutingModule,
+    ImportedModules
   ],
   providers: [],
   bootstrap: [AppComponent]
