@@ -9,47 +9,44 @@
   height:40px;
 }
 
-.toggle{
-  margin:6px;
-  font-size:40px;
-  cursor:pointer;
-  color:red;
+.closeside{
+  float: right;
+  font-size:20px;
+}
+
+.openside{
+  font-size:30px;
+}
+
+.mysidenav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .sidenav {
-    height: 100%;
-    width: 250px;
-    position: absolute;
-    z-index: 1;
-    top: 90px;
-    left: 0;
-    background-color: #FAEBD7;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .sidenav a {
-    padding: 6px 6px 6px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color:#1F45FC;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #493D26;
-  }
-  
-  .mysidenav{
-    width:250px;
-  }
-  
-  #main {
-    transition: margin-left .9s;
-    padding-left: 60px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+
+.sidelist{
+  width:200px;
+  margin-left:20px;
+}
+
+.navi{
+  background-color: #38ACEC;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav{
+  color:black;
+}
