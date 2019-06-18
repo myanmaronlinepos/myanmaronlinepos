@@ -21,6 +21,7 @@ import { GeneralComponent } from './layout/setting/general/general.component';
 import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
+import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
 
 
 
@@ -43,7 +44,8 @@ import { OrderComponent } from './layout/order/order.component';
     GeneralComponent,
     ProfileComponent,
     SellComponent,
-    OrderComponent
+    OrderComponent,
+    DetailFormComponent
   ],
   imports: [
     BrowserModule,
