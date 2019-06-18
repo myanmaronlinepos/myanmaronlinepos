@@ -103,11 +103,17 @@ swiper{
 }
 
 @media only screen and (max-width:550px){
-    .image1{
-        width:100%;
+    .image2{
+        width:90%;
         height:350px;
         border-radius:20px;
-        margin-left:0;
+        
+    }
+}
+
+@media only screen and (max-width:550px){
+    .imgdiv{
+        margin-left: 0px;
     }
 }
 
