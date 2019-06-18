@@ -7,54 +7,65 @@
   <title>profile</title>
 </head>
 <body>
-     <nav class="navbar navbar-expand-sm navbar-dark navigation">
-        <h4 class="profile col-md-2">Shop Name</h4>
-        <input type="search" name="search" class="col-md-6">
-        <img src="assets/shop1.jpg" class="col-md-1 pl-5 shopkeeper">
-        <h4 class="col-md-3">Shopkeeper's Name</h4>
-    </nav>
+     
 
-    <div class="mysidenav">
-        <span class="open col-md-5 float-right pr-4 toggle">&#9776;</span>
-        <div class="sidenav pt-4 ">
-          <ul class="list-unstyled list-inline">
-            <li>
-              <a href="#">Dashboard</a>
-              <ul class="list-unstyled list-inline">
-                <li class="list-inline-item"></li>
-              </ul>
-            </li>
-            <li>
-                <a href="#">Product</a>
-                <ul class="list-unstyled list-inline list-group">
-                  <li class="list-inline-item list-group-item"><a href="#">All Product</a></li>
-                  <li class="list-inline-item list-group-item"><a href="#">Inventory</a></li>
-                  <li class="list-inline-item list-group-item"><a href="#">Category</a></li>
-                  <li class="list-inline-item list-group-item"><a href="#">Discount</a></li>
-                  <li class="list-inline-item list-group-item"><a href="#">Tag</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Sell</a>
-                <ul class="list-unstyled list-inline">
-                  <li class="list-inline-item"><a href="#"></a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Order</a>
-                <ul class="list-unstyled list-inline">
-                  <li class="list-inline-item"><a href="#"></a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Setting</a>
-                <ul class="list-unstyled list-inline">
-                  <li class="list-inline-item"><a href="#"></a></li>
-                </ul>
-              </li>
-          </ul>
-        </div>
-      </div>
+    <mat-sidenav-container class="mysidenav">
+        <mat-sidenav #sidenav>
+          <p><button mat-button (click)="sidenav.toggle()" class="closeside">X</button></p>
+          <div class=".sidenav">
+                    <ul class="list-unstyled list-inline sidelist">
+                      <li>
+                        <a href="#">Dashboard</a>
+                        <ul class="list-unstyled list-inline">
+                          <li class="list-inline-item"></li>
+                        </ul>
+                      </li>
+                      <li>
+                          <a href="#">Product</a>
+                          <ul class="list-unstyled list-inline list-group">
+                            <li class="list-inline-item list-group-item"><a href="#">All Product</a></li>
+                            <li class="list-inline-item list-group-item"><a href="#">Inventory</a></li>
+                            <li class="list-inline-item list-group-item"><a href="#">Category</a></li>
+                            <li class="list-inline-item list-group-item"><a href="#">Discount</a></li>
+                            <li class="list-inline-item list-group-item"><a href="#">Tag</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#">Sell</a>
+                          <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item"><a href="#"></a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#">Order</a>
+                          <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item"><a href="#"></a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#">Setting</a>
+                          <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item"><a href="#"></a></li>
+                          </ul>
+                        </li>
+                    </ul>
+          </div>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+          <div class="row navi">
+           <button mat-button class="openside col-md-1" (click)="sidenav.toggle()">&#9776;</button>
+              <h4 class="profile col-md-2 mt-3">Shop Name</h4>
+              <mat-form-field class="col-md-5">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput type="search" placeholder="search here" class="search-input">
+              </mat-form-field>
+              <img src="assets/shop1.jpg" class="col-md-1 pl-5 mt-3 shopkeeper">
+              <h4 class="col-md-3 mt-3">Shopkeeper's Name</h4>
+            </div>
+          </mat-sidenav-content>
+      </mat-sidenav-container>
+
     </body>
   </html>
       
