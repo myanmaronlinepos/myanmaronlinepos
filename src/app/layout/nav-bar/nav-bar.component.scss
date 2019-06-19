@@ -1,0 +1,28 @@
+.nav-bar {
+  display: flex;
+  width:100%;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: DodgerBlue;
+}
+
+.nav-bar >div {
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .brand {
+    margin-left: 50px;
+    background-color:white;
+}
+.nav-bar .nav-bar-search {
+  
+  width:500px;
+  background-color:red;
+}
+
+.nav-bar .account-profile {
+  background-color: green;
+}
