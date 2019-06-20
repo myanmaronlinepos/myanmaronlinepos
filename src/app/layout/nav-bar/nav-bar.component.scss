@@ -15,14 +15,49 @@
 
 .nav-bar .brand {
     margin-left: 50px;
-    background-color:white;
+    font-size: 24px;
 }
 .nav-bar .nav-bar-search {
-  
-  width:500px;
-  background-color:red;
+  margin-left:40px;
+  width:700px;
 }
 
 .nav-bar .account-profile {
-  background-color: green;
+  width: 300px;
+  font-size: 24px;
+}
+
+.nav-bar img {
+  width: 30px;
+  height: 30px;
+}
+
+.account-profile > span {
+  padding-left: 15px;
+}
+
+@media screen and (max-width: 654px) {
+  .nav-bar .brand {
+    font-size: 16px;
+    margin-left:12px;
+  }
+  .nav-bar .account-profile {
+    font-size: 16px;
+    padding-left: 9px;
+    margin-right: 8px;
+  }
+  .nav-bar .nav-bar-search {
+    width:500px;
+  }
+}
+
+@media screen and (max-width: 1215px) and (min-width: 655px) {
+  .nav-bar .brand {
+    font-size: 20px;
+  }
+  .nav-bar .account-profile {
+    font-size: 20px;
+    padding-left: 74px;
+    margin-right: 33px;
+  }
 }
