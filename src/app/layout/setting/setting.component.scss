@@ -1,0 +1,23 @@
+::ng-deep .mat-tab-labels .mat-tab-label-active {
+color:white;
+background-color: blue;
+border-style:solid;
+border-color: white;
+border-width:1px;
+border-top-left-radius: 100px;
+}
+
+.setting-layout {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 5%;
+}
+
+.mat-group {
+    
+    width: 70%;
+    height:70%;
+}

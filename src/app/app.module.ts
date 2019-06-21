@@ -21,7 +21,11 @@ import { GeneralComponent } from './layout/setting/general/general.component';
 import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
+<<<<<<< HEAD
 import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
+=======
+import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+>>>>>>> e5da08640c4df8f9983981a65aa4fdb9507d1340
 
 
 
@@ -45,7 +49,11 @@ import { DetailFormComponent } from './signup/forms/detail-form/detail-form.comp
     ProfileComponent,
     SellComponent,
     OrderComponent,
+<<<<<<< HEAD
     DetailFormComponent
+=======
+    NavBarComponent
+>>>>>>> e5da08640c4df8f9983981a65aa4fdb9507d1340
   ],
   imports: [
     BrowserModule,
