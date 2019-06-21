@@ -57,9 +57,9 @@
   width: 200px;
   position: fixed;
   z-index: 1;
-  top: 60;
+  margin-top: 0px;
   left: 0;
-  background-color: #808080;
+  background-color: #E5E4E2;
   overflow-x: hidden;
   padding-top: 16px;
 }
@@ -74,6 +74,7 @@
 .main {
   margin-left: 200px; /* Same as the width of the sidenav */
   padding: 0px 10px;
+  margin-top: 60px;
 }
 
 // @media screen and (max-height: 450px) {
@@ -86,7 +87,7 @@ mat-line,
 div,
 mat-expansion-panel-header,
 mat-panel-title {
-color: white !important;
+color: black !important;
 text-transform: uppercase;
 // background-color: #808080;
 }
@@ -100,7 +101,7 @@ text-transform: uppercase;
 // }
 
 .mat-expansion-panel:last-of-type {
-  background-color: #808080;
+  background-color: #E5E4E2;
 }
 
 .mat-line {
