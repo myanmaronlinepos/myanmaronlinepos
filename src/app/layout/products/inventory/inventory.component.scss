@@ -1,24 +1,73 @@
-table {
-    width: 80%;
-    position: relative;
-    left:10%;
-    right:30%;
-    margin-top:2%;
-  }
-  /* this is paragraph alignment */
-
-  .col-sm-8{
-    text-align: center;
+// This is paragraph modification
+ .col-sm-8{
+    
     padding-top:3%;
-    font-size:16pt;
-    padding-left:13%;
+    font-size:25px;
+    left:12%;
+     width:100%;
+     text-transform: none ;
+     
   }
-  /* this is image modification */
- .Logo{
+//   /* this is logo image modification */
+.Logo{
    height:35px;
    width:35px;
+
+}
+.logoletter{
+  text-transform: none ;
+  font-size:20px;
+  }
+  .col-sm-12{
+    text-align:right;
+  }
+  
+  // this is table styling
+  .mat-header-cell{
+    font-size:22px;
+    font-weight:800;
+    text-transform:none;
+  }
+  .mat-cell{
+    font-size:20px;
+    font-weight:500;
+    text-transform:initial;
+
+  }
+ table{
+   width:100%;
+   border: 0;
+  }
+ 
+ .mat-column-no {
+  width:12%;
  }
- .col-sm-10{
-  margin-left:70%;
+ .mat-column-name {
+  width:22%;
+ }
+ .mat-column-category {
+  width:22%;
+ }
+ .mat-column-quantity {
+  width:22%;
+ }
+ .mat-column-updatequantity {
+  width:32%;
+ }
+ .container-fluid{
+  padding-left:10%;
+ }
+ .quantity-field{
    
+  background-color: #fff;
+  border:1px solid #ccc;
+  border-radius:none;
+  font-size: 20px;
+  width: 5rem;
+  padding:0 0 0 0;
+  font-size: 16pt;
+ }
+ ::ng-deep tr{
+   border:none;
+   vertical-align: none;
  }
