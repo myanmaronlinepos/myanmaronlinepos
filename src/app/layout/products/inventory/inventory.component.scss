@@ -2,7 +2,7 @@
  .col-sm-8{
     
     padding-top:3%;
-    font-size:25px;
+    font-size:22px;
     left:12%;
      width:100%;
      text-transform: none ;
@@ -24,13 +24,12 @@
   
   // this is table styling
   .mat-header-cell{
-    font-size:22px;
+    font-size:20px;
     font-weight:800;
     text-transform:none;
   }
   .mat-cell{
-    font-size:20px;
-    font-weight:500;
+    font-size:16px;
     text-transform:initial;
 
   }
@@ -62,10 +61,10 @@
   background-color: #fff;
   border:1px solid #ccc;
   border-radius:none;
-  font-size: 20px;
-  width: 5rem;
+  font-size: 16px;
+  width: 4.5rem;
   padding:0 0 0 0;
-  font-size: 16pt;
+  
  }
  ::ng-deep tr{
    border:none;
