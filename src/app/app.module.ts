@@ -22,6 +22,7 @@ import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
 
 
 
@@ -45,7 +46,8 @@ import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
     ProfileComponent,
     SellComponent,
     OrderComponent,
-    NavBarComponent
+    NavBarComponent,
+    DetailFormComponent
   ],
   imports: [
     BrowserModule,
