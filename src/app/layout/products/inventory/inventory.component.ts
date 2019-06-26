@@ -43,15 +43,23 @@ export class InventoryComponent implements OnInit {
 displayedColumns: string[] = ['no', 'name', 'category', 'quantity','updatequantity'];
 dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-// @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+Updatequantity='';
+Savebuttonwork=false;
+
+
+
 @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor() { }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-  
-  }
+   }
+   onUpdatequantity(event: Event){
+     this.Updatequantity=(<HTMLInputElement>event.target).value;
+     }
+     Onsetvalue(){
+    }
 
 }
 
