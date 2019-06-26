@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-form.component.scss']
 })
 export class DetailFormComponent implements OnInit {
+  showStore: boolean=false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+  onSelect(event: any){
+    this.showStore=true;
+  }
+  onCheck(event: any){
+    this.showStore=false;
   }
 
 }
