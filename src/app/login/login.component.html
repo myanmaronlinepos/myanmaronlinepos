@@ -1,11 +1,16 @@
 <img src="assets/login/background.jpg">
 <div class="login-box">
-  <h1 class="mt-5">Login</h1>
   <form>
-    <input type="email" placeholder="Email" class="form-control"name="email" ngModel>
-    <input type="password" placeholder="Password" class="form-control" name="password" ngModel>
-<input type="submit" name="submit" value="Login" (ngSubmit)="onSubmit()" class="">
-<a href="layout" class="">Forgot Password?</a>
-<a href="signup" class="">Sign Up</a>
+      <h1 class="mt-5">Login</h1>
+    <div class="form-group">
+        <input type="email" placeholder="Email" class="form-control"name="email" ngModel>
+    </div>
+   <div class="from-group">
+      <input type="password" placeholder="Password" class="form-control" name="password" ngModel>
+   </div>
+    
+  <input type="submit" name="submit" value="Login" (ngSubmit)="onSubmit()" class="">
+  <a href="layout" class="text-primary">Forgot Password?</a>
+  <a href="signup" class="text-primary">Sign Up</a>
   </form>
 </div>
