@@ -53,6 +53,7 @@ import { MatTableModule } from '@angular/material';
     NavBarComponent,
     NewCategoryComponent,
     AssignproductComponent,
+    DetailFormComponent
     
   ],
   imports: [
