@@ -15,34 +15,16 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
   }
-
-  updateConfirmValidator(): void {
-    /** wait for refresh value */
-    Promise.resolve().then(() => this.validateForm.controls.checkPassword.updateValueAndValidity());
-  }
-
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
-
-  getCaptcha(e: MouseEvent): void {
-    e.preventDefault();
-  }
-
-
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
-      password: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]]
-    });
+      password: [null, [Validators.required]]
+     });
+  }
+  submit(){
+    alert('filled');
   }
 
 }

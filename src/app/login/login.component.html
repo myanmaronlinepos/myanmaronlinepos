@@ -3,16 +3,17 @@
   <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
       <h1 class="mt-5">Login</h1>
     <div class="form-group">
-      <input type="email" placeholder="Email" class="form-control" required formControlName="email" id="email">
+      <input type="email" placeholder="Email" class="form-control" required 
+      name="email" formControlName="email" id="email" [ngModel]="email">
       <div *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
         The input is not valid E-mail!
       </div>
     </div>
    <div class="from-group">
-      <input type="password" placeholder="Password" class="form-control" name="password">
+      <input type="password" placeholder="Password" class="form-control" name="password" [ngModel]="password">
    </div>
     
-  <input type="submit" name="submit" value="Login"(click)="getCaptcha($event)">
+  <input type="submit" name="submit" value="Login" (click)="submit()">
   <a href="layout" class="text-primary">Forgot Password?</a>
   <a href="signup" class="text-primary">Sign Up</a>
   </form>
