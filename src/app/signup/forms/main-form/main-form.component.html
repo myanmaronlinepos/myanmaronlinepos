@@ -1,19 +1,30 @@
 
  <img src="assets/login/background.jpg">
 <div class="login-box">
-  <form>
+  <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
       <h1 class="mt-5">Sign Up</h1>
 
     <div class="form-group">
-    <input type="email" placeholder="Email" class="form-control" required>
+    <input type="email" placeholder="Email" class="form-control" required formControlName="email" id="email">
+    <div *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+      The input is not valid E-mail!
+    </div>
   </div>
   <div class="form-group">
-    <input type="password" placeholder="Password" class="form-control" required>
+    <input type="password" placeholder="Password" class="form-control" required id="password"
+    formControlName="password" (ngModelChange)="updateConfirmValidator()">
   </div>
   <div class="form-group">
-    <input type="password" placeholder="Confirm Password" class="form-control" required>
+    <input type="password" placeholder="Confirm Password" class="form-control"
+     required formControlName="checkPassword" id="checkPassword">
+     <div
+     *ngIf="validateForm.get('checkPassword')?.dirty && validateForm.get('checkPassword')?.errors">
+     <div *ngIf="validateForm.get('checkPassword')?.hasError('confirm')">
+       Two passwords that you enter is inconsistent!
+     </div>
+     </div>
   </div>
-    <input type="submit" name="submit" value="Next">
+    <input type="submit" name="submit" value="Next" (click)="getCaptcha($event)">
   </form>
 </div>
 
