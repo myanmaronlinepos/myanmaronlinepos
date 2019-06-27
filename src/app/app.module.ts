@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
@@ -22,7 +23,9 @@ import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
-
+import { MatTableModule } from '@angular/material/table';
+import { NewCategoryComponent } from './layout/products/new-category/new-category.component';
+import { AssignproductComponent } from './assignproduct/assignproduct.component';
 
 
 @NgModule({
@@ -45,12 +48,20 @@ import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
     ProfileComponent,
     SellComponent,
     OrderComponent,
-    NavBarComponent
+    NavBarComponent,
+    NewCategoryComponent,
+    AssignproductComponent,
+    
   ],
   imports: [
     BrowserModule,
     RoutingModule,
+    MatTableModule,
     ImportedModules
+  ],
+  entryComponents:[
+    NewCategoryComponent,
+    AssignproductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
