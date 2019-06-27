@@ -54,13 +54,9 @@ import { DetailFormComponent } from './signup/forms/detail-form/detail-form.comp
     SellComponent,
     OrderComponent,
     NavBarComponent,
-<<<<<<< HEAD
     NewCategoryComponent,
     AssignproductComponent,
     
-=======
-    DetailFormComponent
->>>>>>> d0a36c7cd4ad0465882c71adf90665778cec90ae
   ],
   imports: [
     BrowserModule,
