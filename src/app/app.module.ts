@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
@@ -23,6 +24,9 @@ import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
+import { NewCategoryComponent } from './layout/products/new-category/new-category.component';
+import { AssignproductComponent } from './assignproduct/assignproduct.component';
+import { MatTableModule } from '@angular/material';
 
 
 
@@ -47,12 +51,20 @@ import { DetailFormComponent } from './signup/forms/detail-form/detail-form.comp
     SellComponent,
     OrderComponent,
     NavBarComponent,
+    NewCategoryComponent,
+    AssignproductComponent,
     DetailFormComponent
+    
   ],
   imports: [
     BrowserModule,
     RoutingModule,
+    MatTableModule,
     ImportedModules
+  ],
+  entryComponents:[
+    NewCategoryComponent,
+    AssignproductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
