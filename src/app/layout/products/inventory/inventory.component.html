@@ -1,3 +1,102 @@
-<p>
-  inventory works!
-</p>
+<!-- <div class="row-sm-12">
+  <div class="col-sm-8">
+<p>All product are in the inventory.You can see the detail of each product and update each quantity easily.</p>
+</div>
+</div>
+<div class="col-sm-12">
+<img src="assets/login/plusicon.png" href="#" class="Logo">
+<label for="addlogo" class="logoletter">Add Product</label>
+</div>
+<div class="container-fluid">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> No </th>
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"><a href="#"> {{element.name}}</a> </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity </th>
+      <ng-container *ngIf="Savebuttonwork">
+      <td mat-cell *matCellDef="let element">{{ Updatequantity }} </td>
+    </ng-container>
+    </ng-container>
+  
+    <ng-container matColumnDef="updatequantity">
+      <th mat-header-cell *matHeaderCellDef> Updatequantity </th>
+      <td mat-cell *matCellDef="let element"> <mat-button-toggle-group name="fontStyle" appearance="legacy" aria-label="Font Style">
+        <input type="number" value="00005" min="00000" class="quantity-field" (input)="Onaddvalue($event)">
+        <mat-button-toggle value="save" class="btn-info" (click)="Onsetvalue()">Save</mat-button-toggle>
+      </mat-button-toggle-group></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+</div>
+-->
+<div class="row-sm-12">
+  <div class="col-sm-8">
+<p>All product are in the inventory.You can see the detail of each product and update each quantity easily.</p>
+</div>
+</div>
+<div class="col-sm-12">
+<img src="assets/login/plusicon.png" href="#" class="Logo">
+<label for="addlogo" class="logoletter">Add Product</label>
+</div>
+<div class="container-fluid">
+        <div class="mat-elevation-z8">
+ <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"><a href="#">{{element.name}}</a></td>
+      </ng-container>
+  
+      <ng-container matColumnDef="category">
+      <mat-card><mat-card-title>
+         <th mat-header-cell *matHeaderCellDef> Category </th></mat-card-title></mat-card>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{Updatequantity}} </td>
+      </ng-container>
+      <ng-container matColumnDef="updatequantity">
+          <th mat-header-cell *matHeaderCellDef> Updatequantity </th>
+          <td mat-cell *matCellDef="let element"> <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style">
+           
+            <input type="number" value="00005" min="00000" class="quantity-field" (input)="onUpdatequantity($event)">
+            <mat-button-toggle value="save" class="btn-primary" (click)="Onaddvalue()">Save</mat-button-toggle>
+          </mat-button-toggle-group> </td>
+        </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+    
+

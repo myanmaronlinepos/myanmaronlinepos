@@ -4,9 +4,16 @@ import {MatTableDataSource} from '@angular/material/table';
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
-  styleUrls: ['./all-products.component.scss']
+  styleUrls: ['./all-products.component.scss'],
+  providers: [
+  ]
 })
 export class AllProductsComponent implements OnInit {
+
+  log(value: string[]): void {
+    console.log(value);
+  }
+
   displayedColumns: string[] = ['position', 'name', 'category', 'discount','tags','quantity','price'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   
@@ -47,3 +54,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 15, name: 'Cafe', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
   
 ];
+// export class CheckboxLayoutComponent {
+//   log(value: string[]): void {
+//     console.log(value);
+//   }
+// }

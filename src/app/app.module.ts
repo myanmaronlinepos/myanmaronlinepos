@@ -23,9 +23,14 @@ import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
+<<<<<<< HEAD
 import { MatTableModule } from '@angular/material/table';
 import { NewCategoryComponent } from './layout/products/new-category/new-category.component';
 import { AssignproductComponent } from './assignproduct/assignproduct.component';
+=======
+import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
+
+>>>>>>> d0a36c7cd4ad0465882c71adf90665778cec90ae
 
 
 @NgModule({
@@ -49,9 +54,13 @@ import { AssignproductComponent } from './assignproduct/assignproduct.component'
     SellComponent,
     OrderComponent,
     NavBarComponent,
+<<<<<<< HEAD
     NewCategoryComponent,
     AssignproductComponent,
     
+=======
+    DetailFormComponent
+>>>>>>> d0a36c7cd4ad0465882c71adf90665778cec90ae
   ],
   imports: [
     BrowserModule,

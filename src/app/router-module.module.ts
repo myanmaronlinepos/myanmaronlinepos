@@ -15,12 +15,17 @@ import { GeneralComponent } from './layout/setting/general/general.component';
 import { ProfileComponent } from './layout/setting/profile/profile.component';
 import { SellComponent } from './layout/sell/sell.component';
 import { OrderComponent } from './layout/order/order.component';
+import { MainFormComponent } from './signup/forms/main-form/main-form.component';
+import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "home", component: HomeComponent },
     { path: "login", component: LoginComponent },
-    { path: "signup", component: SignupComponent },
+    { path: "signup", component: SignupComponent,children:[
+        {path:"",component:MainFormComponent},
+        {path:"detail",component:DetailFormComponent}
+    ]},
     {
         path: "dashboard", component: LayoutComponent, children: [
             { path: "dashboard", component: DashboardComponent },
