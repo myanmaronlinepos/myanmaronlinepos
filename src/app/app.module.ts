@@ -27,6 +27,9 @@ import { DetailFormComponent } from './signup/forms/detail-form/detail-form.comp
 import { NewCategoryComponent } from './layout/products/new-category/new-category.component';
 import { AssignproductComponent } from './assignproduct/assignproduct.component';
 import { MatTableModule } from '@angular/material';
+import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
+import { HomeBodyComponent } from './home/home-body/home-body.component';
+
 
 
 
@@ -53,7 +56,9 @@ import { MatTableModule } from '@angular/material';
     NavBarComponent,
     NewCategoryComponent,
     AssignproductComponent,
-    DetailFormComponent
+    DetailFormComponent,
+    HomeNavbarComponent,
+    HomeBodyComponent
     
   ],
   imports: [

@@ -40,6 +40,7 @@
 
 .account-profile > span {
   padding-left: 15px;
+  cursor: pointer;
 }
 
 .form-control {
@@ -51,12 +52,12 @@
   position: fixed;
   background-color: #E5E4E2;
   top: 60px;
-  
+  padding-top: 10px;
   width: 150px;
 }
 .viewmenu li {
   list-style: none;
-  font-size: 18px;
+  font-size: 16px;
 }
 .viewmenu li a {
   color: black;
@@ -208,7 +209,7 @@ button {
     left: 0px;
     position: fixed;
     background-color: #E5E4E2;
-    height: 200px;
+    height: 300px;
   }
   .nav {
     padding-top: 20px;
