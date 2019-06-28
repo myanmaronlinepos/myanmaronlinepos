@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { SignupComponent } from '../../signup.component';
+import {Router, RouterLink} from '@angular/router';
 @Component({
   selector: 'app-main-form',
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.scss']
 })
+
 export class MainFormComponent implements OnInit {
-
+ 
+  
   validateForm: FormGroup;
-
-  submitForm(): void {
-    for (const i in this.validateForm.controls) {
-      this.validateForm.controls[i].markAsDirty();
-      this.validateForm.controls[i].updateValueAndValidity();
-    }
-  }
 
   updateConfirmValidator(): void {
     /** wait for refresh value */
@@ -30,11 +27,12 @@ export class MainFormComponent implements OnInit {
     return {};
   };
 
-  getCaptcha(e: MouseEvent): void {
-    e.preventDefault();
-  }
+  constructor( private router: Router,private fb: FormBuilder) { }
+  onSubmit(){
 
-  constructor(private fb: FormBuilder) { }
+    
+    
+  }
 
     ngOnInit(): void {
       this.validateForm = this.fb.group({
