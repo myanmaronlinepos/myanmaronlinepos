@@ -1,0 +1,23 @@
+.navbar {
+    width: 100%;
+    height:60px;
+    background-color: #38ACEC;
+}
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.head, .login {
+    color: white;
+}
+.head {
+    font-size: 18px;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
