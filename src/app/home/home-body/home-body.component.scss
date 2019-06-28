@@ -13,7 +13,7 @@ div span {
         display: block;
         width: 160px;
         height: 45px;
-        background-color: blue;
+        background-color: darkcyan;
         border-radius: 8px;
 }
 a {
@@ -32,6 +32,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 30px;
 }
 .slide {
     margin-top: 40px;
@@ -136,7 +137,7 @@ footer {
 .subdetail1 {
     font-size: 20px;
     display: flex;
-    flex: 3;
+    flex: 5;
 }
 .subdetail2 {
     display: flex;
@@ -149,11 +150,8 @@ footer {
 .subsubdetail {
     display: flex;
     flex: 1;
-    justify-content: space-between;
     padding: 0;
     margin: 0;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 img {
     width: 40px;
@@ -196,6 +194,7 @@ img {
 .list {
     display: flex;
     flex-direction: row;
+    padding-top: 12px;
 }
 .list a {
     cursor: pointer;
@@ -227,7 +226,7 @@ img {
     .imagelist {
         margin-left: 10%;
         margin-right: 10%;
-        margin-top: 10%;
+        margin-top: 0;
         flex-direction: column;
     }
     .txtimg1, .txtimg2 {
