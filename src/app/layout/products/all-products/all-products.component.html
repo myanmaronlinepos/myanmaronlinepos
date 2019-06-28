@@ -1,11 +1,12 @@
+
 <mat-form-field class="ltr">
   <mat-label>Category</mat-label>
   <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
     <mat-option >
-      <mat-checkbox Value="Cigerattes" [ngModel]="true">Cigerattes</mat-checkbox>
+      <mat-checkbox Value="Cigerattes" [ngModel]="true" >Cigerattes</mat-checkbox>
     </mat-option>
     <mat-option >
-        <mat-checkbox>Coffee</mat-checkbox>
+        <mat-checkbox >Coffee</mat-checkbox>
       </mat-option>
       <mat-option >
           <mat-checkbox>Juices</mat-checkbox>
@@ -58,18 +59,17 @@
         </mat-select>
       </mat-form-field>
 <button mat-button>
-  <img src = "assets/login/plusicon.png" width="40px" height="40px">
+  <img src = "assets/login/plusicon.png"  (click)="addElement()" width="40px" height="40px">
 </button> 
 <button mat-button>
-    <img src = "assets/login/export.png" width="40px" height="40px">
+    <img src = "assets/login/export.png" width="40px" height="40px" >
   </button> 
   <button mat-button>
       <img src = "assets/login/import.png" width="40px" height="40px">
     </button> 
 
-
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+    
+    <table mat-table [dataSource]="dataSource" #table class="mat-elevation-z8">
 
     <!-- Position Column -->
     <ng-container matColumnDef="position">
@@ -112,8 +112,8 @@
       <td mat-cell *matCellDef="let element"> {{element.price}} </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> 
-</div>
+
