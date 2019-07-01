@@ -1,54 +1,14 @@
 
-  // .login-box{
-  //   width:320px;
-  //   height: 420px;
-  //   background: #d1d0ce;
-  //   color: #fff;
-  //   top: 50%;
-  //   left: 50%;
-  //   position: absolute;
-  //   transform: translate(-50%,-50%);
-  //   box-sizing: border-box;
-  //   padding: 0px 30px;
-  //   border-radius: 10px;
-  // }
-  // h1{
-  //   margin: 0;
-  //   padding: 0 0 20px;
-  //   text-align: center;
-  //   font-size: 22px;
-  //   padding-top: -3%;
-    
-    
-  
-  // }
-  // .login-box input{
-  //   width: 100%;
-  //   margin-bottom: 20px;
-  // }
-  // .login-box input[type="email"],input[type="password" ]{
-  //   border:none;
-  //   border-bottom: 1px solid #fff;
-  //   background: transparent;
-  //   height: 40px;
-  //   color: #fff;
-  //   font-size: 16px;
-  // }
-  // .login-box input[type="submit"]{
-  //   border:none;
-  //   outline: none;
-  //   height: 40px;
-  //   background: #6495ed;
-  //   color: #fff;
-  //   font-size: 18px;
-  //   border-radius: 20px;
-  //   margin-top: 20px;
-  // }
-  // @media only screen and (max-width: 560px){
-  //   img{
-  //     width: 100%;
-  //   }
-  // }
+  ::ng-deep .mat-form-field {
+    display: inline-block;
+  }
+::ng-deep .mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 180px;
+  }
   @media only screen and (min-width: 1501px){
     .card{
       margin-top:5%;
@@ -70,9 +30,10 @@
   .btn{
     color:white;
     background-color:green;
-    margin-top:3%;
+    margin-top:4%;
     width:80%;
     left:10%;
+    margin-bottom: 4%;
   }
   
   }
@@ -97,9 +58,10 @@
   .btn{
     color:white;
     background-color:green;
-    margin-top:3%;
+    margin-top:4%;
     width:80%;
     left:10%;
+   margin-bottom: 4%;
   }
   
   }
@@ -124,9 +86,10 @@
 .btn{
   color:white;
   background-color:green;
-  margin-top:3%;
+  margin-top:4%;
   width:80%;
   left:10%;
+  margin-bottom: 4%;
 }
 
 }
@@ -151,9 +114,11 @@
     .btn{
       color:white;
       background-color:green;
-      margin-top:3%;
+      margin-top:4%;
       width:80%;
       left:10%;
+      bottom: 5%;
+      margin-bottom: 4%;
   }
   
 }
@@ -178,9 +143,10 @@
 .btn{
   color:white;
   background-color:green;
-  margin-top:3%;
+  margin-top:4%;
   width:80%;
   left:10%;
+  margin-bottom: 4%;
 }
 
 }
