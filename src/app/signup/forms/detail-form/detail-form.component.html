@@ -2,44 +2,44 @@
   <div class="card-header text-center"><h3><strong>Add your address</strong></h3></div>
   <div class="card-body">
     <div class="form-row">
-      <mat-form-field class="col-sm-3">
+      <mat-form-field class="textbox1">
         <input matInput placeholder="First Name">
    </mat-form-field>
-   <mat-form-field class="col-sm-3">
+   <mat-form-field class="textbox1">
     <input matInput placeholder="Last Name">
    </mat-form-field>
     </div>
     <div class="form-row">
-        <mat-form-field class="col-sm-6">
+        <mat-form-field class="textbox">
       <textarea matInput placeholder="Address">
  </textarea>
     </mat-form-field>
   </div>
   <div class="form-row">
-      <mat-form-field class="col-sm-6">
+      <mat-form-field class="textbox">
         <input matInput placeholder="City">
    </mat-form-field>
    </div>
    <div class="form-row">
-      <mat-form-field class="col-sm-6">
+      <mat-form-field class="textbox">
         <input matInput placeholder="Phone Number">
    </mat-form-field>
    </div>
-   <div class="form-row">
+   <div class="radio">
       <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="sell" name="sell" class="col-sm-6"  (click)="onSelect($event)">Sell</mat-radio-button>
-          <mat-radio-button value="buy" name="sell" class="col-sm-3" (click)="onCheck($event)">Buy</mat-radio-button>
+          <mat-radio-button value="sell" name="sell" class="textbox2"  (click)="onSelect($event)">Sell</mat-radio-button>
+          <mat-radio-button value="buy" name="sell" class="textbox3" (click)="onCheck($event)">Buy</mat-radio-button>
         </mat-radio-group>
       </div>
       <div *ngIf="this.showStore===true">
       <div class="form-row">
-          <mat-form-field class="col-sm-6">
+          <mat-form-field class="textbox">
             <input matInput placeholder="Store Name">
        </mat-form-field>
        </div>
       </div>
        <div class="form-row">
-          <button mat-button class="col-sm-6 btn btn-primary">Sign up</button>
+          <button mat-button class="btn">Sign up</button>
        </div>
 
   </div> 
