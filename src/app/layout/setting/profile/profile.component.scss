@@ -1,0 +1,85 @@
+.mainprofile {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+.maindetail {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.detail {
+    display: flex;
+    width: 100%;
+}
+
+.subdetail {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.subdetail1 {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+.subsubdetail {
+    width: 90%;
+}
+.shopimg {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+.subimg, .btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.btn {
+    flex-direction: row;
+}
+img {
+    width: 320px;
+    height: 280px;
+    border-radius: 10px;
+}
+.subbtn1, .subbtn2 {
+    width: 100px;
+    background-color: darkcyan;
+    color: white;
+}
+.subbtn1, .pwdbtn1 {
+    margin-right: 3px;
+}
+.subbtn2, .pwdbtn2 {
+    margin-left: 3px;
+}
+
+a {
+    cursor: pointer;
+}
+.pwd {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.subpwd {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+.pwdbtn {
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: center;
+}
+button {
+    width: 90px;
+    background-color: darkcyan;
+    color: white;
+}

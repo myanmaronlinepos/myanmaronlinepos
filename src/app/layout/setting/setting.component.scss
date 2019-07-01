@@ -4,11 +4,11 @@ background-color: blue;
 border-style:solid;
 border-color: white;
 border-width:1px;
-border-top-left-radius: 100px;
+border-top-right-radius: 50px;
+border-top-left-radius: 50px;
 }
 
 .setting-layout {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,6 @@ border-top-left-radius: 100px;
 }
 
 .mat-group {
-    
     width: 70%;
     height:70%;
 }

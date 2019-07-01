@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  changepwd=false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changePassword():void {
+    this.changepwd=!this.changepwd;
   }
 
 }

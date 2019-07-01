@@ -25,10 +25,11 @@ import { OrderComponent } from './layout/order/order.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { DetailFormComponent } from './signup/forms/detail-form/detail-form.component';
 import { NewCategoryComponent } from './layout/products/new-category/new-category.component';
-import { AssignproductComponent } from './assignproduct/assignproduct.component';
 import { MatTableModule } from '@angular/material';
 import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { HomeBodyComponent } from './home/home-body/home-body.component';
+import { AssignproductComponent } from './layout/assignproduct/assignproduct.component';
+
 
 
 
