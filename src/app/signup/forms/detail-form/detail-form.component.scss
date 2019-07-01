@@ -1,6 +1,11 @@
 
 .card{
+<<<<<<< HEAD
     position: absolute;
+=======
+    position: relative;
+    margin-top: 380px;
+>>>>>>> 630549ba9ddc5a8f31fe5ffcf3f3bb6c6353e0c8
     left: 50%;
     top:60%;
     width: 500px;
@@ -29,12 +34,11 @@
         }
       .btn{
         color: #fff;
-        background-color: darkolivegreen;
+        background-color: green;
         margin-top:3%;
         width: 80%;
         left: 10%;
-        //  margin-bottom: 30px;
-    
+        margin-bottom: 3%;
       }
       .radiobtn{
         padding-left:10%;
