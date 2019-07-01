@@ -1,4 +1,4 @@
-
+<!-- 
  <img src="assets/login/background.jpg">
 <div class="login-box">
   <form [formGroup]="validateForm" >
@@ -30,5 +30,28 @@
     <input type="submit" name="submit" value="Next"   [routerLink]="'/signup/detail'">
   </form>
 </div>
-
-
+<<<<<<< HEAD
+ -->
+<div class="card">
+  <div class="card-header text-center"><h3><strong>Signup</strong></h3></div>
+  <div class="card-body">
+    <div class="form-row">
+      <mat-form-field class="textbox">
+        <input matInput placeholder="Email" required formControlName="email" id="email">
+   </mat-form-field>
+   </div>
+   <div class="form-row">
+    <mat-form-field class="textbox">
+      <input matInput placeholder="Password" required id="password"  formControlName="password">
+ </mat-form-field>
+ </div>
+ <div class="form-row">
+  <mat-form-field class="textbox">
+    <input matInput placeholder="Confirm Password" required formControlName="checkPassword" id="checkPassword">
+</mat-form-field>
+</div>
+<div class="form-row">
+  <button mat-button class="btn">Next</button>
+</div>
+  </div>
+</div>
