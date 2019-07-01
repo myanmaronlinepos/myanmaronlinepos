@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource, MatTable} from '@angular/material/table';
+import { DataSource } from '@angular/cdk/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @Component({
@@ -9,8 +11,8 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AssignproductComponent implements OnInit {
 
-  displayedColumns: string[] = ['assignproduct'];
-  dataSource = ELEMENT_DATA;
+  // displayedColumns: string[] = ['assignproducts'];
+  assignproducts = ELEMENT_DATA;
 
   constructor() { }
 

@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { NewCategoryComponent } from '../new-category/new-category.component';
-import { AssignproductComponent } from 'src/app/assignproduct/assignproduct.component';
+import { MatPaginator } from '@angular/material';
+
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
+
 
 @Component({
   selector: 'app-category',
@@ -16,12 +19,17 @@ export class CategoryComponent implements OnInit {
   displayedColumns: string[] = ['categoryname','assignproduct','btn'];
   dataSource = ELEMENT_DATA;
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public dialog: MatDialog) {}
 
+  ngOnInit() {
+    
+  }
+  
   createCategory(): void {
     const dialogRef=this.dialog.open(NewCategoryComponent,{
       width: '500px',
-      height: '300px'
+      height: '300px' 
     });
 
 
@@ -47,8 +55,6 @@ export class CategoryComponent implements OnInit {
 
     });
 }
-
-  ngOnInit() {}
 
 }
 

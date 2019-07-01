@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Create Category</h1>
+<hr>
+
+  <div *ngFor="let data of assignproducts">
+    <mat-checkbox>{{data.assignproduct}}</mat-checkbox>
+  </div>
+
+<div mat-dialog-actions>
+    <div class=""><button mat-button (click)="onNoClick()">Cancel</button></div>
+    <div class=""><button mat-button matDialogClose="save" (click)="onSave()">Save</button></div>
+</div>
+    

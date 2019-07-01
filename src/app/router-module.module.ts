@@ -23,13 +23,15 @@ import { HomeBodyComponent } from './home/home-body/home-body.component';
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "home", component: HomeComponent, children:[
-        { path: "", component: HomeBodyComponent }
+        { path: "", component: HomeBodyComponent },
+        { path: "login", component: LoginComponent },
+        { path: "signup", component: SignupComponent,children:[
+            {path:"",component:MainFormComponent},
+            { path: "detail", component: DetailFormComponent }
+    ]}
+
     ]},
-    { path: "login", component: LoginComponent },
-    { path: "signup", component: SignupComponent,children:[
-        {path:"",component:MainFormComponent},
-        {path:"detail",component:DetailFormComponent}
-    ]},
+    
     {
         path: "dashboard", component: LayoutComponent, children: [
             { path: "dashboard", component: DashboardComponent },

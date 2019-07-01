@@ -1,3 +1,71 @@
-<p>
-  profile works!
-</p>
+
+      <div class="mainprofile">
+        <div class="maindetail">
+          <div class="detail">
+            <div class="subdetail">
+              <div class="subdetail1">
+              <mat-form-field class="subsubdetail">
+                <input matInput placeholder="Name:">
+              </mat-form-field>
+
+              <mat-form-field class="subsubdetail">
+                <input matInput placeholder="Shop Name:">
+              </mat-form-field> 
+
+              <mat-form-field class="subsubdetail">
+                <input matInput placeholder="Address:">
+              </mat-form-field>
+           
+              <mat-form-field class="subsubdetail">
+                <input matInput placeholder="City:">
+              </mat-form-field>
+            
+              <mat-form-field class="subsubdetail">
+                <input matInput placeholder="Email:">
+              </mat-form-field> 
+            
+              <mat-form-field class="subsubdetail">
+                <input matInput placeholder="Phone-No:">
+              </mat-form-field>
+            </div>
+
+          <div class="shopimg">
+            <div class="subimg">
+                <img src="assets/shop3.jpg" alt="ShopProfile">
+            </div>
+            <div class="btn">
+              <input type="button" class="subbtn1 form-control" name="change" value="Change">
+              <input type="button" class="subbtn2 form-control" name="logout" value="Logout?">
+            </div>
+          </div>
+        </div>
+        </div>
+
+       
+            <div>
+              <a (click)="changePassword()">Do you want to change your password?</a>
+            </div>
+  
+              
+              <div class="pwd" *ngIf="changepwd">
+                <div class="subpwd">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Current Password:">
+                      </mat-form-field>
+                  
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="New Password:">
+                      </mat-form-field>
+                    
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Retype Password:">
+                      </mat-form-field>
+                </div>
+                
+                <div class="pwdbtn">
+                  <button class="pwdbtn1 form-control">Cancel</button>
+                  <button class="pwdbtn2 form-control">Save</button>
+                </div>
+            </div>
+        </div> 
+      </div>     
