@@ -1,0 +1,259 @@
+.text1 {
+    font-size: 20px;
+}
+.textlist {
+    font-size: 16px;
+}
+div span {
+    display: flex;
+    align-content: center;
+}
+.business {
+        margin-top: 10px;
+        display: block;
+        width: 160px;
+        height: 45px;
+        background-color: darkcyan;
+        border-radius: 8px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+.text {
+    margin-top: 65px;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: space-around;
+    color: blue;
+}
+.subtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+.slide {
+    margin-top: 40px;
+}
+
+// For Body Image and text
+.image {
+    width:100%;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.imagelist {
+    display: flex;
+    width: 100%;
+}
+.subimage, .textimage  {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+.subsubimage, .subtxtimg {
+    width: 75%;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.subtxtimg {
+    display: flex;
+    border: 1px solid #f0c8d9;
+    background-color: #f0c8d9;
+    flex-direction: column;
+    padding-left: 50px;
+}
+.subtxtimg span {
+    display: flex;
+}
+
+.txtimg1 {
+    font-size: 22px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: blue;
+}
+.txtimg2, .txtimg4 {
+    color: black;
+}
+.txtimg2 {
+    font-size: 22px;
+}
+.txtimg3, .txtimg4 {
+    font-size: 18px;
+}
+
+// For Home Page Footer
+footer {
+    background-color: darkcyan;
+    width: 100%;
+}
+.footercontent {
+    display: flex;
+    width: 100%;
+}
+.subcontent {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    float: left;
+    margin-top: 40px;
+    padding: 0px;
+}
+.subcontent  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.subcontent > li {
+    font-size: 18px;
+    color: white;
+}
+.subsubcontent > li {
+    color: #ecbcd0;
+}
+.subsubcontent {
+    padding: 0;
+    padding-top: 10px;
+}
+
+.footerdetail {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.subdetail {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+.subdetail1 {
+    font-size: 20px;
+    display: flex;
+    flex: 5;
+}
+.subdetail2 {
+    display: flex;
+    flex: 1;
+}
+.subdetail3 {
+    display: flex;
+    flex: 1;
+}
+.subsubdetail {
+    display: flex;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+}
+img {
+    width: 40px;
+    height: 40px;
+}
+.subdetail1:before, .subdetail1:after {
+    color:rgb(138, 134, 134);
+    content:'';
+    flex:1;
+    border-bottom:solid 1px;
+    margin:auto 0.25em;
+    box-shadow: 0 -1px ;
+    width: 50%;
+}
+.subdetail3:after {
+    color:rgb(138, 134, 134);
+    content:'';
+    flex:1;
+    border-bottom:solid 1px;
+    margin:auto 0.25em;
+    box-shadow: 0 -1px ;
+    width: 100%;
+}
+
+
+
+.lastfooter {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.sublast2 {
+    margin-right: 8%;
+}
+.sublast2 li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.list {
+    display: flex;
+    flex-direction: row;
+    padding-top: 12px;
+}
+.list a {
+    cursor: pointer;
+}
+.sublist1 {
+    display: flex;
+}
+.sublist1:after {
+    content: '|';
+    color: #ecbcd0;
+    flex: 1;
+    width:1px;
+}
+.sublist2 {
+    padding-left: 6px;
+}
+
+@media screen and (max-width: 992px) {
+    .image {
+        width:100%;
+        display: flex;
+    }
+    .subsubimage, .subtxtimg {
+        width: 100%;
+        height: 350px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
+    .imagelist {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 0;
+        flex-direction: column;
+    }
+    .txtimg1, .txtimg2 {
+        font-size: 20px;
+    }
+    .txtimg3, .txtimg4 {
+        font-size: 16px;
+    }
+
+    // For Footer
+    .footer {
+        width: 100%;
+        height:100%;
+    }
+    .subcontent {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .subdetail1 {
+        font-size: 14px;
+    }
+    .subdetail3{
+        font-size: 12px;
+    }
+}

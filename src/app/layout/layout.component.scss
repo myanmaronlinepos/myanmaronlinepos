@@ -36,6 +36,12 @@ text-transform: uppercase;
 }
 
 
+.sideheader {
+  height: 40px !important;
+}
+::ng-deep .mat-list-base {
+  padding-top: 0px;
+}
 .mat-expansion-panel:last-of-type {
   background-color: #E5E4E2;
 }
@@ -43,7 +49,12 @@ text-transform: uppercase;
 .mat-line {
   font-size: 12px !important;
 }  
-
+.mat-line:hover {
+  color: blue;
+}
+.margin:hover {
+  color: blue;
+}
 .mat-nav-list-margin {
   margin-left: 30px;
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material';
-import {MatTableDataSource} from '@angular/material/table';
+import {MatTableDataSource, MatTable} from '@angular/material/table';
+import { Router } from '@angular/router';
+import { DataSource } from '@angular/cdk/table';
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
@@ -9,22 +11,28 @@ import {MatTableDataSource} from '@angular/material/table';
   ]
 })
 export class AllProductsComponent implements OnInit {
-
   log(value: string[]): void {
     console.log(value);
   }
-
   displayedColumns: string[] = ['position', 'name', 'category', 'discount','tags','quantity','price'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  default='All Category';
-  constructor() { }
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
+  constructor(private router : Router) {   }
+  index=16;
+  addElement() {
+    ELEMENT_DATA.push({position: this.index++, name:'super', category: 'Coffee', discount: '3%',tags:'for all',
+    quantity:100,price:3000})
+   this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+  }
+  ngOnInit() {
+    this.addElement();
+    this.dataSource.paginator = this.paginator;
+    }
 }
 export interface PeriodicElement {
   name: string;
@@ -54,8 +62,3 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 15, name: 'Cafe', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
   
 ];
-// export class CheckboxLayoutComponent {
-//   log(value: string[]): void {
-//     console.log(value);
-//   }
-// }

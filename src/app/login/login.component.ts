@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router,RouterLink} from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
   }
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({

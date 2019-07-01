@@ -7,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public imageUrl;
   constructor() { }
 
   ngOnInit() {
-    this.imageUrl = [
-      'assets/shop3.jpg',
-      'assets/shop4.jpg',
-      'assets/shop5.jpg'
-      ];
   }
 
 }

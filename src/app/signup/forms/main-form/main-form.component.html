@@ -1,22 +1,25 @@
 <!-- 
  <img src="assets/login/background.jpg">
 <div class="login-box">
-  <form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <form [formGroup]="validateForm" >
       <h1 class="mt-5">Sign Up</h1>
 
-    <div class="form-group">
-    <input type="email" placeholder="Email" class="form-control" required formControlName="email" id="email">
+    <div class="form-group" (ngSubmit)="submitForm()">
+    <input type="email" placeholder="Email" class="form-control" 
+    required formControlName="email" id="email" name="email" [ngModel]="email">
     <div *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
       The input is not valid E-mail!
     </div>
   </div>
   <div class="form-group">
-    <input type="password" placeholder="Password" class="form-control" required id="password"
+    <input type="password" placeholder="Password" class="form-control" 
+    required id="password" name="password" [ngModel]="password"
     formControlName="password" (ngModelChange)="updateConfirmValidator()">
   </div>
   <div class="form-group">
     <input type="password" placeholder="Confirm Password" class="form-control"
-     required formControlName="checkPassword" id="checkPassword">
+     required formControlName="checkPassword" id="checkPassword"
+      name="confirmPassword" [ngModel]="confirmPassword">
      <div
      *ngIf="validateForm.get('checkPassword')?.dirty && validateForm.get('checkPassword')?.errors">
      <div *ngIf="validateForm.get('checkPassword')?.hasError('confirm')">
@@ -24,9 +27,10 @@
      </div>
      </div>
   </div>
-    <input type="submit" name="submit" value="Next" (click)="getCaptcha($event)">
+    <input type="submit" name="submit" value="Next"   [routerLink]="'/signup/detail'">
   </form>
 </div>
+<<<<<<< HEAD
  -->
 <div class="card">
   <div class="card-header text-center"><h3><strong>Signup</strong></h3></div>
