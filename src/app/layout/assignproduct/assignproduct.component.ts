@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { DataSource } from '@angular/cdk/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -13,10 +14,26 @@ export class AssignproductComponent implements OnInit {
 
   // displayedColumns: string[] = ['assignproducts'];
   assignproducts = ELEMENT_DATA;
+  selectedArray=[];
 
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  onSave(): void {
+
+  }
+
+  showOptions($event) {
+    if(!this.selectedArray.includes($event.source.id)){
+      this.selectedArray.push($event.source.id);
+    }else{
+        const index=this.selectedArray.indexOf($event.source.id);
+        this.selectedArray.splice(index,1);
+    }
+    console.log($event);
   }
 
 }
