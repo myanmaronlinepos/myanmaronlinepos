@@ -1,11 +1,11 @@
 <div class="card">
-  <div class="card-header text-center"><h3><strong>Add your address</strong></h3></div>
+  <div class="card-header text-center"><h3><strong>Add your Address</strong></h3></div>
   <div class="card-body">
     <div class="form-row">
-      <mat-form-field class="textbox1">
+      <mat-form-field class="name">
         <input matInput placeholder="First Name">
    </mat-form-field>
-   <mat-form-field class="textbox1">
+   <mat-form-field class="name">
     <input matInput placeholder="Last Name">
    </mat-form-field>
     </div>
@@ -25,10 +25,10 @@
         <input matInput placeholder="Phone Number">
    </mat-form-field>
    </div>
-   <div class="radio">
+   <div class="radiobtn">
       <mat-radio-group aria-label="Select an option">
           <mat-radio-button value="sell" name="sell" class="textbox2"  (click)="onSelect($event)">Sell</mat-radio-button>
-          <mat-radio-button value="buy" name="sell" class="textbox3" (click)="onCheck($event)">Buy</mat-radio-button>
+          <mat-radio-button value="buy" name="sell" class="radiobuy" (click)="onCheck($event)">Buy</mat-radio-button>
         </mat-radio-group>
       </div>
       <div *ngIf="this.showStore===true">
