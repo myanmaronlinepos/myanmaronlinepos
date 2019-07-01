@@ -1,13 +1,16 @@
+//This is all
+.coverall{
+  left:12%;
+  transform: translate(-50%,-50%);
+  position: relative;
+}
 // This is paragraph modification
  .para{
-    
-    padding-top:3%;
-    font-size:22px;
-    padding-left:12%;
+   font-size:22px;
+    left:12%;
     width:100%;
     text-transform: none ;
-     
-  }
+ }
 //   /* this is logo image modification */
 .Logo{
    height:35px;
@@ -15,7 +18,7 @@
 
 }
 .coverlogo{
-  padding-left:90%;
+  padding-left:65%;
   padding-bottom: 2%;
 }
 
@@ -23,7 +26,6 @@
   // this is table styling
   .mat-header-cell{
     font-size:20px;
-    font-weight:800;
     text-transform:none;
   }
   .mat-cell{
