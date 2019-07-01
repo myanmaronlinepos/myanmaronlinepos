@@ -1,45 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators,FormGroupDirective,NgForm } from '@angular/forms';
 import { SignupComponent } from '../../signup.component';
 import {Router, RouterLink} from '@angular/router';
+import { ErrorStateMatcher } from '@angular/material/core';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  const invalidCtrl = !!(control && control.invalid && control.parent.dirty);
+  const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.dirty);
+
+  return (invalidCtrl || invalidParent);
+}
+}
 @Component({
   selector: 'app-main-form',
   templateUrl: './main-form.component.html',
   styleUrls: ['./main-form.component.scss']
 })
 
-export class MainFormComponent implements OnInit {
+export class MainFormComponent {
  
-  
-  validateForm: FormGroup;
+  email = new FormControl('', [Validators.required, Validators.email]);
 
-  updateConfirmValidator(): void {
-    /** wait for refresh value */
-    Promise.resolve().then(() => this.validateForm.controls.checkPassword.updateValueAndValidity());
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' :
+        this.email.hasError('email') ? 'Not a valid email' :
+            '';
+  }
+  myForm: FormGroup;
+
+  matcher = new MyErrorStateMatcher();
+
+  constructor(private formBuilder: FormBuilder) {
+    this.myForm = this.formBuilder.group({
+      password: ['', [Validators.required]],
+      confirmPassword: ['']
+    }, { validator: this.checkPasswords });
+
   }
 
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
-    if (!control.value) {
-      return { required: true };
-    } else if (control.value !== this.validateForm.controls.password.value) {
-      return { confirm: true, error: true };
-    }
-    return {};
-  };
+  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+    let pass = group.controls.password.value;
+    let confirmPass = group.controls.confirmPassword.value;
 
-  constructor( private router: Router,private fb: FormBuilder) { }
-  onSubmit(){
-
-    
-    
+    return pass === confirmPass ? null : { notSame: true }
   }
-
-    ngOnInit(): void {
-      this.validateForm = this.fb.group({
-        email: [null, [Validators.email, Validators.required]],
-        password: [null, [Validators.required]],
-        checkPassword: [null, [Validators.required, this.confirmationValidator]]
-      });
-    }
+ 
   }
 
