@@ -1,8 +1,7 @@
 .card{
-  position: relative;
-  margin-top: 300px;
+  position: absolute;
   left: 50%;
-  right: 50%;
+  top: 50%;
   width: 400px;
   height: 400px;
   transform: translate(-50%,-50%);
@@ -29,4 +28,25 @@
       margin-bottom: 3%;
     }
     
-  
+  @media screen and (max-width: 600px) {
+    .card {   
+      position: absolute;
+  left: 50%;
+  top: 55%;
+  width: 300px;
+  height: 340px;
+  transform: translate(-50%,-50%);
+    }
+    h3 {
+      font-size: 18px;
+    }
+
+    .card-body{
+      position: relative;
+      left: 1%;
+      right: 1%;
+      height: 40%;
+     
+    }
+    
+  }

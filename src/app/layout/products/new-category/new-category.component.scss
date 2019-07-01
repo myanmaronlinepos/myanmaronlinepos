@@ -22,4 +22,8 @@ mat-form-field {
     width: 250px;
 }
 
-
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+}
