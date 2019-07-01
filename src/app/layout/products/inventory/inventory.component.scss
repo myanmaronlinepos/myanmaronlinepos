@@ -1,11 +1,11 @@
 // This is paragraph modification
- .col-sm-8{
+ .para{
     
     padding-top:3%;
     font-size:22px;
-    left:12%;
-     width:100%;
-     text-transform: none ;
+    padding-left:12%;
+    width:100%;
+    text-transform: none ;
      
   }
 //   /* this is logo image modification */
@@ -14,13 +14,11 @@
    width:35px;
 
 }
-.logoletter{
-  text-transform: none ;
-  font-size:20px;
-  }
-  .col-sm-12{
-    text-align:right;
-  }
+.coverlogo{
+  padding-left:90%;
+  padding-bottom: 2%;
+}
+
   
   // this is table styling
   .mat-header-cell{
@@ -53,7 +51,7 @@
  .mat-column-updatequantity {
   width:32%;
  }
- .container-fluid{
+ .covertable{
   padding-left:10%;
  }
  .quantity-field{
