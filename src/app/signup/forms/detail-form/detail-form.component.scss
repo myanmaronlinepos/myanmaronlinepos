@@ -125,41 +125,44 @@
 //             }
 .card{
     position: relative;
-    margin-top: 350px;
+    margin-top: 380px;
     left: 50%;
     right: 50%;
     width: 500px;
-    height:500px;
+    height:610px;
     transform: translate(-50%,-50%);
   }
       
       .card-body{
         position: relative;
-        left: 3%;
-        right: 3%;
-        height: 80%;
+        // left: 4%;
+        // right: 4%;
+        // height: 80%;
        
       }
       .textbox{
         width: 80%;
-        left: 5%;
+        left: 10%;
         
       }
-      .radio{
-          left:5%;
-      }
+       .name{
+        width: 35%;
+        margin-left: 10%;
 
-      .textbox1{
-        width: 40%;
-        left: 5%;
         }
       .btn{
         color: #fff;
         background-color: green;
         margin-top:3%;
         width: 80%;
-        left: 5%;
+        left: 10%;
         margin-bottom: 3%;
       }
-    //  .card-footer 
+      .radiobtn{
+        padding-left:10%;
+        }
+        .radiobuy{
+            padding-left:15%;
+        }
+     
     
