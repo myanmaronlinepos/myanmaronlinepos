@@ -1,6 +1,6 @@
 .card{
-  position: relative;
-  margin-top: 300px;
+  position: fixed;
+  margin-top: 20%;
   left: 50%;
   right: 50%;
   width: 400px;
@@ -20,6 +20,9 @@
       left: 10%;
       
     }
+    h3{
+      font-size: 18px;
+    }
     .btn{
       color: #fff;
       background-color: green;
@@ -29,9 +32,31 @@
       margin-bottom: 8%;
     }
     a{
-  
-      padding: 14%;
+      padding: 8%;
       bottom: 3%;
-      
-    }
+     }
+     @media screen and (max-width:600px){
+      .card{
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        width: 300px;
+        height: 340px;
+        transform: translate(-50%,-50%);
+      }
+      h3{
+        font-size: 18px;
+      }
+      .card-body{
+        position: relative;
+        left: 1%;
+        right: 1%;
+        height: 40%;
+       
+      }
+      a{
+        padding: 14%;
+        bottom: 3%;
+       }
+     }
   
