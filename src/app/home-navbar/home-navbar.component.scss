@@ -12,11 +12,15 @@
     justify-content: space-between;
     align-items: center;
 }
-.head, .login {
+a, .login {
     color: white;
 }
-.head {
+a {
     font-size: 18px;
+    text-decoration: none;
+}
+.login {
+    font-size: 12px;
 }
 
 img {
