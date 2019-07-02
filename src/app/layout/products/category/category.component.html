@@ -1,37 +1,41 @@
 <div class="category_btn">
-    <button (click)="createCategory()">Create New Category</button>
+  <button (click)="createCategory()">Create New Category</button>
 </div>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Catergory Column -->
-  <ng-container matColumnDef="categoryname">
-    <th mat-header-cell *matHeaderCellDef>Category's Name</th>
-    <td mat-cell *matCellDef="let element"> {{element.categoryname}} </td>
-  </ng-container>
+    <!-- Catergory Column -->
+    <ng-container matColumnDef="categoryname">
+      <th mat-header-cell *matHeaderCellDef>Category's Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.categoryname}} </td>
+    </ng-container>
 
-  <ng-container matColumnDef="assignproduct">
+    <ng-container matColumnDef="assignproduct">
       <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let element"><a (click)="assignProduct()">Assign Products</a></td>
-  </ng-container>
+      <td mat-cell *matCellDef="let element"><a (click)="assignProduct()" class="assignproduct">Assign Products</a></td>
+    </ng-container>
 
-  <ng-container matColumnDef="btn">
+    <ng-container matColumnDef="btn">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
         <a href=""><img src="assets/pencil.png"></a>
         <a href="">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16" version="1.1" width="512px" height="512px">
-          <g id="surface1">
-          <path style=" " d="M 6.496094 1 C 5.675781 1 5 1.675781 5 2.496094 L 5 3 L 2 3 L 2 4 L 3 4 L 3 12.5 C 3 13.328125 3.671875 14 4.5 14 L 10.5 14 C 11.328125 14 12 13.328125 12 12.5 L 12 4 L 13 4 L 13 3 L 10 3 L 10 2.496094 C 10 1.675781 9.324219 1 8.503906 1 Z M 6.496094 2 L 8.503906 2 C 8.785156 2 9 2.214844 9 2.496094 L 9 3 L 6 3 L 6 2.496094 C 6 2.214844 6.214844 2 6.496094 2 Z M 5 5 L 6 5 L 6 12 L 5 12 Z M 7 5 L 8 5 L 8 12 L 7 12 Z M 9 5 L 10 5 L 10 12 L 9 12 Z "/>
-          </g>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"
+            version="1.1" width="512px" height="512px">
+            <g id="surface1">
+              <path style=" "
+                d="M 6.496094 1 C 5.675781 1 5 1.675781 5 2.496094 L 5 3 L 2 3 L 2 4 L 3 4 L 3 12.5 C 3 13.328125 3.671875 14 4.5 14 L 10.5 14 C 11.328125 14 12 13.328125 12 12.5 L 12 4 L 13 4 L 13 3 L 10 3 L 10 2.496094 C 10 1.675781 9.324219 1 8.503906 1 Z M 6.496094 2 L 8.503906 2 C 8.785156 2 9 2.214844 9 2.496094 L 9 3 L 6 3 L 6 2.496094 C 6 2.214844 6.214844 2 6.496094 2 Z M 5 5 L 6 5 L 6 12 L 5 12 Z M 7 5 L 8 5 L 8 12 L 7 12 Z M 9 5 L 10 5 L 10 12 L 9 12 Z " />
+            </g>
           </svg>
         </a>
       </td>
-  </ng-container>  
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

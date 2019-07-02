@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+  }
+
+.ltr{
+    padding-left: 0px;
+    text-align: center;
+    
+  }
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline{
+   display: none;
+}
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
+    margin-top: 5px;
+}
+
+// ::ng-deep .ng-tns-c8-13.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+//     min-width: 0px;
+// }
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+    margin-left: 50px;
+}
+.choice {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.check {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+.subcheck {
+    width: 100%;
+}
+.btn {
+    display: flex;
+    width: 50%;
+}
+.subbtn {
+    width: 80%;
+}
+p {
+    margin-top: 20px;
+}

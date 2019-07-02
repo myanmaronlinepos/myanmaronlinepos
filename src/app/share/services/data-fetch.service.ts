@@ -1,21 +1,20 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-
 import { ApiRouteService } from "./api-route.service";
-import { Login } from '../models/Login';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+
 
 @Injectable({
   providedIn: "root"
 })
-export class AuthService {
+export class CommonService {
   constructor(private http: HttpClient, private apiRouteSvc: ApiRouteService) {}
 
-  login(loginData: Login) {
-    let apiUrl = "/login";
-    console.log(loginData);
+  insertProduct(product) {
+    let apiUrl = "api/deparment/new";
     return this.http.post(
       this.apiRouteSvc.createCompleteApiRoute(apiUrl),
-      loginData
+      product
     );
   }
 }
