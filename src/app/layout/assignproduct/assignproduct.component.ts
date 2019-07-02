@@ -12,6 +12,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class AssignproductComponent implements OnInit {
 
+  // displayedColumns: string[] = ['assignproducts'];
   assignproducts = ELEMENT_DATA;
   selectedArray=[];
 

@@ -3,14 +3,14 @@
   <div class="card-header text-center"><h3><strong>Signup</strong></h3></div>
   <div class="card-body">
       <form class="myForm" [formGroup]="myForm">
-    <div>
+    <div class="form-row">
       <mat-form-field class="textbox">
         <input matInput placeholder="Enter your email"  [formControl]="email" type="email" 
         name=" email" required  >
         <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
    </mat-form-field>
    </div>
-   <div >
+   <div class="form-row">
     <mat-form-field class="textbox">
       <input matInput placeholder="Password" required id="password" name="password" formControlName="password" 
       type="password">
@@ -19,7 +19,7 @@
         </mat-error>
  </mat-form-field>
  </div>
- <div>
+ <div class="form-row">
   <mat-form-field class="textbox">
     <input matInput placeholder="Confirm Password" required id="checkPassword" name="confirmPassword" 
      type="password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
@@ -28,7 +28,7 @@
       </mat-error>  
 </mat-form-field>
 </div>
-<div>
+<div class="form-row">
   <button mat-button class="btn">Next</button>
 </div>
 </form>
