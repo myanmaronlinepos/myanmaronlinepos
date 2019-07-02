@@ -1,19 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import {Router,RouterLink} from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators ,FormGroupDirective,NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent  {
-  email = new FormControl('', [Validators.required, Validators.email]);
+export class LoginComponent implements OnInit {
+ 
+  myForm: FormGroup;
+  constructor(private formBuilder: FormBuilder) {
+    this.myForm = this.formBuilder.group({
+      password: [' ', [Validators.required]],
+      email: [' ',[Validators.required,Validators.email]]
+    });
+  }
+  ngOnit(){
+    this.myForm = new FormGroup({
+      'email': new FormControl(null),
+      'password': new FormControl(null)
+    });
+  }
+  onSubmit(){
+    console.log(this.myForm);
+  
+  }
+  ngOnInit(){
+    this.myForm.reset();
+  }
+}
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
-  }
 
 
