@@ -46,20 +46,23 @@
       .card{
         position: absolute;
         left: 50%;
-        top: 90%;
-        width: 300px;
-        height:650px;
+        top: 65%;
+        width: 350px;
+        height:610px;
         transform: translate(-50%,-50%);
       }
-      .h3{
-        font-size: 16px;
+      .head{
+        font-size: 18px;
       }
-          
+          .card-header{
+            height:45px;
+            
+          }
           .card-body{
             position: relative;
           left: 1%;
           right: 1%;
-          height: 80%;
+          height: 50%;
          }
         
 

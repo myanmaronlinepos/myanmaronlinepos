@@ -1,24 +1,17 @@
 <div class="card">
-  <div class="card-header text-center"><h3><strong>Add your address</strong></h3></div>
+  <div class="card-header text-center"><div class="head"><strong>Add your address</strong></div></div>
   <div class="card-body">
       <form class="myForm" [formGroup]="detailForm">
       <mat-form-field class="name1">
-        <input matInput placeholder="First Name" type="text" required formControlName="fname"
-        [errorStateMatcher]="matcher" name="fname">
-        <mat-error *ngIf="fname.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-error>
+        <input matInput placeholder="First Name" type="text" required [errorStateMatcher]="matcher">
    </mat-form-field>
    <mat-form-field class="name1">
-    <input matInput placeholder="Last Name" type="text" required formControlName="lname"
-        [errorStateMatcher]="matcher">
-        <mat-error *ngIf="lname.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-error>
+    <input matInput placeholder="Last Name" type="text" required [errorStateMatcher]="matcher">
    </mat-form-field>
       <mat-form-field class="textbox">
           <!-- ^0[1-9]-[0-9]+$ -->
-        <input matInput placeholder="PhoneNumber" formControlName="PhoneNumber"
+        <input matInput placeholder="PhoneNumber" 
         [errorStateMatcher]="matcher" required pattern="^0[1-9]-[0-9]+$" maxlength="11">
-        <mat-error *ngIf="phone.invalid">{{getErrorMessage()}}</mat-error>
    </mat-form-field>
       <mat-form-field class="textbox">
         <input matInput placeholder="City" type="text" required>
