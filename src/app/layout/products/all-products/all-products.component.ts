@@ -17,20 +17,10 @@ export class AllProductsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'category', 'discount','tags','quantity','price'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-  }
+ 
   constructor(private router : Router) {   }
-  index=16;
-  addElement() {
-    ELEMENT_DATA.push({position: this.index++, name:'super', category: 'Coffee', discount: '3%',tags:'for all',
-    quantity:100,price:3000})
-   this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-  }
   ngOnInit() {
-    this.addElement();
+   
     this.dataSource.paginator = this.paginator;
     }
 }
