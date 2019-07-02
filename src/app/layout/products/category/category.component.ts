@@ -17,13 +17,13 @@ import { AssignproductComponent } from '../../assignproduct/assignproduct.compon
 export class CategoryComponent implements OnInit {
 
   displayedColumns: string[] = ['categoryname','assignproduct','btn'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
-    
+    this.dataSource.paginator = this.paginator;
   }
   
   createCategory(): void {
@@ -43,8 +43,8 @@ export class CategoryComponent implements OnInit {
 
   assignProduct(): void {
     const dialogRef=this.dialog.open(AssignproductComponent,{
-      height: '500px',
-      width: '700px'
+      height: '300px',
+      width: '500px'
     });
 
 
