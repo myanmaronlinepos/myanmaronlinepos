@@ -1,11 +1,6 @@
 
 .card{
-<<<<<<< HEAD
     position: absolute;
-=======
-    position: relative;
-    margin-top: 380px;
->>>>>>> 630549ba9ddc5a8f31fe5ffcf3f3bb6c6353e0c8
     left: 50%;
     top:60%;
     width: 500px;
@@ -51,7 +46,7 @@
       .card{
         position: absolute;
         left: 50%;
-       top: 80%;
+        top: 90%;
         width: 300px;
         height:650px;
         transform: translate(-50%,-50%);
@@ -66,5 +61,6 @@
           right: 1%;
           height: 80%;
          }
+        
 
     }
