@@ -43,8 +43,8 @@ export class CategoryComponent implements OnInit {
 
   assignProduct(): void {
     const dialogRef=this.dialog.open(AssignproductComponent,{
-      height: '500px',
-      width: '700px'
+      height: '300px',
+      width: '500px'
     });
 
 
