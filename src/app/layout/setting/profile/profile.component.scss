@@ -83,3 +83,19 @@ button {
     background-color: darkcyan;
     color: white;
 }
+
+@media screen and (max-width: 600px) {
+    .shopimg {
+        display: none;
+    }
+    .subdetail1 {
+        
+        width: 100%;
+        
+    }
+    .subpwd {
+        
+        width: 100%;
+        
+    }
+}
