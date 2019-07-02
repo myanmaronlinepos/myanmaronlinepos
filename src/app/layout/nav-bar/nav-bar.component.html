@@ -6,16 +6,16 @@
   </div>
 
   <!-- search bar div -->
-    <div class="fake-input">
-      <input type="search" class="form-control" name="search" placeholder="Search">
-      <i class="fas fa-search"></i>
-    </div>
+  <div class="fake-input">
+    <input type="search" class="form-control" name="search" placeholder="Search">
+    <i class="fas fa-search"></i>
+  </div>
 
   <!-- account profile div -->
   <div class="account-profile">
     <img src="assets/shop1.jpg">
     <span (click)="Shopkeeper()">
-          Shopkeeper's Name
+      Shopkeeper's Name
     </span>
     <ul class="viewmenu" *ngIf="viewList">
       <li><a href="">View Profile</a></li>
@@ -28,28 +28,28 @@
 
 
 
-  <!-- For New Sidebar -->
+<!-- For New Sidebar -->
 <div class="sidebar">
   <div class="sidenav">
     <div>
-          <span>Shop Name</span>
-          <div class="fake-input">
-              <input type="search" class="form-control" name="search" placeholder="Search">
-              <i class="fas fa-search"></i>
-          </div>
-          <button class="toggle" (click)="toggle()">
-            <div></div>
-            <div></div>
-            <div></div>
-          </button>
+      <span>Shop Name</span>
+      <div class="fake-input">
+        <input type="search" class="form-control" name="search" placeholder="Search">
+        <i class="fas fa-search"></i>
+      </div>
+      <button class="toggle" (click)="toggle()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
     </div>
   </div>
 
   <div class="sidemenu" *ngIf="sidebarVisble">
     <ul class="nav">
       <li>
-        <a>    
-          <img src="assets/dashboard.png">               
+        <a>
+          <img src="assets/dashboard.png">
           <span>Dashboard</span>
         </a>
       </li>
@@ -61,7 +61,7 @@
       </li>
       <li class="product">
         <a href="">
-          <img src="assets/product-ion.png"> 
+          <img src="assets/product-ion.png">
           <span>Product</span>
           <i class="fa fa-caret-down"></i>
         </a>
@@ -74,7 +74,7 @@
       </li>
       <li>
         <a href="">
-            <img src="assets/order.png">
+          <img src="assets/order.png">
           <span>Order</span>
         </a>
       </li>
