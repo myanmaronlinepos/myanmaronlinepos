@@ -1,9 +1,8 @@
 
 .card{
-    position: relative;
-    margin-top: 380px;
+    position: absolute;
     left: 50%;
-    right: 50%;
+    top:60%;
     width: 500px;
     height:610px;
     transform: translate(-50%,-50%);
@@ -11,14 +10,16 @@
       
       .card-body{
         position: relative;
-        // left: 4%;
-        // right: 4%;
-        // height: 80%;
-       
-      }
+      left: 1%;
+      right: 1%;
+      height: 80%;
+      
+     }
       .textbox{
         width: 80%;
         left: 10%;
+        // padding-top:5px;
+        // height: 3px;
         
       }
        .name{
@@ -41,4 +42,25 @@
             padding-left:15%;
         }
      
-    
+    @media screen and (max-width:600px){
+      .card{
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        width: 300px;
+        height:650px;
+        transform: translate(-50%,-50%);
+      }
+      .h3{
+        font-size: 16px;
+      }
+          
+          .card-body{
+            position: relative;
+          left: 1%;
+          right: 1%;
+          height: 80%;
+         }
+        
+
+    }
