@@ -13,13 +13,13 @@ export class GuestGuardService implements CanActivate {
     this.authService.check()
     .subscribe(
       response => {
+        console.log(response.status);
         if(response.status) {
-            
+
             this.router.navigate["/dashboard/dashboard"];
-            return false;
+        }else {
+            return true;
         }
-        console.log(response.status)
-        return true;
       },
       error => {
         console.log(error);
