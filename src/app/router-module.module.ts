@@ -24,8 +24,9 @@ import { UserGuardService } from './share/services/user-guard.service';
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
-    {path: "home",canActivate:[GuestGuardService], component: HomeComponent },
-    { path: "", component: HomeBodyComponent },
+    {path: "home",canActivate:[GuestGuardService], component: HomeComponent,children:[
+        { path: "", component: HomeBodyComponent },
+    ] },
     { path: "login", component: LoginComponent },
     {
         path: "signup", component: SignupComponent, children: [
