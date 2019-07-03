@@ -36,7 +36,7 @@ const routes: Routes = [
     ] },
 
     {
-        path: "dashboard",canActivate:[UserGuardService], component: LayoutComponent, children: [
+        path: "dashboard", component: LayoutComponent, children: [
             { path: "dashboard", component: DashboardComponent },
             {
                 path: "products", component: ProductsComponent, children: [
