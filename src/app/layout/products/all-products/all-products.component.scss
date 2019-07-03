@@ -1,47 +1,92 @@
+::ng-deep.mat-form-field-underline{
+  display: none;
+}
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field{
+  margin-left: 30px;
+}
+.mat-form-field-infix {
+  padding: 3px;
+}
+mat-select{
+border-spacing: 2px;
+}
+//This is all
+.coverall{
+  left:48%;
+  transform: translate(-50%,-50%);
+  position: relative;
+  padding-top: 45%;
+}
+// This is select modification
+ .para{
+   font-size: 16px;
+   padding-left: 12%;
+    width: 100%;
+   
+   
+    
+ }
+//   /* this is logo image modification */
+.Logo{
+   height:30px;
+   width:30px;
+   padding: 3px;
+   
+}
 
-::ng-deep .mat-form-field-underline {
-    display: none;
-  }
+.coverlogo{
+  padding-left:90%;
+  padding-bottom: 2%;
   
-  .ltr{
-    padding-left: 0px;
-    text-align: center;
-    
-  }
+}
+.flex-container{
+  display: flex;
+ flex-direction: flex-end;
+}
   
-  
-  ::ng-deep .mat-form-field-underline {
-    display: none;
+  // this is table styling
+  .mat-header-cell{
+    font-size:16px;
+    text-transform:none;
+   
   }
-  table{
-    width:100%;
-    float: right;
+  .mat-cell{
+    font-size:16px;
+    text-transform:initial;
+
   }
-  th{
-    font-size: 14px;
-    
+ table{
+   width:100%;
+   border: 0;
   }
-  
-  mat-paginator{
-    
-    float: right;
-  }
-  button{
-    float: right;
-    top: 0px;
-    border-spacing: 10px;
-  }
-  mat-form-field{
-    padding-top: 0px;
-    }
  
+ .mat-column-position {
+  width:12%;
+ }
+ .mat-column-name {
+  width:20%;
+ }
+ .mat-column-category {
+  width:22%;
+ }
+ .mat-column-discount {
+  width:15%;
+ }
+ .mat-column-tags {
+  width:15%;
+ }
+ .mat-column-quantity {
+  width:22%;
+ }
+ .mat-column-price {
+  width:22%;
+ }
 
-  @media only screen and (max-width: 560px){
-    img{
-      width: 15%;
-      height: auto;
-    }
-    
-  }
-    
-  
+ .covertable{
+  padding-left:10%;
+ }
+ 
+ ::ng-deep tr{
+   border:none;
+   vertical-align: none;
+ }
