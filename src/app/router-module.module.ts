@@ -26,14 +26,14 @@ const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
     {path: "home",canActivate:[GuestGuardService], component: HomeComponent,children:[
         { path: "", component: HomeBodyComponent },
+        { path: "login", component: LoginComponent },
+        {
+            path: "signup", component: SignupComponent, children: [
+                { path: "", component: MainFormComponent },
+                { path: "detail", component: DetailFormComponent }
+            ]
+        },
     ] },
-    { path: "login", component: LoginComponent },
-    {
-        path: "signup", component: SignupComponent, children: [
-            { path: "", component: MainFormComponent },
-            { path: "detail", component: DetailFormComponent }
-        ]
-    },
 
     {
         path: "dashboard",canActivate:[UserGuardService], component: LayoutComponent, children: [
