@@ -1,15 +1,7 @@
 ::ng-deep.mat-form-field-underline{
   display: none;
 }
-::ng-deep.mat-form-field-appearance-legacy .mat-form-field{
-  margin-left: 30px;
-}
-.mat-form-field-infix {
-  padding: 3px;
-}
-mat-select{
-border-spacing: 2px;
-}
+
 //This is all
 .coverall{
   left:48%;
@@ -20,7 +12,7 @@ border-spacing: 2px;
 // This is select modification
  .para{
    font-size: 16px;
-   padding-left: 12%;
+   padding-left: 10%;
     width: 100%;
    
    
@@ -31,19 +23,20 @@ border-spacing: 2px;
    height:30px;
    width:30px;
    padding: 3px;
-   
 }
 
-.coverlogo{
-  padding-left:90%;
-  padding-bottom: 2%;
-  
+.container{
+  padding-left: 85%;
+  padding-right: 5%;
+  margin-bottom: 2%;
 }
-.flex-container{
-  display: flex;
- flex-direction: flex-end;
-}
+
+// .coverlogo{
+//   padding-left:90%;
+//   padding-bottom: 2%;
   
+// }
+
   // this is table styling
   .mat-header-cell{
     font-size:16px;
@@ -90,3 +83,27 @@ border-spacing: 2px;
    border:none;
    vertical-align: none;
  }
+ 
+
+ 
+#feynman:hover + #feynman_text{
+  opacity:1;
+}
+#feynman_text:hover{
+  opacity:1;
+}
+ 
+#feynman_text{
+  position: absolute;
+  top:50%;
+  text-align:center;
+  opacity:0;
+  left: 85%;
+  
+}
+.ltr{
+ 
+ width: 15%;
+ position: relative;
+ text-align: center; 
+}

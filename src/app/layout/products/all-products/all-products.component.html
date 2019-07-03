@@ -1,12 +1,13 @@
 
 <div class="coverall">
-  <div class="para">
-        <mat-form-field >
+  <div>
+      <div class="para">
+        <mat-form-field class="ltr" >
             <mat-label>Category</mat-label>
             <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
-              <mat-option >
+              <option>
                 <mat-checkbox Value="Cigerattes" [ngModel]="true" >Cigerattes</mat-checkbox>
-              </mat-option>
+              </option>
               <mat-option >
                   <mat-checkbox >Coffee</mat-checkbox>
                 </mat-option>
@@ -29,7 +30,7 @@
           </mat-form-field>
     
 
-  <mat-form-field >
+  <mat-form-field class="ltr">
       <mat-label>Tags</mat-label>
       <mat-select [value]="selected" (OnChange)="log($event)">
         <mat-option >
@@ -44,7 +45,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field >
+    <mat-form-field class="ltr" >
         <mat-label>Quantity</mat-label>
         <mat-select [value]="selected" (onChange)="log($event)">
           <mat-option >
@@ -61,12 +62,24 @@
             </mat-option>
         </mat-select>
         </mat-form-field>
-  </div>
-  <div class="coverlogo"> 
-  <a href="#"><img src="assets/login/import.png"  class="Logo"></a>
-  <a href="#"><img src="assets/login/export.png"  class="Logo"></a>
-  <a href="#"><img src="assets/login/AddProduct.png"  class="Logo"></a>
-  </div>
+      </div>
+        <div class="container">
+          <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"  ></a>
+          <div id='feynman_text'> Import Product </div>
+        
+          <a href="#" id='feynman'><img src="assets/login/export.png"  class="Logo"></a>
+          <div id='feynman_text'> Export Product </div>
+        
+          <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
+          <div id='feynman_text'>  Add Product </div>
+        </div>
+      </div>
+      
+      
+
+  
+    <!-- <img src="assets/login/import.png"  id='feynman'/>
+      <div id='feynman_text'> Richard Feynmann </div> -->
   <div class="covertable">
           <div class="mat-elevation-z8">
    <table mat-table [dataSource]="dataSource">
