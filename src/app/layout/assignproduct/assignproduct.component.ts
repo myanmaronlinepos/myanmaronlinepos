@@ -22,10 +22,6 @@ export class AssignproductComponent implements OnInit {
 
   }
 
-  onSave(): void {
-
-  }
-
   showOptions($event) {
     if(!this.selectedArray.includes($event.source.id)){
       this.selectedArray.push($event.source.id);

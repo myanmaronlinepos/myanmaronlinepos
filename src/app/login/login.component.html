@@ -2,23 +2,30 @@
 <div class="card">
   <div class="card-header text-center"><h3><strong>Login</strong></h3></div>
   <div class="card-body">
+      <form class="myForm" [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div class="example-container">
       <mat-form-field class="textbox">
-        <input matInput placeholder="Enter your email"  [formControl]="email" type="email" 
-        name=" email" required >
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <input matInput placeholder="Enter your email" type="email" 
+        name=" email" formControlName="email" >
+        <mat-error *ngIf="myForm.hasError('required', 'email')">
+           Please enter valid email
+          </mat-error>
       </mat-form-field>
     </div>
     <div class="example-container">
       <mat-form-field class="textbox">
-        <input matInput placeholder="Enter your password" type="password" [ngModel]="password"
-        name="password" required >
+        <input matInput placeholder="Enter your password" type="password" name="password" 
+        formControlName="password" >
+        <mat-error *ngIf="myForm.hasError('required', 'password')">
+            Please enter your password
+          </mat-error>
       </mat-form-field>
     </div>
     <div >
-      <button mat-button class="btn" [routerLink]=" '/dashboard'">Login</button>
+      <button mat-button class="btn">Login</button>
     </div>
-      <a href="#">Forgot Password</a>
-      <a href="#"> Sign up</a>
+      <a (click)="logout()">Forgot Password</a>
+      <a> Sign up</a>
+  </form>
   </div>
 </div>

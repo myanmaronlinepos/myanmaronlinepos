@@ -11,6 +11,8 @@ import {MatPaginator} from '@angular/material';
 })
 export class SellComponent implements OnInit {
 
+  selectedRow=[];
+  
   log(value: string[]): void {
     console.log(value);
   }
@@ -25,6 +27,16 @@ export class SellComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  onClickRow(row) {
+    if(!this.selectedRow.includes(row.number)){
+      this.selectedRow.push(row.number);
+    }else{
+        const index=this.selectedRow.indexOf(row.number);
+        this.selectedRow.splice(index,1);
+    }
+  }
+
 
 }
 

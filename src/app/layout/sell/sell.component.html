@@ -45,31 +45,16 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-
-        <!-- For Quantity -->
-        <mat-form-field class="ltr">
-          <mat-label>Quantity</mat-label>
-          <mat-select [value]="selected" (onChange)="log($event)">
-            <mat-option>
-              <mat-checkbox>less than 10</mat-checkbox>
-            </mat-option>
-            <mat-option>
-              <mat-checkbox>less than 20</mat-checkbox>
-            </mat-option>
-            <mat-option>
-              <mat-checkbox>less than 30</mat-checkbox>
-            </mat-option>
-            <mat-option>
-              <mat-checkbox Value="Cigerattes" [ngModel]="true">more than 50</mat-checkbox>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
       </div>
+    </div>
 
-      <div class="">
-        <p></p>
-        <img src="">
+    <div class="btn">
+      <div class="subbtn">
+        <p>{{selectedRow.length}}Selected</p>
+        <a><img src="assets/sell-stock.png"></a>
       </div>
+    </div>
+  </div>
 
 <!-- For table -->
 <div class="mat-elevation-z8">
@@ -112,7 +97,8 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRow(row)"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
 </div>
