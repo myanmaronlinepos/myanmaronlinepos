@@ -11,17 +11,19 @@ import { DataSource } from '@angular/cdk/table';
   ]
 })
 export class AllProductsComponent implements OnInit {
-  log(value: string[]): void {
-    console.log(value);
-  }
+  
   displayedColumns: string[] = ['position', 'name', 'category', 'discount','tags','quantity','price'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
- 
   constructor(private router : Router) {   }
+
   ngOnInit() {
    
     this.dataSource.paginator = this.paginator;
+    }
+    
+    log(value: string[]): void {
+      console.log(value);
     }
 }
 export interface PeriodicElement {
