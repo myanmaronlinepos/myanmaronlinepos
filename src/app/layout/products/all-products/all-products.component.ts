@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
+import {SelectionModel} from '@angular/cdk/collections';
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
@@ -25,6 +26,7 @@ export class AllProductsComponent implements OnInit {
     log(value: string[]): void {
       console.log(value);
     }
+  
 }
 export interface PeriodicElement {
   name: string;
