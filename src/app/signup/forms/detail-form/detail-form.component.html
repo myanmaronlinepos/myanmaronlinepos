@@ -1,37 +1,43 @@
 <div class="card">
   <div class="card-header text-center"><div class="head"><strong>Add your address</strong></div></div>
   <div class="card-body">
-      <form class="myForm" [formGroup]="detailForm">
+      <form class="myForm" [formGroup]="detailForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="name1">
-        <input matInput placeholder="First Name" type="text" required [errorStateMatcher]="matcher">
+        <input matInput placeholder="First Name" type="text" formControlName="username" id="username">
+        <mat-error *ngIf="!detailForm.get('username').valid && detailForm.get('username').touched" class="help-block">Please enter a valid  first name</mat-error>
    </mat-form-field>
    <mat-form-field class="name1">
-    <input matInput placeholder="Last Name" type="text" required [errorStateMatcher]="matcher">
+    <input matInput placeholder="Last Name" type="text" formControlName="username1" id="username1" >
+   <mat-error *ngIf="!detailForm.get('username1').valid && detailForm.get('username1').touched" class="help-block">Please enter a valid  last name</mat-error>
    </mat-form-field>
       <mat-form-field class="textbox">
           <!-- ^0[1-9]-[0-9]+$ -->
-        <input matInput placeholder="PhoneNumber" 
-        [errorStateMatcher]="matcher" required pattern="^0[1-9]-[0-9]+$" maxlength="11">
+        <input matInput placeholder="PhoneNumber" formControlName="Phone" id="Phone" >
+        <mat-error *ngIf="!detailForm.get('Phone').valid && detailForm.get('Phone').touched" class="help-block">Please check your phone number</mat-error>
    </mat-form-field>
       <mat-form-field class="textbox">
-        <input matInput placeholder="City" type="text" required>
+        <input matInput placeholder="City" type="text" formControlName="city" id="city" maxlength="20">
+       <mat-error *ngIf="!detailForm.get('city').valid && detailForm.get('city').touched" class="help-block">Please enter a valid  city</mat-error> 
    </mat-form-field>
     <mat-form-field class="textbox">
-  <textarea matInput placeholder="Address" required>
-</textarea>
+  <textarea matInput placeholder="Address" formControlName="address" id="address" maxlength="100"></textarea>
+  <mat-error *ngIf="!detailForm.get('address').valid && detailForm.get('address').touched" class="help-block">Please enter a valid  address</mat-error>
+
 </mat-form-field>
    <div class="radiobtn">
       <mat-radio-group aria-label="Select an option">
           <mat-radio-button value="sell" name="sell" class="textbox2"  (click)="onSelect($event)">Sell</mat-radio-button>
           <mat-radio-button value="buy" name="sell" class="radiobuy" (click)="onCheck($event)">Buy</mat-radio-button>
+          <!-- <mat-error *ngIf="!detailForm.get('sellbuy').valid && detailForm.get('sellbuy').touched" class="help-block">Please check one</mat-error>       -->
         </mat-radio-group>
       </div>
       <div *ngIf="this.showStore===true">
           <mat-form-field class="textbox">
-            <input matInput placeholder="Store Name" required>
+            <input matInput placeholder="Store Name" formControlName="storename" id="storename">
+            <!-- <mat-error *ngIf="!detailForm.get('storename').valid && detailForm.get('storename').touched" class="help-block">Please enter a valid  first name</mat-error> -->
           </mat-form-field>
         </div>
-          <button mat-button class="btn">Sign up</button>
+          <button mat-button class="btn" (Signup)="onSignup()">Signup</button>
        </form>
      </div> 
   <div class="card-footer text-center">Click <em>Sign up </em>
