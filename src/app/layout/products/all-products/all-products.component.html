@@ -1,11 +1,13 @@
 
-<div class="coverall">
-  <div class="para">
-        <mat-form-field >
+<div>
+  <div class="choice">
+      <div class="check">
+        <div class="subcheck">
+          <mat-form-field class="ltr">
             <mat-label>Category</mat-label>
             <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
-              <mat-option >
-                <mat-checkbox Value="Cigerattes" [ngModel]="true" >Cigerattes</mat-checkbox>
+              <mat-option>
+                <mat-checkbox>Cigerattes</mat-checkbox>
               </mat-option>
               <mat-option >
                   <mat-checkbox >Coffee</mat-checkbox>
@@ -14,7 +16,7 @@
                     <mat-checkbox>Juices</mat-checkbox>
                   </mat-option>
                 <mat-option>
-                  <mat-checkbox>Sunflower Seeds</mat-checkbox>
+                  <mat-checkbox Value="Sunflower Seeds" [ngModel]="true">Sunflower Seeds</mat-checkbox>
                 </mat-option>
                 <mat-option>
                   <mat-checkbox>Beer</mat-checkbox>
@@ -27,9 +29,7 @@
                 </mat-option>
             </mat-select>
           </mat-form-field>
-    
-
-  <mat-form-field >
+    <mat-form-field class="ltr">
       <mat-label>Tags</mat-label>
       <mat-select [value]="selected" (OnChange)="log($event)">
         <mat-option >
@@ -44,11 +44,11 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field >
+    <mat-form-field class="ltr" *ngIf="dataSource">
         <mat-label>Quantity</mat-label>
         <mat-select [value]="selected" (onChange)="log($event)">
           <mat-option >
-            <mat-checkbox [(ngModel)]="checked">less than 10</mat-checkbox>
+            <mat-checkbox>less than 10</mat-checkbox>
           </mat-option>
           <mat-option >
               <mat-checkbox>less than 20</mat-checkbox>
@@ -61,24 +61,33 @@
             </mat-option>
         </mat-select>
         </mat-form-field>
-  </div>
-  <div class="coverlogo"> 
-  <a href="#"><img src="assets/login/import.png"  class="Logo"></a>
-  <a href="#"><img src="assets/login/export.png"  class="Logo"></a>
-  <a href="#"><img src="assets/login/AddProduct.png"  class="Logo"></a>
-  </div>
-  <div class="covertable">
-          <div class="mat-elevation-z8">
-   <table mat-table [dataSource]="dataSource">
+      </div>
+      </div>
+        <div class="img">
+          <div class="subimg">
+          <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"  ></a>
+          <div id='feynman_text'> Import Product </div>
+        
+          <a href="#" id='feynman'><img src="assets/login/export.png"  class="Logo"></a>
+          <div id='feynman_text'> Export Product </div>
+        
+          <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
+          <div id='feynman_text'>  Add Product </div>
+        </div>
+      </div>
+      </div>
+     
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
   
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef> No. </th>
           <td mat-cell *matCellDef="let element"> {{element.position}} </td>
         </ng-container>
     
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="name" >
           <th mat-header-cell *matHeaderCellDef>Product Name </th>
-          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          <td mat-cell *matCellDef="let element" class="imagehover">{{element.name}} </td>
         </ng-container>
     
         <ng-container matColumnDef="category">
@@ -110,10 +119,11 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
     </div>
-  </div>
+   
       
   
   
