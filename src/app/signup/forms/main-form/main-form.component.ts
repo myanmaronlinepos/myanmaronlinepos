@@ -20,13 +20,6 @@ isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | nu
 
 export class MainFormComponent {
  
-  // email = new FormControl('', [Validators.required, Validators.email]);
-
-  // getErrorMessage() {
-  //   return this.email.hasError('required') ? 'You must enter a value' :
-  //       this.email.hasError('email') ? 'Not a valid email' :
-  //           '';
-  // }
   myForm: FormGroup;
 
   matcher = new MyErrorStateMatcher();
@@ -41,13 +34,11 @@ export class MainFormComponent {
   }
   onSubmit(){
     console.log(this.myForm);
-
   }
 
   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
     let pass = group.controls.password.value;
     let confirmPass = group.controls.confirmPassword.value;
-
     return pass === confirmPass ? null : { notSame: true }
   }
   }
