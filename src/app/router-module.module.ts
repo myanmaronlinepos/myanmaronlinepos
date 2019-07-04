@@ -26,7 +26,7 @@ import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.componen
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
-    {path: "home",canActivate:[GuestGuardService], component: HomeComponent,children:[
+    {path: "home",canActivate:[UserGuardService], component: HomeComponent,children:[
         { path: "", component: HomeBodyComponent },
         { path: "login", component: LoginComponent },
         {
@@ -38,7 +38,7 @@ const routes: Routes = [
     ] },
 
     {
-        path: "dashboard", component: LayoutComponent, children: [
+        path: "dashboard", canActivate:[GuestGuardService], component: LayoutComponent, children: [
             { path: "dashboard", component: DashboardComponent },
             {
                 path: "products", component: ProductsComponent, children: [

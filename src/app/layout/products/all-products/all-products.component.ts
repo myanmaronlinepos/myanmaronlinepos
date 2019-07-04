@@ -39,7 +39,7 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Super', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
   {position: 2, name: 'Premier', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
-  {position: 3, name: 'Royal Myanmar', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
+  {position: 3, name: 'Royal Myanmar', category: 'Coffee', discount: '5%',tags:'for all',quantity:5,price:2900},
   {position: 4, name: 'Gold Roast', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
   {position: 5, name: 'Necafe', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},
   {position: 6, name: 'All Time', category: 'Coffee', discount: '5%',tags:'for all',quantity:500,price:2900},

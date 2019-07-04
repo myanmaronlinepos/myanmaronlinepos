@@ -1,31 +1,32 @@
 import { Injectable } from "@angular/core";
-import { CanActivate, Router } from "@angular/router";
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { AuthService } from './authentication.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 
 export class GuestGuardService implements CanActivate {
-  constructor(private router: Router,private authService:AuthService) {}
+    constructor(
+        
+        private authService:AuthService,
+        private router: Router) {}
 
-  canActivate() {
-    this.authService.check()
-    .subscribe(
-      response => {
-        console.log(response.status);
-        if(response.status) {
+  canActivate(route: ActivatedRouteSnapshot,
+              state: RouterStateSnapshot):Observable<boolean> | Promise<boolean> | boolean {
+    return this.authService.check()
+    .then((authenticated:boolean) => {
+        console.log(authenticated);
 
-            this.router.navigate["/dashboard/dashboard"];
-        }else {
-            return true;
+        if(!authenticated) {
+          console.log("navigationg");
+          this.router.navigate(['/home/login']);
+          return false;
         }
-      },
-      error => {
-        console.log(error);
-        console.log("error");
-      }
-    )
-   return true;
+        
+        return true;
+        
+    });
   }
 }

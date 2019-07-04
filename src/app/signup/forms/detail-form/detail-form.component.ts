@@ -16,25 +16,23 @@ import { FormBuilder, FormControl, FormGroup, Validators,FormGroupDirective,NgFo
 })
 export class DetailFormComponent implements OnInit {
   showStore: boolean=false;
+  sellbuy=['Sell','Buy']
   detailForm: FormGroup;
   constructor() { }
-  // [errorStateMatcher]="matcher"
-  //  fname = new FormControl('', [Validators.required, Validators.fname]);
-
-  // getErrorMessage() {
-  //   return this.fname.hasError('required') ? 'You must enter a value' :
-  //       // this.fname.hasError('') ? 'Not a valid email' :
-  //           '';
-  // }
-
+  
   ngOnInit() {
     this.detailForm = new FormGroup({
-      // email:new FormControl('', [Validators.email]),
-      // fname:new FormControl('', []),
-      // lname:new FormControl('', []),
-      // PhoneNumber:new FormControl('',[Validators.pattern('/^0[1-9]-[0-9]+$')]),
-      // radioGroup:new FormControl('',[Validators.required])
+'username': new FormControl(null,Validators.required),
+'username1': new FormControl(null,Validators.required),
+'city': new FormControl(null,Validators.required),
+'address': new FormControl(null,Validators.required),
+'Phone': new FormControl(null,[Validators.required,Validators.maxLength(11)]),
+// 'storename': new FormControl(null,Validators.required),
+
     });
+  }
+  onSubmit(){
+    this.detailForm;
   }
   onSelect(event: any){
     this.showStore=true;

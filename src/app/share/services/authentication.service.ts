@@ -27,9 +27,9 @@ export class AuthService {
       this.apiService.createCompleteApiRoute(apiUrl),'');
   }
 
-  check():Observable<Status> {
+  check() {
     let apiUrl="/api/check";
-    return this.http.get<Status>(
-      this.apiService.createCompleteApiRoute(apiUrl));
+    return this.http.get(
+      this.apiService.createCompleteApiRoute(apiUrl)).toPromise();
   }
 }
