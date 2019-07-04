@@ -29,7 +29,8 @@ import { MatTableModule } from '@angular/material';
 import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { AssignproductComponent } from './layout/assignproduct/assignproduct.component';
-import { SellStockComponent } from './sell-stock/sell-stock.component';
+import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
+import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 
 
 
@@ -61,7 +62,8 @@ import { SellStockComponent } from './sell-stock/sell-stock.component';
     DetailFormComponent,
     HomeNavbarComponent,
     HomeBodyComponent,
-    SellStockComponent
+    SellStockComponent,
+    SellTableComponent
     
   ],
   imports: [
