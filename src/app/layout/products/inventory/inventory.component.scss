@@ -1,24 +1,25 @@
 //This is all
 .coverall{
-  left:12%;
-  transform: translate(-50%,-50%);
+  left:5%;
+  
   position: relative;
 }
 // This is paragraph modification
  .para{
    font-size:22px;
-    left:12%;
-    width:100%;
     text-transform: none ;
  }
 //   /* this is logo image modification */
+a{
+  left:1%;
+}
 .Logo{
-   height:35px;
-   width:35px;
+   height:30px;
+   width:30px;
 
 }
 .coverlogo{
-  padding-left:65%;
+  padding-left:70%;
   padding-bottom: 2%;
 }
 
@@ -53,9 +54,9 @@
  .mat-column-updatequantity {
   width:32%;
  }
- .covertable{
-  padding-left:10%;
- }
+//  .covertable{
+  // 
+//  }
  .quantity-field{
    
   background-color: #fff;
