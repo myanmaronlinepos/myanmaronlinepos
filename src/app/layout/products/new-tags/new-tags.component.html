@@ -1,0 +1,23 @@
+<div class="flex-container">
+  <div mat-dialog-title>
+    <h3>Tag product what you want</h3>
+  </div>
+  <div mat-dialog-content>
+    <div>
+      <span>Product:</span>
+      <mat-form-field >
+        <input matInput name="product">
+      </mat-form-field>
+    </div>
+    <div>
+      <span>Tag &nbsp; &nbsp;:</span>
+      <mat-form-field >
+        <input matInput name="tag" >
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <div><button mat-button (click)="onNoClick()">Cancel</button></div>
+    <div><button mat-button matDialogClose="save" (click)="onSave()">Save</button></div>
+  </div>
+</div>

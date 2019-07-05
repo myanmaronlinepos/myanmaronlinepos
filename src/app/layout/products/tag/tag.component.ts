@@ -1,9 +1,10 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {MatPaginator } from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { NewCategoryComponent } from '../new-category/new-category.component';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
+import { NewTagsComponent} from '../new-tags/new-tags.component';
+
 @Component({
   selector: 'app-tag',
   templateUrl: './tag.component.html',
@@ -22,8 +23,8 @@ export class TagComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   
-  createCategory(): void {
-    const dialogRef=this.dialog.open(NewCategoryComponent,{
+  createTags(): void {
+    const dialogRef=this.dialog.open(NewTagsComponent,{
       width: '500px',
       height: '300px' 
     });
