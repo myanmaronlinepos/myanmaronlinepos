@@ -20,7 +20,12 @@ import { DetailFormComponent } from './signup/forms/detail-form/detail-form.comp
 import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { GuestGuardService } from './share/services/guest-guard.service';
 import { UserGuardService } from './share/services/user-guard.service';
+<<<<<<< HEAD
 import { TagComponent } from './layout/products/tag/tag.component';
+=======
+import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
+import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
+>>>>>>> c19067a458a54bdc96376d37cfd7cfc02951f157
 
 
 const routes: Routes = [
@@ -50,7 +55,10 @@ const routes: Routes = [
             },
 
             {
-                path: "sell", component: SellComponent
+                path: "sell", component: SellComponent, children: [
+                    { path: "sell-stock", component: SellStockComponent },
+                    { path: "sell-table", component: SellTableComponent }
+                ]
             },
 
             {

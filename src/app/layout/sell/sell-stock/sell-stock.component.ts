@@ -11,5 +11,6 @@ export class SellStockComponent implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }
