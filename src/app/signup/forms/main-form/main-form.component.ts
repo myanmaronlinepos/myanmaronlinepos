@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators,FormGroupDirective,NgFo
 import { SignupComponent } from '../../signup.component';
 import {Router, RouterLink} from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { User } from 'src/app/share/models/User';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
 isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,6 +22,7 @@ isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | nu
 export class MainFormComponent {
  
   myForm: FormGroup;
+  
 
   matcher = new MyErrorStateMatcher();
 

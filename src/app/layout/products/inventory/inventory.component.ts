@@ -55,7 +55,7 @@ Savebuttonwork=false;
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
    }
-   onUpdatequantity(event: Event){
+   onUpdatequantity(row: Event){
      this.Updatequantity=(<HTMLInputElement>event.target).value;
      }
      Onsetvalue(){

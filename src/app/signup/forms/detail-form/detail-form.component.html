@@ -15,10 +15,26 @@
         <input matInput placeholder="PhoneNumber" formControlName="Phone" id="Phone" >
         <mat-error *ngIf="!detailForm.get('Phone').valid && detailForm.get('Phone').touched" class="help-block">Please check your phone number</mat-error>
    </mat-form-field>
+
+      <!-- <mat-form-field class="textbox">
+         <mat-label>Select city</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let city of cities" [value]="city.value"  formControlName="city" id="city">
+            {{city.city_name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="!detailForm.get('city').valid && detailForm.get('city').touched" class="help-block">Please enter a valid  city</mat-error>
+      </mat-form-field> -->
       <mat-form-field class="textbox">
-        <input matInput placeholder="City" type="text" formControlName="city" id="city" maxlength="20">
-       <mat-error *ngIf="!detailForm.get('city').valid && detailForm.get('city').touched" class="help-block">Please enter a valid  city</mat-error> 
-   </mat-form-field>
+          <mat-label>Select city</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <!-- </mat-form-field> -->
     <mat-form-field class="textbox">
   <textarea matInput placeholder="Address" formControlName="address" id="address" maxlength="100"></textarea>
   <mat-error *ngIf="!detailForm.get('address').valid && detailForm.get('address').touched" class="help-block">Please enter a valid  address</mat-error>

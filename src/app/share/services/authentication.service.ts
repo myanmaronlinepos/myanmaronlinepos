@@ -5,6 +5,7 @@ import { ApiRouteService } from "./api-route.service";
 import { Login } from '../models/Login';
 import { Observable } from 'rxjs';
 import { Status } from '../models/Status';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: "root"
@@ -31,5 +32,14 @@ export class AuthService {
     let apiUrl="/api/check";
     return this.http.get(
       this.apiService.createCompleteApiRoute(apiUrl)).toPromise();
+  }
+  signup(signupData: User){
+    let apiUrl="/api/guest/signup";
+    console.log(signupData);
+    return this.http.post(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      signupData
+    );
+    
   }
 }
