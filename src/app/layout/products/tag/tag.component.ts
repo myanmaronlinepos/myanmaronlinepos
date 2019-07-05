@@ -3,7 +3,6 @@ import {MatPaginator } from '@angular/material';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { NewCategoryComponent } from '../new-category/new-category.component';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
-import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 @Component({
   selector: 'app-tag',
@@ -12,7 +11,7 @@ import {MatTableDataSource, MatTable} from '@angular/material/table';
 })
 export class TagComponent implements OnInit {
 
-  displayedColumns: string[] = ['position','productname','tag','assignproduct','btn'];
+  displayedColumns: string[] = ['position','productname','tag','btn'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   
 
@@ -37,21 +36,6 @@ export class TagComponent implements OnInit {
 
     });
   }
-
-  assignProduct(): void {
-    const dialogRef=this.dialog.open(AssignproductComponent,{
-      height: '300px',
-      width: '500px'
-    });
-
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if(result=='save')
-        window.alert("Save Successful!");
-
-    });
-}
 
 }
 
