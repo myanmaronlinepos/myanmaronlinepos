@@ -22,6 +22,7 @@ import { GuestGuardService } from './share/services/guest-guard.service';
 import { UserGuardService } from './share/services/user-guard.service';
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
+import { AddProductComponent } from './layout/products/all-products/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -42,10 +43,11 @@ const routes: Routes = [
             { path: "dashboard", component: DashboardComponent },
             {
                 path: "products", component: ProductsComponent, children: [
-                    { path: "allproducts", component: AllProductsComponent },
+                    { path: "allproducts", component: AllProductsComponent},
                     { path: "category", component: CategoryComponent },
                     { path: "discount", component: DiscountComponent },
-                    { path: "inventory", component: InventoryComponent }
+                    { path: "inventory", component: InventoryComponent },
+                    { path: "addproduct", component: AddProductComponent}
                 ]
             },
 

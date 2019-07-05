@@ -31,6 +31,7 @@ import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { AssignproductComponent } from './layout/assignproduct/assignproduct.component';
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
+import { AddProductComponent } from './layout/products/all-products/add-product/add-product.component';
 
 
 
@@ -63,7 +64,8 @@ import { SellTableComponent } from './layout/sell/sell-table/sell-table.componen
     HomeNavbarComponent,
     HomeBodyComponent,
     SellStockComponent,
-    SellTableComponent
+    SellTableComponent,
+    AddProductComponent
     
   ],
   imports: [

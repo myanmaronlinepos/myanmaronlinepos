@@ -51,7 +51,7 @@
     <div class="btn">
       <div class="subbtn">
         <p>{{selectedRow.length}}Selected</p>
-        <a [routerLink]="['../sell-stock']"><img src="assets/sell-stock.png"></a>
+        <a (click)="sellItem()"><img src="assets/sell-stock.png"></a>
       </div>
     </div>
   </div> 
@@ -97,7 +97,7 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRow($event)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onClickRow(row)"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>

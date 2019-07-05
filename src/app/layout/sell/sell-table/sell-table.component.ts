@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SellService } from 'src/app/sell.service';
 
 @Component({
   selector: 'app-sell-table',
@@ -10,29 +12,40 @@ import {MatPaginator} from '@angular/material';
 export class SellTableComponent implements OnInit {
 
   selectedRow=[];
-  
-  log(value: string[]): void {
-    console.log(value);
-  }
   displayedColumns: string[] = ['number', 'name', 'category', 'tag', 'quantity','price'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute, 
+    private sellservice: SellService,
+    private router:Router
+    ) {}
+
+ 
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-  onClickRow($event) {
-    if(!this.selectedRow.includes($event.number)){
-      this.selectedRow.push($event.number);
+  sellItem() {
+    this.sellservice.stock.emit("Sunflower Seeds");
+    this.router.navigate(['/dashboard/sell/sell-stock'])
+  }
+
+  onClickRow(row) {
+    if(!this.selectedRow.includes(row.number)){
+      this.selectedRow.push(row.number);
+      console.log(row.number);
     }else{
-        const index=this.selectedRow.indexOf($event.number);
+        const index=this.selectedRow.indexOf(row.number);
         this.selectedRow.splice(index,1);
     }
+    
   }
+  
+ 
 }
 
 export interface PeriodicElement {
