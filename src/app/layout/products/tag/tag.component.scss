@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+  }
+
+table.mat-table {
+  margin-top: 30px;
+}
+
+td.mat-cell {
+  border:0;
+}
+
+img, svg {
+  width: 20px;
+  height: 20px;
+}
+
+svg{
+  margin-left: 12px;
+}
+.assignproduct {
+  cursor: pointer;
+}

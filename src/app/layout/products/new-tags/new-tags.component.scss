@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container > h1, div {
+    text-align: center;
+    align-items: center;
+}
+
+.flex-container > div  {
+    justify-content: space-between;
+    line-height: 80px;
+}
+
+span {
+  margin-right: 30px;  
+}
+
+mat-form-field {
+    margin-left: 30px;
+    width: 250px;
+}
+
+

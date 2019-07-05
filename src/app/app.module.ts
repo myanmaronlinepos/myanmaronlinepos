@@ -33,6 +33,8 @@ import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.componen
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 import { AddProductComponent } from './layout/products/all-products/add-product/add-product.component';
 
+import {TagComponent} from './layout/products/tag/tag.component';
+import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
 
 
 
@@ -65,7 +67,9 @@ import { AddProductComponent } from './layout/products/all-products/add-product/
     HomeBodyComponent,
     SellStockComponent,
     SellTableComponent,
-    AddProductComponent
+    AddProductComponent,
+    TagComponent,
+    NewTagsComponent
     
   ],
   imports: [
@@ -76,7 +80,8 @@ import { AddProductComponent } from './layout/products/all-products/add-product/
   ],
   entryComponents:[
     NewCategoryComponent,
-    AssignproductComponent
+    AssignproductComponent,
+    NewTagsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
