@@ -20,6 +20,7 @@ import { DetailFormComponent } from './signup/forms/detail-form/detail-form.comp
 import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { GuestGuardService } from './share/services/guest-guard.service';
 import { UserGuardService } from './share/services/user-guard.service';
+import { TagComponent } from './layout/products/tag/tag.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
                     { path: "allproducts", component: AllProductsComponent },
                     { path: "category", component: CategoryComponent },
                     { path: "discount", component: DiscountComponent },
-                    { path: "inventory", component: InventoryComponent }
+                    { path: "inventory", component: InventoryComponent },
+                    {path: "tag", component: TagComponent}
                 ]
             },
 

@@ -30,6 +30,7 @@ import { HomeNavbarComponent } from './home-navbar/home-navbar.component';
 import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { AssignproductComponent } from './layout/assignproduct/assignproduct.component';
 import { SellStockComponent } from './sell-stock/sell-stock.component';
+import { TagComponent } from './layout/products/tag/tag.component';
 
 
 
@@ -61,7 +62,8 @@ import { SellStockComponent } from './sell-stock/sell-stock.component';
     DetailFormComponent,
     HomeNavbarComponent,
     HomeBodyComponent,
-    SellStockComponent
+    SellStockComponent,
+    TagComponent
     
   ],
   imports: [
