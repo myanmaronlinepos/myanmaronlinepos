@@ -1,20 +1,19 @@
 import { Injectable } from "@angular/core";
-import { ApiRouteService } from "./api-route.service";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-
+import { ApiRouteService } from './api-route.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Product } from '../models/Product';
 
 @Injectable({
   providedIn: "root"
 })
-export class CommonService {
-  constructor(private http: HttpClient, private apiRouteSvc: ApiRouteService) {}
+export class DataFetchService {
+  constructor(private http: HttpClient, private apiService: ApiRouteService) {}
 
-  insertProduct(product) {
-    let apiUrl = "api/deparment/new";
-    return this.http.post(
-      this.apiRouteSvc.createCompleteApiRoute(apiUrl),
-      product
+  getAllProduct():Observable<Product[]>{
+    let apiUrl = "/api/user/get/products";
+    return this.http.get<Product[]>(
+      this.apiService.createCompleteApiRoute(apiUrl)
     );
   }
 }
