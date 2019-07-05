@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormBuilder, FormControl, FormGroup, Validators,FormGroupDirective,NgForm } from '@angular/forms';
 import { User } from 'src/app/share/models/User';
-import { string } from 'prop-types';
+//import { string } from 'prop-types';
 import {Router,RouterLink} from '@angular/router';
 import { AuthService } from 'src/app/share/services/authentication.service';
 // export interface City {
@@ -40,17 +40,17 @@ export class DetailFormComponent implements OnInit {
   onSubmit(){
     // this.detailForm;
     const formValue=this.detailForm.value;
-    this.signupData= {
-      user_name:formValue.username,
-      user_email:formValue.user_email,
-      user_password:formValue.user_password,
-      user_role:formValue.role,
-      user_phone:formValue.Phone,
-      address:formValue.address,
-      storename:formValue.storename,
-      city_id:formValue.city,
+    // this.signupData= {
+    //   user_name:formValue.username,
+    //   user_email:formValue.user_email,
+    //   user_password:formValue.user_password,
+    //   user_role:formValue.role,
+    //   user_phone:formValue.Phone,
+    //   address:formValue.address,
+    //   storename:formValue.storename,
+    //   city_id:formValue.city,
 
-    }
+    // }
   
   console.log(formValue);
     this.authService.login(this.signupData).subscribe(
