@@ -17,13 +17,13 @@ import { AssignproductComponent } from '../../assignproduct/assignproduct.compon
 export class CategoryComponent implements OnInit {
 
   displayedColumns: string[] = ['categoryname','assignproduct','btn'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
-    
+    this.dataSource.paginator = this.paginator;
   }
   
   createCategory(): void {
