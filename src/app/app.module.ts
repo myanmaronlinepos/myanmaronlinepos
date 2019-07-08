@@ -35,9 +35,8 @@ import { AddProductComponent } from './layout/products/all-products/add-product/
 
 import {TagComponent} from './layout/products/tag/tag.component';
 import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
-
-
-
+import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -69,14 +68,16 @@ import { NewTagsComponent } from './layout/products/new-tags/new-tags.component'
     SellTableComponent,
     AddProductComponent,
     TagComponent,
-    NewTagsComponent
+    NewTagsComponent,
+    DetailProductComponent
     
   ],
   imports: [
     BrowserModule,
     RoutingModule,
     MatTableModule,
-    ImportedModules
+    ImportedModules,
+    ReactiveFormsModule
   ],
   entryComponents:[
     NewCategoryComponent,

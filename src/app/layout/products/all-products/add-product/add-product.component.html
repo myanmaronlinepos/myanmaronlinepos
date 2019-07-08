@@ -1,47 +1,97 @@
-<mat-card>
-<div class="all">
-  <!-- For header -->
-  <div class="header">
-      <h3>Add a new Product</h3>
-  </div>
-
-  <div class="body">
-    <div class="pbody">
-        <div class="ppbody">
-            <mat-form-field>
-                <input matInput placeholder="Product Name:">
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Category"></textarea>
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Tag">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Quantity">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Price per cost">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Sale price">
-              </mat-form-field>
-              <mat-form-field class="example-full-width">
-                <textarea matInput placeholder="Note"></textarea>
-              </mat-form-field>
+<mat-card class="main">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="all">
+          <!-- For header -->
+          <div class="header">
+              <h3>Add a new Product</h3>
+          </div>
+        
+          <div class="body form-group">
+            <div class="pbody">
+                <div class="ppbody">
+                    <mat-form-field>
+                        <input matInput placeholder="Product Name:" formControlName="productName">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Category" formControlName="category"></textarea>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Tag" formControlName="tag">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Quantity" formControlName="quantity">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Price per cost" formControlName="cost">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Sale price" formControlName="sale">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="pimg form-group">
+                  <img src="assets/laptop.jpg">
+            </div>
+          </div>
+        
+          <!-- For Button -->
+          <div class="btn form-group">
+            <div class="subbtn">
+              <button type="reset" class="cancel">Cancel</button>
+              <button class="save">Save</button>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="pimg">
-          <img src="assets/laptop.jpg">
-    </div>
-  </div>
-
-  <!-- For Button -->
-  <div class="btn">
-    <div class="subbtn">
-      <button>Cancel</button>
-      <button>Save</button>
-    </div>
-  </div>
-</div>
+  </form>
+  
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="small">
+          <!-- For header -->
+          <div class="header2">
+              <h3>Add a new Product</h3>
+          </div>
+        
+          <div class="body2 form-group">
+            <div class="pimg2">
+                <img src="assets/laptop.jpg">
+            </div>
+            <div class="pbody2 form-group">
+                <div class="ppbody2">
+                    <mat-form-field>
+                        <input matInput placeholder="Product Name:" formControlName="productName">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Category" formControlName="category"></textarea>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Tag" formControlName="tag">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Quantity" formControlName="quantity">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Price per cost" formControlName="cost">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Sale price" formControlName="sale">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
+                      </mat-form-field>
+                </div>
+            </div>
+          </div>
+        
+          <!-- For Button -->
+          <div class="btn2 form-group">
+            <div class="subbtn2">
+              <button type="reset" class="cancelbtn">Cancel</button>
+              <button class="savebtn">Save</button>
+            </div>
+          </div>
+        </div>
+  </form>
 </mat-card>
