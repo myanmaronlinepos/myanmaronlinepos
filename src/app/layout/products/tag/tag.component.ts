@@ -16,21 +16,20 @@ export class TagComponent implements OnInit {
 
   displayedColumns: string[] = ['position','productname','tag','btn'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  i=0;
-  id :string;
-  listOfData: any[] = [];
-
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public dialog: MatDialog) {}
 
-  deleteRow(id: string): void {
-    this.listOfData = this.listOfData.filter(d => d.id !== id);
-  }
-
+  
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
   
+  delete(elm) {
+    this.dataSource.data = this.dataSource.data
+      .filter(i => i !== elm)
+      .map((i, idx) => (i.position = (idx + 1), i));
+  }
   
   createTags(): void {
     const dialogRef=this.dialog.open(NewTagsComponent,{
@@ -38,8 +37,6 @@ export class TagComponent implements OnInit {
       height: '350px' 
     });
    
-    
-
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result=='save')
