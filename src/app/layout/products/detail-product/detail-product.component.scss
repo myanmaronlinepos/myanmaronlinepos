@@ -1,0 +1,76 @@
+table {
+    width: 100%;
+  }
+
+table.mat-table {
+  margin-top: 30px;
+}
+
+td.mat-cell {
+  border:0;
+}
+
+.all {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}    
+.body {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.part1 {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.list {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+span {
+    display: flex;
+    width: 80%; 
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.img {
+    display: flex;
+    width: 40%;
+}
+.subimg {
+    display: flex;
+    width: 80%;
+}
+img {
+    width: 80%;
+    height: 200px;
+    border-radius: 10px;
+}
+.part2 {
+    margin-top: 30px;
+}
+.subpart2 {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.subtxt, .imgpart {
+    display: flex;
+    width:50%;
+}
+.imgpart > img {
+    width: 30px;
+    height: 30px;
+}

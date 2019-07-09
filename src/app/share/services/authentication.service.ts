@@ -33,13 +33,14 @@ export class AuthService {
     return this.http.get(
       this.apiService.createCompleteApiRoute(apiUrl)).toPromise();
   }
+
   signup(signupData: User){
     let apiUrl="/api/guest/signup";
     console.log(signupData);
     return this.http.post(
       this.apiService.createCompleteApiRoute(apiUrl),
       signupData
-    );
+    ).toPromise();
     
   }
 }
