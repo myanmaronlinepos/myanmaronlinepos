@@ -5,6 +5,8 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { NewTagsComponent} from '../new-tags/new-tags.component';
 
+
+
 @Component({
   selector: 'app-tag',
   templateUrl: './tag.component.html',
@@ -15,21 +17,26 @@ export class TagComponent implements OnInit {
   displayedColumns: string[] = ['position','productname','tag','btn'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public dialog: MatDialog) {}
 
+  
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+  }
+  
+  delete(elm) {
+    this.dataSource.data = this.dataSource.data
+      .filter(i => i !== elm)
+      .map((i, idx) => (i.position = (idx + 1), i));
   }
   
   createTags(): void {
     const dialogRef=this.dialog.open(NewTagsComponent,{
       width: '500px',
-      height: '300px' 
+      height: '350px' 
     });
-
-
+   
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result=='save')
@@ -37,7 +44,7 @@ export class TagComponent implements OnInit {
 
     });
   }
-
+  
 }
 
 export interface PeriodicElement {
@@ -45,15 +52,15 @@ export interface PeriodicElement {
   productname: string;
   tag:string;
   btn:string;
-  assignproduct:string;
+  
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-{position:1, productname: 'Ruby', tag:'', assignproduct:'',btn:''},
-{position:1, productname: 'Chocopile', tag:'3 buy 1 gift', assignproduct:'',btn:''},
-{position:1, productname: 'premier', tag:'for all,5 buy 1 gift ', assignproduct:'',btn:''},
-{position:1, productname: 'laptop', tag:'give a bag', assignproduct:'',btn:''},
-{position:1, productname: 'phone', tag:'400000 mA powerbank as a gift', assignproduct:'',btn:''},
+{position:1, productname: 'Ruby', tag:'',btn:''},
+{position:2, productname: 'Chocopile', tag:'3 buy 1 gift',btn:''},
+{position:3, productname: 'premier', tag:'for all,5 buy 1 gift ',btn:''},
+{position:4, productname: 'laptop', tag:'give a bag', btn:''},
+{position:5, productname: 'phone', tag:'400000 mA powerbank as a gift',btn:''},
 
 
 ];

@@ -20,7 +20,8 @@ export class NewTagsComponent implements OnInit {
     window.alert("Successfully...");
   }
 
-  ngOnInit() {
+  ngOnInit() { 
+    
   }
 
 
