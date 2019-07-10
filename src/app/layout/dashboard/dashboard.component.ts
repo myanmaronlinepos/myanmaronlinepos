@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   BarChart:any=[];
   PieChart:any=[];
   RadarChart:any=[];
+  AreaChart:any=[];
   // labels:string[]  = ["January","February","March","April", "May"] ;
 
  constructor() { }
@@ -76,7 +77,7 @@ export class DashboardComponent implements OnInit {
       },
       options:{
         title:{
-          text:" Pie Chart",
+          text:" Cost",
           display:true
         },
 // scales:{
@@ -103,7 +104,7 @@ export class DashboardComponent implements OnInit {
       },
       options:{
         title:{
-          text:" Pie Chart",
+          text:"Income",
           display:true
         },
 // scales:{
@@ -140,7 +141,7 @@ export class DashboardComponent implements OnInit {
     },
       options:{
         title:{
-          text:" Bar Chart",
+          text:"  Chart",
           display:true
         },
 scales:{
@@ -192,7 +193,7 @@ scales:{
         }
       }
     });
-  }
+   }
 
 }
 
