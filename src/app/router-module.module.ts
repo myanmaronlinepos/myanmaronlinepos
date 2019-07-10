@@ -23,6 +23,9 @@ import { UserGuardService } from './share/services/user-guard.service';
 import { TagComponent } from './layout/products/tag/tag.component';
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
+import { AddProductComponent } from './layout/products/add-product/add-product.component';
+import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
+import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 
 
 const routes: Routes = [
@@ -43,10 +46,13 @@ const routes: Routes = [
             { path: "dashboard", component: DashboardComponent },
             {
                 path: "products", component: ProductsComponent, children: [
-                    { path: "allproducts", component: AllProductsComponent },
+                    { path: "allproducts", component: AllProductsComponent},
                     { path: "category", component: CategoryComponent },
                     { path: "discount", component: DiscountComponent },
                     { path: "inventory", component: InventoryComponent },
+                    { path: "addproduct", component: AddProductComponent},
+                    { path: "detailproduct", component: DetailProductComponent},
+                    { path: "editcategory", component: EditCategoryComponent },
                     {path: "tag", component: TagComponent}
                 ]
             },

@@ -31,11 +31,13 @@ import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { AssignproductComponent } from './layout/assignproduct/assignproduct.component';
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
+import { AddProductComponent } from './layout/products/add-product/add-product.component';
+
 import {TagComponent} from './layout/products/tag/tag.component';
 import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
-
-
-
+import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -65,8 +67,11 @@ import { NewTagsComponent } from './layout/products/new-tags/new-tags.component'
     HomeBodyComponent,
     SellStockComponent,
     SellTableComponent,
+    AddProductComponent,
     TagComponent,
-    NewTagsComponent
+    NewTagsComponent,
+    DetailProductComponent,
+    EditCategoryComponent
     
   ],
   imports: [
@@ -74,8 +79,9 @@ import { NewTagsComponent } from './layout/products/new-tags/new-tags.component'
     RoutingModule,
     MatTableModule,
     ImportedModules,
+    dashboard/kyawtsandaraung
     FullCalendarModule
-
+    ReactiveFormsModule
   ],
   entryComponents:[
     NewCategoryComponent,
