@@ -23,7 +23,7 @@ import { UserGuardService } from './share/services/user-guard.service';
 import { TagComponent } from './layout/products/tag/tag.component';
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
-import { AddProductComponent } from './layout/products/all-products/add-product/add-product.component';
+import { AddProductComponent } from './layout/products/add-product/add-product.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 
 
