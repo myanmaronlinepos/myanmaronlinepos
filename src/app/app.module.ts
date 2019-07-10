@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ProductsComponent } from './layout/products/products.component';
@@ -79,6 +79,8 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
     RoutingModule,
     MatTableModule,
     ImportedModules,
+    dashboard/kyawtsandaraung
+    FullCalendarModule
     ReactiveFormsModule
   ],
   entryComponents:[
