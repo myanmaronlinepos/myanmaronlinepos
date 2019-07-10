@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart} from 'chart.js';
+import  dayGridPlugin  from "@fullcalendar/daygrid";
 // For MDB Angular Pro
 // import { ChartsModule, ChartSimpleModule, WavesModule } from 'ng-uikit-pro-standard';
 // For MDB Angular Free
@@ -11,6 +12,7 @@ import { Chart} from 'chart.js';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  calendarPlugins=[dayGridPlugin];
   // title="This is our profit";
   LineChart:any=[];
   BarChart:any=[];
