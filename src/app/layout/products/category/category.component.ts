@@ -7,6 +7,8 @@ import { MatPaginator } from '@angular/material';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
 import { EditCategoryComponent } from '../edit-category/edit-category.component';
+import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { CategoryService } from 'src/app/category.service';
 
 
 @Component({
@@ -17,14 +19,19 @@ import { EditCategoryComponent } from '../edit-category/edit-category.component'
 
 export class CategoryComponent implements OnInit {
 
-  editItem=[];
   displayedColumns: string[] = ['categoryname','assignproduct','btn'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  categories:ItemCategory[]=[];
+  dataSource: MatTableDataSource<ItemCategory>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    public categoryservice:CategoryService
+    ) {}
 
   ngOnInit() {
+    this.categories=this.categoryservice.getCategory();
+    this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
     this.dataSource.paginator = this.paginator;
   }
   
@@ -66,17 +73,6 @@ export class CategoryComponent implements OnInit {
   }
 }
 
-export interface PeriodicElement {
-  categoryname: string;
-  assignproduct:string;
-  btn:string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-{ categoryname: 'Cigaretees', assignproduct:'',btn:''},
-{ categoryname: 'Beer', assignproduct:'',btn:''},
-{ categoryname: 'Rum', assignproduct:'',btn:''},
-{ categoryname: 'Wisky', assignproduct:'',btn:''},
-{ categoryname: 'Snack', assignproduct:'',btn:''}
-];
+
 
