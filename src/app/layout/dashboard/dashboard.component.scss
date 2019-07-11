@@ -2,28 +2,66 @@
  .chart{
     width:100%;
     display: flex;
-    margin-top: 6%;
-    margin-bottom: 6%;
-   left:10px;
+    margin-top: 4%;
+    flex-direction: row;
  }
-
 .chart1{
     display: flex;
-    width: 100%;
+    width: 50%;
     align-items: center;
     flex-direction: column;
 }
-.card{
-    width:100%;
-    display:flex;
-    height:510px;
+.chart2{
+    width:95%;
+    align-items: center;
+    height:100%;
+ }
+ 
+.chart4{
+    width: 95%;
+    align-items: center;
+    height:100%;
 }
-.card-header{
-    text-transform: none;
-}
-// .chartheight{
-//     height:100%;
-//     display:flex;
-//     // width:50%;
 
-// }
+::ng-deep .mat-card-header {
+    display: flex;
+    flex-direction: row;
+  justify-content: center;
+  text-transform: none;
+}
+.cover{
+    width: 100%;
+    // top:63px; 
+    padding-left:6%;
+   }
+   @media only screen and (max-width: 991px){
+    .chart{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 4%;
+      }
+      .chart1{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        margin-top:6%;
+    }
+    .chart2{
+        width:95%;
+        align-items: center;
+        height:100%;
+     }
+     
+    .chart4{
+        width: 95%;
+        align-items: center;
+        height:100%;
+    }
+    .cover{
+        width: 100%;
+        // top:63px; 
+        padding-left:4%;
+       }
+
+   }

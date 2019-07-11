@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
  constructor() { }
 
   ngOnInit() {
+   
     this.RadarChart=new Chart('radarChart',{
       type:'radar',
       data:{
@@ -50,7 +51,7 @@ export class DashboardComponent implements OnInit {
       },
       options:{
         title:{
-          text:" Radar Chart",
+          text:" ",
           display:true
         },
 // scales:{
@@ -141,7 +142,7 @@ export class DashboardComponent implements OnInit {
     },
       options:{
         title:{
-          text:"  Chart",
+          text:" ",
           display:true
         },
 scales:{
@@ -181,7 +182,7 @@ scales:{
       },
       options:{
         title:{
-          text:"Line Chart",
+          text:" ",
           display:true
         },
         scales:{
@@ -193,8 +194,9 @@ scales:{
         }
       }
     });
-   }
-
+   
+  
+  }
 }
 
  
