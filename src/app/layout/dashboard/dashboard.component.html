@@ -4,53 +4,62 @@
       <div class="card">
           <div class="card-header text-center"><h5><strong>Calendar</strong></h5>
           </div>
-       <full-calendar [plugins]="calendarPlugins"></full-calendar> 
+          <div class="card-body">
+       <full-calendar [plugins]="calendarPlugins" class="chartheight"></full-calendar> 
+      </div>
       </div>
     </div>
      <div class="chart1">
        <div class="card">
           <div class="card-header text-center"><h5><strong>Bar Chart</strong></h5>
           </div>
-          <canvas id="barChart"></canvas> 
+          <div class="card-body">
+          <canvas id="barChart" class="chartheight"></canvas> 
+        </div>
        </div>
        </div>
       </div>
-     <canvas id="pieChart"></canvas>
-      <canvas id="pieChart1"></canvas>
-
-      <div  class="chart">
+         <div  class="chart">
           <div class="chart1">
             <div class="card">
-                <div class="card-header text-center"><h5><strong>Calendar</strong></h5>
+                <div class="card-header text-center"><h5><strong>Line Chart</strong></h5>
                 </div>
-                <canvas id="lineChart"></canvas>
+                <div class="card-body">
+                <canvas id="lineChart" class="chartheight"></canvas>
+              </div>
             </div>
           </div>
            <div class="chart1">
              <div class="card">
-                <div class="card-header text-center"><h5><strong>Bar Chart</strong></h5>
+                <div class="card-header text-center"><h5><strong>Radar Chart</strong></h5>
                 </div>
-                <canvas id="radarChart"></canvas>
+                <div class="card-body">
+                <canvas id="radarChart" class="chartheight"></canvas>
+              </div>
              </div>
              </div>
             </div>
 
-            <div  class="chart">
-                <div class="chart1">
-                  <div class="card">
-                      <div class="card-header text-center"><h5><strong>Pie Chart</strong></h5>
-                      </div>
-                      <canvas id="pieChart"></canvas>
-                  </div>
-                </div>
-                 <div class="chart1">
-                   <div class="card">
-                      <div class="card-header text-center"><h5><strong>Pie Chart</strong></h5>
-                      </div>
-                      <canvas id="pieChart1"></canvas>
-                   </div>
-                   </div>
-                  </div>
+<div class="chart">
+  <div class="chart1">
+    <div class="card">
+      <div class="card-header text-center"><h5> <strong> Pie Chart</strong></h5>
+      </div>
+      <div class="card-body">
+      <canvas id="pieChart" class="chartheight"></canvas>
+    </div>
+    </div>
+  </div>
+  <div class="chart1">
+    <div class="card">
+      <div class="card-header text-center"><h5><strong>Pie Chart</strong></h5>
+      </div>
+      <div class="card-body">
+        <canvas id="pieChart1" class="chartheight"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
             
 
  
