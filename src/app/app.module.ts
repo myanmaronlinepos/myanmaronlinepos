@@ -37,6 +37,7 @@ import {TagComponent} from './layout/products/tag/tag.component';
 import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 
 @NgModule({
@@ -71,6 +72,7 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
     TagComponent,
     NewTagsComponent,
     DetailProductComponent,
+    EditProductComponent,
     EditCategoryComponent
     
   ],

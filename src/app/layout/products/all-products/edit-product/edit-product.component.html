@@ -1,0 +1,58 @@
+<mat-card class="main">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="all">
+           <!-- For header  -->
+          <div class="header">
+              <h3>Edit Product</h3>
+          </div>        
+          <div class="body form-group">
+            <div class="pbody">
+                <div class="ppbody">               
+                    <mat-form-field>
+                        <input matInput placeholder="Product Name" formControlName="productName">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Category" formControlName="category"></textarea>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Tag" formControlName="tag">
+                      </mat-form-field>
+                      <mat-form-field >   
+                          <input matInput formControlName="quantity" placeholder="Quantity"
+                          class="formcontrol">{{Updatequantity}}                                                           
+                       <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style">
+                        
+                        <mat-button-toggle value="add" >Add</mat-button-toggle>
+                        <mat-button-toggle value="set" >Set</mat-button-toggle>
+                        <input type="number" value="00000" min="00000" class="quantity-field" 
+                        (input)="onUpdatequantity($event)">
+                        <mat-button-toggle value="save" class="btn-primary" (click)="Onaddvalue()">Save</mat-button-toggle>
+                   </mat-button-toggle-group>
+                    </mat-form-field>                                              
+                      <mat-form-field>
+                        <input matInput placeholder="Price per cost" formControlName="cost">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput placeholder="Sale price" formControlName="sale">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="pimg form-group">
+                  <img src="">              
+            </div> 
+          </div>
+        
+           <!-- For Button  -->
+          <div class="btn form-group">
+            <div class="subbtn">
+              <button type="reset" class="cancel btn-primary">Cancel</button>
+              <button class="save btn-primary" type="submit">Save</button>
+            </div>
+          </div>
+        </div>
+  </form> 
+  
+</mat-card>
