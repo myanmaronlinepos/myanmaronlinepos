@@ -1,95 +1,71 @@
-   
-      <div  class="chart">
-    <div class="chart1">
-      <div class="card">
-          <div class="card-header text-center"><h5><strong>Calendar</strong></h5>
-          </div>
-          <div class="card-body">
-       <full-calendar [plugins]="calendarPlugins" class="chartheight"></full-calendar> 
-      </div>
-      </div>
-    </div>
+   <div class="cover">
+    <div  class="chart">
+      <div class="chart1">
+      <mat-card class="chart2">
+              <!-- <mat-card-header>
+                <mat-card-title>Calendar</mat-card-title>
+              </mat-card-header> -->
+              <full-calendar [plugins]="calendarPlugins" class="chartheight"></full-calendar>
+       </mat-card>
+     </div> 
+
      <div class="chart1">
-       <div class="card">
-          <div class="card-header text-center"><h5><strong>Bar Chart</strong></h5>
-          </div>
-          <div class="card-body">
-          <canvas id="barChart" class="chartheight"></canvas> 
-        </div>
-       </div>
-       </div>
-      </div>
-         <div  class="chart">
-          <div class="chart1">
-            <div class="card">
-                <div class="card-header text-center"><h5><strong>Line Chart</strong></h5>
-                </div>
-                <div class="card-body">
-                <canvas id="lineChart" class="chartheight"></canvas>
-              </div>
-            </div>
-          </div>
-           <div class="chart1">
-             <div class="card">
-                <div class="card-header text-center"><h5><strong>Radar Chart</strong></h5>
-                </div>
-                <div class="card-body">
-                <canvas id="radarChart" class="chartheight"></canvas>
-              </div>
-             </div>
-             </div>
-            </div>
+        <mat-card class="chart2">
+                <!-- <mat-card-header class="barchart">
+                  <mat-card-title>Bar Chart</mat-card-title>
+                </mat-card-header> -->
+                <canvas id="barChart" ></canvas> 
+         </mat-card>
+       </div> 
+  </div> 
 
-<div class="chart">
-  <div class="chart1">
-    <div class="card">
-      <div class="card-header text-center"><h5> <strong> Pie Chart</strong></h5>
-      </div>
-      <div class="card-body">
-      <canvas id="pieChart" class="chartheight"></canvas>
-    </div>
-    </div>
-  </div>
-  <div class="chart1">
-    <div class="card">
-      <div class="card-header text-center"><h5><strong>Pie Chart</strong></h5>
-      </div>
-      <div class="card-body">
-        <canvas id="pieChart1" class="chartheight"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
-            
 
- 
-<!-- <div class="table">
-  <div class="row">
-    <div class="col">Calendar</div>
-    <div class="col">Bar Chart</div>
-  </div>
-  <div class="row">
-    <div class="col"><full-calendar [plugins]="calendarPlugins"></full-calendar></div>
-    <div class="col"> <canvas id="barChart"></canvas></div>
-  </div>
+  <div  class="chart">
+      <div class="chart1">
+      <mat-card class="chart4">
+              <!-- <mat-card-header>
+                <mat-card-title>Line Chart</mat-card-title>
+              </mat-card-header> -->
+              <canvas id="lineChart" class="chartheight"></canvas>
+       </mat-card>
+     </div> 
+
+     <div class="chart1">
+        <mat-card class="chart4">
+                <!-- <mat-card-header>
+                  <mat-card-title>Radar Chart</mat-card-title>
+                </mat-card-header> -->
+                <canvas id="radarChart" class="chartheight"></canvas>  
+         </mat-card>
+       </div> 
+  </div> 
+
+  <div  class="chart">
+      <div class="chart1">
+      <mat-card class="chart4">
+              <!-- <mat-card-header>
+                <mat-card-title>Pie Chart</mat-card-title>
+              </mat-card-header> -->
+              <canvas id="pieChart" class="chartheight"></canvas>
+       </mat-card>
+     </div> 
+
+     <div class="chart1">
+        <mat-card class="chart4">
+                <!-- <mat-card-header>
+                  <mat-card-title>Pie Chart</mat-card-title>
+                </mat-card-header> -->
+                <canvas id="pieChart1" class="chartheight"></canvas>
+         </mat-card>
+       </div> 
+  </div> 
 </div>
-<div class="table">
-    <div class="row">
-      <div class="col">Line Chart</div>
-      <div class="col">Radar Chart</div>
-    </div>
-    <div class="row">
-      <div class="col"><canvas id="lineChart"></canvas></div>
-      <div class="col"> <canvas id="radarChart"></canvas> </div>
-    </div>
-  </div>
-  <div class="table">
-      <div class="row">
-        <div class="col">Pie Chart</div>
-        <div class="col">Pie Chart</div>
-      </div>
-      <div class="row">
-        <div class="col"><canvas id="pieChart"></canvas></div>
-        <div class="col"> <canvas id="pieChart1"></canvas> </div>
-      </div>
-    </div> -->
+       
+         
+
+      
+
+        
+     
+             
+
