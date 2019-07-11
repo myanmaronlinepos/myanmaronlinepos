@@ -1,32 +1,31 @@
-<mat-card>
+<mat-card class="txt-card">
     <div class="all">
       <div class="header">
-        <h4>Detail of Product</h4>
+        <span>Detail of Product</span>
       </div>
   
-      <div class="body">
+      <div class="bodypart">
         <div class="part1">
-          <div class="list">
               <span>Product Name:</span>
               <span>Category:</span>
               <span>Tag:</span>
               <span>Note:</span>
-          </div>
-          <div class="img">
-            <div class="subimg">
-              <img src="assets/product.jpg">
-            </div>
+        </div>
+        <div class="img">
+          <div class="subimg">
+            <img src="assets/product.jpg">
           </div>
         </div>
+      </div>
     
         <div class="part2">
           <div class="subpart2">
             <div class="subtxt">
-                <h4>Changes of Quantity and Price</h4>
+                <span>Changes of Quantity and Price</span>
             </div>
           </div>
           
-          <div class="mat-elevation-z8">
+          <div class="mat-elevation-z8 tablepart">
               <table mat-table [dataSource]="dataSource">
             
                 <!--- Note that these columns can be defined in any order.
@@ -59,12 +58,12 @@
                 </ng-container>
     
                 <ng-container matColumnDef="cost">
-                  <th mat-header-cell *matHeaderCellDef>PricePerCost</th>
+                  <th mat-header-cell *matHeaderCellDef>Price per Cost</th>
                   <td mat-cell *matCellDef="let product"> {{product.cost}} </td>
                 </ng-container>
     
                 <ng-container matColumnDef="sale">
-                  <th mat-header-cell *matHeaderCellDef>PricePerSale</th>
+                  <th mat-header-cell *matHeaderCellDef>Price per Sale</th>
                   <td mat-cell *matCellDef="let product"> {{product.sale}} </td>
                 </ng-container>
             
@@ -73,7 +72,6 @@
               </table>
               <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
           </div>
-        </div>
       </div>
-    </div>
-  </mat-card>
+  </div>
+</mat-card>

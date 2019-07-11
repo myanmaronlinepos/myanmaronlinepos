@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material';
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
+import { EditCategoryComponent } from '../edit-category/edit-category.component';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { AssignproductComponent } from '../../assignproduct/assignproduct.compon
 
 export class CategoryComponent implements OnInit {
 
+  editItem=[];
   displayedColumns: string[] = ['categoryname','assignproduct','btn'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
@@ -54,8 +56,14 @@ export class CategoryComponent implements OnInit {
         window.alert("Save Successful!");
 
     });
-}
+  }
 
+  onEdit():void {
+    const dialogRef=this.dialog.open(EditCategoryComponent,{});
+    dialogRef.afterClosed().subscribe(result=> {
+      
+    })
+  }
 }
 
 export interface PeriodicElement {

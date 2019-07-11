@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { ProductsComponent } from './layout/products/products.component';
@@ -31,13 +31,14 @@ import { HomeBodyComponent } from './home/home-body/home-body.component';
 import { AssignproductComponent } from './layout/assignproduct/assignproduct.component';
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
-import { AddProductComponent } from './layout/products/all-products/add-product/add-product.component';
+import { AddProductComponent } from './layout/products/add-product/add-product.component';
 
 import {TagComponent} from './layout/products/tag/tag.component';
 import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
+import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { EditProductComponent } from './layout/products/all-products/edit-produc
     TagComponent,
     NewTagsComponent,
     DetailProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    EditCategoryComponent
     
   ],
   imports: [
@@ -79,6 +81,7 @@ import { EditProductComponent } from './layout/products/all-products/edit-produc
     RoutingModule,
     MatTableModule,
     ImportedModules,
+    FullCalendarModule,
     ReactiveFormsModule
   ],
   entryComponents:[
