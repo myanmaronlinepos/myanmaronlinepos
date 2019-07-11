@@ -18,11 +18,13 @@ export class DashboardComponent implements OnInit {
   BarChart:any=[];
   PieChart:any=[];
   RadarChart:any=[];
+  AreaChart:any=[];
   // labels:string[]  = ["January","February","March","April", "May"] ;
 
  constructor() { }
 
   ngOnInit() {
+   
     this.RadarChart=new Chart('radarChart',{
       type:'radar',
       data:{
@@ -49,7 +51,7 @@ export class DashboardComponent implements OnInit {
       },
       options:{
         title:{
-          text:" Radar Chart",
+          text:" ",
           display:true
         },
 // scales:{
@@ -76,7 +78,7 @@ export class DashboardComponent implements OnInit {
       },
       options:{
         title:{
-          text:" Pie Chart",
+          text:" Cost",
           display:true
         },
 // scales:{
@@ -103,7 +105,7 @@ export class DashboardComponent implements OnInit {
       },
       options:{
         title:{
-          text:" Pie Chart",
+          text:"Income",
           display:true
         },
 // scales:{
@@ -140,7 +142,7 @@ export class DashboardComponent implements OnInit {
     },
       options:{
         title:{
-          text:" Bar Chart",
+          text:" ",
           display:true
         },
 scales:{
@@ -180,7 +182,7 @@ scales:{
       },
       options:{
         title:{
-          text:"Line Chart",
+          text:" ",
           display:true
         },
         scales:{
@@ -192,8 +194,9 @@ scales:{
         }
       }
     });
+   
+  
   }
-
 }
 
  
