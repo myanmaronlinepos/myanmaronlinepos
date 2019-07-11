@@ -79,8 +79,7 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
     RoutingModule,
     MatTableModule,
     ImportedModules,
-    dashboard/kyawtsandaraung
-    FullCalendarModule
+    FullCalendarModule,
     ReactiveFormsModule
   ],
   entryComponents:[
