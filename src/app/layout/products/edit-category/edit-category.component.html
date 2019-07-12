@@ -1,12 +1,12 @@
 <div>
   <span>Rename to:</span>
   <div>
-    <mat-form-field>
-      <input matInput >
+    <mat-form-field >
+      <input matInput [(ngModel)]="category.categoryname">
     </mat-form-field>
   </div>
   <div class="btn">
     <button class="cancelbtn">Cancel</button>
-    <button class="okbtn">Ok</button>
+    <button class="okbtn" (click)="Rename()">Ok</button>
   </div>
 </div>
