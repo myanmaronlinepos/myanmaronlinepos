@@ -39,7 +39,10 @@ text-transform: uppercase;
 .sideheader {
   height: 40px !important;
 }
-::ng-deep .mat-list-base {
+//  ::ng-deep .mat-expansion-panel-content.ng-trigger.ng-trigger-bodyExpansion{
+//    padding: 0px;
+//  }
+.mat-list-base {
   padding-top: 0px;
 }
 .mat-expansion-panel:last-of-type {
@@ -49,18 +52,21 @@ text-transform: uppercase;
 .mat-line {
   font-size: 12px !important;
 }  
-.mat-line:hover {
+.mat-line a:hover {
   color: blue;
 }
 .margin:hover {
   color: blue;
 }
 .mat-nav-list-margin {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .margin {
   margin-left: 20px;
+}
+.list {
+  padding: 0px;
 }
 
 img {
@@ -83,4 +89,3 @@ img {
     width: 100%;
   }
 }
-

@@ -46,7 +46,7 @@ export class CategoryComponent implements OnInit {
       console.log('The dialog was closed');
       if(result=='save')
         window.alert("Save Successful!");
-
+        
     });
   }
 
@@ -65,8 +65,12 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  onEdit():void {
-    const dialogRef=this.dialog.open(EditCategoryComponent,{});
+  onEdit(row:ItemCategory):void {
+    
+    this.categoryservice.setCategory(row);
+     const dialogRef=this.dialog.open(EditCategoryComponent,{
+       width: '300px',
+     });
     dialogRef.afterClosed().subscribe(result=> {
       
     })

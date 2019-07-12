@@ -44,6 +44,7 @@ export class SellTableComponent implements OnInit {
   onClickRow(row) {
     if(!this.selectedRow.includes(row)){
      this.sellservice.addItem(row);  
+     console.log(this.selectedRow);
     }else{
         this.sellservice.removeItem(row);
     }
