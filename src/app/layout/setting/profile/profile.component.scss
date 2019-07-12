@@ -9,6 +9,7 @@
     flex-direction: column;
     margin-left: 20px;
     margin-right: 20px;
+    text-transform: initial;
 }
 
 .detail {
@@ -42,15 +43,31 @@
 .btn {
     flex-direction: row;
 }
-img {
-    width: 320px;
-    height: 280px;
-    border-radius: 10px;
+.btn > a {
+    text-decoration: none;
+    color: white;
 }
 .subbtn1, .subbtn2 {
     width: 100px;
     background-color: darkcyan;
     color: white;
+}
+label > input {
+    display: none;
+}
+.image-upload-container {
+    cursor: pointer;
+}
+.img-preview-container {
+    position: relative;
+
+    .img-preview {
+        background: center center no-repeat;
+        background-size: 320px 280px;
+        width: 320px;
+        height: 280px;
+        border-radius: 10px;
+    }
 }
 .subbtn1, .pwdbtn1 {
     margin-right: 3px;
@@ -84,7 +101,7 @@ button {
     color: white;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 815px) {
     .shopimg {
         display: none;
     }

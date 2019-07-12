@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/category.service';
+import { ItemCategory } from 'src/app/share/models/itemCategory';
 
 @Component({
   selector: 'app-edit-category',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCategoryComponent implements OnInit {
 
-  constructor() { }
+  category:ItemCategory;
+  constructor(
+    private categoryservice: CategoryService
+  ) {}
+
+  Rename() {
+  }
 
   ngOnInit() {
+    this.category=this.categoryservice.getSelectedCategory();
+    console.log(this.category.categoryname);
   }
 
 }
