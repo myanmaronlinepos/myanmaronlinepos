@@ -25,6 +25,7 @@ import { SellTableComponent } from './layout/sell/sell-table/sell-table.componen
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
 import { AddProductComponent } from './layout/products/add-product/add-product.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
+import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 
 
@@ -52,6 +53,7 @@ const routes: Routes = [
                     { path: "inventory", component: InventoryComponent },
                     { path: "addproduct", component: AddProductComponent},
                     { path: "detailproduct", component: DetailProductComponent},
+                    {path:"editproduct", component: EditProductComponent},
                     { path: "editcategory", component: EditCategoryComponent },
                     {path: "tag", component: TagComponent}
                 ]
