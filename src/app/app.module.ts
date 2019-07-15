@@ -87,7 +87,8 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
   entryComponents:[
     NewCategoryComponent,
     AssignproductComponent,
-    NewTagsComponent
+    NewTagsComponent,
+    EditProductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
