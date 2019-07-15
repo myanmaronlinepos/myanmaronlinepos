@@ -1,15 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>profile</title>
-</head>
-<body>
-     
-
-    <mat-sidenav-container class="mysidenav">
+<!-- <mat-sidenav-container class="mysidenav">
         <mat-sidenav #sidenav>
           <p><button mat-button (click)="sidenav.toggle()" class="closeside">X</button></p>
           <div class=".sidenav">
@@ -73,6 +62,38 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="sidebar">
+  <div class="side">
+    <ul class="mainmenu">
+      <li>
+        <img src="assets/dashboard.png">
+        <a routerLink="../dashboard/dashboard">Dashboard</a>
+      </li>
+      <li>
+            <img src="assets/product-icon.png">
+            <a (click)="viewMenu()">Product <span>&raquo;</span></a>
+            <ul class="submenu" *ngIf="viewmenu">
+              <li><a routerLink="../dashboard/products/allproducts">All Product</a></li>
+              <li><a routerLink="../dashboard/products/inventory">Inventory</a></li>
+              <li><a routerLink="../dashboard/products/category">Category</a></li>
+              <li><a routerLink="../dashboard/products/tag">Tag</a></li>
+            </ul>
+      </li>
+      <li>
+        <img src="assets/sell.png">
+        <a routerLink="../dashboard/sell/sell-table">Sell</a>
+      </li>
+      <li>
+        <img src="assets/order.png">
+        <a>Order</a>
+      </li>
+      <li>
+        <img src="assets/setting.png">
+        <a routerLink="../dashboard/setting">Setting</a>
+      </li>
+    </ul>
+</div>
+
+<!-- <div class="sidebar">
   <mat-accordion>
     <mat-expansion-panel class="sidepanel">
       <mat-expansion-panel-header class="sideheader">
@@ -140,7 +161,8 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+-->
 
 <div class="main">
   <router-outlet></router-outlet>
-</div>
+</div> 

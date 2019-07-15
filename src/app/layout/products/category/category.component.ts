@@ -34,11 +34,19 @@ export class CategoryComponent implements OnInit {
     this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
     this.dataSource.paginator = this.paginator;
   }
+
+  delete(element) {
+    this.dataSource.data = this.dataSource.data
+      .filter(i => i !== element)
+      .map((i, idx) => (i.id = (idx + 1), i));
+    console.log(this.dataSource.data);
+    console.log("deleted"+element);
+  }
   
   createCategory(): void {
     const dialogRef=this.dialog.open(NewCategoryComponent,{
       width: '500px',
-      height: '300px' 
+      height: '280px' 
     });
 
 
