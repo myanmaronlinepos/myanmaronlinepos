@@ -1,39 +1,26 @@
 //This is all
 .coverall{
-  left:5%;
-  
   position: relative;
+ 
 }
 // This is paragraph modification
  .para{
-   font-size:22px;
+   font-size:20px;
     text-transform: none ;
- }
-//   /* this is logo image modification */
-a{
-  left:1%;
-}
+    }
+//   this is logo image modification 
+
 .Logo{
    height:30px;
    width:30px;
-
 }
-.coverlogo{
-  padding-left:70%;
-  padding-bottom: 2%;
-}
-
-  
-  // this is table styling
+//this is table styling
   .mat-header-cell{
-    font-size:20px;
     text-transform:none;
   }
   .mat-cell{
-    font-size:16px;
     text-transform:initial;
-
-  }
+ }
  table{
    width:100%;
    border: 0;
@@ -54,23 +41,71 @@ a{
  .mat-column-updatequantity {
   width:32%;
  }
-//  .covertable{
-  // 
-//  }
- .quantity-field{
-   
-  background-color: #fff;
-  border:1px solid #ccc;
-  border-radius:none;
-  font-size: 16px;
-  width: 4.5rem;
-  padding:0 0 0 0;
+#feynman:hover + #feynman_text{
+  opacity:1;
+}
+#feynman_text:hover{
+  opacity:1;
+}
+ 
+#feynman_text{
+  position: absolute;
+  top:0%;
+   text-align:center;
+  font-size: 13px;
+  //  width:90px;
+  opacity:0;
+  text-transform:none;
+  left: 80%;
+  bottom: 10px;
   
- }
- ::ng-deep tr{
-   border:none;
-   vertical-align: none;
- }
- .btn-info{
-  width: 4.5rem;
- }
+}
+
+img {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left:5px;
+  
+}
+.subimg {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: space-around;
+  padding-left: 80%;
+}
+.quantity-field{
+  width:60px;
+}
+@media only screen and (max-width: 991px){
+  coverall{
+     position: relative;
+  }
+  table{
+    width:100%;
+    border: 0;
+   }
+  
+  .mat-column-no {
+   width:12%;
+  }
+  .mat-column-name {
+   width:22%;
+  }
+  .mat-column-category {
+   width:22%;
+  }
+  .mat-column-quantity {
+   width:22%;
+  }
+  .mat-column-updatequantity {
+   width:32%;
+  }
+  .quantity-field{
+    width:60px;
+}
+}
