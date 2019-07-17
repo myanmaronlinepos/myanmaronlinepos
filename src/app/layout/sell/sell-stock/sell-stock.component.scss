@@ -1,3 +1,37 @@
 table {
     width: 100%;
 }
+.btn-gp {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+}
+.subbtn-gp {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.first-btn {
+    display: flex;
+    width: 50%;
+}
+.second-btn {
+    display: flex;
+    width: 50%;
+    margin-left: 60%;
+}
+.cancel-btn {
+    margin-right: 30px;
+    width: 80px;
+}
+.save-btn {
+    width: 80px;
+}
+
+td span.only-show-on-hover {
+    visibility: hidden;
+}
+td:hover span.only-show-on-hover  {
+    visibility: visible;
+}

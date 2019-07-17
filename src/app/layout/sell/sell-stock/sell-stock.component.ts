@@ -12,7 +12,7 @@ import { SellItem } from 'src/app/share/models/SellItem';
 })
 export class SellStockComponent implements OnInit {
 
-  displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice'];
+  displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice','in-decrease'];
   items:SellItem[]=[];
   dataSource : MatTableDataSource<SellItem>;
   selectedRow:number[]=[];

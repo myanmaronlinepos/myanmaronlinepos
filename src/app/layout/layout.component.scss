@@ -1,4 +1,31 @@
+// .sidebar {
+//   height: 100%;
+//   width: 200px;
+//   position: fixed;
+//   z-index: 1001;
+//   top: 60px;
+//   left:0px;
+//   background-color: #E5E4E2;
+//   padding-top: 0px;
+// }
+
+// .sidebar a {
+//   padding: 6px 8px 6px 16px;
+//   text-decoration: none;
+//   font-size: 20px;
+//   display: block;
+// }
+* {
+  margin: 0;
+  padding: 0;
+}
 .sidebar {
+  // position: fixed;
+  // top: 60px;
+  // width: 190px;
+  // height: 100%;
+  // background-color: #E5E4E2;
+
   height: 100%;
   width: 200px;
   position: fixed;
@@ -9,75 +36,102 @@
   padding-top: 0px;
 }
 
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
+.sidebar li {
+  color: black;
   font-size: 20px;
-  display: block;
+  list-style: none;
+  cursor: pointer;
+  text-decoration: none;
 }
+.mainmenu > li {
+  border-bottom: 1px solid gray;
+  padding: 10px;
+}
+.submenu {
+  visibility: visible;
+  margin-left: 35px;
+  padding: 5px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+ul li a:focus {
+  color: blue;
+}
+span {
+  width: 35px;
+}
+// .mainmenu li span {
+//   display: block;
+// }
 
 .main {
   padding:20px;
-  position: relative;
+  position: fixed;
   width:80%;
   top:60px;
   left:200px;
   z-index:1000;
-
 }
 
-a,
-mat-line,
-div,
-mat-expansion-panel-header,
-mat-panel-title {
-color: black !important;
-text-transform: uppercase;
-}
+// a,
+// mat-line,
+// div,
+// mat-expansion-panel-header,
+// mat-panel-title {
+// color: black !important;
+// text-transform: uppercase;
+// }
 
 
-.sideheader {
-  height: 40px !important;
-}
-//  ::ng-deep .mat-expansion-panel-content.ng-trigger.ng-trigger-bodyExpansion{
-//    padding: 0px;
-//  }
-.mat-list-base {
-  padding-top: 0px;
-}
-.mat-expansion-panel:last-of-type {
-  background-color: #E5E4E2;
-}
+// .sideheader {
+//   height: 40px !important;
+// }
+// //  ::ng-deep .mat-expansion-panel-content.ng-trigger.ng-trigger-bodyExpansion{
+// //    padding: 0px;
+// //  }
+// .mat-list-base {
+//   padding-top: 0px;
+// }
+// .mat-expansion-panel:last-of-type {
+//   background-color: #E5E4E2;
+// }
 
-.mat-line {
-  font-size: 12px !important;
-}  
-.mat-line a:hover {
-  color: blue;
-}
-.margin:hover {
-  color: blue;
-}
-.mat-nav-list-margin {
-  margin-left: 20px;
-}
+// .mat-line {
+//   font-size: 12px !important;
+// }  
+// .mat-line a:hover {
+//   color: blue;
+// }
+// .margin:hover {
+//   color: blue;
+// }
+// .mat-nav-list-margin {
+//   margin-left: 20px;
+// }
 
-.margin {
-  margin-left: 20px;
-}
-.list {
-  padding: 0px;
-}
+// .margin {
+//   margin-left: 20px;
+// }
+// .list {
+//   padding: 0px;
+// }
 
 img {
   width: 23px;
   height: 23px;
+  margin-right: 20px;
 }
 
-.mat-accordion .mat-expansion-panel:last-of-type {
-  border-radius: 0px; 
-  border-radius: 0px;
-}
+// .mat-accordion .mat-expansion-panel:last-of-type {
+//   border-radius: 0px; 
+//   border-radius: 0px;
+// }
 
 @media screen and (max-width: 991px) {
   .sidebar {

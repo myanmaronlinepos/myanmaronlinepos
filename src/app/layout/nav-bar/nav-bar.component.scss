@@ -53,7 +53,9 @@
   background-color: #E5E4E2;
   top: 60px;
   padding-top: 10px;
-  width: 150px;
+  padding-left: 30px;
+  width: 200px;
+  height: 100px;
 }
 .viewmenu li {
   list-style: none;
@@ -61,10 +63,11 @@
 }
 .viewmenu li a {
   color: black;
+  cursor: pointer;
   text-decoration: none;
 }
 .viewmenu li a:hover {
-  color: red;
+  color: blue;
 }
 // For Sidebar
 @media screen and (min-width:991px){
