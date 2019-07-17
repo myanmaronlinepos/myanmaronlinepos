@@ -26,16 +26,26 @@
           check your phone number</mat-error>
       </mat-form-field>
 
-      <mat-form-field class="textbox">
+      <!-- <mat-form-field class="textbox">
         <mat-label>Select city</mat-label>
         <mat-select>
           <mat-option *ngFor="let city of citys" [value]="city.city_id" formControlName="city">
             {{city.city_name}}
           </mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
 
       <!-- </mat-form-field> -->
+      <mat-form-field class="textbox">
+        <mat-label>Select city</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let city of cities" [value]="city.id">
+            {{city.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      
       <mat-form-field class="textbox">
         <textarea matInput placeholder="Address" formControlName="address" id="address" maxlength="100"></textarea>
         <mat-error *ngIf="!detailForm.get('address').valid && detailForm.get('address').touched" class="help-block">
