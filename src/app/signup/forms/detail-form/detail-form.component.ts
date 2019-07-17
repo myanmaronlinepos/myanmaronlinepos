@@ -5,6 +5,11 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { EmitterService } from 'src/app/share/services/emitter.service';
 import { SignupModel } from '../signupModel';
+export interface Food {
+  value: string;
+  viewValue: string;
+}
+
 
 @Component({
   selector: 'app-detail-form',
@@ -13,6 +18,12 @@ import { SignupModel } from '../signupModel';
 })
 
 export class DetailFormComponent implements OnInit {
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
+
   showStore: boolean = false;
   sellbuy = ['Sell', 'Buy']
   detailForm: FormGroup;
@@ -94,11 +105,5 @@ export class DetailFormComponent implements OnInit {
 
 //   ];
 // }
-// export class SelectOverviewExample {
-//   foods: Food[] = [
-//     { value: 'steak-0', viewValue: 'Steak' },
-//     { value: 'pizza-1', viewValue: 'Pizza' },
-//     { value: 'tacos-2', viewValue: 'Tacos' }
-//   ];
-// }
+
 

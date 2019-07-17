@@ -44,7 +44,7 @@ displayedColumns: string[] = ['no', 'name', 'category', 'quantity','updatequanti
 dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
 Updatequantity='';
-Savebuttonwork=false;
+Savebuttonwork='';
 
 
 
@@ -58,8 +58,10 @@ Savebuttonwork=false;
    onUpdatequantity(row: Event){
      this.Updatequantity=(<HTMLInputElement>event.target).value;
      }
-     Onsetvalue(){
-    }
+     Onaddvalue(event: any){
+       this.Savebuttonwork=this.Updatequantity;
+
+     }
 
 }
 
