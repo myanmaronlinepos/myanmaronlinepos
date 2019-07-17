@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { EmitterService } from 'src/app/share/services/emitter.service';
 import { SignupModel } from '../signupModel';
-export interface City {
- id : number;
+export interface Food {
+  value: string;
   viewValue: string;
 }
 
@@ -18,11 +18,10 @@ export interface City {
 })
 
 export class DetailFormComponent implements OnInit {
-  cities: City[] = [
-    {id: 0, viewValue: 'Mandalay'},
-    {id: 1, viewValue: 'Yangon'},
-    {id: 2, viewValue: 'Monywa'},
-    {id: 3, viewValue: 'Shwebo'}
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
   showStore: boolean = false;
@@ -30,6 +29,12 @@ export class DetailFormComponent implements OnInit {
   detailForm: FormGroup;
 
   mainFormData:SignupModel;
+  signupData: User;
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private emitterService: EmitterService) {
+    }
     
     ngOnInit() {
 
@@ -91,7 +96,14 @@ export class DetailFormComponent implements OnInit {
 
 
 }
+// export class Selectcity {
+//   cities: City[] = [
+//     {city_id:1, city_name:'Yangon'},
+//     {city_id:2, city_name:'Monywa'},
+//     {city_id:3, city_name:'Mandalay'},
+//     {city_id:4, city_name:'Shwebo'},
 
-
+//   ];
+// }
 
 
