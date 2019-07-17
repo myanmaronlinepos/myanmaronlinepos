@@ -7,26 +7,8 @@
               <mat-form-field class="ltr">
                 <mat-label>Category</mat-label>
                 <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
-                  <mat-option>
-                    <mat-checkbox Value="Cigerattes" [ngModel]="true">Cigerattes</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Coffee</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Juices</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Sunflower Seeds</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Beer</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Bread</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Cake</mat-checkbox>
+                  <mat-option *ngFor="let category of categories">
+                      <mat-checkbox>{{category}}</mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -35,14 +17,8 @@
               <mat-form-field class="ltr">
                 <mat-label>Tags</mat-label>
                 <mat-select [value]="selected" (OnChange)="log($event)">
-                  <mat-option>
-                    <mat-checkbox>3 buy 1 get</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>for 18+</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox Value="for all" [ngModel]="true">for all</mat-checkbox>
+                  <mat-option *ngFor="let tag of tags">
+                    <mat-checkbox>{{tag}}</mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>

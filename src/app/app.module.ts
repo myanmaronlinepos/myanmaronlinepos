@@ -39,6 +39,7 @@ import { DetailProductComponent } from './layout/products/detail-product/detail-
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
+import { DeleteCategoryComponent } from './layout/products/delete-category/delete-category.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
     NewTagsComponent,
     DetailProductComponent,
     EditProductComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    DeleteCategoryComponent
     
   ],
   imports: [
@@ -88,6 +90,8 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
     NewCategoryComponent,
     AssignproductComponent,
     NewTagsComponent,
+    EditProductComponent, 
+    DeleteCategoryComponent,
     EditProductComponent
   ],
   providers: [],
