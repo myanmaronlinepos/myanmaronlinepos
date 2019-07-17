@@ -4,11 +4,11 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { NewCategoryComponent } from '../new-category/new-category.component';
 import { MatPaginator } from '@angular/material';
 
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
 import { EditCategoryComponent } from '../edit-category/edit-category.component';
 import { ItemCategory } from 'src/app/share/models/itemCategory';
 import { CategoryService } from 'src/app/category.service';
+import { DeleteCategoryComponent } from '../delete-category/delete-category.component';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { CategoryService } from 'src/app/category.service';
 
 export class CategoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['categoryname','assignproduct','btn'];
+  displayedColumns: string[] = ['categoryname','assignproduct','action'];
   categories:ItemCategory[]=[];
   dataSource: MatTableDataSource<ItemCategory>;
 
@@ -35,13 +35,13 @@ export class CategoryComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  delete(element) {
-    this.dataSource.data = this.dataSource.data
-      .filter(i => i !== element)
-      .map((i, idx) => (i.id = (idx + 1), i));
-    console.log(this.dataSource.data);
-    console.log("deleted"+element);
-  }
+  // delete(element) {
+  //   this.dataSource.data = this.dataSource.data
+  //     .filter(i => i !== element)
+  //     .map((i, idx) => (i.id = (idx + 1), i));
+  //   console.log(this.dataSource.data);
+  //   console.log("deleted"+element);
+  // }
   
   createCategory(): void {
     const dialogRef=this.dialog.open(NewCategoryComponent,{
@@ -77,13 +77,38 @@ export class CategoryComponent implements OnInit {
     
     this.categoryservice.setCategory(row);
      const dialogRef=this.dialog.open(EditCategoryComponent,{
-       width: '300px',
+       width: '300px'
      });
     dialogRef.afterClosed().subscribe(result=> {
       
     })
   }
+
+  onDelete(action, obj) {
+    obj.action= action;
+    const dialogRef=this.dialog.open(DeleteCategoryComponent,{
+      width: '320px',
+      height: '130px',
+      data: obj
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event=='Delete') {
+        this.deleteRowData(result.data);
+      }
+    });
+  }
+
+
+  deleteRowData(row_obj) {
+    this.categories=this.categories.filter((value,key)=>{
+      return value.id != row_obj.id;
+    });
+    this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
+  }
 }
+
 
 
 

@@ -15,6 +15,8 @@ export class SellTableComponent implements OnInit {
 
   selectedRow=[];
   displayedColumns: string[] = ['number', 'name', 'category', 'tag', 'quantity','price'];
+  categories:string[]=["Coffee","Ice-cream","Bread","Cake"];
+  tags:string[]=["3 buy 1 get", "for 18+", "for all"];
   items:SellItem[]=[];
   dataSource: MatTableDataSource<SellItem>;
 
