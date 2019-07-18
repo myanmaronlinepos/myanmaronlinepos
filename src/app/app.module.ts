@@ -91,7 +91,8 @@ import { DeleteCategoryComponent } from './layout/products/delete-category/delet
     AssignproductComponent,
     NewTagsComponent,
     EditProductComponent, 
-    DeleteCategoryComponent
+    DeleteCategoryComponent,
+    EditProductComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
