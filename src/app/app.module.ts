@@ -39,6 +39,8 @@ import { DetailProductComponent } from './layout/products/detail-product/detail-
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,10 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
     MatTableModule,
     ImportedModules,
     FullCalendarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
+
   ],
   entryComponents:[
     NewCategoryComponent,
