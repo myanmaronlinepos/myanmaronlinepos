@@ -38,6 +38,7 @@ import { NewTagsComponent } from './layout/products/new-tags/new-tags.component'
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
+import { DeletetagComponent } from './layout/products/all-products/deletetag/deletetag.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { EditProductComponent } from './layout/products/all-products/edit-produc
     TagComponent,
     NewTagsComponent,
     DetailProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    DeletetagComponent
     
   ],
   imports: [
@@ -84,7 +86,8 @@ import { EditProductComponent } from './layout/products/all-products/edit-produc
   entryComponents:[
     NewCategoryComponent,
     AssignproductComponent,
-    NewTagsComponent
+    NewTagsComponent,
+    DeletetagComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
