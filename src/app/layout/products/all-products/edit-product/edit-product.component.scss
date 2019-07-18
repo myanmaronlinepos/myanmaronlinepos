@@ -102,7 +102,7 @@ h3 {
         display: block;
     }
     .main {
-        left: 50px;
+        left: 0px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -112,21 +112,36 @@ h3 {
         border-radius: 10px;
     }
 }
-.quantity-field{
-   
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .4375em 0;
+    width: 300px;
+}
+.quantity-field, .quantity-field1{
     background-color: #fff;
     border:1px solid #ccc;
     border-radius:none;
-    font-size: 16px;
-    width: 4.5rem;
+    font-size: 14px;
+    width: 4rem;
     padding:0 0 0 0;
    }
-   mat-button-toggle-group{
-       left:50%;
-       width: 50%;
-       height: auto;
-       border-radius: 5px;
-   }
+//    .qty{
+//        border: 1px solid #555;
+//        box-sizing: border-box;
+//        width: 5rem;
+//        height: 2rem;
+//        margin-left: 20%;
+//        text-align: center;
+      
+//    }
+   .toggle-group{
+    left: 18%;
+    //padding-right: 20%;
+  //width: 65%;
+   height: auto;
+   border-radius: 5px;
+  // margin-right: 15%;
+}
   
- 
-   
+
+
+
