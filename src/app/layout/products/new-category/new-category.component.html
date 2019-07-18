@@ -6,12 +6,12 @@
     <div>
       <span>Category Name:</span>
       <mat-form-field >
-        <input matInput placeholder="Name">
+        <input matInput placeholder="Name" [(ngModel)]="local_data.categoryname">
       </mat-form-field>
     </div>
   </div>
   <div mat-dialog-actions>
-    <div><button mat-button (click)="onNoClick()">Cancel</button></div>
-    <div><button mat-button matDialogClose="save" (click)="onSave()">Save</button></div>
+    <div><button mat-button (click)="closeDialog()">Cancel</button></div>
+    <div><button mat-button (click)="doAction()">Save</button></div>
   </div>
 </div>
