@@ -12,7 +12,7 @@ import { SellItem } from 'src/app/share/models/SellItem';
 })
 export class SellStockComponent implements OnInit {
 
-  displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice','in-decrease'];
+  displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice'];
   items:SellItem[]=[];
   dataSource : MatTableDataSource<SellItem>;
   selectedRow:number[]=[];
@@ -29,6 +29,10 @@ export class SellStockComponent implements OnInit {
     this.dataSource=new MatTableDataSource<SellItem>(this.items);
     this.dataSource.paginator = this.paginator;
   }
+
+  // getTotalCost() {
+  //   return this.items.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  // }
 }
 
 

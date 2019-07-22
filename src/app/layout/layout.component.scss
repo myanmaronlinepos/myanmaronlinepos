@@ -19,7 +19,6 @@
   font-size: 15px;
   list-style: none;
   cursor: pointer;
-  text-decoration: none;
 }
 .mainmenu > li {
   padding: 10px;
@@ -31,7 +30,9 @@
   font-size: 14px;
   margin-top: 5px;
 }
-
+.mainmenu a {
+  text-decoration: none;
+}
 
 .main {
   padding:20px;
@@ -48,15 +49,15 @@ img {
   margin-right: 20px;
 }
 
-ul li span:focus {
-  color: blue;
-}
+// ul li span:focus {
+//   color: blue;
+// }
 
 li:focus  {
   outline: 0;
   background-color: #f2f5f8;
   text-decoration: none;
-  color: #000000;
+  color: blue;
 }
 
 @media screen and (max-width: 991px) {

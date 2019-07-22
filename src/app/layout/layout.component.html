@@ -6,31 +6,31 @@
     <ul class="mainmenu">
       <li tabindex="0" routerLink="../dashboard/dashboard">
         <img src="assets/dashboard.png">
-        <span>Dashboard</span>
+        <a>Dashboard</a>
       </li>
       <li tabindex="0" (click)="viewMenu()">
             <img src="assets/product-icon.png">
-            <span>Product&raquo;</span>
+            <a>Product&raquo;</a>
             <ul class="submenu" *ngIf="viewmenu">
-              <li><span routerLink="../dashboard/products/allproducts">All Product</span></li>
-              <li><span routerLink="../dashboard/products/inventory">Inventory</span></li>
-              <li><span routerLink="../dashboard/products/category">Category</span></li>
-              <li><span routerLink="../dashboard/products/tag">Tag</span></li>
+              <li><a routerLink="../dashboard/products/allproducts">All Product</a></li>
+              <li><a routerLink="../dashboard/products/inventory">Inventory</a></li>
+              <li><a routerLink="../dashboard/products/category">Category</a></li>
+              <li><a routerLink="../dashboard/products/tag">Tag</a></li>
             </ul>
-      </li>
+      </li> 
 
       <li tabindex="0" routerLink="../dashboard/sell/sell-table">
         <img src="assets/sell.png">
-        <span>Sell</span>
+        <a>Sell</a>
       </li>
 
       <li tabindex="0">
         <img src="assets/order.png">
-        <span>Order</span>
+        <a>Order</a>
       </li>
       <li tabindex="0" routerLink="../dashboard/setting">
         <img src="assets/setting.png">
-        <span>Setting</span>
+        <a>Setting</a>
       </li>
     </ul>
   </div>
