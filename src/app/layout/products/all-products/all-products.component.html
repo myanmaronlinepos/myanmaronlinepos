@@ -4,68 +4,36 @@
       <div class="check">
         <div class="subcheck">
           <mat-form-field class="ltr">
-            <mat-label>Category</mat-label>
-            <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
-              <mat-option>
-                <mat-checkbox>Cigerattes</mat-checkbox>
+            <mat-label class="arrow">Category</mat-label>
+            <mat-select [value]="selected" (OnChange)="log($event)" >
+              <mat-option *ngFor="let cat of category">
+                <mat-checkbox>{{cat}}</mat-checkbox>
               </mat-option>
-              <mat-option >
-                  <mat-checkbox >Coffee</mat-checkbox>
-                </mat-option>
-                <mat-option >
-                    <mat-checkbox>Juices</mat-checkbox>
-                  </mat-option>
-                <mat-option>
-                  <mat-checkbox Value="Sunflower Seeds" [ngModel]="true">Sunflower Seeds</mat-checkbox>
-                </mat-option>
-                <mat-option>
-                  <mat-checkbox>Beer</mat-checkbox>
-                </mat-option>
-                <mat-option>
-                  <mat-checkbox>Bread</mat-checkbox>
-                </mat-option>
-                <mat-option>
-                  <mat-checkbox>Cake</mat-checkbox>
-                </mat-option>
             </mat-select>
           </mat-form-field>
+
     <mat-form-field class="ltr">
-      <mat-label>Tags</mat-label>
+      <mat-label class="arrow">Tags</mat-label>
       <mat-select [value]="selected" (OnChange)="log($event)">
-        <mat-option >
-          <mat-checkbox>3 buy 1 get</mat-checkbox>
+        <mat-option *ngFor="let tags of tag">
+          <mat-checkbox>{{tags}}</mat-checkbox>
         </mat-option>
-        <mat-option >
-            <mat-checkbox>for 18+</mat-checkbox>
-          </mat-option>
-          <mat-option >
-            <mat-checkbox Value="for all" [ngModel]="true">for all</mat-checkbox>
-          </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="ltr" *ngIf="dataSource">
-        <mat-label>Quantity</mat-label>
+        <mat-label class="arrow">Quantity</mat-label>
         <mat-select [value]="selected" (onChange)="log($event)">
-          <mat-option >
-            <mat-checkbox>less than 10</mat-checkbox>
+          <mat-option *ngFor="let qty of quantity">
+            <mat-checkbox>{{qty}}</mat-checkbox>
           </mat-option>
-          <mat-option >
-              <mat-checkbox>less than 20</mat-checkbox>
-            </mat-option>
-            <mat-option>
-              <mat-checkbox>less than 30</mat-checkbox>
-            </mat-option>
-            <mat-option>
-              <mat-checkbox Value="Cigerattes" [ngModel]="true">more than 50</mat-checkbox>
-            </mat-option>
         </mat-select>
         </mat-form-field>
       </div>
       </div>
         <div class="img">
           <div class="subimg">
-          <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"  ></a>
+          <a href="#" id='feynman'><img src="assets/login/import.png"  class="Logo"  ></a>
           <div id='feynman_text'> Import Product </div>
         
           <a href="#" id='feynman'><img src="assets/login/export.png"  class="Logo"></a>
@@ -90,11 +58,11 @@
           <td mat-cell *matCellDef="let element" class="imagehover">{{element.product_name}} 
               <span class="only-show-on-hover">
   
-                  <a href=" ">
+                  <a class="image">
                       <img src="assets/sharp-edit(1).svg" width="25px" height="25px">
                     </a>
 
-                    <a href=" ">
+                    <a class="image">
                       <img src="assets/details.svg" width="25px" height="25px">
                     </a>
                 </span>

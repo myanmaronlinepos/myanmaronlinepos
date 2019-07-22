@@ -33,7 +33,7 @@
  }
  .mat-column-name {
   width:20%;
-  cursor: pointer;
+  
  }
  .mat-column-category {
   width:22%;
@@ -50,7 +50,9 @@
  .mat-column-price {
   width:22%;
  }
-
+.image{
+  cursor: pointer;
+}
  .covertable{
   padding-left:10%;
  }
@@ -84,12 +86,14 @@
   left: 5%;
   
 }
+div >.arrow{
+  margin: 10px 300px;
+}
 .ltr{
- padding-left: 0px;
- text-align: center; 
+ text-align: left; 
 }
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
-  margin-left: 50px;
+  margin-left: 0px;
 }
 .choice {
   display: flex;
@@ -117,22 +121,24 @@
   display: flex;
   width: 20%;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-left: 75%;
 
 }
-// #table .icon{
-//   width:50px;
-// height:50px;
-// transition:all 0.5s;
-// opacity:0;
-// }
-// #table .row:hover .icon{
-// opacity:1;
-// }
 td span.only-show-on-hover {
   visibility: hidden;
 }
 td:hover span.only-show-on-hover  {
   visibility: visible;
+}
+@media only screen and (max-width:600px){
+  .subimg {
+    display: flex;
+    width: 20%;
+    flex-direction: row;
+    justify-content: space-around; 
+  }
+  div > .arrow{
+    margin: 0px 50px;
+  }
 }

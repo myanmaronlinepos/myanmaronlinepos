@@ -13,8 +13,6 @@ export class DeleteTagService {
     {id:5, productname:'Cookies',tag:'for all'},
   ];
   tag:ItemTag;
-
-
   constructor() { }
   getTag(){
     return this.tags;
@@ -26,5 +24,8 @@ export class DeleteTagService {
   }
   getSelectedTag(){
     return this.tag;
+  }
+  getId(){
+    return this.tags.length;
   }
 }
