@@ -86,7 +86,6 @@ loadData(){
       city_id: formValue.city,
     }
 
-
     this.authService.signup(this.signupData)
       .then((registered: boolean) => {
         if (registered) {
