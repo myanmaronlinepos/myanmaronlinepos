@@ -9,6 +9,8 @@ export interface City {
   id: number;
   viewValue: string;
 }
+
+
 @Component({
   selector: 'app-detail-form',
   templateUrl: './detail-form.component.html',
@@ -62,24 +64,28 @@ loadData(){
     }
 
   onSubmit() {
-    const formValue = this.detailForm.value;
-    const user_name = formValue.firstname + formValue.lastname;
+    this.isValidFormSubmitted = false;
 		if (this.detailForm.valid) {
-      this.signupData = {
-        user_name: user_name,
-        user_email: this.mainFormData.user_email,
-        user_password: this.mainFormData.user_password,
-        user_role: formValue.sell,
-        user_phone: formValue.Phone,
-        address: formValue.address,
-        storename: formValue.storename,
-        city_id: formValue.city,
-      }
-      this.emitterService.setData(this.signupData);
+      this.isValidFormSubmitted = true;
       this.router.navigate(['/dashboard/dashboard']);
-   }   else {
+		} else {
 			return;
 		}
+		
+    const formValue = this.detailForm.value;
+    const user_name = formValue.firstname + formValue.lastname;
+
+    this.signupData = {
+      user_name: user_name,
+      user_email: this.mainFormData.user_email,
+      user_password: this.mainFormData.user_password,
+      user_role: formValue.sell,
+      user_phone: formValue.Phone,
+      address: formValue.address,
+      storename: formValue.storename,
+      city_id: formValue.city,
+    }
+
 
     this.authService.signup(this.signupData)
       .then((registered: boolean) => {
@@ -92,7 +98,8 @@ loadData(){
       .catch((error) => {
         console.log(error);
       });
-  } 
+  }
+
 
   onSelect(event: any) {
     this.showStore = true;

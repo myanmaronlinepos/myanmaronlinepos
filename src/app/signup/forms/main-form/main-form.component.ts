@@ -44,7 +44,7 @@ this.loadingData=true;
       this.SignupData = {
         user_email:formValue.email,
         user_password:formValue.password
-       } 
+      }
        this.emitterService.setData(this.SignupData);
       this.router.navigate(['/home/signup/detail']);
 		} else {
