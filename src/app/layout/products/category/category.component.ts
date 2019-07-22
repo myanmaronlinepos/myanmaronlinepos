@@ -97,9 +97,9 @@ export class CategoryComponent implements OnInit {
   }
 
   addRowData(row_obj) {
-    var d = new Date();
+    
     this.categories.push({
-      id:d.getTime(),
+      id:this.categoryservice.getId()+1,
       categoryname:row_obj.categoryname
     });
     this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);

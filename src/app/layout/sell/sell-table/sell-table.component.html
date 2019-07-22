@@ -1,21 +1,21 @@
-<div class="main">
   <div class="choice">
-    <div class="subchoice">
         <div class="check">
-            <div class="subcheck">
+            <div class="subcheck1">
               <!-- For Categoty -->
-              <mat-form-field class="ltr">
-                <mat-label>Category</mat-label>
+              <mat-form-field class="ltr1">
+                <mat-label class="arrow1">Category</mat-label>
                 <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
                   <mat-option *ngFor="let category of categories">
                       <mat-checkbox>{{category}}</mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-      
+            </div>
+       
+            <div class="subcheck2">
               <!-- For Tag -->
-              <mat-form-field class="ltr">
-                <mat-label>Tags</mat-label>
+              <mat-form-field class="ltr2">
+                <mat-label class="arrow2">Tags</mat-label>
                 <mat-select [value]="selected" (OnChange)="log($event)">
                   <mat-option *ngFor="let tag of tags">
                     <mat-checkbox>{{tag}}</mat-checkbox>
@@ -26,12 +26,13 @@
           </div>
       
           <div class="btn">
-            <div class="subbtn">
-              <p>{{selectedRow.length}}Selected</p>
-              <a (click)="sellItem()"><img src="assets/sell-stock.png"></a>
+            <div class="btn1">
+                <p>{{selectedRow.length}}Selected</p>
+            </div>
+            <div class="btn2">
+                <a (click)="sellItem()"><img src="assets/sell-stock.png"></a>
             </div>
           </div>
-        </div> 
     </div>
     
 
@@ -80,4 +81,4 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
-</div>
+
