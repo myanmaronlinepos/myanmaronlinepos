@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { EmitterService } from 'src/app/share/services/emitter.service';
 import { SignupModel } from '../signupModel';
-export interface Food {
-  value: string;
+export interface City {
+  id: number;
   viewValue: string;
 }
 
@@ -18,16 +18,22 @@ export interface Food {
 })
 
 export class DetailFormComponent implements OnInit {
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+showSpinner=false;
+loadData(){
+  this.showSpinner=true;
+}
+  cities: City[] = [
+    {id: 1, viewValue:'Monywa'},
+    {id:2, viewValue: 'Yangon'},
+    {id:3, viewValue: 'Mandalay'},
+    {id:3, viewValue: 'Shwebo'}
   ];
+  
 
   showStore: boolean = false;
   sellbuy = ['Sell', 'Buy']
   detailForm: FormGroup;
-
+  showProgress:boolean=false;
   mainFormData:SignupModel;
   signupData: User;
   constructor(
@@ -41,10 +47,11 @@ export class DetailFormComponent implements OnInit {
       this.detailForm = new FormGroup({
         'firstname': new FormControl(null, Validators.required),
         'lastname': new FormControl(null, Validators.required),
-        'city': new FormControl(null),
+        'city': new FormControl(null, Validators.required),
         'address': new FormControl(null, Validators.required),
-        'Phone': new FormControl(null, [Validators.required, Validators.maxLength(11)]),
+        'Phone': new FormControl(null, [Validators.required, Validators.maxLength(12)]),
         'storename': new FormControl(null, Validators.required),
+        'sell':new FormControl(null),
       });
 
       this.mainFormData=this.emitterService.getData();
@@ -70,11 +77,15 @@ export class DetailFormComponent implements OnInit {
       storename: formValue.storename,
       city_id: 1,
     }
-
-    console.log(formValue);
+    // if (this.user_email, this.user_password) {
+    //   this.loading = true;
+    //   this.userSrv.login(this.user.email, this.user.password); //api call here
+    //   this.loading = false;
+    // console.log(formValue);
 
     this.authService.signup(this.signupData)
       .then((registered: boolean) => {
+        // this.loading=true;
         if (registered) {
           this.router.navigate(['/dashboard/dashboard']);
         } else {
@@ -94,16 +105,6 @@ export class DetailFormComponent implements OnInit {
     this.showStore = false;
   }
 
-
 }
-// export class Selectcity {
-//   cities: City[] = [
-//     {city_id:1, city_name:'Yangon'},
-//     {city_id:2, city_name:'Monywa'},
-//     {city_id:3, city_name:'Mandalay'},
-//     {city_id:4, city_name:'Shwebo'},
-
-//   ];
-// }
 
 

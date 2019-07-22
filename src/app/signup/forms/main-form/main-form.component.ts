@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -11,7 +11,13 @@ import { SignupModel } from '../signupModel';
   styleUrls: ['./main-form.component.scss']
 })
 
-export class MainFormComponent {
+export class MainFormComponent  implements OnInit{
+  ngOnInit() {}
+    // throw new Error("Method not implemented.");
+ loadingData=false;
+ loading(){
+this.loadingData=true;
+  }
 
   myForm: FormGroup;
 
