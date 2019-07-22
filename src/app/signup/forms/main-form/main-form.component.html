@@ -3,28 +3,24 @@
   <div class="card-header text-center"><h3><strong>Signup</strong></h3>
   </div>
   <div class="card-body">
-      <form class="myForm" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
       
         <mat-form-field class="textbox">
-        <input matInput placeholder="Enter your email" formControlName="email" type="email" 
-        name=" email" >
-        <mat-error *ngIf="myForm.hasError('required','email')">Please enter a valid email</mat-error>
+        <input matInput placeholder="Enter your email" formControlName="email" type="email">
+        <mat-error *ngIf="reactiveForm.hasError('required','email')">Please enter a valid email</mat-error>
    </mat-form-field>
   
    
     <mat-form-field class="textbox">
-      <input matInput placeholder="Password" required id="password" name="password" formControlName="password" 
-      type="password">
-      <mat-error *ngIf="myForm.hasError('required', 'password')">
+      <input matInput placeholder="Password" required id="password" formControlName="password" type="password">
+      <mat-error *ngIf="reactiveForm.hasError('required', 'password')">
           Please enter your password
         </mat-error>
  </mat-form-field>
  
- 
-  <mat-form-field class="textbox">
-    <input matInput placeholder="Confirm Password" id="checkPassword" name="confirmPassword" 
-     type="password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
-     <mat-error *ngIf="myForm.hasError('notSame')">
+ <mat-form-field class="textbox"></mat-form-field>
+    <input matInput placeholder="Confirm Password" id="checkPassword" type="password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+     <mat-error *ngIf="reactiveForm.hasError('notSame')">
         Password does not match
       </mat-error>  
 </mat-form-field>

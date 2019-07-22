@@ -19,6 +19,14 @@ export interface City {
 
 export class DetailFormComponent implements OnInit {
 showSpinner=false;
+isValidFormSubmitted = false;
+showStore: boolean = false;
+sellbuy = ['Sell', 'Buy']
+detailForm: FormGroup;
+showProgress:boolean=false;
+mainFormData:SignupModel;
+signupData: User;
+	
 loadData(){
   this.showSpinner=true;
 }
@@ -26,16 +34,8 @@ loadData(){
     {id: 1, viewValue:'Monywa'},
     {id:2, viewValue: 'Yangon'},
     {id:3, viewValue: 'Mandalay'},
-    {id:3, viewValue: 'Shwebo'}
+    {id:4, viewValue: 'Shwebo'}
   ];
-  
-
-  showStore: boolean = false;
-  sellbuy = ['Sell', 'Buy']
-  detailForm: FormGroup;
-  showProgress:boolean=false;
-  mainFormData:SignupModel;
-  signupData: User;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -45,13 +45,13 @@ loadData(){
     ngOnInit() {
 
       this.detailForm = new FormGroup({
-        'firstname': new FormControl(null, Validators.required),
-        'lastname': new FormControl(null, Validators.required),
-        'city': new FormControl(null, Validators.required),
-        'address': new FormControl(null, Validators.required),
-        'Phone': new FormControl(null, [Validators.required, Validators.maxLength(12)]),
-        'storename': new FormControl(null, Validators.required),
-        'sell':new FormControl(null),
+        'firstname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+        'lastname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+        'city': new FormControl(null, [Validators.required]),
+        'address': new FormControl(null,[Validators.required]),
+        'Phone': new FormControl(null, [Validators.required, Validators.maxLength(11)]),
+        'storename': new FormControl(null),
+        'sell':new FormControl(null,[Validators.required]),
       });
 
       this.mainFormData=this.emitterService.getData();
@@ -64,6 +64,14 @@ loadData(){
     }
 
   onSubmit() {
+    this.isValidFormSubmitted = false;
+		if (this.detailForm.valid) {
+      this.isValidFormSubmitted = true;
+      this.router.navigate(['/dashboard/dashboard']);
+		} else {
+			return;
+		}
+		
     const formValue = this.detailForm.value;
     const user_name = formValue.firstname + formValue.lastname;
 
@@ -71,21 +79,15 @@ loadData(){
       user_name: user_name,
       user_email: this.mainFormData.user_email,
       user_password: this.mainFormData.user_password,
-      user_role: 1,
+      user_role: formValue.sell,
       user_phone: formValue.Phone,
       address: formValue.address,
       storename: formValue.storename,
-      city_id: 1,
+      city_id: formValue.city,
     }
-    // if (this.user_email, this.user_password) {
-    //   this.loading = true;
-    //   this.userSrv.login(this.user.email, this.user.password); //api call here
-    //   this.loading = false;
-    // console.log(formValue);
 
     this.authService.signup(this.signupData)
       .then((registered: boolean) => {
-        // this.loading=true;
         if (registered) {
           this.router.navigate(['/dashboard/dashboard']);
         } else {
