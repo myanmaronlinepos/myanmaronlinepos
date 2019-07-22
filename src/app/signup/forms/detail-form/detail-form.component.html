@@ -30,11 +30,12 @@
       <mat-form-field class="textbox">
         <mat-label>Select city</mat-label>
         <mat-select formControlName="city" id="city">
-          <mat-option *ngFor="let city of cities" [value]="city.id" >
+          <mat-option *ngFor="let city of cities" [value]="city.id">
             {{city.viewValue}}
           </mat-option>
         </mat-select>
         <mat-hint i18n>Please select city</mat-hint>
+        <mat-error *ngIf="!detailForm.get('city').valid && detailForm.get('city').touched" class="help-block"> City required.</mat-error>
       </mat-form-field>
       
       
@@ -46,12 +47,12 @@
 
       <div class="radiobtn">
         <mat-radio-group aria-label="Select an option" formControlName="sell">
-          <mat-radio-button value="sell" name="sell" class="textbox2" (click)="onSelect($event)">Sell</mat-radio-button>
-          <mat-radio-button value="buy" name="sell" class="radiobuy" (click)="onCheck($event)">Buy</mat-radio-button>
+          <mat-radio-button value="1" name="sell" class="textbox2" (click)="onSelect($event)">Sell</mat-radio-button>
+          <mat-radio-button value="2" name="sell" class="radiobuy" (click)="onCheck($event)">Buy</mat-radio-button>
           <!-- <mat-error *ngIf="!detailForm.get('sellbuy').valid && detailForm.get('sellbuy').touched" class="help-block">Please check one</mat-error>       -->
         </mat-radio-group>
       </div>
-
+      
       <div *ngIf="this.showStore===true">
         <mat-form-field class="textbox">
           <input matInput placeholder="Store Name" formControlName="storename" id="storename">
