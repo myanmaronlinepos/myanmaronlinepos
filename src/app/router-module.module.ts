@@ -27,6 +27,7 @@ import { AddProductComponent } from './layout/products/add-product/add-product.c
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
+import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 
 
 const routes: Routes = [
@@ -62,7 +63,8 @@ const routes: Routes = [
             {
                 path: "sell", component: SellComponent, children: [
                     { path: "sell-stock", component: SellStockComponent },
-                    { path: "sell-table", component: SellTableComponent }
+                    { path: "sell-table", component: SellTableComponent },
+                    { path: "sell-history", component: SellHistoryComponent}
                 ]
             },
 

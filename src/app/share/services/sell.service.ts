@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SellItem } from './share/models/SellItem';
+import { SellItem } from '../models/SellItem';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class SellService {
  sellItem:SellItem[]=[];
   constructor() {
    }
-
+   
    addItem(item:SellItem) {
      this.sellItem.push(item);
    }

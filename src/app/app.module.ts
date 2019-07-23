@@ -40,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './layout/products/delete-category/delete-category.component';
+import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { DeleteCategoryComponent } from './layout/products/delete-category/delet
     DetailProductComponent,
     EditProductComponent,
     EditCategoryComponent,
-    DeleteCategoryComponent
+    DeleteCategoryComponent,
+    SellHistoryComponent
     
   ],
   imports: [

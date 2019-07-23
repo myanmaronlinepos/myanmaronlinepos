@@ -1,17 +1,18 @@
   <div class="choice">
         <div class="check">
+          <form [formGroup]="personForm" (ngSubmit)="onSubmit()" class="form">
             <div class="subcheck1">
               <!-- For Categoty -->
               <mat-form-field class="ltr1">
                 <mat-label class="arrow1">Category</mat-label>
-                <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
-                  <mat-option *ngFor="let category of categories">
-                      <mat-checkbox>{{category}}</mat-checkbox>
+                <mat-select>  
+                  <mat-option *ngFor="let item of personForm.controls.hobbies.controls; let i=index;">
+                      <mat-checkbox (ngModelChange)="categoryChecked($event)"  [formControl]="item">{{items.category}}</mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
-       
+          </form>
             <div class="subcheck2">
               <!-- For Tag -->
               <mat-form-field class="ltr2">
@@ -70,7 +71,7 @@
       <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
     </ng-container>
 
-    <!-- Price Column -->price
+    <!-- Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef> Price </th>
       <td mat-cell *matCellDef="let product"> {{product.price}} </td>
