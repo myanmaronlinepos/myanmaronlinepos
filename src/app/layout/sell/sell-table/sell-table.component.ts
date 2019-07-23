@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SellService } from 'src/app/sell.service';
+import { SellService } from 'src/app/share/services/sell.service';
 import { SellItem } from 'src/app/share/models/SellItem';
+import { ItemCategory } from 'src/app/share/models/itemCategory';
 
 
 @Component({
@@ -15,8 +16,8 @@ export class SellTableComponent implements OnInit {
 
   selectedRow=[];
   displayedColumns: string[] = ['number', 'name', 'category', 'tag', 'quantity','price'];
-  categories:string[]=["Coffee","Ice-cream","Bread","Cake"];
   tags:string[]=["3 buy 1 get", "for 18+", "for all"];
+  categories:ItemCategory[]=[];
   items:SellItem[]=[];
   dataSource: MatTableDataSource<SellItem>;
 
@@ -52,6 +53,10 @@ export class SellTableComponent implements OnInit {
     }
     row.highlighted = !row.highlighted; 
   }
- 
-}
 
+  categoryChecked(value: any) {
+    const filter = value ? 'Beer' : null
+    this.dataSource.filter = filter;
+    this.dataSource=new MatTableDataSource<SellItem>(this.items);
+  }
+}
