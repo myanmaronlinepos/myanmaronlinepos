@@ -64,43 +64,37 @@ loadData(){
     }
 
   onSubmit() {
-    this.isValidFormSubmitted = false;
+    const formValue = this.detailForm.value;
+    const user_name = formValue.firstname + formValue.lastname;
 		if (this.detailForm.valid) {
-      this.isValidFormSubmitted = true;
-      this.router.navigate(['/dashboard/dashboard']);
+      this.signupData = {
+        user_name: user_name,
+        user_email: this.mainFormData.user_email,
+        user_password: this.mainFormData.user_password,
+        user_role: formValue.sell,
+        user_phone: formValue.Phone,
+        address: formValue.address,
+        storename: formValue.storename,
+        city_id: formValue.city,
+      }
+  
+      this.authService.signup(this.signupData)
+        .then((registered: boolean) => {
+          if (registered) {
+            this.router.navigate(['/dashboard/dashboard']);
+          } else {
+            console.log('error');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      
 		} else {
 			return;
 		}
-		
-    const formValue = this.detailForm.value;
-    const user_name = formValue.firstname + formValue.lastname;
-
-    this.signupData = {
-      user_name: user_name,
-      user_email: this.mainFormData.user_email,
-      user_password: this.mainFormData.user_password,
-      user_role: formValue.sell,
-      user_phone: formValue.Phone,
-      address: formValue.address,
-      storename: formValue.storename,
-      city_id: formValue.city,
-    }
-
-    this.authService.signup(this.signupData)
-      .then((registered: boolean) => {
-        if (registered) {
-          this.router.navigate(['/dashboard/dashboard']);
-        } else {
-          console.log('error');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-
-  onSelect(event: any) {
+	}
+onSelect(event: any) {
     this.showStore = true;
   }
   onCheck(event: any) {
