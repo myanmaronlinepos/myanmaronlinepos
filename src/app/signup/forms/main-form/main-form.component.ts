@@ -23,9 +23,9 @@ loadingData=false;
 reactiveForm: FormGroup;
 SignupData:SignupModel;
  matcher = new MyErrorStateMatcher();
-loading(){
-this.loadingData=true;
-  }
+// loading(){
+// this.loadingData=true;
+//   }
   ngOnInit() {
     this.reactiveForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
