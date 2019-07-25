@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { DataSource } from '@angular/cdk/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormStyle } from '@angular/common';
 
 
 @Component({
@@ -13,15 +14,22 @@ import { FormGroup } from '@angular/forms';
 export class AssignproductComponent implements OnInit {
 
   // displayedColumns: string[] = ['assignproducts'];
-  assignproducts = ELEMENT_DATA;
+  assignproducts =ELEMENT_DATA;
   selectedArray=[];
+  myform:FormGroup;
+  
 
-  constructor() { }
+  constructor() {
+    this.myform= new FormGroup({
+      status: new FormControl()
+    });
+   }
 
   ngOnInit() {
-
+  
   }
 
+  
   showOptions($event) {
     if(!this.selectedArray.includes($event.source.id)){
       this.selectedArray.push($event.source.id);
@@ -48,5 +56,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 { assignproduct: 'Ruby' },
 { assignproduct: 'Lucky Strike' },
 { assignproduct: 'Kent' },
-{ assignproduct: 'ESSE' }
+{ assignproduct: 'ESSE' },
+{ assignproduct: 'Coffee' },
+{ assignproduct: 'Strawberry Ice-Cream' },
+{ assignproduct: 'chocolate Ice-Cream' },
+{ assignproduct: 'Grape Ice-Cream' },
+{ assignproduct: 'Milk Ice-Cream' },
+{ assignproduct: 'Cake' },
 ];
