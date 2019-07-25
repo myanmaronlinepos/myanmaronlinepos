@@ -71,6 +71,7 @@ export class CategoryComponent implements OnInit {
     obj.action=action;
     const dialogRef=this.dialog.open(EditCategoryComponent,{
        width: '300px',
+       height: '180px',
        data: obj
     });
     dialogRef.afterClosed().subscribe(result=> {

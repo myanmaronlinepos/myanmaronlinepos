@@ -2,7 +2,6 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="sidebar">
-  <div class="side">
     <ul class="mainmenu">
       <li tabindex="0" routerLink="../dashboard/dashboard">
         <img src="assets/dashboard.png">
@@ -10,7 +9,7 @@
       </li>
       <li tabindex="0" (click)="viewMenu()">
             <img src="assets/product-icon.png">
-            <a>Product&raquo;</a>
+            <a>Product<span class="sub-arrow"></span></a>
             <ul class="submenu" *ngIf="viewmenu">
               <li><a routerLink="../dashboard/products/allproducts">All Product</a></li>
               <li><a routerLink="../dashboard/products/inventory">Inventory</a></li>
@@ -33,7 +32,6 @@
         <a>Setting</a>
       </li>
     </ul>
-  </div>
 </div>
 
 
