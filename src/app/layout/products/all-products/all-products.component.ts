@@ -55,12 +55,14 @@ export class AllProductsComponent implements OnInit {
       });
     }
     editRowData(row_obj) {
-      this.tags = this.tags.filter((value,key)=>{
-        if(value.id == row_obj.id){
-          value.productname = row_obj.productname;
-          value.tag = row_obj.tag;
-        }
-        return true;
+      this.dataSource = this.dataSource.filter((value,key)=>{
+       if(value.id == row_obj.id){
+         value.product_name=row_obj.product-name;
+         value.category_id =row_obj.category_id;
+         value.tag_id=row_obj.tag_id;
+    
+       }
+       return true;
       });
     }
 

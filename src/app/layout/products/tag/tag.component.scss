@@ -13,11 +13,12 @@ td.mat-cell {
 img, svg {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 svg{
   margin-left: 12px;
-  cursor: pointer;
+  
 }
 
 button{
