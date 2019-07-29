@@ -14,15 +14,15 @@ export class SellService {
     {number: 5, name: 'Myanmar Tin', category: 'Beer', tag: 'for 18+', quantity: 1000, price: 2000}
   ];
   
- sellItem:SellItem[]=[];
+ sellItem=[];
   constructor() {
    }
-   
-   addItem(item:SellItem) {
+
+   addItem(item:number) {
      this.sellItem.push(item);
    }
 
-   removeItem(item:SellItem) {
+   removeItem(item:number) {
     const index=this.sellItem.indexOf(item);
     this.sellItem.splice(index,1);
    }

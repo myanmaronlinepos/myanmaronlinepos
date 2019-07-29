@@ -44,8 +44,11 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteCategoryComponent } from './layout/products/delete-category/delete-category.component';
+import {MatSortModule} from '@angular/material';
+
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
+
 
 @NgModule({
   declarations: [
@@ -95,7 +98,8 @@ import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-t
     FullCalendarModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSortModule
 
   ],
   entryComponents:[

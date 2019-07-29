@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SellService } from 'src/app/share/services/sell.service';
 import { SellItem } from 'src/app/share/models/SellItem';
 import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { SellService } from 'src/app/share/services/sell.service';
+import { getPluralCategory } from '@angular/common/src/i18n/localization';
 
 
 @Component({
@@ -18,9 +19,13 @@ export class SellTableComponent implements OnInit {
   displayedColumns: string[] = ['number', 'name', 'category', 'tag', 'quantity','price'];
   tags:string[]=["3 buy 1 get", "for 18+", "for all"];
   categories:ItemCategory[]=[];
+  category:string;
   items:SellItem[]=[];
+  checkboxes:SellItem[]=[];
   dataSource: MatTableDataSource<SellItem>;
-
+  
+  
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -33,6 +38,7 @@ export class SellTableComponent implements OnInit {
 
   ngOnInit() {
     this.selectedRow=this.sellservice.getSellItem();
+    this.checkboxes=this.sellservice.getItems();
     this.items=this.sellservice.getItems();
     this.dataSource=new MatTableDataSource<SellItem>(this.items);
     this.dataSource.paginator = this.paginator;
@@ -44,19 +50,25 @@ export class SellTableComponent implements OnInit {
     this.router.navigate(['/dashboard/sell/sell-stock'])
   }
 
-  onClickRow(row) {
+  onClickRow(index,row) {
+    console.log(index);
+    console.log(row);
     if(!this.selectedRow.includes(row)){
-     this.sellservice.addItem(row);  
+     this.sellservice.addItem(index);  
      console.log(this.selectedRow);
     }else{
-        this.sellservice.removeItem(row);
+        this.sellservice.removeItem(index);
     }
     row.highlighted = !row.highlighted; 
   }
-
-  categoryChecked(value: any) {
-    const filter = value ? 'Beer' : null
-    this.dataSource.filter = filter;
-    this.dataSource=new MatTableDataSource<SellItem>(this.items);
+  
+  checkedCategory(event) {
+      const filter= event? event.source.value : null;
+      this.items=this.items.filter(element => element.category == filter);
+      this.dataSource=new MatTableDataSource<SellItem>(this.items);
+      console.log(event.checked);
+      console.log(filter);
+      console.log(this.items);
   }
+
 }
