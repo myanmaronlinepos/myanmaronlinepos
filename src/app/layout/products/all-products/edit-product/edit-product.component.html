@@ -19,9 +19,8 @@
                               <mat-label  class="col-sm-3 col-form-label">Product Name:</mat-label>
                           </div>                              
                           <mat-form-field >
-                            <input matInput type="text" id="productName" formControlName="productname" 
-                            #productname [(ngModel)]="allproduct.productname">                     
-                            
+                            <input matInput type="text" id="productName" formControlName="productname"
+                            [(ngModel)]="local_data.product_name">                     
                           </mat-form-field>
                        </div>
                       </div>
@@ -35,8 +34,7 @@
                               </div>                              
                               <mat-form-field>
                                 <textarea matInput id="category" formControlName="category"
-                                #category [(ngModel)]="allproduct.category"
-                                 ></textarea>
+                               >{{local_data.category_id}}</textarea>
                               </mat-form-field>
                            </div>
                           </div>
@@ -50,7 +48,7 @@
                                   </div>                              
                                   <mat-form-field>
                                     <input matInput type="text" id="tag" formControlName="tag"
-                                    #tag [(ngModel)]="allproduct.tag" >
+                                    [(ngModel)]="local_data.tag_id">
                                   </mat-form-field>
                                </div>
                               </div>
@@ -64,8 +62,7 @@
                                 </div>                              
                                 <mat-form-field>
                                   <input matInput type="text" id="quantity" value="{{Savebuttonwork}}" class="qty" 
-                                 formControlName="quantity" (change)="onFileSelect($event)" 
-                                 #quantity [(ngModel)]="allproduct.quantity">
+                                 formControlName="quantity" (change)="onFileSelect($event)" >
                                   <mat-button-toggle-group name="fontStyle" appearance="legacy" 
                                   class="toggle-group" aria-label="Font Style">                  
                                    <mat-button-toggle value="add" >Add</mat-button-toggle>
@@ -120,16 +117,13 @@
                               </div>
                              
                               <div class="pimg form-group">
-                                  <img *ngFor="let url of urls" [src]="url" class="rounded mb-3">
+                                   <img *ngFor="let url of urls" [src]="url">
                               </div>
-                              <input type="file" multiple (change)="detectFiles($event)" class="row">
-
+                              <input type="file" (change)="detectFiles($event)" >
+                        
+                            
                             </div>
-                           
-                               
-                             
-                             
-                       <!-- For Button -->
+                            <!-- For Button -->
                        <div class="btn form-group">
                         <div class="subbtn">
                           <button type="reset" class="cancel" (click)="closeDialog()">Cancel</button>
@@ -140,6 +134,10 @@
               </form>   
                               
                             
+                               
+                             
+                             
+                      
                           
                            
 
@@ -267,12 +265,12 @@
                                               </div>
                                             </div>
                                       </form>
-      
+                                    </mat-card>
        
           
       
        
-                      </mat-card>
+                      
                           
                                 
                            
