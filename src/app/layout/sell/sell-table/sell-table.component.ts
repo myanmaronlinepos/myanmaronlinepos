@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SellService } from 'src/app/sell.service';
 import { SellItem } from 'src/app/share/models/SellItem';
+import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { SellService } from 'src/app/share/services/sell.service';
+import { getPluralCategory } from '@angular/common/src/i18n/localization';
 
 
 @Component({
@@ -15,11 +17,15 @@ export class SellTableComponent implements OnInit {
 
   selectedRow=[];
   displayedColumns: string[] = ['number', 'name', 'category', 'tag', 'quantity','price'];
-  categories:string[]=["Coffee","Ice-cream","Bread","Cake"];
   tags:string[]=["3 buy 1 get", "for 18+", "for all"];
+  categories:ItemCategory[]=[];
+  category:string;
   items:SellItem[]=[];
+  checkboxes:SellItem[]=[];
   dataSource: MatTableDataSource<SellItem>;
-
+  
+  
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -32,6 +38,7 @@ export class SellTableComponent implements OnInit {
 
   ngOnInit() {
     this.selectedRow=this.sellservice.getSellItem();
+    this.checkboxes=this.sellservice.getItems();
     this.items=this.sellservice.getItems();
     this.dataSource=new MatTableDataSource<SellItem>(this.items);
     this.dataSource.paginator = this.paginator;
@@ -54,6 +61,14 @@ export class SellTableComponent implements OnInit {
     }
     row.highlighted = !row.highlighted; 
   }
- 
-}
+  
+  checkedCategory(event) {
+      const filter= event? event.source.value : null;
+      this.items=this.items.filter(element => element.category == filter);
+      this.dataSource=new MatTableDataSource<SellItem>(this.items);
+      console.log(event.checked);
+      console.log(filter);
+      console.log(this.items);
+  }
 
+}

@@ -2,7 +2,7 @@
 .card{
     position: absolute;
     left: 50%;
-    top:65%;
+    top:68%;
     width: 500px;
     height:640px;
     transform: translate(-50%,-50%);
@@ -27,13 +27,20 @@
         margin-left: 10%;
 
         }
+        // .fa {
+        //   margin-left: 15px;
+        //   margin-right: 8px;
+        // }
       .btn{
-        color: #fff;
-        background-color: green;
+        background-color: #4CAF50;
+        border: none; 
+        color: white;
+        font-size: 16px; 
         margin-top:3%;
         width: 80%;
         left: 10%;
         margin-bottom: 3%;
+        // padding: 12px 24px; 
       }
       .radiobtn{
         padding-left:10%;
@@ -46,24 +53,18 @@
       .card{
         position: absolute;
         left: 50%;
-        top: 65%;
+        top: 70%;
         width: 350px;
         height:640px;
         transform: translate(-50%,-50%);
       }
-      .head{
-        font-size: 20px;
-      }
-          .card-header{
-            height:45px;
-            
-          }
           .card-body{
             position: relative;
           left: 1%;
           right: 1%;
-          height: 50%;
+          height: 60%;
          }
-        
+  
+ }
 
-    }
+    

@@ -3,35 +3,32 @@
   <div class="card-header text-center"><h3><strong>Signup</strong></h3>
   </div>
   <div class="card-body">
-      <form class="myForm" [formGroup]="myForm" (ngSubmit)="onSubmit()">
-    <div class="form-row">
-      <mat-form-field class="textbox">
-        <input matInput placeholder="Enter your email" formControlName="email" type="email" 
-        name=" email" >
-        <mat-error *ngIf="myForm.hasError('required','email')">Please enter a valid email</mat-error>
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+      
+        <mat-form-field class="textbox">
+        <input matInput placeholder="Enter your email" formControlName="email" type="email">
+        <mat-error *ngIf="reactiveForm.hasError('required','email')">Please enter a valid email</mat-error>
    </mat-form-field>
-   </div>
-   <div class="form-row">
+  
+   
     <mat-form-field class="textbox">
-      <input matInput placeholder="Password" required id="password" name="password" formControlName="password" 
-      type="password">
-      <mat-error *ngIf="myForm.hasError('required', 'password')">
+      <input matInput placeholder="Password" required id="password" formControlName="password" type="password">
+      <mat-error *ngIf="reactiveForm.hasError('required', 'password')">
           Please enter your password
         </mat-error>
- </mat-form-field>
- </div>
- <div class="form-row">
-  <mat-form-field class="textbox">
-    <input matInput placeholder="Confirm Password" id="checkPassword" name="confirmPassword" 
-     type="password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
-     <mat-error *ngIf="myForm.hasError('notSame')">
+     </mat-form-field>
+ 
+ <mat-form-field class="textbox">
+    <input matInput placeholder="Confirm Password" id="checkPassword" type="password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+     <mat-error *ngIf="reactiveForm.hasError('notSame')">
         Password does not match
       </mat-error>  
 </mat-form-field>
-</div>
-<div class="form-row">
-  <button mat-button class="btn" type="submit">Next</button>
-</div>
+
+<button mat-button class="btn" type="submit" [disabled]="!reactiveForm.valid">Next
+  <!-- <i class="fa fa-spinner fa-spin" *ngIf="loadingData==true" >(click)="loading()"</i> -->
+</button>
+
 </form>
   </div>
 </div>

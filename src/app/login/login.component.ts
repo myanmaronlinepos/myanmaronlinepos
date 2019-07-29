@@ -10,6 +10,10 @@ import { Login } from '../share/models/Login';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  Progressing=false;
+  progressData(){
+    this.Progressing=true;
+  }
  
   myForm: FormGroup;
   loginData:Login;
