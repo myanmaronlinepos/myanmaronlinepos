@@ -11,12 +11,9 @@ import { Login } from '../share/models/Login';
 })
 export class LoginComponent implements OnInit {
   Progressing=false;
-  progressData(){
-    this.Progressing=true;
-  }
- 
   myForm: FormGroup;
   loginData:Login;
+  addTaskValue: string="";
   constructor( private authService:AuthService,private router:Router ) { }
 
   ngOnInit(){
@@ -38,17 +35,26 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     const formValue=this.myForm.value;
-
+if(this.myForm.valid){
     this.loginData={
       user_email:formValue.email,
       user_password:formValue.password
     }
-
+    this.Progressing=true;
+  }
     console.log(formValue);
     this.authService.login(this.loginData).subscribe(
       response => {
           console.log(response);
-          this.router.navigate(['/dashboard/dashboard'])
+          if(response){
+            this.Progressing=false;
+            this.router.navigate(['/dashboard/dashboard'])
+          }else{
+            this.Progressing=false;
+            this.addTaskValue = null;
+
+          }
+          
       },
       error => {
           console.log(error);

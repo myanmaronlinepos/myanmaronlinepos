@@ -43,7 +43,7 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteCategoryComponent } from './layout/products/delete-category/delete-category.component';
-
+import {MatSortModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +89,8 @@ import { DeleteCategoryComponent } from './layout/products/delete-category/delet
     FullCalendarModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSortModule
 
   ],
   entryComponents:[

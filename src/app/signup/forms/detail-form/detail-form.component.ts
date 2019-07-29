@@ -21,9 +21,7 @@ export class DetailFormComponent implements OnInit {
 showSpinner=false;
 isValidFormSubmitted = false;
 showStore: boolean = false;
-sellbuy = ['Sell', 'Buy']
 detailForm: FormGroup;
-showProgress:boolean=false;
 mainFormData:SignupModel;
 signupData: User;
 	
@@ -90,7 +88,8 @@ loadData(){
           console.log(error);
         });
       
-		} else {
+    }
+     else {
 			return;
 		}
 	}
