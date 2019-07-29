@@ -30,4 +30,8 @@ export class CategoryService {
   getSelectedCategory(){
     return this.category;
   }
+
+  getId() {
+    return this.categories.length;
+  }
 }

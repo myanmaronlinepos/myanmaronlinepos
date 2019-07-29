@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
-import { SellService } from 'src/app/sell.service';
+import { SellService } from 'src/app/share/services/sell.service';
 import { SellItem } from 'src/app/share/models/SellItem';
 
 @Component({
@@ -12,11 +12,9 @@ import { SellItem } from 'src/app/share/models/SellItem';
 })
 export class SellStockComponent implements OnInit {
 
-  displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice','in-decrease'];
+  displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice'];
   items:SellItem[]=[];
   dataSource : MatTableDataSource<SellItem>;
-  selectedRow:number[]=[];
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -25,10 +23,14 @@ export class SellStockComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.items=this.sellservice.getSellItem();
+    this.items=this.sellservice.getItems();
     this.dataSource=new MatTableDataSource<SellItem>(this.items);
     this.dataSource.paginator = this.paginator;
   }
+
+  // getTotalCost() {
+  //   return this.items.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  // }
 }
 
 
