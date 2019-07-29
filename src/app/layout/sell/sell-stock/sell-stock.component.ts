@@ -15,7 +15,6 @@ export class SellStockComponent implements OnInit {
   displayedColumns: string[] = ['number', 'name', 'quantity','price','totalprice'];
   items:SellItem[]=[];
   dataSource : MatTableDataSource<SellItem>;
-  
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
@@ -24,7 +23,7 @@ export class SellStockComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.items=this.sellservice.getSellItem();
+    this.items=this.sellservice.getItems();
     this.dataSource=new MatTableDataSource<SellItem>(this.items);
     this.dataSource.paginator = this.paginator;
   }

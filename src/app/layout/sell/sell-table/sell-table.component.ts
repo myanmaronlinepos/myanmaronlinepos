@@ -50,12 +50,14 @@ export class SellTableComponent implements OnInit {
     this.router.navigate(['/dashboard/sell/sell-stock'])
   }
 
-  onClickRow(row) {
+  onClickRow(index,row) {
+    console.log(index);
+    console.log(row);
     if(!this.selectedRow.includes(row)){
-     this.sellservice.addItem(row);  
+     this.sellservice.addItem(index);  
      console.log(this.selectedRow);
     }else{
-        this.sellservice.removeItem(row);
+        this.sellservice.removeItem(index);
     }
     row.highlighted = !row.highlighted; 
   }
