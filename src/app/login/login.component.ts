@@ -46,12 +46,6 @@ if(this.myForm.valid){
     this.authService.login(this.loginData).subscribe(
       response => {
           console.log(response);
-<<<<<<< HEAD
-          this.router.navigate(['/dashboard/dashboard']);
-          if(response){
-            
-          }
-=======
           if(response){
             this.Progressing=false;
             this.router.navigate(['/dashboard/dashboard'])
@@ -61,7 +55,6 @@ if(this.myForm.valid){
 
           }
           
->>>>>>> ca757ea5dc50a160daadca8002bc5c66746de811
       },
       error => {
           console.log(error);
