@@ -11,19 +11,28 @@ import {MatTableDataSource, MatTable} from '@angular/material/table';
 import { Product } from 'src/app/share/models/Product';
 import { REACTIVE_DRIVEN_DIRECTIVES } from '@angular/forms/src/directives';
 import { debugOutputAstAsTypeScript } from '@angular/compiler';
+import { AllProductsComponent } from '../all-products.component';
 
-
+export interface UsersData{
+  id:number;
+  product_name:string;
+  category_id:string;
+  tag_id:string;
+}
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit{
-  
+  action:string;
+  local_data:any;
+
   editForm: FormGroup;
   Updatequantity='';
   Savebuttonwork='';
   dataSource:any;
+
   urls = new Array<string>();
   detectFiles(event){
     this.urls = [];
@@ -40,16 +49,27 @@ export class EditProductComponent implements OnInit{
   }
   
   @ViewChild('image') private image: ElementRef;
-  constructor(private editservice : EditProductService, fb:FormBuilder,
-    private router: Router,private dataFetchService : DataFetchService,
-    private renderer: Renderer2){}
+  constructor(
+    public dialogRef:MatDialogRef<AllProductsComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data:UsersData
+
+   ){
+     console.log(data);
+     this.local_data={...data};
+     this.action =this.local_data.action;
+   }
   ngOnInit() {
     }
     
     onSubmit() {
       console.log(this.editForm);   
     }
-   
+    doAction(){
+      this.dialogRef.close({event:this.action,data:this.local_data});
+    }
+   closeDialog(){
+     this.dialogRef.close({event:'Cancel'});
+   }
     
     onUpdatequantity(row: Event){
       this.Updatequantity=(<HTMLInputElement>event.target).value;
@@ -58,17 +78,6 @@ export class EditProductComponent implements OnInit{
        this.Savebuttonwork=this.Updatequantity;
      }
 
-     fetchData() {
-      this.dataFetchService.getAllProduct().subscribe(
-        response => {
-          console.log(response);
-          this.dataSource = new MatTableDataSource<Product>(response);
 
-        },
-        error => {
-
-        }
-      )
-    }
-    
+     
     }

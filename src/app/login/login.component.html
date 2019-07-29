@@ -15,14 +15,14 @@
     <div class="example-container">
       <mat-form-field class="textbox">
         <input matInput placeholder="Enter your password" type="password" name="password" 
-        formControlName="password" >
+        formControlName="password" [(ngModel)]="addTaskValue">
         <mat-error *ngIf="myForm.hasError('required', 'password')">
             Please enter your password
           </mat-error>
       </mat-form-field>
     </div>
     <div >
-      <button mat-button class="btn" type="submit" (click)="progressData()">Login
+      <button mat-button class="btn" type="submit" [disabled]="!myForm.valid">Login
         <i class="fa fa-spinner fa-spin" *ngIf="Progressing" ></i>
       </button>
     </div>

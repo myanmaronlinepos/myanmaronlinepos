@@ -6,11 +6,11 @@ import { ItemTag } from './share/models/ItemTag';
 })
 export class DeleteTagService {
   tags:ItemTag[] = [
-    {id:1, productname:'Premier',tag:'for all'},
-    {id:2, productname:'Sunday',tag:'for all'},
-    {id:3, productname:'Bread',tag:'for all'},
-    {id:4, productname:'Juices',tag:'for all'},
-    {id:5, productname:'Cookies',tag:'for all'},
+    {id:1, tagname:'for all'},
+    {id:2, tagname:'for 18+'},
+    {id:3, tagname:'under 5yrs'},
+    {id:4, tagname:'for baby'},
+    {id:5, tagname:'for ladies'},
   ];
   tag:ItemTag;
   constructor() { }
