@@ -1,5 +1,5 @@
 <mat-card class="main">
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="editForm">
       <div class="all">
           <!-- For header -->
           <div class="header">
@@ -18,8 +18,10 @@
                             
                               <mat-label  class="col-sm-3 col-form-label">Product Name:</mat-label>
                           </div>                              
-                          <mat-form-field>
-                            <input matInput type="text" id="productName" formControlName="productName"  value ="product.productName">
+                          <mat-form-field >
+                            <input matInput type="text" id="productName" formControlName="productname" 
+                            #productname [(ngModel)]="allproduct.productname">                     
+                            
                           </mat-form-field>
                        </div>
                       </div>
@@ -32,7 +34,9 @@
                                   </mat-label>
                               </div>                              
                               <mat-form-field>
-                                <textarea matInput id="category" formControlName="category" >product.category</textarea>
+                                <textarea matInput id="category" formControlName="category"
+                                #category [(ngModel)]="allproduct.category"
+                                 ></textarea>
                               </mat-form-field>
                            </div>
                           </div>
@@ -45,7 +49,8 @@
                                       </mat-label>
                                   </div>                              
                                   <mat-form-field>
-                                    <input matInput type="text" id="tag" formControlName="tag" value="product.tag">
+                                    <input matInput type="text" id="tag" formControlName="tag"
+                                    #tag [(ngModel)]="allproduct.tag" >
                                   </mat-form-field>
                                </div>
                               </div>
@@ -59,7 +64,8 @@
                                 </div>                              
                                 <mat-form-field>
                                   <input matInput type="text" id="quantity" value="{{Savebuttonwork}}" class="qty" 
-                                 formControlName="quantity" (change)="onFileSelect($event)" value="category.tag">
+                                 formControlName="quantity" (change)="onFileSelect($event)" 
+                                 #quantity [(ngModel)]="allproduct.quantity">
                                   <mat-button-toggle-group name="fontStyle" appearance="legacy" 
                                   class="toggle-group" aria-label="Font Style">                  
                                    <mat-button-toggle value="add" >Add</mat-button-toggle>
@@ -79,7 +85,7 @@
                                   </mat-label>
                               </div>                              
                               <mat-form-field>
-                                <input matInput type="text" id="priceCost"formControlName="cost" value="category.cost">
+                                <input matInput type="text" id="priceCost"formControlName="price_cost" >
                               </mat-form-field>
                            </div>
                           </div>
@@ -91,7 +97,7 @@
                                   </mat-label>
                               </div>                              
                               <mat-form-field>
-                                <input matInput type="text" id="salePrice" formControlName="sale" value="category.sale">
+                                <input matInput type="text" id="salePrice" formControlName="price_sell" >
                               </mat-form-field>
                            </div>
                           </div>
@@ -105,27 +111,37 @@
                                       </div>                              
                                       <mat-form-field>
                                         <textarea matInput id="note" formControlName="note" (change)="onFileSelect($event)"
-                                        >category.note</textarea>
+                                        ></textarea>
                                       </mat-form-field>
                                    </div>
                                   </div>
                       
                                 </div>
                               </div>
+                             
                               <div class="pimg form-group">
-                                    <img src="">
+                                  <img *ngFor="let url of urls" [src]="url" class="rounded mb-3">
                               </div>
+                              <input type="file" multiple (change)="detectFiles($event)" class="row">
+
                             </div>
+                           
+                               
+                             
+                             
+                       <!-- For Button -->
+                       <div class="btn form-group">
+                        <div class="subbtn">
+                          <button type="reset" class="cancel" (click)="closeDialog()">Cancel</button>
+                          <button class="save" (click)="doAction()">Save</button>
+                        </div>
+                      </div>
+                    </div>
+              </form>   
+                              
+                            
                           
-                            <!-- For Button -->
-                            <div class="btn form-group">
-                              <div class="subbtn">
-                                <button type="reset" class="cancel">Cancel</button>
-                                <button class="save" (click)="Rename()">Save</button>
-                              </div>
-                            </div>
-                          </div>
-                    </form>
+                           
 
                     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
                         <div class="small">

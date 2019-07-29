@@ -1,64 +1,4 @@
-::ng-deep.mat-form-field-underline{
-  display: none;
-}
-//   /* this is logo image modification */
-.Logo{
-   height:30px;
-   width:30px;
-   padding: 3px;
-}
 
-  // this is table styling
-  .mat-header-cell{
-    font-size:16px;
-    text-transform:none;
-   
-  }
-  .mat-cell{
-    font-size:16px;
-    text-transform:initial;
-
-  }
- table{
-   width:100%;
-   border: 0;
-
-  }
- .table{
-   margin-left: 10%;
-  
- }
- .mat-column-position {
-  width:12%;
- }
- .mat-column-name {
-  width:20%;
-  cursor: pointer;
- }
- .mat-column-category {
-  width:22%;
- }
- .mat-column-discount {
-  width:15%;
- }
- .mat-column-tags {
-  width:15%;
- }
- .mat-column-quantity {
-  width:22%;
- }
- .mat-column-price {
-  width:22%;
- }
-
- .covertable{
-  padding-left:10%;
- }
- 
- ::ng-deep tr{
-   border:none;
-   vertical-align: none;
- }
 //  image hover
 #feynman:hover + #feynman_text{
   opacity:1;
@@ -81,15 +21,11 @@
   top:70%;
   text-align:center;
   opacity:0;
-  left: 5%;
+  //left: 5%;
   
 }
-.ltr{
- padding-left: 0px;
- text-align: center; 
-}
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
-  margin-left: 50px;
+  margin-left: 0px;
 }
 .choice {
   display: flex;
@@ -102,37 +38,133 @@
   width: 100%;
   justify-content: space-between;
 }
-.subcheck {
-  width: 100%;
-  display: flex;
-}
-.img {
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-  margin-top: 10px;
-  
-}
-.subimg {
-  display: flex;
-  width: 20%;
-  flex-direction: row;
-  justify-content: space-around;
-  padding-left: 75%;
-
-}
-// #table .icon{
-//   width:50px;
-// height:50px;
-// transition:all 0.5s;
-// opacity:0;
-// }
-// #table .row:hover .icon{
-// opacity:1;
-// }
 td span.only-show-on-hover {
   visibility: hidden;
 }
 td:hover span.only-show-on-hover  {
   visibility: visible;
+
 }
+table {
+  width: 100%;
+}
+
+::ng-deep .mat-select-arrow-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 50px;
+}
+
+.ltr1, .ltr2,.ltr3 {
+  padding-left: 10px;
+  display: flex;
+  width: 100%;
+}
+mat-form-field{
+  padding-top: 0px;
+  }
+::ng-deep .mat-select-value {
+  width: 80%;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline{
+ display: none;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  margin-left: 0px;
+
+}
+
+.choice {
+  display: flex;
+  width: 100%!important;
+  flex-direction: row;
+  height: 60px;
+  text-transform: initial;
+}
+.check {
+  display: flex;
+  width: 50%;
+}
+.subcheck1, .subcheck2, .subcheck3 {
+  display: flex;
+  width: 10%;
+}
+.subcheck2 {
+  margin-left: 30px;
+// margin-right: 10px;
+}
+.subcheck3{
+  margin-left: 40px;
+}
+
+.btn {
+  display: flex;
+  width: 50%;
+  margin-top: 10px;
+  margin-left: 37%;
+  }
+.btn1, .btn2,.btn3{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+a > img {
+  width: 10%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: inline;
+  
+}
+
+
+@media screen and (max-width: 1200px) {
+ 
+  // .btn {
+  //     margin-left: 20%;
+  // }
+}
+@media screen and (max-width: 991px) {
+  .btn {
+      margin-left: 32%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .btn {
+    margin-left: 25%;
+}
+.arrow1{
+  margin: 0 20px;
+}
+.arrow2 {
+  margin: 0 50px;
+}
+.arrow3 {
+margin: 0 50px;
+}
+
+a > img {
+    margin-left: 10px;
+}
+.btn1 {
+    justify-content: normal;
+}
+#feynman_text{
+  position: absolute;
+  top:0%;
+  text-align:center;
+  font-size: 12px;
+  opacity:0;
+  left: 75%;
+  
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  margin-left: -30px;
+
+}
+}
+// @media screen and (max-width:750px){
+//   .btn{
+//     margin-left: 28%;
+//   }
+// }

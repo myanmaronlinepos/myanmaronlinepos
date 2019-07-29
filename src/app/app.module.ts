@@ -38,6 +38,7 @@ import { NewTagsComponent } from './layout/products/new-tags/new-tags.component'
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
+import { DeletetagComponent } from './layout/products/all-products/deletetag/deletetag.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -78,6 +79,7 @@ import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.co
     NewTagsComponent,
     DetailProductComponent,
     EditProductComponent,
+    DeletetagComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
     SellHistoryComponent
@@ -98,6 +100,7 @@ import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.co
     NewCategoryComponent,
     AssignproductComponent,
     NewTagsComponent,
+    DeletetagComponent,
     EditProductComponent, 
     DeleteCategoryComponent,
     EditProductComponent
