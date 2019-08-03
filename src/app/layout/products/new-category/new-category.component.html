@@ -4,14 +4,14 @@
   </div>
   <div mat-dialog-content>
     <div>
-      <span>Category Name:</span>
+      <span class="category-name">Category Name:</span>
       <mat-form-field >
-        <input matInput placeholder="Name" [(ngModel)]="local_data.categoryname">
+        <input matInput placeholder="Category Name" [(ngModel)]="local_data.categoryname">
       </mat-form-field>
     </div>
   </div>
   <div mat-dialog-actions>
-    <div><button mat-button (click)="closeDialog()">Cancel</button></div>
-    <div><button mat-button (click)="doAction()">Save</button></div>
+    <div class="cancel-btn"><button  class="mat-raised-button" (click)="closeDialog()">Cancel</button></div>
+    <div><button  class="mat-raised-button" (click)="doAction()">Save</button></div>
   </div>
 </div>

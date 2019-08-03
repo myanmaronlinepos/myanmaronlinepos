@@ -19,14 +19,9 @@ export class AssignproductComponent implements OnInit {
   myform:FormGroup;
   
 
-  constructor() {
-    this.myform= new FormGroup({
-      status: new FormControl()
-    });
-   }
+  constructor() { }
 
   ngOnInit() {
-  
   }
 
   

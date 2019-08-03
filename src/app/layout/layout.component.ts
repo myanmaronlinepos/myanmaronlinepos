@@ -9,13 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   viewmenu=false;
+  showmenu=false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  viewMenu(){
-    this.viewmenu=!this.viewmenu;
-    
+  viewMenu() {
+    this.viewmenu=!this.viewmenu;  
   }
+
+  showMenu() {
+    this.showmenu= !this.showmenu;
+  }
+  
 }
