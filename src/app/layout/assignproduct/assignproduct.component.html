@@ -6,14 +6,12 @@
       <input matInput type="search" placeholder="search" class="search-input">
   </div>
       
-<mat-dialog-content [formGroup]="myform">
-    <mat-form-field formControlName="status">
-        <mat-checkbox (change)="showOptions($event)" *ngFor="let data of assignproducts">{{data.assignproduct}}</mat-checkbox>
-    </mat-form-field>
+<mat-dialog-content>
+    <mat-checkbox (change)="showOptions($event)" *ngFor="let data of assignproducts">{{data.assignproduct}}</mat-checkbox>
 </mat-dialog-content>
 
 <mat-dialog-actions>
   <div class="selectedcategory">selected {{selectedArray.length}}</div>
-  <div class="cancelbtn"><button class="mat-raised-button" (click)="onNoClick()">Cancel</button></div>
+  <div class="cancelbtn"><button class="reset mat-raised-button" (click)="onNoClick()">Cancel</button></div>
   <div class="savebtn"><button class="mat-raised-button" matDialogClose="save" (click)="onSave()">Save</button></div>
-</mat-dialog-actions>
+</mat-dialog-actions> 

@@ -57,6 +57,9 @@
   width: 200px;
   height: 100px;
 }
+.nav li {
+  cursor: pointer;
+}
 .viewmenu li {
   list-style: none;
   font-size: 16px;
@@ -68,6 +71,7 @@
 }
 .viewmenu li a:hover {
   color: blue;
+  outline: 0;
 }
 // For Sidebar
 @media screen and (min-width:991px){
@@ -169,7 +173,7 @@ button {
     color: black;
     }
 
-    .nav li a:hover {
+    .nav li a:focus {
     background: #E5E4E2;
     }
 
@@ -178,9 +182,10 @@ button {
     }
 
     .sub {
-    display: none;
+      display: none;
+      position: fixed;
+      z-index: 20px;
     }
-
     .nav > li:hover .sub {
     display: block;
     }
@@ -190,12 +195,6 @@ button {
       display: block;
       align-content: center;
     }
-
-    .sub {
-      position: fixed;
-      z-index: 20px;
-    }
-
     .nav li {
       background: #E5E4E2;
       height: 40px;

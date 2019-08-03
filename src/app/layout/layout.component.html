@@ -8,7 +8,7 @@
         <a>Dashboard</a>
       </li>
       <li tabindex="0" (click)="viewMenu()">
-            <img src="assets/product-icon.png">
+            <img src="assets/product-ion.png">
             <a>Product<span class="sub-arrow"></span></a>
             <ul class="submenu" *ngIf="viewmenu">
               <li><a routerLink="../dashboard/products/allproducts">All Product</a></li>
@@ -18,14 +18,13 @@
             </ul>
       </li> 
 
-      <li tabindex="0" routerLink="../dashboard/sell/sell-table">
+      <li tabindex="0" (click)="showMenu()">
         <img src="assets/sell.png">
-        <a>Sell</a>
-      </li>
-
-      <li tabindex="0">
-        <img src="assets/order.png">
-        <a>Order</a>
+        <a>Sell<span class="sub-arrow"></span></a>
+            <ul class="submenu" *ngIf="showmenu">
+                <li><a routerLink="../dashboard/sell/sell-table">Sell Item</a></li>
+                <li><a routerLink="../dashboard/sell/sell-history">Sell History</a></li>
+            </ul>
       </li>
       <li tabindex="0" routerLink="../dashboard/setting">
         <img src="assets/setting.png">

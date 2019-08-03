@@ -47,39 +47,38 @@
 
   <div class="sidemenu" *ngIf="sidebarVisble">
     <ul class="nav">
-      <li>
+      <li routerLink="../dashboard/dashboard">
         <a>
           <img src="assets/dashboard.png">
           <span>Dashboard</span>
         </a>
       </li>
-      <li>
-        <a href="">
-          <img src="assets/sell.png">
-          <span>Sell</span>
-        </a>
-      </li>
       <li class="product">
-        <a href="">
+        <a>
           <img src="assets/product-ion.png">
           <span>Product</span>
           <i class="fa fa-caret-down"></i>
         </a>
         <ul class="sub">
-          <li><a href="">All Product</a></li>
-          <li><a href="">Inventory</a></li>
-          <li><a href="">Category</a></li>
-          <li><a href="">Tag</a></li>
+          <li><a routerLink="../dashboard/products/allproducts">All Product</a></li>
+          <li><a routerLink="../dashboard/products/inventory">Inventory</a></li>
+          <li><a routerLink="../dashboard/products/category">Category</a></li>
+          <li><a routerLink="../dashboard/products/tag">Tag</a></li>
         </ul>
       </li>
       <li>
-        <a href="">
+        <a>
           <img src="assets/order.png">
-          <span>Order</span>
+          <span>Sell</span>
+          <i class="fa fa-caret-down"></i>
         </a>
+        <ul class="sub">
+          <li><a routerLink="../dashboard/sell/sell-table">Sell Item</a></li>
+          <li><a routerLink="../dashboard/sell/sell-history">Sell History</a></li>
+        </ul>
       </li>
       <li>
-        <a href="">
+        <a routerLink="../dashboard/setting">
           <img src="assets/setting.png">
           <span>Setting</span>
         </a>
