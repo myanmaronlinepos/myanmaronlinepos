@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit {
     obj.action= action;
     const dialogRef=this.dialog.open(NewCategoryComponent,{
       width: '500px',
-      height: '280px', 
+      height: '270px',
       data: obj 
     });
 

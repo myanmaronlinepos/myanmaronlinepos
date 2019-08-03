@@ -71,7 +71,7 @@
           <a href="#" id='feynman'><img src="assets/login/export.png"  class="Logo"></a>
           <div id='feynman_text'> Export Product </div>
         
-          <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
+          <a href="#" id='feynman' routerLink="/dashboard/products/addproduct"><img src="assets/login/AddProduct.png"  class="Logo"></a>
           <div id='feynman_text'>  Add Product </div>
         </div>
       </div>
@@ -90,11 +90,11 @@
           <td mat-cell *matCellDef="let element" class="imagehover">{{element.product_name}} 
               <span class="only-show-on-hover">
   
-                  <a href=" ">
+                    <a>
                       <img src="assets/sharp-edit(1).svg" width="25px" height="25px">
                     </a>
 
-                    <a href=" ">
+                    <a routerLink="/dashboard/products/detailproduct">
                       <img src="assets/details.svg" width="25px" height="25px">
                     </a>
                 </span>

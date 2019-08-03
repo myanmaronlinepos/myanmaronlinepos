@@ -13,44 +13,29 @@
   padding-top: 0px;
 }
 .sidebar li {
-  font-size: 16px;
-  list-style: none;
   cursor: pointer;
-}
-.sidebar li:focus {
+  font-size: 16px;
+  padding: 15px;
+  list-style : none;
   outline: 0;
-  background-color: #f2f3f1;
 }
-.mainmenu a {
+.sidebar li a {
+  position: fixed;
   text-decoration: none;
-  color: #000;
+  color: black;
 }
-
-.mainmenu > li {
-  padding: 10px;
+.submenu li a {
+  padding-left: 25px;
 }
-.mainmenu a:focus {
+.sidebar > ul > li > a:focus {
   color: blue;
 }
-.submenu {
+.submenu li a:focus {
   visibility: visible;
-  margin-left: 35px;
-  padding: 5px;
-  font-size: 14px;
-  margin-top: 5px;
+  position: fixed;
+  color: blue;
 }
 
-.sidebar .sub-arrow:after {
-  content: '\203A';
-  float: right;
-  margin-right: 25px;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-}
-.sidebar li:focus .sub-arrow:after {
-  content: '\2039';
-}
 .main {
   padding:20px;
   position: relative;
