@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SellItem } from 'src/app/share/models/SellItem';
 import { ItemCategory } from 'src/app/share/models/itemCategory';
 import { SellService } from 'src/app/share/services/sell.service';
-import { getPluralCategory } from '@angular/common/src/i18n/localization';
 
 
 @Component({
@@ -37,36 +36,37 @@ export class SellTableComponent implements OnInit {
  
 
   ngOnInit() {
-    this.selectedRow=this.sellservice.getSellItem();
+    this.selectedRow=this.sellservice.sellProduct;
     this.checkboxes=this.sellservice.getItems();
     this.items=this.sellservice.getItems();
     this.dataSource=new MatTableDataSource<SellItem>(this.items);
     this.dataSource.paginator = this.paginator;
-    console.log(this.selectedRow.length);
   }
 
 
   sellItem() {
+    this.sellservice.sellProduct=this.selectedRow;
     this.router.navigate(['/dashboard/sell/sell-stock'])
   }
 
   onClickRow(row) {
+  
     if(!this.selectedRow.includes(row)){
-     this.sellservice.addItem(row);  
-     console.log(this.selectedRow);
-    }else{
-        this.sellservice.removeItem(row);
+      this.selectedRow.push(row);
+      console.log(this.selectedRow);
+    }else {
+
+     const index=this.selectedRow.indexOf(row);
+     this.selectedRow.splice(index,1);
     }
+    
     row.highlighted = !row.highlighted; 
   }
   
   checkedCategory(event) {
       const filter= event? event.source.value : null;
-      this.items=this.items.filter(element => element.category == filter);
+      this.items=this.items.filter(element =>  element.category == filter);
       this.dataSource=new MatTableDataSource<SellItem>(this.items);
-      console.log(event.checked);
-      console.log(filter);
-      console.log(this.items);
   }
 
 }
