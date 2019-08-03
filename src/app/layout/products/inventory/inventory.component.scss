@@ -3,20 +3,15 @@
   position: relative;
  
 }
-// This is paragraph modification
- .para{
-   font-size:20px;
-    text-transform: none ;
-    }
-//   this is logo image modification 
 
 .Logo{
    height:30px;
    width:30px;
 }
-//this is table styling
+
   .mat-header-cell{
     text-transform:none;
+    font-size:16px;
   }
   .mat-cell{
     text-transform:initial;
@@ -50,33 +45,30 @@
  
 #feynman_text{
   position: absolute;
-  top:0%;
-   text-align:center;
-  font-size: 13px;
-  //  width:90px;
+  top:15px;
+  text-align:right;
+  font-size: 12px;
   opacity:0;
-  text-transform:none;
   left: 80%;
-  bottom: 10px;
-  
+  // bottom:5%;
 }
 
 img {
   display: flex;
   width: 50%;
   justify-content: space-between;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left:5px;
+  // margin-top: 10px;
+  margin-bottom: 15px;
+  margin-left:10px;
   
 }
 .subimg {
-  position: relative;
   display: flex;
   flex-direction: row;
   width: 20%;
   justify-content: space-around;
-  padding-left: 80%;
+  padding-left: 85%;
+  padding-top:40px;
 }
 .quantity-field{
   width:60px;
@@ -107,5 +99,23 @@ img {
   }
   .quantity-field{
     width:60px;
+}
+
+#feynman_text{
+  position: absolute;
+  top:10px;
+  text-align:right;
+  font-size: 12px;
+  opacity:0;
+  left: 77%;
+ 
+}
+.subimg {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: space-around;
+  padding-left: 85%;
+  padding-top:30px;
 }
 }

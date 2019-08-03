@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SellItem } from './share/models/SellItem';
+import { SellItem } from '../models/SellItem';
+import { SellProduct } from '../models/SellProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -14,24 +15,18 @@ export class SellService {
     {number: 5, name: 'Myanmar Tin', category: 'Beer', tag: 'for 18+', quantity: 1000, price: 2000}
   ];
   
- sellItem=[];
+ sellProduct=[];
   constructor() {
    }
 
-   addItem(item:number) {
-     this.sellItem.push(item);
-   }
-
-   removeItem(item:number) {
-    const index=this.sellItem.indexOf(item);
-    this.sellItem.splice(index,1);
-   }
-
-   getSellItem() {
-     return this.sellItem;
+   
+   getSellProduct() {
+     return this.sellProduct.slice();
    }
 
    getItems() {
      return this.items;
    }
+
+
 }
