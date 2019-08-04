@@ -4,6 +4,7 @@ import { DataSource } from '@angular/cdk/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormStyle } from '@angular/common';
+import { element } from '@angular/core/src/render3';
 
 
 @Component({
@@ -33,6 +34,11 @@ export class AssignproductComponent implements OnInit {
         this.selectedArray.splice(index,1);
     }
     console.log($event);
+  }
+
+  filter(filterValue: string) {
+    this.assignproducts=this.assignproducts.filter(element=> element.assignproduct==filterValue);
+    console.log(this.assignproducts);
   }
 
 }

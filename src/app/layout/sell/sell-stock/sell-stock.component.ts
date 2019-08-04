@@ -14,7 +14,7 @@ import { SellItem } from 'src/app/share/models/SellItem';
 })
 export class SellStockComponent implements OnInit {
 
-  displayedColumns: string[] = ['number', 'name', 'quantity', 'price', 'totalprice'];
+  displayedColumns: string[] = ['number', 'name', 'quantity', 'price', 'totalprice', 'action'];
   items: SellProduct[] = [];
   dataSource: MatTableDataSource<SellProduct>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,6 +31,16 @@ export class SellStockComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  increaseQuantity(product) {
+    console.log(product.quantity);
+    return product.quantity++;
+  }
+
+  decreaseQuantity(product) {
+    console.log(product.quantity);
+    return product.quantity--;
+  }
+  
   convert(args: SellItem[]): SellProduct[] {
     const sell_product: SellProduct[] = [];
 

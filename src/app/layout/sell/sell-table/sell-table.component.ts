@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SellItem } from 'src/app/share/models/SellItem';
@@ -45,9 +46,16 @@ export class SellTableComponent implements OnInit {
 
 
   sellItem() {
-    this.sellservice.sellProduct=this.selectedRow;
-    this.router.navigate(['/dashboard/sell/sell-stock'])
+    if(this.selectedRow.length > 0){
+      this.sellservice.sellProduct=this.selectedRow;
+      this.router.navigate(['/dashboard/sell/sell-stock'])
+    }
+    else{
+      alert("Please select at least one product to sell!");
+    }
   }
+
+  
 
   onClickRow(row) {
   
