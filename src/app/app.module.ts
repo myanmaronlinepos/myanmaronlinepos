@@ -87,8 +87,7 @@ import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-t
     EditCategoryComponent,
     DeleteCategoryComponent,
     SellHistoryComponent,
-    EditTagComponent
-    
+    EditTagComponent    
   ],
   imports: [
     BrowserModule,
