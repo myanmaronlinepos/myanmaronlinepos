@@ -12,23 +12,17 @@
                     <mat-form-field>
                         <input matInput placeholder="Product Name:" formControlName="productName">
                       </mat-form-field>
-                      <mat-form-field class="example-full-width">
+                      <mat-form-field>
                         <textarea matInput placeholder="Category" formControlName="category"></textarea>
                       </mat-form-field>
                       <mat-form-field>
                         <input matInput placeholder="Tag" formControlName="tag">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="Quantity" formControlName="quantity">
-                      </mat-form-field>
-                      <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">
                       </mat-form-field>
                       <mat-form-field>
                         <input matInput placeholder="Sale price" formControlName="sale">
-                      </mat-form-field>
-                      <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
                       </mat-form-field>
                 </div>
             </div>
@@ -66,20 +60,19 @@
                       <mat-form-field class="example-full-width">
                         <textarea matInput placeholder="Category" formControlName="category"></textarea>
                       </mat-form-field>
-                      <mat-form-field>
-                        <input matInput placeholder="Tag" formControlName="tag">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input matInput placeholder="Quantity" formControlName="quantity">
-                      </mat-form-field>
+                      <!-- <mat-form-field>
+                        <select id="tag" name="tag" [(ngModel)]="tag" formControlName="tag">
+                          <option *ngFor="let tag of tags" [value]="tag.id">
+                            {{ tag.name }}
+                          </option>
+                        </select>
+                      </mat-form-field> -->
+                     
                       <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">
                       </mat-form-field>
                       <mat-form-field>
                         <input matInput placeholder="Sale price" formControlName="sale">
-                      </mat-form-field>
-                      <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
                       </mat-form-field>
                 </div>
             </div>
@@ -88,8 +81,8 @@
           <!-- For Button -->
           <div class="btn2 form-group">
             <div class="subbtn2">
-              <button type="reset" class="cancelbtn">Cancel</button>
-              <button class="savebtn">Save</button>
+              <button class="cancelbtn btn btn-primary" type="reset">Cancel</button>
+              <button class="savebtn btn btn-primary">Save</button>
             </div>
           </div>
         </div>

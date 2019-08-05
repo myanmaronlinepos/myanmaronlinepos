@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit {
     obj.action= action;
     const dialogRef=this.dialog.open(NewCategoryComponent,{
       width: '500px',
-      height: '280px', 
+      height: '270px',
       data: obj 
     });
 
@@ -52,7 +52,6 @@ export class CategoryComponent implements OnInit {
 
   assignProduct(): void {
     const dialogRef=this.dialog.open(AssignproductComponent,{
-      height: '300px',
       width: '500px'
     });
 
@@ -71,6 +70,7 @@ export class CategoryComponent implements OnInit {
     obj.action=action;
     const dialogRef=this.dialog.open(EditCategoryComponent,{
        width: '300px',
+       height: '180px',
        data: obj
     });
     dialogRef.afterClosed().subscribe(result=> {
@@ -97,9 +97,9 @@ export class CategoryComponent implements OnInit {
   }
 
   addRowData(row_obj) {
-    var d = new Date();
+    
     this.categories.push({
-      id:d.getTime(),
+      id:this.categoryservice.getId()+1,
       categoryname:row_obj.categoryname
     });
     this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);

@@ -1,10 +1,8 @@
-
 * {
   margin: 0;
   padding: 0;
 }
 .sidebar {
-
   height: 100%;
   width: 200px;
   position: fixed;
@@ -14,24 +12,29 @@
   background-color: #E5E4E2;
   padding-top: 0px;
 }
-
 .sidebar li {
-  font-size: 15px;
-  list-style: none;
   cursor: pointer;
+  font-size: 16px;
+  padding: 15px;
+  list-style : none;
+  outline: 0;
+}
+.sidebar li a {
+  position: fixed;
   text-decoration: none;
+  color: black;
 }
-.mainmenu > li {
-  padding: 10px;
+.submenu li a {
+  padding-left: 25px;
 }
-.submenu {
+.sidebar > ul > li > a:focus {
+  color: blue;
+}
+.submenu li a:focus {
   visibility: visible;
-  margin-left: 35px;
-  padding: 5px;
-  font-size: 14px;
-  margin-top: 5px;
+  position: fixed;
+  color: blue;
 }
-
 
 .main {
   padding:20px;
@@ -46,17 +49,6 @@ img {
   width: 23px;
   height: 23px;
   margin-right: 20px;
-}
-
-ul li span:focus {
-  color: blue;
-}
-
-li:focus  {
-  outline: 0;
-  background-color: #f2f5f8;
-  text-decoration: none;
-  color: #000000;
 }
 
 @media screen and (max-width: 991px) {

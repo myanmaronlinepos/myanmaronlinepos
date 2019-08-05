@@ -2,36 +2,38 @@ table {
     width: 100%;
 }
 .btn-gp {
-    display: flex;
-    width: 100%;
+    flex-grow: 4;
     margin-top: 30px;
 }
 .subbtn-gp {
     display: flex;
-    width: 100%;
+    flex-grow: 4;
     flex-direction: row;
     justify-content: space-between;
 }
 .first-btn {
-    display: flex;
-    width: 50%;
+    flex-grow: 2;
 }
 .second-btn {
     display: flex;
-    width: 50%;
-    margin-left: 60%;
+    flex-direction: row;
 }
-.cancel-btn {
-    margin-right: 30px;
-    width: 80px;
+.cancel-btn, .save-btn {
+    flex-grow: 1;
+    margin-right: 20px;
 }
-.save-btn {
-    width: 80px;
+img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.minus-btn {
+    margin-left: 10px;
 }
 
-td span.only-show-on-hover {
-    visibility: hidden;
-}
-td:hover span.only-show-on-hover  {
-    visibility: visible;
-}
+// td span.only-show-on-hover {
+//     visibility: hidden;
+// }
+// td:hover span.only-show-on-hover  {
+//     visibility: visible;
+// }

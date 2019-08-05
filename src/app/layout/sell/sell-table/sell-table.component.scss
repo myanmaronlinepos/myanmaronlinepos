@@ -4,15 +4,31 @@
 .highlight {
     background-color: blue;
 }
-.main {
-    text-transform: initial;
+
+.mat-header-cell{
+    font-size:16px;
+    text-transform:none;
 }
+.mat-cell{
+    font-size:16px;
+    text-transform:initial;
+}
+
 table {
     width: 100%;
+    cursor: pointer;
   }
 
-.ltr{
+::ng-deep .mat-select-arrow-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 50px;
+}
+
+.ltr1, .ltr2 {
     padding-left: 10px;
+    display: flex;
+    width: 100%;
   }
   mat-form-field{
     padding-top: 0px;
@@ -28,42 +44,73 @@ table {
 }
 .choice {
     display: flex;
-    width: 100%;
+    width: 100%!important;
     flex-direction: row;
     height: 60px;
+    text-transform: initial;
 }
 .check {
     display: flex;
     width: 50%;
-    justify-content: space-between;
 }
-.subcheck {
-    width: 100%;
-}
-.subchoice {
+.subcheck1, .subcheck2 {
     display: flex;
-    width: 100%;
+    width: 25%;
 }
+.subcheck2 {
+    margin-left: 50px;
+}
+
 .btn {
     display: flex;
     width: 50%;
-    justify-content: space-between;
     margin-top: 10px;
-    
-}
-.subbtn {
+    margin-left: 30%;
+    }
+.btn1, .btn2 {
     display: flex;
-    width: 80%;
-    flex-direction: row;
+    width: 50%;
     justify-content: space-around;
-
 }
 p {
-    margin-bottom: 0;
-    margin-left: 250px;
+    display: flex;
+    width: 25%;
 }
 a > img {
+    display: flex;
+    width: 25%;
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    .btn {
+        margin-left: 20%;
+    }
+}
+@media screen and (max-width: 991px) {
+    .btn {
+        margin-left: 30%;
+    }
+    .arrow2 {
+        margin: 0 30px;
+    }
+    a > img {
+        margin-left: 20px;
+    }
+    .btn1 {
+        justify-content: normal;
+    }
+    .mat-header-cell {
+        font-size: 14px; 
+    }
+    .mat-cell {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .btn {
+        margin-left: 20%;
+    }
 }

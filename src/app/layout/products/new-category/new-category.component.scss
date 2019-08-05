@@ -23,7 +23,7 @@
 
 .flex-container > div  {
     justify-content: space-between;
-    line-height: 80px;
+    line-height: 70px;
 }
 
 .header {
@@ -34,9 +34,25 @@ span {
   margin-right: 30px;  
 }
 
+.cancel-btn {
+    margin-right: 30px;
+}
+
 mat-form-field {
     margin-left: 30px;
     width: 250px;
 }
+
+@media screen and (max-width: 600px) {
+    .category-name {
+        display: none;
+    }
+
+    .flex-container > div  {
+        line-height: 60px;
+    }
+}
+
+    
 
 
