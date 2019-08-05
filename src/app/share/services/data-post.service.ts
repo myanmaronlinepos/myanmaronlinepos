@@ -10,11 +10,11 @@ import { Product } from '../models/Product';
 export class DataPostService {
   constructor(private http: HttpClient, private apiService: ApiRouteService) {}
 
-  postData(product:Product){
+  postProduct(product:Product):Observable<boolean>{
     let apiUrl = "/api/user/post/product";
-    return this.http.post(
+    return this.http.post<boolean>(
       this.apiService.createCompleteApiRoute(apiUrl),
       product
-    ).toPromise();
+    );
   }
 }
