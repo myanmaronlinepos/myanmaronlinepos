@@ -11,6 +11,8 @@
                 <div class="ppbody">
                     <mat-form-field>
                         <input matInput placeholder="Product Name:" formControlName="productName">
+                        <mat-error *ngIf="!productForm.get('productName').valid && productForm.get('productName').touched" class="help-block">
+                          {{productNameError}}</mat-error>
                       </mat-form-field>
                       <mat-form-field>
                         <textarea matInput placeholder="Category" formControlName="category"></textarea>
@@ -20,9 +22,13 @@
                       </mat-form-field>
                       <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">
+                        <mat-error *ngIf="!productForm.get('cost').valid && productForm.get('cost').touched" class="help-block">
+                          {{costError}}</mat-error>
                       </mat-form-field>
                       <mat-form-field>
                         <input matInput placeholder="Sale price" formControlName="sale">
+                        <mat-error *ngIf="!productForm.get('sale').valid && productForm.get('sale').touched" class="help-block">
+                          {{saleError}}</mat-error>
                       </mat-form-field>
                 </div>
             </div>
@@ -35,7 +41,7 @@
           <div class="btn form-group">
             <div class="subbtn">
               <button type="reset" class="cancel">Cancel</button>
-              <button class="save">Save</button>
+              <button class="save" [disabled]="!enableSave">Save</button>
             </div>
           </div>
         </div>
