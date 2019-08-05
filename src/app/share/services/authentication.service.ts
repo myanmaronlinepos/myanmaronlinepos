@@ -43,4 +43,12 @@ export class AuthService {
     ).toPromise();
     
   }
+  forget(EmailData: any){
+    let apiUrl="/api/guest/forgot-password";
+    console.log(EmailData);
+    return this.http.post(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      EmailData
+    ).toPromise();
+  }
 }

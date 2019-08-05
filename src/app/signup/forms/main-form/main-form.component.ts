@@ -19,13 +19,9 @@ export class MainFormComponent  implements OnInit{
 isValidFormSubmitted = false;
 signupData: User;
 mainFormData:SignupModel;
-loadingData=false;
 reactiveForm: FormGroup;
 SignupData:SignupModel;
  matcher = new MyErrorStateMatcher();
-// loading(){
-// this.loadingData=true;
-//   }
   ngOnInit() {
     this.reactiveForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -37,7 +33,8 @@ SignupData:SignupModel;
  constructor(
     private formBuilder: FormBuilder, 
     private router: Router,
-    private emitterService:EmitterService,private authService:AuthService) { }
+    private emitterService:EmitterService,
+    private authService:AuthService) { }
   onSubmit() {
     const formValue=this.reactiveForm.value;
 		if (this.reactiveForm.valid) {

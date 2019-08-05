@@ -5,10 +5,7 @@
 </div> -->
 <div class="img">
   <div class="subimg">
-  <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"  > <input type="file"
-    id="file"
-    (change)="handleFileInput($event.target.files)">
-</a>
+  <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"></a>
   <div id='feynman_text'> Import Product</div>
 
   <a href="#" id='feynman'><img src="assets/login/export.png"  class="Logo"></a>
@@ -70,9 +67,9 @@
                 <ng-container matColumnDef="actions">
                     <mat-header-cell *matHeaderCellDef> Updatequantity</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
-                        <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style">
-                            <input type="number" value="00005" min="00000" class="quantity-field" (input)="onUpdatequantity($event)">
-                            <mat-button-toggle value="save" class="btn-primary"(click)="Onaddvalue(row_id,$event)">Save</mat-button-toggle>
+                        <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style" class='btngp'>
+                            <input type="number" value="005" min="000" class="quantity-field" (input)="onUpdatequantity($event)">
+                            <mat-button-toggle value="save" class="btn-primary"(click)="Onaddvalue(row_id,$event)">save</mat-button-toggle>
                           </mat-button-toggle-group>    
                     </mat-cell>
                   </ng-container>
