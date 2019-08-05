@@ -33,7 +33,7 @@ import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.componen
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 import { AddProductComponent } from './layout/products/add-product/add-product.component';
 
-import {TagComponent} from './layout/products/tag/tag.component';
+import { TagComponent } from './layout/products/tag/tag.component';
 import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +43,10 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteCategoryComponent } from './layout/products/delete-category/delete-category.component';
-import {MatSortModule} from '@angular/material';
+import { MatSortModule } from '@angular/material';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EmailFormComponent } from './forgot-password/email-form/email-form.component';
+import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-code.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,9 +81,11 @@ import {MatSortModule} from '@angular/material';
     DetailProductComponent,
     EditProductComponent,
     EditCategoryComponent,
-    DeleteCategoryComponent
-    
-  ],
+    DeleteCategoryComponent,
+    ForgotPasswordComponent,
+    EmailFormComponent,
+    ComfirmCodeComponent
+    ],
   imports: [
     BrowserModule,
     RoutingModule,
