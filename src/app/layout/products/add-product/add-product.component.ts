@@ -13,6 +13,11 @@ export class AddProductComponent implements OnInit {
 
   productForm: FormGroup;
   addproductData: Product;
+  productNameError:string="Please enter a valid product name";
+  costError:string="Please enter a valid cost";
+  saleError:string="Please enter a valid sale";
+  enableSave:boolean=false;
+
   constructor(
     private datapostService: DataPostService,
     private router: Router
@@ -26,6 +31,17 @@ export class AddProductComponent implements OnInit {
       'cost':new FormControl(null, Validators.required),
       'sale':new FormControl(null, Validators.required),
     });
+    this.formValid();
+  }
+
+  formValid() {
+    this.productForm.valueChanges.subscribe(result => {
+      if (this.productForm.status == "INVALID") {
+        this.enableSave=false;
+      } else if (this.productForm.status == "VALID") {
+        this.enableSave=true;
+      }
+    });
   }
 
   onSubmit() {
@@ -36,25 +52,27 @@ export class AddProductComponent implements OnInit {
       product_name: formValue.productName,
       category_id: 1,
       tag_id: 1,
-      user_id: 1,
       price_cost: formValue.cost,
       price_sell: formValue.sale,
+      imageurl:' ',
       created_at: '',
       updated_at: '',
     }
-    console.log(formValue);
 
-    this.datapostService.postData(this.addproductData)
-      .then((registered: boolean) => {
-        if (registered) {
+    this.datapostService.postProduct(this.addproductData)
+      .subscribe(
+        response => {
+        if(response) {
           this.router.navigate(['/dashboard/products/allproducts']);
-        } else {
-          console.log('error');
         }
-      })
-      .catch((error) => {
+
+      },
+      error => {
         console.log(error);
-      });
+        this.productNameError=error.error.product_name;
+      }
+
+      )
   }
 
 }
