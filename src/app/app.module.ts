@@ -48,6 +48,7 @@ import {MatSortModule} from '@angular/material';
 
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-t
     EditCategoryComponent,
     DeleteCategoryComponent,
     SellHistoryComponent,
-    EditTagComponent    
+    EditTagComponent,
+    FilterPipe    
   ],
   imports: [
     BrowserModule,
