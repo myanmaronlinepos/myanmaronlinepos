@@ -49,9 +49,6 @@ import { MatSortModule } from '@angular/material';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { EmailFormComponent } from './forgot-password/email-form/email-form.component';
 import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-code.component';
-
-import {MatSortModule} from '@angular/material';
-
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
 import { FilterPipe } from './filter.pipe';
@@ -94,10 +91,9 @@ import { FilterPipe } from './filter.pipe';
     DeletetagComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
-
     ForgotPasswordComponent,
     EmailFormComponent,
-    ComfirmCodeComponent
+    ComfirmCodeComponent,
     SellHistoryComponent,
     EditTagComponent,
     FilterPipe    
