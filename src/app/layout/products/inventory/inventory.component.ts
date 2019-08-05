@@ -1,37 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
-export interface PeriodicElement {
-  name: string;
-  no: number;
-  quantity: number;
-  category: string;
-  // updatequantity:string;
-}
+import { Inventory } from 'src/app/share/models/Inventory';
+import { ActivatedRoute } from '@angular/router';
+import { InventoryService } from 'src/app/share/services/inventory.service';
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {no: 1, name: 'point',category : 'sunflowerseeds', quantity:1000},
-  {no: 2, name: 'point',category : 'sunflowerseeds', quantity:1000},
-  {no: 3, name: 'point',category : 'sunflowerseeds', quantity:1000},
-  {no: 4, name: 'point',category : 'sunflowerseeds', quantity:1000},
-  {no: 5, name: 'point',category : 'sunflowerseeds', quantity:1000},
-  // {no: 6, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 7, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 8, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 9, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 10, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 11, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 12, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 13, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 14, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 15, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 16, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 17, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 18, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 19, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-  // {no: 20, name: 'point',category : 'sunflowerseeds', quantity:1000,updatequantity:''},
-
-];
 
 @Component({
   selector: 'app-inventory',
@@ -40,33 +13,37 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class InventoryComponent implements OnInit {
 
-displayedColumns: string[] = ['no', 'name', 'category', 'quantity','actions'];
-dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+displayedColumns: string[] = ['product_id', 'name', 'category', 'quantity','actions'];
+items: Inventory[]=[];
+dataSource: MatTableDataSource<Inventory>;
+@ViewChild(MatPaginator) paginator: MatPaginator;
 
 Updatequantity='';
-Savebuttonwork='';
+savequantity='';
 fileToUpload: File = null;
 
 handleFileInput(files: FileList) {
   this.fileToUpload = files.item(0);
 }
+constructor(
+  private route: ActivatedRoute,
+  private activatedRoute: ActivatedRoute,
+  private inventoryservice:InventoryService
+) { }
 
-@ViewChild(MatPaginator) paginator: MatPaginator;
-
-  constructor() { }
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+ngOnInit() {
+  this.items=this.inventoryservice.getItems();
+  this.dataSource = new MatTableDataSource<Inventory>(this.items);
+  this.dataSource.paginator = this.paginator;
    }
-   onUpdatequantity(){
+onUpdatequantity(){
      this.Updatequantity=(<HTMLInputElement>event.target).value;
      }
-     Onaddvalue(){
-     this.Savebuttonwork=this.Updatequantity;
+Onaddvalue(element){
+       console.log(element.savequantity);
+    return this.savequantity=this.Updatequantity;
       }
-  // rowClicked(row: Event){
-  //   this.Savebuttonwork=this.Updatequantity;
-  // }
+     
 
 }
 
