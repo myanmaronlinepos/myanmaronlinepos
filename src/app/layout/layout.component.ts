@@ -22,5 +22,7 @@ export class LayoutComponent implements OnInit {
   showMenu() {
     this.showmenu= !this.showmenu;
   }
+
+  
   
 }

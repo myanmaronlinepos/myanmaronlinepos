@@ -2,6 +2,29 @@
   margin: 0;
   padding: 0;
 }
+
+.submenu li a {
+  padding-left: 40px;
+  height: 25px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: black;
+  background-color: #E5E4E2;
+  margin-top: 10px;
+  height: 29px;
+}
+
+.sidebar a:hover {
+  color: blue;
+}
+.sidebar a:focus {
+  outline: 0;
+}
+.submenu {
+   visibility: visible;
+ }
 .sidebar {
   height: 100%;
   width: 200px;
@@ -11,29 +34,40 @@
   left:0px;
   background-color: #E5E4E2;
   padding-top: 0px;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  .list-group, .nested-menu {
+      a.list-group-item {
+          border: 0;
+          border-radius: 0;
+          background-color: #E5E4E2;
+          color: black;
+          text-decoration: none;
+      }
+      a:hover {
+          color: blue;
+          cursor: pointer;
+      }
+      
+      a.router-link-active {
+          color: blue;
+          
+      }
+  }
+}
+
+.list-group-item {
+  border: 0;
 }
 .sidebar li {
   cursor: pointer;
   font-size: 16px;
-  padding: 15px;
   list-style : none;
   outline: 0;
-}
-.sidebar li a {
-  position: fixed;
-  text-decoration: none;
-  color: black;
-}
-.submenu li a {
-  padding-left: 25px;
-}
-.sidebar > ul > li > a:focus {
-  color: blue;
-}
-.submenu li a:focus {
-  visibility: visible;
-  position: fixed;
-  color: blue;
 }
 
 .main {
@@ -48,7 +82,8 @@
 img {
   width: 23px;
   height: 23px;
-  margin-right: 20px;
+  margin-right: 12px;
+  margin-left: 8px;
 }
 
 @media screen and (max-width: 991px) {
