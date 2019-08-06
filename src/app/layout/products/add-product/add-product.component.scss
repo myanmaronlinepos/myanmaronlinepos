@@ -58,6 +58,7 @@ h3 {
 }
 .save, .savebtn {
     width: 80px;
+    padding-left: 20px;
 }
 // For small size
 .body2 {
@@ -68,6 +69,7 @@ h3 {
 .pimg2 {
     display: flex;
     width: 100%;
+    flex-direction: column;
     justify-content: center;
     margin-top: 20px;
 }
@@ -86,6 +88,30 @@ h3 {
     display: flex;
     width: 80%;
     flex-direction: column;
+}
+
+label > input {
+    display: none;
+}
+.image-upload-container {
+    cursor: pointer;
+}
+.img-preview-container {
+    position: relative;
+
+    .img-preview {
+        background: center center no-repeat;
+        background-size: 300px 200px;
+        width: 70%;
+        height: 200px;
+        border-radius: 10px;
+        margin-left: 15%;
+    }
+}
+
+.subbtn1 {
+    width: 100px;
+    background: darkcyan;
 }
 
 @media screen and (min-width: 993px) {
@@ -110,5 +136,9 @@ h3 {
         width: 220px;
         height: 200px;
         border-radius: 10px;
+        margin-left: 15%;
+    }
+    .subbtn1 {
+        margin-left: 30%;
     }
 }
