@@ -2,6 +2,30 @@
   margin: 0;
   padding: 0;
 }
+
+.submenu li a {
+  padding-left: 40px;
+  height: 25px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: black;
+  background-color: #E5E4E2;
+  margin-top: 20px;
+  height: 29px;
+}
+
+.sidebar a:hover {
+  color: blue;
+}
+.sidebar a:focus {
+  outline: 0;
+}
+.submenu {
+   visibility: visible;
+   position: relative;
+ }
 .sidebar {
   height: 100%;
   width: 200px;
@@ -11,46 +35,53 @@
   left:0px;
   background-color: #E5E4E2;
   padding-top: 0px;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  .list-group, .nested-menu {
+      a.list-group-item {
+          border: 0;
+          border-radius: 0;
+          background-color: #E5E4E2;
+          color: black;
+          text-decoration: none;
+      }
+      a:hover {
+          color: blue;
+          cursor: pointer;
+      }
+      
+      a.router-link-active {
+          color: blue;
+          
+      }
+  }
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 5px;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: .3em solid transparent;
+}
+.list-group-item {
+  border: 0;
 }
 .sidebar li {
-  font-size: 16px;
-  list-style: none;
   cursor: pointer;
-}
-.sidebar li:focus {
+  font-size: 16px;
+  list-style : none;
   outline: 0;
-  background-color: #f2f3f1;
-}
-.mainmenu a {
-  text-decoration: none;
-  color: #000;
 }
 
-.mainmenu > li {
-  padding: 10px;
-}
-.mainmenu a:focus {
-  color: blue;
-}
-.submenu {
-  visibility: visible;
-  margin-left: 35px;
-  padding: 5px;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.sidebar .sub-arrow:after {
-  content: '\203A';
-  float: right;
-  margin-right: 25px;
-  transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-}
-.sidebar li:focus .sub-arrow:after {
-  content: '\2039';
-}
 .main {
   padding:20px;
   position: relative;
@@ -63,7 +94,8 @@
 img {
   width: 23px;
   height: 23px;
-  margin-right: 20px;
+  margin-right: 12px;
+  margin-left: 8px;
 }
 
 @media screen and (max-width: 991px) {

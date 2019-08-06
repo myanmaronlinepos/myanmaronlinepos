@@ -11,7 +11,7 @@
 
   .mat-header-cell{
     text-transform:none;
-    font-size:16px;
+    font-size:15px;
   }
   .mat-cell{
     text-transform:initial;
@@ -71,51 +71,24 @@ img {
   padding-top:40px;
 }
 .quantity-field{
-  width:60px;
+  width:50%;
 }
-@media only screen and (max-width: 991px){
-  coverall{
-     position: relative;
-  }
-  table{
+.btngp{
+  width:60%;
+}
+.btn-primary{
+  width:50%;
+}
+@media only screen and (max-width:991px){
+  .btngp{
     width:100%;
-    border: 0;
-   }
-  
-  .mat-column-no {
-   width:12%;
-  }
-  .mat-column-name {
-   width:22%;
-  }
-  .mat-column-category {
-   width:22%;
-  }
-  .mat-column-quantity {
-   width:22%;
-  }
-  .mat-column-updatequantity {
-   width:32%;
+  } 
+  .btn-primary{
+    width:50%;
+    align-content: left;
+  // font-size: 10px;
   }
   .quantity-field{
-    width:60px;
-}
-
-#feynman_text{
-  position: absolute;
-  top:10px;
-  text-align:right;
-  font-size: 12px;
-  opacity:0;
-  left: 77%;
- 
-}
-.subimg {
-  display: flex;
-  flex-direction: row;
-  width: 20%;
-  justify-content: space-around;
-  padding-left: 85%;
-  padding-top:30px;
-}
-}
+    width:50%;
+  }
+ }

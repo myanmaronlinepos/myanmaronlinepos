@@ -1,39 +1,68 @@
 
 <app-nav-bar></app-nav-bar>
 
-<div class="sidebar">
-    <ul class="mainmenu">
-      <li tabindex="0" routerLink="../dashboard/dashboard">
-        <img src="assets/dashboard.png">
-        <a>Dashboard</a>
-      </li>
-      <li tabindex="0" (click)="viewMenu()">
-            <img src="assets/product-icon.png">
-            <a>Product<span class="sub-arrow"></span></a>
-            <ul class="submenu" *ngIf="viewmenu">
-              <li><a routerLink="../dashboard/products/allproducts">All Product</a></li>
-              <li><a routerLink="../dashboard/products/inventory">Inventory</a></li>
-              <li><a routerLink="../dashboard/products/category">Category</a></li>
-              <li><a routerLink="../dashboard/products/tag">Tag</a></li>
-            </ul>
-      </li> 
+<div class="list-group sidebar">
+  <a routerLink="../dashboard/dashboard" tabindex="0" [routerLinkActive]="['router-link-active']" class="list-group-item">
+    <img src="assets/dashboard.png">
+    <span>Dashboard</span>
+  </a>
+  <div class="nested-menu">
+      <a class="list-group-item  dropdown-toggle" tabindex="0" (click)="viewMenu()">
+        <img src="assets/product-ion.png">
+        <span>Product</span>
+      </a>
+      <div class="nested" *ngIf="viewmenu">
+          <ul class="submenu">
+              <li>
+                  <a routerLink="../dashboard/products/allproducts" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                      <span>All Product</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="../dashboard/products/inventory" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                      <span>Inventory</span>
+                  </a>
+              </li>
+              <li>
+                  <a routerLink="../dashboard/products/category" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                      <span>Category</span>
+                  </a>
+              </li>
+              <li>
+                <a routerLink="../dashboard/products/tag" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                    <span>Tag</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+    </div>
 
-      <li tabindex="0" routerLink="../dashboard/sell/sell-table">
-        <img src="assets/sell.png">
-        <a>Sell</a>
-      </li>
+    <div class="nested-menu">
+        <a class="list-group-item dropdown-toggle" tabindex="0" (click)="showMenu()">
+          <img src="assets/sell.png">
+          <span>Sell</span>
+        </a>
+        <div class="nested" *ngIf="showmenu">
+              <ul class="submenu">
+                  <li>
+                      <a routerLink="../dashboard/sell/sell-table" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                          <span>Sell Product</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a routerLink="../dashboard/sell/sell-history" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                          <span>Sell History</span>
+                      </a>
+                  </li>
+              </ul>
+        </div>
+    </div>
 
-      <li tabindex="0">
-        <img src="assets/order.png">
-        <a>Order</a>
-      </li>
-      <li tabindex="0" routerLink="../dashboard/setting">
-        <img src="assets/setting.png">
-        <a>Setting</a>
-      </li>
-    </ul>
+    <a routerLink="../dashboard/setting" tabindex="0" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <img src="assets/setting.png">
+      <span>Setting</span>
+    </a>
 </div>
-
 
 <div class="main">
     <router-outlet></router-outlet>

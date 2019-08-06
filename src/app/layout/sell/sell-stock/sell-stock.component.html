@@ -6,20 +6,20 @@
     <!-- Number Column -->
     <ng-container matColumnDef="number">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let product"> {{product.number}} </td>
-      <!-- <td mat-footer-cell *matFooterCellDef> Total </td> -->
+      <td mat-cell *matCellDef="let product"> {{ product.number }} </td>
     </ng-container>
 
     <!-- Product Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+      <td mat-cell *matCellDef="let product"> {{product.product_name}} </td>
     </ng-container>
 
     <!-- Quantity Column -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef> Quantity </th>
       <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
+      <td mat-footer-cell *matFooterCellDef [attr.colspan]="4"> Total price for all products </td>
     </ng-container>
 
     <!-- Price Column -->price
@@ -34,14 +34,21 @@
       <!-- <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} -->
     </ng-container>
 
-    <!-- <ng-container matColumnDef="in-decrease">
-        <td mat-cell *matCellDef="let product" class="imagehover">
-          <span class="only-show-on-hover">
-              <img src="assets/plus.png">
-              <img src="assets/minus.png">
-          </span>
-        </td>
-    </ng-container> -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let product">
+        <span class="only-show-on-hover">
+  
+          <a class="plus-btn" (click)="increaseQuantity(product)">
+            <img src="assets/plus.svg">
+          </a>
+
+          <a class="minus-btn" (click)="decreaseQuantity(product)">
+            <img src="assets/minus.svg">
+          </a>
+        </span>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -27,8 +27,14 @@ import { AddProductComponent } from './layout/products/add-product/add-product.c
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
+
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EmailFormComponent } from './forgot-password/email-form/email-form.component';
+import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-code.component';
+
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
+
 
 
 const routes: Routes = [
@@ -40,6 +46,12 @@ const routes: Routes = [
             path: "signup", component: SignupComponent, children: [
                 { path: "", component: MainFormComponent },
                 { path: "detail", component: DetailFormComponent }
+            ],
+        },
+        {
+            path: "forget", component: ForgotPasswordComponent, children: [
+                {path: "", component: EmailFormComponent },
+                {path: "comfirm-code", component: ComfirmCodeComponent } 
             ]
         },
     ] },

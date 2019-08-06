@@ -3,6 +3,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataPostService } from 'src/app/share/services/data-post.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/share/models/Product';
+import { NewProduct } from 'src/app/share/models/NewProduct';
+
+
+class ImageSnippet {
+  constructor(public src: string, public file: File){}
+}
 
 @Component({
   selector: 'app-add-product',
@@ -12,7 +18,26 @@ import { Product } from 'src/app/share/models/Product';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup;
-  addproductData: Product;
+  addproductData: NewProduct;
+  productNameError:string="Please enter a valid product name";
+  costError:string="Please enter a valid cost";
+  saleError:string="Please enter a valid sale";
+  enableSave:boolean=false;
+
+  selectedFile: ImageSnippet;
+
+  processFile(imageInput: any) {
+    const file: File= imageInput.files[0];
+    const reader= new FileReader();
+
+    reader.addEventListener('load',(event: any)=> {
+      this.selectedFile=new ImageSnippet(event.target.result, file);
+      // console.log(event);
+      // console.log(this.selectedFile.src);
+    });
+    reader.readAsDataURL(file);
+  }
+
   constructor(
     private datapostService: DataPostService,
     private router: Router
@@ -26,6 +51,17 @@ export class AddProductComponent implements OnInit {
       'cost':new FormControl(null, Validators.required),
       'sale':new FormControl(null, Validators.required),
     });
+    this.formValid();
+  }
+
+  formValid() {
+    this.productForm.valueChanges.subscribe(result => {
+      if (this.productForm.status == "INVALID") {
+        this.enableSave=false;
+      } else if (this.productForm.status == "VALID") {
+        this.enableSave=true;
+      }
+    });
   }
 
   onSubmit() {
@@ -36,25 +72,27 @@ export class AddProductComponent implements OnInit {
       product_name: formValue.productName,
       category_id: 1,
       tag_id: 1,
-      user_id: 1,
       price_cost: formValue.cost,
       price_sell: formValue.sale,
+      imageurl:' ',
       created_at: '',
       updated_at: '',
     }
-    console.log(formValue);
 
-    this.datapostService.postData(this.addproductData)
-      .then((registered: boolean) => {
-        if (registered) {
+    this.datapostService.postProduct(this.addproductData)
+      .subscribe(
+        response => {
+        if(response) {
           this.router.navigate(['/dashboard/products/allproducts']);
-        } else {
-          console.log('error');
         }
-      })
-      .catch((error) => {
+
+      },
+      error => {
         console.log(error);
-      });
+        this.productNameError=error.error.product_name;
+      }
+
+      )
   }
 
 }

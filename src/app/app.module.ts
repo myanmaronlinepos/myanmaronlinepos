@@ -33,7 +33,7 @@ import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.componen
 import { SellTableComponent } from './layout/sell/sell-table/sell-table.component';
 import { AddProductComponent } from './layout/products/add-product/add-product.component';
 
-import {TagComponent} from './layout/products/tag/tag.component';
+import { TagComponent } from './layout/products/tag/tag.component';
 import { NewTagsComponent } from './layout/products/new-tags/new-tags.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -44,10 +44,15 @@ import { EditCategoryComponent } from './layout/products/edit-category/edit-cate
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteCategoryComponent } from './layout/products/delete-category/delete-category.component';
-import {MatSortModule} from '@angular/material';
 
+import { MatSortModule } from '@angular/material';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EmailFormComponent } from './forgot-password/email-form/email-form.component';
+import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-code.component';
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
+import { FilterPipe } from './filter.pipe';
+
 
 
 @NgModule({
@@ -86,9 +91,12 @@ import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-t
     DeletetagComponent,
     EditCategoryComponent,
     DeleteCategoryComponent,
+    ForgotPasswordComponent,
+    EmailFormComponent,
+    ComfirmCodeComponent,
     SellHistoryComponent,
-    EditTagComponent
-    
+    EditTagComponent,
+    FilterPipe    
   ],
   imports: [
     BrowserModule,

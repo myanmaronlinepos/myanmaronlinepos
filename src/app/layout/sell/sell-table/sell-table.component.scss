@@ -5,6 +5,15 @@
     background-color: blue;
 }
 
+.mat-header-cell{
+    font-size:16px;
+    text-transform:none;
+}
+.mat-cell{
+    font-size:16px;
+    text-transform:initial;
+}
+
 table {
     width: 100%;
     cursor: pointer;
@@ -92,6 +101,12 @@ a > img {
     }
     .btn1 {
         justify-content: normal;
+    }
+    .mat-header-cell {
+        font-size: 14px; 
+    }
+    .mat-cell {
+        font-size: 14px;
     }
 }
 @media screen and (max-width: 800px) {
