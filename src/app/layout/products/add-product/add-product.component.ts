@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataPostService } from 'src/app/share/services/data-post.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/share/models/Product';
+import { NewProduct } from 'src/app/share/models/NewProduct';
 
 
 class ImageSnippet {
@@ -17,7 +18,7 @@ class ImageSnippet {
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup;
-  addproductData: Product;
+  addproductData: NewProduct;
   productNameError:string="Please enter a valid product name";
   costError:string="Please enter a valid cost";
   saleError:string="Please enter a valid sale";

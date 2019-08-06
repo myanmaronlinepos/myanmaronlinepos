@@ -1,8 +1,9 @@
-export interface Product {
+export interface NewProduct {
     product_id:number;
     product_name:string;
-    category_name:string;
-    tag_name:string;
+    category_id:number;
+    tag_id:number;
+    price_cost:string;
     price_sell:string;
     imageurl:string;
     created_at:string;
