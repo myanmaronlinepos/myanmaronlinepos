@@ -5,11 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { EmitterService } from 'src/app/share/services/emitter.service';
 import { SignupModel } from '../signupModel';
-export interface City {
-  id: number;
-  viewValue: string;
-}
-
+import { CityService } from 'src/app/share/services/city.service';
+import { City } from 'src/app/share/models/City';
 
 @Component({
   selector: 'app-detail-form',
@@ -24,25 +21,23 @@ showStore: boolean = false;
 detailForm: FormGroup;
 mainFormData:SignupModel;
 signupData: User;
+items: City[] =[];
+
 	
 loadData(){
   this.showSpinner=true;
 }
-  cities: City[] = [
-    {id: 1, viewValue:'Monywa'},
-    {id:2, viewValue: 'Yangon'},
-    {id:3, viewValue: 'Mandalay'},
-    {id:4, viewValue: 'Shwebo'}
-  ];
+  
   constructor(
+    private cityservice: CityService,
     private authService: AuthService,
     private router: Router,
     private emitterService: EmitterService) {
     }
     
     ngOnInit() {
-
-      this.detailForm = new FormGroup({
+      this.items=this.cityservice.getItems();
+       this.detailForm = new FormGroup({
         'firstname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
         'lastname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
         'city': new FormControl(null, [Validators.required]),

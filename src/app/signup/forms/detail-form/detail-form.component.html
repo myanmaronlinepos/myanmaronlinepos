@@ -10,13 +10,13 @@
       <mat-form-field class="name1">
         <input matInput placeholder="First Name" type="text" formControlName="firstname" id="firstname">
         <mat-error *ngIf="!detailForm.get('firstname').valid && detailForm.get('firstname').touched" class="help-block">
-          Please enter a valid first name</mat-error>
+          Enter a valid first name</mat-error>
       </mat-form-field>
 
       <mat-form-field class="name1">
         <input matInput placeholder="Last Name" type="text" formControlName="lastname" id="lastname">
         <mat-error *ngIf="!detailForm.get('lastname').valid && detailForm.get('lastname').touched" class="help-block">
-          Please enter a valid last name</mat-error>
+          Enter a valid last name</mat-error>
       </mat-form-field>
 
       <mat-form-field class="textbox">
@@ -29,9 +29,9 @@
       <!-- </mat-form-field> formControlName="city" -->
       <mat-form-field class="textbox">
         <mat-label>Select city</mat-label>
-        <mat-select formControlName="city" id="city">
-          <mat-option *ngFor="let city of cities" [value]="city.id">
-            {{city.viewValue}}
+        <mat-select formControlName="city" id="city_name">
+          <mat-option *ngFor="let city of items" [value]="city.city_id">
+            {{city.city_name}}
           </mat-option>
         </mat-select>
         <mat-hint i18n>Please select city</mat-hint>
