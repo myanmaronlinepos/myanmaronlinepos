@@ -4,8 +4,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Inventory } from 'src/app/share/models/Inventory';
 import { ActivatedRoute } from '@angular/router';
 import { InventoryService } from 'src/app/share/services/inventory.service';
-
-
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -39,9 +37,8 @@ ngOnInit() {
 onUpdatequantity(){
      this.Updatequantity=(<HTMLInputElement>event.target).value;
      }
-Onaddvalue(element){
-       console.log(element.savequantity);
-    return this.savequantity=this.Updatequantity;
+Onaddvalue(row){
+    row.savequantity=this.Updatequantity;
       }
      
 
