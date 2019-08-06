@@ -4,6 +4,11 @@ import { DataPostService } from 'src/app/share/services/data-post.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/share/models/Product';
 
+
+class ImageSnippet {
+  constructor(public src: string, public file: File){}
+}
+
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -17,6 +22,20 @@ export class AddProductComponent implements OnInit {
   costError:string="Please enter a valid cost";
   saleError:string="Please enter a valid sale";
   enableSave:boolean=false;
+
+  selectedFile: ImageSnippet;
+
+  processFile(imageInput: any) {
+    const file: File= imageInput.files[0];
+    const reader= new FileReader();
+
+    reader.addEventListener('load',(event: any)=> {
+      this.selectedFile=new ImageSnippet(event.target.result, file);
+      // console.log(event);
+      // console.log(this.selectedFile.src);
+    });
+    reader.readAsDataURL(file);
+  }
 
   constructor(
     private datapostService: DataPostService,
