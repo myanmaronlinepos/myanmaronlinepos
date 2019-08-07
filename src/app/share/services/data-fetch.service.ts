@@ -5,13 +5,20 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { Category } from '../models/Category';
 import { City } from '../models/City';
+import { Inventory } from '../models/Inventory';
 
 @Injectable({
   providedIn: "root"
 })
 export class DataFetchService {
   constructor(private http: HttpClient, private apiService: ApiRouteService) {}
+getInventory():Observable<Inventory[]>{
+  let apiUrl = "/api/user/get/products";
+  return this.http.get<Inventory[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
 
+}
   getAllProduct():Observable<Product[]>{
     let apiUrl = "/api/user/get/products";
     return this.http.get<Product[]>(

@@ -3,7 +3,8 @@ import {MatPaginator} from '@angular/material';
 import {MatTableDataSource} from '@angular/material/table';
 import { Inventory } from 'src/app/share/models/Inventory';
 import { ActivatedRoute } from '@angular/router';
-import { InventoryService } from 'src/app/share/services/inventory.service';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { Product } from 'src/app/share/models/Product';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -11,13 +12,13 @@ import { InventoryService } from 'src/app/share/services/inventory.service';
 })
 export class InventoryComponent implements OnInit {
 
-displayedColumns: string[] = ['product_id', 'name', 'category', 'quantity','actions'];
+displayedColumns: string[] = ['No', 'product_name','category_name','quantity','actions'];
 items: Inventory[]=[];
 dataSource: MatTableDataSource<Inventory>;
 @ViewChild(MatPaginator) paginator: MatPaginator;
 
 Updatequantity='';
-savequantity='';
+// savequantity='';
 fileToUpload: File = null;
 
 handleFileInput(files: FileList) {
@@ -26,21 +27,30 @@ handleFileInput(files: FileList) {
 constructor(
   private route: ActivatedRoute,
   private activatedRoute: ActivatedRoute,
-  private inventoryservice:InventoryService
-) { }
+  private dataFetchService : DataFetchService
+  ) { }
 
 ngOnInit() {
-  this.items=this.inventoryservice.getItems();
-  this.dataSource = new MatTableDataSource<Inventory>(this.items);
-  this.dataSource.paginator = this.paginator;
+  this.fetchData();
    }
 onUpdatequantity(){
      this.Updatequantity=(<HTMLInputElement>event.target).value;
      }
 Onaddvalue(row){
-    row.savequantity=this.Updatequantity;
+    row.quantity=this.Updatequantity;
       }
      
-
+      fetchData() {
+        this.dataFetchService.getInventory().subscribe(
+          response => {
+            console.log(response);
+            this.dataSource = new MatTableDataSource<Inventory>(response);
+            this.dataSource.paginator = this.paginator;
+          },
+          error => {
+  
+          }
+        )
+      }
 }
 
