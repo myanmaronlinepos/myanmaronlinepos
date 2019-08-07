@@ -23,8 +23,33 @@ export class SellTableComponent implements OnInit {
   items:SellItem[]=[];
   checkboxes:SellItem[]=[];
   dataSource: MatTableDataSource<SellItem>;
-  
-  
+  selected_products:SellItem[]=[];
+  selected:boolean=false;
+
+  // private _filteredValue ='';
+      
+  // get filteredValue(): string {
+  //   return this._filteredValue;
+  // }
+  // set filteredValue(value:string) {
+  //   this._filteredValue=value;
+  //   this.products=this.filtereproducts(value);
+  // }
+
+  // filtereproducts(searchproduct: string) {
+  //   return this.products.filter(products=>
+  //     products.category.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
+  // }
+  // checkedCategory (searchproduct) {
+  //   return this.items.filter(products=>
+  //     products.category.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
+  // }
+
+  // getSelected() {
+  //   this.selected_products = this.items.filter(s => {
+  //     return s.selected;
+  //   });
+  // }
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -40,10 +65,21 @@ export class SellTableComponent implements OnInit {
     this.selectedRow=this.sellservice.sellProduct;
     this.checkboxes=this.sellservice.getItems();
     this.items=this.sellservice.getItems();
-    this.dataSource=new MatTableDataSource<SellItem>(this.items);
+    this.dataSource=new MatTableDataSource<SellItem>(this.selected_products);
     this.dataSource.paginator = this.paginator;
+    
+    this.selected_products=this.items;
+    
   }
+  
 
+  getSelected() {
+    this.selected_products = this.items.filter(s => {
+      return s.selected;
+    });
+    console.log(this.selected_products);
+    
+  }
 
   sellItem() {
     if(this.selectedRow.length > 0){
@@ -71,10 +107,10 @@ export class SellTableComponent implements OnInit {
     row.highlighted = !row.highlighted; 
   }
   
-  checkedCategory(event) {
-      const filter= event? event.source.value : null;
-      this.items=this.items.filter(element =>  element.category == filter);
-      this.dataSource=new MatTableDataSource<SellItem>(this.items);
-  }
+  // checkedCategory(event) {
+  //     const filter= event? event.source.value : null;
+  //     this.items=this.items.filter(element =>  element.category == filter);
+  //     this.dataSource=new MatTableDataSource<SellItem>(this.items);
+  // }
 
 }

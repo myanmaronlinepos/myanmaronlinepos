@@ -83,7 +83,12 @@ a > img {
     height: 30px;
     cursor: pointer;
 }
-
+.select {
+    margin-top: 20px;
+}
+.quan {
+    color: red;
+}
 @media screen and (max-width: 1200px) {
     .btn {
         margin-left: 20%;
