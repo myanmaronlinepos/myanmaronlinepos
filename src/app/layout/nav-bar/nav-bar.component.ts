@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/share/models/User';
+import { useAnimation } from '@angular/animations';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 
 @Component({
@@ -14,10 +17,27 @@ export class NavBarComponent implements OnInit {
 
   sidebarVisble=false;
   viewList=false;
-
-  constructor(private authService:AuthService,private router:Router) { }
+  userData:any;
+  constructor(
+    private authService:AuthService,
+    private router:Router,
+    private dataFetchService:DataFetchService
+    ) { }
 
   ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.dataFetchService.getUserData().subscribe(
+      response => {
+        this.userData= response;
+        console.log(this.userData);
+      },
+      error => {
+          console.log(error);
+      }
+    )
   }
 
   logout() {

@@ -7,11 +7,11 @@ import { Category } from '../models/Category';
 export class CategoryService {
   
   categories: Category[]  = [
-    { category_id: 1, category_name:'Snack', user_id: 1,created_at: '',updated_at: ''},
-    { category_id: 2, category_name:'Sunflower-Seed', user_id: 2,created_at: '',updated_at: ''},
-    { category_id: 3, category_name:'Book', user_id: 3,created_at: '',updated_at: ''},
-    { category_id: 4, category_name:'Bag', user_id: 4,created_at: '',updated_at: ''},
-    { category_id: 5, category_name:'Mobile', user_id: 5,created_at: '',updated_at: ''},
+    { category_id: 1, category_name:'Snack'},
+    { category_id: 2, category_name:'Sunflower-Seed'},
+    { category_id: 3, category_name:'Book'},
+    { category_id: 4, category_name:'Bag'},
+    { category_id: 5, category_name:'Mobile'},
     
   ];
 

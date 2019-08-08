@@ -70,23 +70,22 @@ loadData(){
         storename: formValue.storename,
         city_id: formValue.city,
       }
+
+      console.log(this.signupData);
   
-      this.authService.signup(this.signupData)
-        .then((registered: boolean) => {
-          if (registered) {
-            this.router.navigate(['/dashboard/dashboard']);
-          } else {
-            console.log('error');
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // this.authService.signup(this.signupData)
+      //   .then((registered: boolean) => {
+      //     if (registered) {
+      //       this.router.navigate(['/dashboard/dashboard']);
+      //     } else {
+      //       console.log('error');
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
       
     }
-     else {
-			return;
-		}
 	}
 onSelect(event: any) {
     this.showStore = true;
