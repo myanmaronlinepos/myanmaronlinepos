@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { ItemCategory } from 'src/app/share/models/ItemCategory';
 
 export interface ItemCategory {
   id: number;

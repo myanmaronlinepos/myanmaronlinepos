@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { Category } from '../models/Category';
 import { City } from '../models/City';
+import { ItemTag } from 'src/app/layout/products/new-tags/new-tags.component';
 
 @Injectable({
   providedIn: "root"
@@ -37,6 +38,13 @@ export class DataFetchService {
      this.apiService.createCompleteApiRoute(apiUrl)
    );
  }
+
+ getAllTag():Observable<ItemTag[]> {
+  let apiUrl="api/user/get/tags";
+  return this.http.get<ItemTag[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
 
 getAllCity():Observable<City[]> {
   let apiUrl="api/guest/allcity";
