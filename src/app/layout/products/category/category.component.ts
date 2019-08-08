@@ -132,6 +132,7 @@ export class CategoryComponent implements OnInit {
         console.log(response);
         this.dataSource = new MatTableDataSource<Category>(response);
         this.dataSource.paginator = this.paginator;
+        console.log(this.dataSource);
       },
       error => {
 

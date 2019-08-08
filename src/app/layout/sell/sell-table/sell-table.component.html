@@ -18,10 +18,14 @@
             <div class="subcheck2">
               <!-- For Tag -->
               <mat-form-field class="ltr2">
-                <mat-label class="arrow2 select">Tags</mat-label>
+                <mat-label class="arrow2 select">Tag</mat-label>
                 <mat-select>
-                  <mat-option *ngFor="let tag of tags">
-                    <mat-checkbox>{{tag}}</mat-checkbox>
+                  <mat-option *ngFor="let tag of tags | filter: searchText">
+                    <mat-checkbox (change)="getSelected()"
+                      type="tag" value="{{tag.tag_id}}"
+                      [(ngModel)]="tag.selected">
+                        {{tag.tag_name}}
+                    </mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>

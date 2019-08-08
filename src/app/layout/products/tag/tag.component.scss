@@ -5,7 +5,14 @@ table {
 table.mat-table {
   margin-top: 30px;
 }
-
+.mat-header-cell{
+  font-size:16px;
+  text-transform:none;
+}
+.mat-cell{
+  font-size:16px;
+  text-transform:initial;
+}
 td.mat-cell {
   border:0;
 }
@@ -24,4 +31,12 @@ svg{
 button{
   color: white;
   border-radius: 5px;
+}
+@media screen and (max-width:992) {
+  .mat-header-cell{
+    font-size: 14px;
+  }
+  .mat-cell{
+    font-size: 14px;
+  }
 }
