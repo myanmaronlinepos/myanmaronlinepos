@@ -9,6 +9,8 @@ import { Product } from 'src/app/share/models/Product';
 import {EditProductComponent } from '../all-products/edit-product/edit-product.component'
 import { DeleteTagService } from 'src/app/delete-tag.service';
 import { ItemTag } from './deletetag/deletetag.component';
+import { Category } from 'src/app/share/models/Category';
+
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
@@ -19,12 +21,12 @@ import { ItemTag } from './deletetag/deletetag.component';
 export class AllProductsComponent implements OnInit {
   
   displayedColumns: string[] = ['product_id', 'product_name', 'category_id','tag_id','price_sell'];
-  tags:ItemTag[]=[];
+  
   dataSource:any;
   category: string[]=['coffee','cookie','juices','bread','medicine','sugar','chips','oil','cake'];
   tag: string[]=['3 buy 1 gift','for all','for 18+'];
   quantity: string[]=['less than 10','less than 20','less than 30','more than 50'];
-  datas: MatTableDataSource<ItemTag>;
+  
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -36,10 +38,8 @@ export class AllProductsComponent implements OnInit {
     ){   }
 
   ngOnInit() {
-   
     this.fetchData();
-    
-    }
+  }
     
     onEdit(action, obj):void {
     
@@ -79,6 +79,10 @@ export class AllProductsComponent implements OnInit {
 
         }
       )
+    }
+
+    productDetail(id: number) {
+      this.router.navigate(['/dashboard/products/detailproduct',id]);
     }
   
 }

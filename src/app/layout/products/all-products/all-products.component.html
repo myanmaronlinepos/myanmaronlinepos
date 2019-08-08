@@ -33,20 +33,26 @@
   </div>
   <div class="btn">
     <div class="btn1">
-      <a href="#" id='feynman'><img src="assets/login/import.png" class="Logo"></a>
+      <a href="#" id='feynman'>
+        <img src="assets/login/import.png" class="Logo">
+      </a>
       <div id='feynman_text'> Import Product </div>
     </div>
-    <div class="btn2">
-      <a href="#" id='feynman'><img src="assets/login/export.png" class="Logo"></a>
-      <div id='feynman_text'> Export Product </div>
 
-      <a href="#" id='feynman' routerLink="/dashboard/products/addproduct"><img src="assets/login/AddProduct.png"
-          class="Logo"></a>
+    <div class="btn2">
+      <a href="#" id='feynman'>
+        <img src="assets/login/export.png" class="Logo">
+      </a>
+      <div id='feynman_text'> Export Product </div>
     </div>
-    <!-- <div class="btn3">
-          <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
-          <div id='feynman_text'>  Add Product </div>
-        </div> -->
+
+    <div class="btn3">
+      <a href="#" id='feynman' routerLink="/dashboard/products/addproduct">
+        <img src="assets/login/AddProduct.png"  class="Logo">
+      </a>
+      <div id='feynman_text'>  Add Product </div>
+    </div>
+    
   </div>
 </div>
 
@@ -70,7 +76,7 @@
             <img src="assets/sharp-edit(1).svg" width="25px" height="25px">
           </a>
 
-          <a routerLink="/dashboard/products/detailproduct">
+          <a (click)="productDetail(element.product_id)">
             <img src="assets/details.svg" width="25px" height="25px">
           </a>
           <!-- <a (click)="onEdit('Edit',element)">
@@ -89,7 +95,7 @@
           <th mat-header-cell *matHeaderCellDef> Category </th>
         </mat-card-title>
       </mat-card>
-      <td mat-cell *matCellDef="let element"> {{element.category_name}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.category_id}} </td>
     </ng-container>
 
     <!-- <ng-container matColumnDef="quantity_id">

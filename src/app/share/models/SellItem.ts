@@ -5,4 +5,5 @@ export interface SellItem {
     tag: string;
     quantity: number;
     price: number;
+    selected: boolean;
   }
