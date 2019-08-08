@@ -3,9 +3,13 @@
     <div class="subcheck1">
       <mat-form-field class="ltr1">
         <mat-label class="arrow1">Category</mat-label>
-        <mat-select [value]="selected" (OnChange)="log($event)">
-          <mat-option *ngFor="let cat of category">
-            <mat-checkbox>{{cat}}</mat-checkbox>
+        <mat-select>  
+          <mat-option *ngFor="let category of categories | filter: searchText">
+              <mat-checkbox (change)="getSelected()" 
+                type="category" value="{{category.category_id}}" 
+                [(ngModel)]="category.selected">
+                    {{category.category_name}}
+              </mat-checkbox>
           </mat-option>
         </mat-select>
       </mat-form-field>

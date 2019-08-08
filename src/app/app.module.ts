@@ -53,6 +53,7 @@ import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.co
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
 import { FilterPipe } from './filter.pipe';
 import { FilteredcategoryPipe } from './filteredcategory.pipe';
+import { CategoryFilterPipe } from './category-filter.pipe';
 
 
 
@@ -98,7 +99,8 @@ import { FilteredcategoryPipe } from './filteredcategory.pipe';
     SellHistoryComponent,
     EditTagComponent,
     FilterPipe,
-    FilteredcategoryPipe    
+    FilteredcategoryPipe,
+    CategoryFilterPipe    
   ],
   imports: [
     BrowserModule,
