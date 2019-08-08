@@ -7,11 +7,11 @@ import { ItemCategory } from './share/models/ItemCategory';
 export class CategoryService {
   
   categories: ItemCategory[]  = [
-    { id:1, categoryname:'Cigaretees'},
-    { id:2, categoryname: 'Beer'},
-    { id:3, categoryname: 'Rum'},
-    { id:4, categoryname: 'Wisky'},
-    { id:5, categoryname: 'Snack'}
+    { category_id:1, categoryname:'Cigaretees'},
+    { category_id:2, categoryname: 'Beer'},
+    { category_id:3, categoryname: 'Rum'},
+    { category_id:4, categoryname: 'Wisky'},
+    { category_id:5, categoryname: 'Snack'}
   ];
 
   category:ItemCategory;
