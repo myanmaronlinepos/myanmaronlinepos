@@ -6,6 +6,7 @@ import { Product } from 'src/app/share/models/Product';
 import { NewProduct } from 'src/app/share/models/NewProduct';
 import { Category } from 'src/app/share/models/Category';
 import { CategoryService } from 'src/app/share/services/category.service';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 
 
@@ -27,7 +28,7 @@ export class AddProductComponent implements OnInit {
   saleError:string="Please enter a valid sale";
   categoryError:string="Please choose category";
   enableSave:boolean=false;
-  categories: Category[]=[];
+  categories: any;
 
   selectedFile: ImageSnippet;
 
@@ -44,13 +45,14 @@ export class AddProductComponent implements OnInit {
   }
 
   constructor(
+    private dataFetchService:DataFetchService,
     private datapostService: DataPostService,
     private router: Router,
     private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
-    this.categories=this.categoryService.getCategory();
+    this.fetchData();
     this.productForm = new FormGroup ({
       'productName':new FormControl(null, Validators.required),
       'category':new FormControl(null, Validators.required),
@@ -59,6 +61,18 @@ export class AddProductComponent implements OnInit {
       'sale':new FormControl(null, Validators.required),
     });
     this.formValid();
+  }
+
+  fetchData() {
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        console.log(response);
+        this.categories=response;
+      },
+      error => {
+          console.log(error);
+      }
+    )
   }
 
   formValid() {

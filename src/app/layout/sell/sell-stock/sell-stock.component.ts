@@ -15,7 +15,7 @@ import { SellItem } from 'src/app/share/models/SellItem';
 export class SellStockComponent implements OnInit {
 
   displayedColumns: string[] = ['number', 'name', 'quantity', 'price', 'totalprice', 'action'];
-  items: SellProduct[] = [];
+  items: any;
   dataSource: MatTableDataSource<SellProduct>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -26,7 +26,7 @@ export class SellStockComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.items = this.convert(this.sellservice.getSellProduct());
+    // this.items = this.convert(this.sellservice.getSellProduct());
     this.dataSource = new MatTableDataSource<SellProduct>(this.items);
     this.dataSource.paginator = this.paginator;
   }
@@ -41,21 +41,21 @@ export class SellStockComponent implements OnInit {
     return product.quantity--;
   }
   
-  convert(args: SellItem[]): SellProduct[] {
-    const sell_product: SellProduct[] = [];
+  // convert(args: SellItem[]): SellProduct[] {
+  //   const sell_product: SellProduct[] = [];
 
-    for(var i=0;i<args.length;i++) {
-      const element=args[i];
-      const tmp: SellProduct = {
-              product_name: element.name,
-              quantity: 1,
-              price: element.price,
-              total_price: element.price
-            };
-            sell_product.push(tmp);
-          };
-     return sell_product;
-    }
+  //   for(var i=0;i<args.length;i++) {
+  //     const element=args[i];
+  //     const tmp: SellProduct = {
+  //             product_name: element.name,
+  //             quantity: 1,
+  //             price: element.price,
+  //             total_price: element.price
+  //           };
+  //           sell_product.push(tmp);
+  //         };
+  //    return sell_product;
+  //   }
 }
 
 
