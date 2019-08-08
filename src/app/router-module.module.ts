@@ -25,7 +25,16 @@ import { SellTableComponent } from './layout/sell/sell-table/sell-table.componen
 import { SellStockComponent } from './layout/sell/sell-stock/sell-stock.component';
 import { AddProductComponent } from './layout/products/add-product/add-product.component';
 import { DetailProductComponent } from './layout/products/detail-product/detail-product.component';
+import { EditProductComponent } from './layout/products/all-products/edit-product/edit-product.component';
 import { EditCategoryComponent } from './layout/products/edit-category/edit-category.component';
+
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { EmailFormComponent } from './forgot-password/email-form/email-form.component';
+import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-code.component';
+
+import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
+import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
+
 
 
 const routes: Routes = [
@@ -37,6 +46,12 @@ const routes: Routes = [
             path: "signup", component: SignupComponent, children: [
                 { path: "", component: MainFormComponent },
                 { path: "detail", component: DetailFormComponent }
+            ],
+        },
+        {
+            path: "forget", component: ForgotPasswordComponent, children: [
+                {path: "", component: EmailFormComponent },
+                {path: "comfirm-code", component: ComfirmCodeComponent } 
             ]
         },
     ] },
@@ -52,15 +67,18 @@ const routes: Routes = [
                     { path: "inventory", component: InventoryComponent },
                     { path: "addproduct", component: AddProductComponent},
                     { path: "detailproduct", component: DetailProductComponent},
+                    {path:"editproduct", component: EditProductComponent},
                     { path: "editcategory", component: EditCategoryComponent },
-                    {path: "tag", component: TagComponent}
+                    {path: "tag", component: TagComponent},
+                    {path:"edittag", component:EditTagComponent}
                 ]
             },
 
             {
                 path: "sell", component: SellComponent, children: [
                     { path: "sell-stock", component: SellStockComponent },
-                    { path: "sell-table", component: SellTableComponent }
+                    { path: "sell-table", component: SellTableComponent },
+                    { path: "sell-history", component: SellHistoryComponent}
                 ]
             },
 

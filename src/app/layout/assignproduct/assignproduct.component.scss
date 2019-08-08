@@ -1,34 +1,39 @@
-td.mat-cell {
-    border:0;
-}
-.box {
+.head {
     display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-.header {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    position: fixed;
-    height: 60px;
-}
-.headertxt {
-    display: flex;
-    width:100%;
+    justify-content: center;
+    color: darkblue;
+    font-size: 18px;
 }
 .search {
     display: flex;
     width: 100%;
     flex-direction: row;
-    margin-top:10px;
+    margin-top: 10px;
+    padding-left: 24px;
 }
-::ng-deep .cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
-    margin-bottom: 35px;
+
+.mat-checkbox {
+    display: block;
 }
-.body {
-    display: flex;
+.mat-dialog-content {
+    margin-left: 24px;
+}
+::ng-deep .mat-dialog-container {
+    display: block;
+    padding: 24px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
     width: 100%;
-    flex-direction: column;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
     margin-top: 80px;
+}
+.cancelbtn {
+    margin-left: 80px;
+}
+.savebtn {
+    margin-left: 20px;
 }

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { EmitterService } from 'src/app/share/services/emitter.service';
 import { SignupModel } from '../signupModel';
+import { CityService } from 'src/app/share/services/city.service';
+import { City } from 'src/app/share/models/City';
 
 @Component({
   selector: 'app-detail-form',
@@ -13,27 +15,36 @@ import { SignupModel } from '../signupModel';
 })
 
 export class DetailFormComponent implements OnInit {
-  showStore: boolean = false;
-  sellbuy = ['Sell', 'Buy']
-  detailForm: FormGroup;
+showSpinner=false;
+isValidFormSubmitted = false;
+showStore: boolean = false;
+detailForm: FormGroup;
+mainFormData:SignupModel;
+signupData: User;
+items: City[] =[];
 
-  mainFormData:SignupModel;
-  signupData: User;
+	
+loadData(){
+  this.showSpinner=true;
+}
+  
   constructor(
+    private cityservice: CityService,
     private authService: AuthService,
     private router: Router,
     private emitterService: EmitterService) {
     }
     
     ngOnInit() {
-
-      this.detailForm = new FormGroup({
-        'firstname': new FormControl(null, Validators.required),
-        'lastname': new FormControl(null, Validators.required),
-        'city': new FormControl(null),
-        'address': new FormControl(null, Validators.required),
+      this.items=this.cityservice.getItems();
+       this.detailForm = new FormGroup({
+        'firstname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+        'lastname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+        'city': new FormControl(null, [Validators.required]),
+        'address': new FormControl(null,[Validators.required]),
         'Phone': new FormControl(null, [Validators.required, Validators.maxLength(11)]),
-        'storename': new FormControl(null, Validators.required),
+        'storename': new FormControl(null),
+        'sell':new FormControl(null,[Validators.required]),
       });
 
       this.mainFormData=this.emitterService.getData();
@@ -48,57 +59,42 @@ export class DetailFormComponent implements OnInit {
   onSubmit() {
     const formValue = this.detailForm.value;
     const user_name = formValue.firstname + formValue.lastname;
-
-    this.signupData = {
-      user_name: user_name,
-      user_email: this.mainFormData.user_email,
-      user_password: this.mainFormData.user_password,
-      user_role: 1,
-      user_phone: formValue.Phone,
-      address: formValue.address,
-      storename: formValue.storename,
-      city_id: 1,
+		if (this.detailForm.valid) {
+      this.signupData = {
+        user_name: user_name,
+        user_email: this.mainFormData.user_email,
+        user_password: this.mainFormData.user_password,
+        user_role: formValue.sell,
+        user_phone: formValue.Phone,
+        address: formValue.address,
+        storename: formValue.storename,
+        city_id: formValue.city,
+      }
+  
+      this.authService.signup(this.signupData)
+        .then((registered: boolean) => {
+          if (registered) {
+            this.router.navigate(['/dashboard/dashboard']);
+          } else {
+            console.log('error');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      
     }
-
-    console.log(formValue);
-
-    this.authService.signup(this.signupData)
-      .then((registered: boolean) => {
-        if (registered) {
-          this.router.navigate(['/dashboard/dashboard']);
-        } else {
-          console.log('error');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-
-  onSelect(event: any) {
+     else {
+			return;
+		}
+	}
+onSelect(event: any) {
     this.showStore = true;
   }
   onCheck(event: any) {
     this.showStore = false;
   }
 
-
 }
-// export class Selectcity {
-//   cities: City[] = [
-//     {city_id:1, city_name:'Yangon'},
-//     {city_id:2, city_name:'Monywa'},
-//     {city_id:3, city_name:'Mandalay'},
-//     {city_id:4, city_name:'Shwebo'},
 
-//   ];
-// }
-// export class SelectOverviewExample {
-//   foods: Food[] = [
-//     { value: 'steak-0', viewValue: 'Steak' },
-//     { value: 'pizza-1', viewValue: 'Pizza' },
-//     { value: 'tacos-2', viewValue: 'Tacos' }
-//   ];
-// }
 

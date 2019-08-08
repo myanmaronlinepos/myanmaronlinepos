@@ -11,24 +11,41 @@
                 <div class="ppbody">
                     <mat-form-field>
                         <input matInput placeholder="Product Name:" formControlName="productName">
+                        <mat-error *ngIf="!productForm.get('productName').valid && productForm.get('productName').touched" class="help-block">
+                          {{productNameError}}</mat-error>
                       </mat-form-field>
-                      <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Category" formControlName="category"></textarea>
-                      </mat-form-field>
+
                       <mat-form-field>
-                        <input matInput placeholder="Tag" formControlName="tag">
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName="category" id="category_name">
+                          <mat-option *ngFor="let category of categories" [value]="category.category_id">
+                            {{category.category_name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!productForm.get('category').valid && productForm.get('category').touched" class="help-block">{{categoryError}}</mat-error>
                       </mat-form-field>
-                      <mat-form-field>
-                        <input matInput placeholder="Quantity" formControlName="quantity">
-                      </mat-form-field>
+ 
+                      <!-- <mat-form-field>
+                        <mat-label>Tag</mat-label>
+                        <mat-select formControlName="tag" id="city_name">
+                          <mat-option *ngFor="let city of items" [value]="city.city_id">
+                            {{city.city_name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-hint i18n>Please select city</mat-hint>
+                        <mat-error *ngIf="!detailForm.get('city').valid && detailForm.get('city').touched" class="help-block"> City required.</mat-error>
+                      </mat-form-field> -->
+
                       <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">
+                        <mat-error *ngIf="!productForm.get('cost').valid && productForm.get('cost').touched" class="help-block">
+                          {{costError}}</mat-error>
                       </mat-form-field>
+                      
                       <mat-form-field>
                         <input matInput placeholder="Sale price" formControlName="sale">
-                      </mat-form-field>
-                      <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
+                        <mat-error *ngIf="!productForm.get('sale').valid && productForm.get('sale').touched" class="help-block">
+                          {{saleError}}</mat-error>
                       </mat-form-field>
                 </div>
             </div>
@@ -40,8 +57,8 @@
           <!-- For Button -->
           <div class="btn form-group">
             <div class="subbtn">
-              <button type="reset" class="cancel">Cancel</button>
-              <button class="save">Save</button>
+              <button type="reset" class="cancel btn btn-primary mat-raised-button">Cancel</button>
+              <button class="save btn btn-primary mat-raised-button" [disabled]="!enableSave">Save</button>
             </div>
           </div>
         </div>
@@ -56,8 +73,19 @@
         
           <div class="body2 form-group">
             <div class="pimg2">
-                <img src="assets/laptop.jpg">
+              <div *ngIf="selectedFile" class="subimg img-preview-container">
+                <div class="img-preview"
+                    [ngStyle]="{'background-image': 'url('+selectedFile.src+')'}">
+                </div>
+              </div>
+              <div class="btn">
+                <label class="subbtn1 form-control image-upload-container">
+                  <span>Upload</span>
+                  <input type="file"  #imageInput accept="image/*" (change)="processFile(imageInput)" name="change">
+                </label>
+              </div>
             </div>
+
             <div class="pbody2 form-group">
                 <div class="ppbody2">
                     <mat-form-field>
@@ -66,20 +94,19 @@
                       <mat-form-field class="example-full-width">
                         <textarea matInput placeholder="Category" formControlName="category"></textarea>
                       </mat-form-field>
-                      <mat-form-field>
-                        <input matInput placeholder="Tag" formControlName="tag">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input matInput placeholder="Quantity" formControlName="quantity">
-                      </mat-form-field>
+                      <!-- <mat-form-field>
+                        <select id="tag" name="tag" [(ngModel)]="tag" formControlName="tag">
+                          <option *ngFor="let tag of tags" [value]="tag.id">
+                            {{ tag.name }}
+                          </option>
+                        </select>
+                      </mat-form-field> -->
+                     
                       <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">
                       </mat-form-field>
                       <mat-form-field>
                         <input matInput placeholder="Sale price" formControlName="sale">
-                      </mat-form-field>
-                      <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Note" formControlName="note"></textarea>
                       </mat-form-field>
                 </div>
             </div>
@@ -88,8 +115,8 @@
           <!-- For Button -->
           <div class="btn2 form-group">
             <div class="subbtn2">
-              <button type="reset" class="cancelbtn">Cancel</button>
-              <button class="savebtn">Save</button>
+              <button class="cancelbtn btn btn-primary mat-raised-button" type="reset">Cancel</button>
+              <button class="savebtn btn btn-primary mat-raised-button" [disabled]="!enableSave">Save</button>
             </div>
           </div>
         </div>

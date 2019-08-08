@@ -1,12 +1,12 @@
 <div>
   <span>Rename to:</span>
-  <div>
-    <mat-form-field>
-      <input matInput >
+  <div class="input">
+    <mat-form-field >
+      <input matInput [(ngModel)]="local_data.categoryname">
     </mat-form-field>
   </div>
-  <div class="btn">
-    <button class="cancelbtn">Cancel</button>
-    <button class="okbtn">Ok</button>
+  <div class="btn-gp">
+    <button class="cancelbtn btn btn-primary mat-raised-button" (click)="closeDialog()">Cancel</button>
+    <button class="okbtn btn btn-primary mat-raised-button" (click)="doAction()">Ok</button>
   </div>
 </div>

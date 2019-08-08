@@ -1,48 +1,31 @@
-<div class="main">
   <div class="choice">
-    <div class="subchoice">
         <div class="check">
-            <div class="subcheck">
+            <div class="subcheck1">
               <!-- For Categoty -->
-              <mat-form-field class="ltr">
-                <mat-label>Category</mat-label>
-                <mat-select [value]="selected" aria-placeholder="Category" (OnChange)="log($event)">
-                  <mat-option>
-                    <mat-checkbox Value="Cigerattes" [ngModel]="true">Cigerattes</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Coffee</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Juices</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Sunflower Seeds</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Beer</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Bread</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>Cake</mat-checkbox>
+              <mat-form-field class="ltr1">
+                <mat-label class="arrow1 select">Category</mat-label>
+                <mat-select>  
+                  <mat-option *ngFor="let checkbox of checkboxes | filter: searchText">
+                      <mat-checkbox (change)="getSelected()" 
+                        type="checkbox" value="{{checkbox.number}}" 
+                        [(ngModel)]="checkbox.selected">
+                            {{checkbox.category}}
+                      </mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-      
+            </div>
+            <div class="subcheck2">
               <!-- For Tag -->
-              <mat-form-field class="ltr">
-                <mat-label>Tags</mat-label>
-                <mat-select [value]="selected" (OnChange)="log($event)">
-                  <mat-option>
-                    <mat-checkbox>3 buy 1 get</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox>for 18+</mat-checkbox>
-                  </mat-option>
-                  <mat-option>
-                    <mat-checkbox Value="for all" [ngModel]="true">for all</mat-checkbox>
+              <mat-form-field class="ltr2">
+                <mat-label class="arrow2 select">Tag</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let tag of tags | filter: searchText">
+                    <mat-checkbox (change)="getSelected()"
+                      type="tag" value="{{tag.tag_id}}"
+                      [(ngModel)]="tag.selected">
+                        {{tag.tag_name}}
+                    </mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -50,18 +33,19 @@
           </div>
       
           <div class="btn">
-            <div class="subbtn">
-              <p>{{selectedRow.length}}Selected</p>
-              <a (click)="sellItem()"><img src="assets/sell-stock.png"></a>
+            <div class="btn1">
+                <p>{{selectedRow.length}}Selected</p>
+            </div>
+            <div class="btn2">
+                <a (click)="sellItem()"><img src="assets/cash.svg"></a>
             </div>
           </div>
-        </div> 
     </div>
     
 
 <!-- For table -->
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" #table>
+  <table mat-table [dataSource]="selected_products" #table>
 
     <!-- Number Column -->
     <ng-container matColumnDef="number">
@@ -90,10 +74,10 @@
     <!-- Quantity Column -->
     <ng-container matColumnDef="quantity">
       <th mat-header-cell *matHeaderCellDef> Quantity </th>
-      <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
+      <td mat-cell *matCellDef="let product" [ngClass]="{quan: product.quantity<=10}" [ngStyle]="{color: product.quantity<=20? 'red': 'black'}"> {{product.quantity}} </td>
     </ng-container>
 
-    <!-- Price Column -->price
+    <!-- Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef> Price </th>
       <td mat-cell *matCellDef="let product"> {{product.price}} </td>
@@ -104,4 +88,4 @@
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
-</div>
+

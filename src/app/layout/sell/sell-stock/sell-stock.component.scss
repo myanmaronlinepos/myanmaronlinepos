@@ -1,3 +1,39 @@
 table {
     width: 100%;
 }
+.btn-gp {
+    flex-grow: 4;
+    margin-top: 30px;
+}
+.subbtn-gp {
+    display: flex;
+    flex-grow: 4;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.first-btn {
+    flex-grow: 2;
+}
+.second-btn {
+    display: flex;
+    flex-direction: row;
+}
+.cancel-btn, .save-btn {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.minus-btn {
+    margin-left: 10px;
+}
+
+// td span.only-show-on-hover {
+//     visibility: hidden;
+// }
+// td:hover span.only-show-on-hover  {
+//     visibility: visible;
+// }

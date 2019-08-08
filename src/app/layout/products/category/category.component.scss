@@ -1,3 +1,12 @@
+.mat-header-cell{
+  font-size:16px;
+  text-transform:none;
+}
+.mat-cell{
+  font-size:16px;
+  text-transform:initial;
+}
+
 table {
     width: 100%;
   }
@@ -10,6 +19,9 @@ td.mat-cell {
   border:0;
 }
 
+button > .btn {
+  margin-left: 5px;
+}
 img, svg {
   width: 20px;
   height: 20px;
@@ -21,4 +33,13 @@ svg{
 }
 .assignproduct {
   cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+  .mat-header-cell {
+    font-size: 14px; 
+  }
+  .mat-cell {
+    font-size: 14px;
+  }
 }
