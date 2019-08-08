@@ -1,7 +1,8 @@
 export interface SellProduct {
-
     product_name: string;
-    quantity: number;
-    price: number;
-    total_price:number;
+    category_name: string;
+    tag_name: string;
+    quantity:number;
+    price_sell:number;
+    price_cost:number;
   }

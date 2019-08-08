@@ -7,6 +7,8 @@ import { Category } from '../models/Category';
 import { City } from '../models/City';
 import { ItemTag } from 'src/app/layout/products/new-tags/new-tags.component';
 import { User } from '../models/User';
+import { Inventory } from '../models/Inventory';
+import { SellProduct } from '../models/SellProduct';
 
 @Injectable({
   providedIn: "root"
@@ -54,6 +56,14 @@ export class DataFetchService {
   );
 }
 
+getAllInventory():Observable<Inventory[]> {
+  let apiUrl="api/user/get/inventory";
+  return this.http.get<Inventory[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
+
 getAllCity():Observable<City[]> {
   let apiUrl="api/guest/allcity";
   return this.http.get<City[]>(
@@ -61,13 +71,18 @@ getAllCity():Observable<City[]> {
   );
 }
 
+
 getCity():Observable<City> {
   let apiUrl="api/user/get/city";
   return this.http.get<City>(
     this.apiService.createCompleteApiRoute(apiUrl)
   )
 }
-
-
+getAllSell():Observable<SellProduct[]> {
+  let apiUrl="api/user/get/sellProduct";
+  return this.http.get<SellProduct[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
   
 }

@@ -12,12 +12,12 @@
     <!-- position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>No </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element;let i=index;"> {{i+1}} </td>
     </ng-container>
     <!-- TagName Column -->
     <ng-container matColumnDef="tagname">
       <th mat-header-cell *matHeaderCellDef>Tag Name</th>
-      <td mat-cell *matCellDef="let element"> {{element.tagname}} 
+      <td mat-cell *matCellDef="let element"> {{element.tag_name}} 
       </td>
     </ng-container>
     
