@@ -9,6 +9,7 @@ import { EditCategoryComponent } from '../edit-category/edit-category.component'
 import { ItemCategory } from 'src/app/share/models/ItemCategory';
 import { CategoryService } from 'src/app/category.service';
 import { DeleteCategoryComponent } from '../delete-category/delete-category.component';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 
 @Component({
@@ -20,20 +21,32 @@ import { DeleteCategoryComponent } from '../delete-category/delete-category.comp
 export class CategoryComponent implements OnInit {
 
   displayedColumns: string[] = ['categoryname','assignproduct','action'];
-  categories:ItemCategory[]=[];
+  categories:any;
   dataSource: MatTableDataSource<ItemCategory>;
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     public dialog: MatDialog,
-    public categoryservice:CategoryService
+    public categoryservice:CategoryService,
+    private data_fetch_service:DataFetchService
     ) {}
 
   ngOnInit() {
-    this.categories=this.categoryservice.getCategory();
-    this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
-    this.dataSource.paginator = this.paginator;
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.data_fetch_service.getAllCategory().subscribe(
+      response => {
+        this.categories=response;
+        this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
+        this.dataSource.paginator = this.paginator;
+      },
+      error => {
+
+      }
+    )
   }
   
   createCategory(action, obj) {

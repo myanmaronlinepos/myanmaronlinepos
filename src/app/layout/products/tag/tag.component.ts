@@ -70,7 +70,7 @@ export class TagComponent implements OnInit {
   editRowData(row_obj) {
     this.tags = this.tags.filter((value,key)=>{
       if(value.id == row_obj.id){
-        value.tagname = row_obj.tagname;
+        value.tag_name = row_obj.tagname;
       }
       return true;
     });

@@ -18,4 +18,12 @@ export class DataPostService {
       product
     );
   }
+
+  postCategory(product:NewProduct):Observable<boolean>{
+    let apiUrl = "/api/user/post/product";
+    return this.http.post<boolean>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      product
+    );
+  }
 }
