@@ -1,6 +1,14 @@
 table {
     width: 100%;
 }
+.mat-header-cell{
+    font-size:16px;
+    text-transform:none;
+  }
+  .mat-cell{
+    font-size:16px;
+    text-transform:initial;
+  }
 .main{
     display: flex;
     width: 100%;
@@ -36,6 +44,12 @@ td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
     td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
         padding-left: 10px;
     }
+    .mat-header-cell {
+        font-size: 14px; 
+      }
+      .mat-cell {
+        font-size: 14px;
+      }
 }
 
 @media screen and (max-width: 600px) {

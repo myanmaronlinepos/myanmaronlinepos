@@ -52,6 +52,7 @@ import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-cod
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
 import { FilterPipe } from './filter.pipe';
+import { FilteredcategoryPipe } from './filteredcategory.pipe';
 
 
 
@@ -96,7 +97,8 @@ import { FilterPipe } from './filter.pipe';
     ComfirmCodeComponent,
     SellHistoryComponent,
     EditTagComponent,
-    FilterPipe    
+    FilterPipe,
+    FilteredcategoryPipe    
   ],
   imports: [
     BrowserModule,
