@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
-import { CategoryService } from 'src/app/category.service';
+import { CategoryService } from 'src/app/share/services/category.service';
 import { ItemCategory } from 'src/app/share/models/itemCategory';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
