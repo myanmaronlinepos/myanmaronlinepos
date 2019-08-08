@@ -1,5 +1,5 @@
 export interface ItemTag{
     id:number;
-    tagname:string;
+    tag_name:string;
    
 }

@@ -4,7 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {MatPaginator} from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SellItem } from 'src/app/share/models/SellItem';
-import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { ItemCategory } from 'src/app/share/models/ItemCategory';
 import { SellService } from 'src/app/share/services/sell.service';
 
 

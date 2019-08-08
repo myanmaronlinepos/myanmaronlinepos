@@ -47,7 +47,7 @@ export class TagComponent implements OnInit {
     var d = new Date();
     this.tags.push({
       id: this.deleteservice.getId()+1,
-      tagname: row_obj.tagname,
+      tag_name: row_obj.tagname,
       
     });
     this.dataSource=new MatTableDataSource<ItemTag>(this.tags);

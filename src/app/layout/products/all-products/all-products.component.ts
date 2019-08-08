@@ -28,10 +28,12 @@ export class AllProductsComponent implements OnInit {
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private router: Router,private dataFetchService : DataFetchService,
-      public dialog: MatDialog,
-      public edit:DeleteTagService
-      ){   }
+  constructor(
+    private router: Router,
+    private dataFetchService : DataFetchService,
+    public dialog: MatDialog,
+    public edit:DeleteTagService
+    ){   }
 
   ngOnInit() {
    

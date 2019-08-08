@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material';
 
 import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
 import { EditCategoryComponent } from '../edit-category/edit-category.component';
-import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { ItemCategory } from 'src/app/share/models/ItemCategory';
 import { CategoryService } from 'src/app/category.service';
 import { DeleteCategoryComponent } from '../delete-category/delete-category.component';
 
