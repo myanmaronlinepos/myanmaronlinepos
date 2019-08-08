@@ -2,7 +2,7 @@
 
   <!-- brand name div -->
   <div class="brand">
-    <span>Shop Name</span>
+    <span>{{ userData?userData.storename:""}}</span>
   </div>
 
   <!-- search bar div -->
@@ -15,7 +15,7 @@
   <div class="account-profile">
     <img src="assets/shop1.jpg">
     <span (click)="Shopkeeper()">
-      Shopkeeper's Name
+      {{ userData?userData.user_name:""}}
     </span>
     <ul class="viewmenu" *ngIf="viewList">
       <li><a>View Profile</a></li>
@@ -32,7 +32,7 @@
 <div class="sidebar">
   <div class="sidenav">
     <div>
-      <span>Shop Name</span>
+      <span>{{ userData?userData.storename:""}}</span>
       <div class="fake-input">
         <input type="search" class="form-control" name="search" placeholder="Search">
         <i class="fas fa-search"></i>

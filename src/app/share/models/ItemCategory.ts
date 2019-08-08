@@ -1,4 +1,4 @@
 export interface ItemCategory {
-    id: number;
+    category_id: number;
     categoryname:string;
 }

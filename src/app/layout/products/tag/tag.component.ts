@@ -47,7 +47,7 @@ export class TagComponent implements OnInit {
     var d = new Date();
     this.tags.push({
       id: this.deleteservice.getId()+1,
-      tagname: row_obj.tagname,
+      tag_name: row_obj.tagname,
       
     });
     this.dataSource=new MatTableDataSource<ItemTag>(this.tags);
@@ -70,7 +70,7 @@ export class TagComponent implements OnInit {
   editRowData(row_obj) {
     this.tags = this.tags.filter((value,key)=>{
       if(value.id == row_obj.id){
-        value.tagname = row_obj.tagname;
+        value.tag_name = row_obj.tagname;
       }
       return true;
     });

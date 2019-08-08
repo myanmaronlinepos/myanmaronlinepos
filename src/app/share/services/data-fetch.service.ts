@@ -5,12 +5,21 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { Category } from '../models/Category';
 import { City } from '../models/City';
+import { ItemTag } from 'src/app/layout/products/new-tags/new-tags.component';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: "root"
 })
 export class DataFetchService {
   constructor(private http: HttpClient, private apiService: ApiRouteService) {}
+
+  getUserData():Observable<User>{
+    let apiUrl = "/api/user/get/userData";
+    return this.http.get<User>(
+      this.apiService.createCompleteApiRoute(apiUrl)
+    );
+  }
 
   getAllProduct():Observable<Product[]>{
     let apiUrl = "/api/user/get/products";
@@ -38,6 +47,13 @@ export class DataFetchService {
    );
  }
 
+ getAllTag():Observable<ItemTag[]> {
+  let apiUrl="api/user/get/tags";
+  return this.http.get<ItemTag[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
 getAllCity():Observable<City[]> {
   let apiUrl="api/guest/allcity";
   return this.http.get<City[]>(
@@ -51,5 +67,7 @@ getCity():Observable<City> {
     this.apiService.createCompleteApiRoute(apiUrl)
   )
 }
+
+
   
 }
