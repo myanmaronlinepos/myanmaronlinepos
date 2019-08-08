@@ -7,6 +7,7 @@ import { ItemTag } from 'src/app/share/models/ItemTag';
 import { DeleteTagService } from 'src/app/delete-tag.service';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import {EditTagComponent } from '../all-products/edit-tag/edit-tag.component';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 @Component({
   selector: 'app-tag',
@@ -16,20 +17,35 @@ import {EditTagComponent } from '../all-products/edit-tag/edit-tag.component';
 export class TagComponent implements OnInit {
 
   displayedColumns: string[] = ['id','tagname','action'];
-  tags:ItemTag[] = [];
+  tags:any;
   dataSource: MatTableDataSource<ItemTag>;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatTable) table: MatTable<any>;
-  constructor(public dialog: MatDialog,
+  constructor(
+    private dataFetchService:DataFetchService,
+    public dialog: MatDialog,
     public deleteservice:DeleteTagService,
    ) {}
 
   ngOnInit() {
-    this.tags=this.deleteservice.getTag();
-    this.dataSource=new MatTableDataSource<ItemTag>(this.tags);
-    this.dataSource.paginator = this.paginator;
+    this.fetchData();
   }
+
+  fetchData() {
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        console.log(response);
+        this.tags=response;
+        this.dataSource=new MatTableDataSource<ItemTag>(this.tags);
+        this.dataSource.paginator = this.paginator;
+      },
+      error => {
+          console.log(error);
+      }
+    )
+  }
+
   createTag(action,obj) {
     obj.action=action;
     const dialogRef=this.dialog.open(NewTagsComponent,{

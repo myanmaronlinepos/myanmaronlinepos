@@ -40,19 +40,19 @@ export class CategoryComponent implements OnInit {
     this.fetchData();
   }
   
-  // createCategory(action, obj) {
-  //   obj.action= action;
-  //   const dialogRef=this.dialog.open(NewCategoryComponent,{
-  //     width: '500px',
-  //     height: '270px',
-  //     data: obj 
-  //   });
+  createCategory(action, obj) {
+    obj.action= action;
+    const dialogRef=this.dialog.open(NewCategoryComponent,{
+      width: '500px',
+      height: '270px',
+      data: obj 
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result.event == 'Add')
-  //       this.addRowData(result.data);
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.event == 'Add')
+        this.addRowData(result.data);
+    });
+  }
 
   assignProduct(): void {
     const dialogRef=this.dialog.open(AssignproductComponent,{
@@ -100,15 +100,16 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  // addRowData(row_obj) {
+  addRowData(row_obj) {
     
-  //   this.categories.push({
-  //     id:this.dataFetchService.getId()+1,
-  //     categoryname:row_obj.category_name
-  //   });
-  //   this.dataSource=new MatTableDataSource<Category>(this.categories);
-  //   this.table.renderRows();
-  // }
+    // this.categories.push({
+    //   id:this.dataFetchService.getId()+1,
+    //   categoryname:row_obj.category_name
+    // });
+    
+    this.dataSource=new MatTableDataSource<Category>(this.categories);
+    this.table.renderRows();
+  }
 
   editRowData(row_obj) {
     this.categories = this.categories.filter((value,key)=>{
