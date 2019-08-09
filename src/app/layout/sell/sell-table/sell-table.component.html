@@ -4,10 +4,9 @@
               <!-- For Categoty -->
               <mat-form-field class="ltr1">
                 <mat-label class="arrow1 select">Category</mat-label>
-                <mat-select formControlName="category" id="category_name">
+                <mat-select id="category_name">
                   <mat-option *ngFor="let category of categories">
-                      <mat-checkbox [value]="category.category_id"
-                      [(ngModel)]="checkbox.selected">
+                      <mat-checkbox value="{{category.category_id}}">
                           
                       {{category.category_name}}
 
