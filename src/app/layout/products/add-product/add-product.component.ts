@@ -27,8 +27,10 @@ export class AddProductComponent implements OnInit {
   costError:string="Please enter a valid cost";
   saleError:string="Please enter a valid sale";
   categoryError:string="Please choose category";
+  tagError:string="Please choose tag";
   enableSave:boolean=false;
   categories: any;
+  tags:any;
 
   selectedFile: ImageSnippet;
 
@@ -53,14 +55,16 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData();
+    this.fetchTagData();
     this.productForm = new FormGroup ({
       'productName':new FormControl(null, Validators.required),
       'category':new FormControl(null, Validators.required),
-      // 'tag':new FormControl(null, Validators.required),
+      'tag':new FormControl(null, Validators.required),
       'cost':new FormControl(null, Validators.required),
       'sale':new FormControl(null, Validators.required),
     });
     this.formValid();
+    
   }
 
   fetchData() {
@@ -68,6 +72,18 @@ export class AddProductComponent implements OnInit {
       response => {
         console.log(response);
         this.categories=response;
+      },
+      error => {
+          console.log(error);
+      }
+    )
+  }
+
+  fetchTagData() {
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        console.log(response);
+        this.tags=response;
       },
       error => {
           console.log(error);
@@ -92,7 +108,7 @@ export class AddProductComponent implements OnInit {
       product_id: 1,
       product_name: formValue.productName,
       category_id: formValue.category,
-      tag_id: 1,
+      tag_id: formValue.tag,
       price_cost: formValue.cost,
       price_sell: formValue.sale,
       imageurl:' ',

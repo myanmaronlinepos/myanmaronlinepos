@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { Category } from '../models/Category';
 import { City } from '../models/City';
-import { ItemTag } from 'src/app/layout/products/new-tags/new-tags.component';
 import { User } from '../models/User';
 import { Inventory } from '../models/Inventory';
 import { SellProduct } from '../models/SellProduct';
+import { ItemTag } from '../models/ItemTag';
 
 @Injectable({
   providedIn: "root"

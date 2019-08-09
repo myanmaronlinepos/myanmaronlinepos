@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { NewProduct } from '../models/NewProduct';
 import { Category } from '../models/Category';
-import { ItemTag } from 'src/app/layout/products/new-tags/new-tags.component';
+import { ItemTag } from '../models/ItemTag';
 
 @Injectable({
   providedIn: "root"

@@ -3,12 +3,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { ItemTag} from 'src/app/share/models/ItemTag'
 import { from } from 'rxjs';
 
-export interface ItemTag{
-  id:number;
-  productname:string;
-  tag:string;
-}
-
 @Component({
   selector: 'app-new-tags',
   templateUrl: './new-tags.component.html',
