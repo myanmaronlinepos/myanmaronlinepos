@@ -47,8 +47,8 @@ if(this.myForm.valid){
       response => {
           console.log(response);
           if(response){
-            this.Progressing=false;
             this.router.navigate(['/dashboard/dashboard'])
+            this.Progressing=false;
           }else{
             this.Progressing=false;
             this.addTaskValue = null;

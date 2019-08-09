@@ -1,0 +1,60 @@
+.card{
+    position: absolute;
+    left: 50%;
+    top: 50% ;
+    width: 400px;
+    height: 390px;
+    transform: translate(-50%,-50%);
+  }
+      
+      .card-body{
+        position: relative;
+        left: 1%;
+        right: 1%;
+        height: 80%;
+       
+      }
+ .textbox{
+     width: 100%;
+ }
+ .btn{
+        color: #fff;
+        background-color: green;
+        margin-top: 10%;
+        margin-left: 15%;
+      }
+      .btn1{
+        color: #fff;
+        background-color: green;
+        margin-top: 10%;
+       margin-left: 60px;
+       width:80px;
+      }
+      
+      a{
+    
+        padding: 14%;
+        bottom: 3%;
+        
+      }
+      @media screen and (max-width:600px){
+        .card{
+          position: absolute;
+          left: 50%;
+          top: 45%;
+          width: 350px;
+          height:350px;
+          transform: translate(-50%,-50%);
+        }
+        .h3{
+          font-size: 16px;
+        }
+            
+          .card-body{
+            position: relative;
+            left: 1%;
+            right: 1%;
+            height: 80%;
+           }
+      }
+    

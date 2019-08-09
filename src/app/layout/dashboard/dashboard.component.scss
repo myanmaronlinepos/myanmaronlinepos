@@ -1,4 +1,9 @@
-
+.chart5{
+    width:100%;
+    display: flex;
+    margin-top: 4%;
+    flex-direction: row; 
+}
  .chart{
     width:100%;
     display: flex;
@@ -12,15 +17,14 @@
     flex-direction: column;
 }
 .chart2{
-    width:95%;
+    width:470px;
     align-items: center;
-    height:100%;
+    height:420px;
  }
- 
 .chart4{
-    width: 95%;
+    width: 470px;
     align-items: center;
-    height:100%;
+    height:330px;
 }
 
 ::ng-deep .mat-card-header {
@@ -31,7 +35,6 @@
 }
 .cover{
     width: 100%;
-    // top:63px; 
     padding-left:6%;
    }
    @media only screen and (max-width: 991px){

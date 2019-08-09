@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart} from 'chart.js';
 import  dayGridPlugin  from "@fullcalendar/daygrid";
-// For MDB Angular Pro
-// import { ChartsModule, ChartSimpleModule, WavesModule } from 'ng-uikit-pro-standard';
-// For MDB Angular Free
-// import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,17 +9,13 @@ import  dayGridPlugin  from "@fullcalendar/daygrid";
 })
 export class DashboardComponent implements OnInit {
   calendarPlugins=[dayGridPlugin];
-  // title="This is our profit";
   LineChart:any=[];
   BarChart:any=[];
   PieChart:any=[];
   RadarChart:any=[];
   AreaChart:any=[];
-  // labels:string[]  = ["January","February","March","April", "May"] ;
-
- constructor() { }
-
-  ngOnInit() {
+constructor() { }
+ngOnInit() {
    
     this.RadarChart=new Chart('radarChart',{
       type:'radar',
@@ -32,19 +24,28 @@ export class DashboardComponent implements OnInit {
         datasets:[
           {
           label:'Cost',
-          data:[1,2,5,4,5],
-          //  backgroundColor:"#fff",
+          data:[1,2,2,4,2],
+            backgroundColor:"#A9A9A9",
+            borderColor:'#A9A9A9',
+            borderWidth:[1,1,1,1,1]
+          
+        },
+        {
+          label:'Profit',
+          data:[3,0,1,1,2],
+           backgroundColor:"#F4A460",
           //  ["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:'#0000FF',
-          // borderWidth:[1,1,1,1,1]
+          borderColor:'#F4A460',
+          borderWidth:[1,1,1,1,1]
           
         },
         {
           label:'Income',
-          data:[4,1,2,3,5],
-          // backgroundColor:["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:'#FF0000',
-          // borderWidth:[1,1,1,1,1]
+          data:[4,2,3,5,4],
+          backgroundColor:'#2E8B57',
+          // ["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
+          borderColor:'#2E8B57',
+          borderWidth:[1,1,1,1,1]
           
         }
       ]
@@ -66,7 +67,7 @@ export class DashboardComponent implements OnInit {
     this.PieChart=new Chart('pieChart',{
       type:'pie',
       data:{
-        labels:["January","February","March","April", "May"],
+        labels:["Qtr1","Qtr2","Qtr3","Qtr4", "Qtr5"],
         datasets:[{
           label:'Cost',
           data:[40,10,20,0,30],
@@ -117,6 +118,33 @@ export class DashboardComponent implements OnInit {
 // }
 }
     });
+    this.PieChart=new Chart('pieChart2',{
+      type:'pie',
+      data:{
+        labels:["Qtr1","Qtr2","Qtr3","Qtr4", "Qtr5"],
+        datasets:[{
+          label:'Profit',
+          data:[20,10,20,40,30],
+          backgroundColor:["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
+          borderColor:["#CDA776","#989898","#CB252B","#E39371","1D7A46"],
+          borderWidth:[1,1,1,1,1]
+          
+        }]
+      },
+      options:{
+        title:{
+          text:"Profit",
+          display:true
+        },
+// scales:{
+//   yAxes:[{
+//     ticks:{
+//       beginAtZero:true
+//     }
+//   }]
+// }
+}
+    });
     // this is barchrt
     this.BarChart=new Chart('barChart',{
       type:'bar',
@@ -126,16 +154,24 @@ export class DashboardComponent implements OnInit {
           {
           label:'Cost',
           data:   [ 5,3,1,2,4],
-          backgroundColor:'#0000ff',
-          borderColor:'#0000ff',
+          backgroundColor:'#A9A9A9',
+          borderColor:'#A9A9A9',
           borderWidth:1
       },  
       {
         label:'Income',
         data:[4,1,2,3,5],
-        backgroundColor:'#FF0000',
-        borderColor:'#FF0000',
-        // borderWidth:[1,1,1,1,1]
+        backgroundColor:'#2E8B57',
+        borderColor:'#2E8B57',
+        borderWidth:[1,1,1,1,1]
+        
+      },
+      {
+        label:'Profit',
+        data:[4,4,2,5,1],
+        backgroundColor:'#F4A460',
+        borderColor:'#F4A460',
+        borderWidth:[1,1,1,1,1]
         
       }
     ]
@@ -162,11 +198,11 @@ scales:{
         datasets:[
           {
           label:'Income',
-          data:[3,2,7,4,5],
+          data:[3,2,7,4,9],
           // fill:false,
           // lineTension:0.2,
-          borderColor:"red",
-          // backgroundColor:"red",
+          borderColor:"#2E8B57",
+          backgroundColor:"#2E8B57",
           borderWidth:1
         },
         {
@@ -174,8 +210,17 @@ scales:{
           data:[5,3,8,6,7],
           // fill:false,
           // lineTension:0.2,
-          borderColor:"blue",
-          // backgroundColor:"blue",
+          borderColor:"#A9A9A9",
+          backgroundColor:"#A9A9A9",
+          borderWidth:1
+        },
+        {
+          label:'Profit',
+          data:[5,6,3,7,3],
+          // fill:false,
+          // lineTension:0.2,
+          borderColor:"#F4A460",
+          backgroundColor:"#F4A460",
           borderWidth:1
         },
       ]
