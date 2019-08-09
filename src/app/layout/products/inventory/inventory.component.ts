@@ -12,7 +12,7 @@ import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 })
 export class InventoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['product_id', 'name', 'category', 'quantity', 'actions'];
+  displayedColumns: string[] = ['product_id', 'name', 'category_name', 'quantity', 'actions'];
   items: any;
   dataSource: MatTableDataSource<Inventory>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
