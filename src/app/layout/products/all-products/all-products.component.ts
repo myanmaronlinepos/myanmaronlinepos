@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { Product } from 'src/app/share/models/Product';
-import {EditProductComponent } from '../all-products/edit-product/edit-product.component'
+import { EditProductComponent } from '../all-products/edit-product/edit-product.component'
 import { DeleteTagService } from 'src/app/delete-tag.service';
 import { ItemTag } from './deletetag/deletetag.component';
 @Component({

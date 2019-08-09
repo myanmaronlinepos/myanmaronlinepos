@@ -6,6 +6,7 @@ import { Login } from '../models/Login';
 import { Observable } from 'rxjs';
 import { Status } from '../models/Status';
 import { User } from '../models/User';
+import { Email } from '../models/email';
 
 @Injectable({
   providedIn: "root"
@@ -19,6 +20,14 @@ export class AuthService {
     return this.http.post(
       this.apiService.createCompleteApiRoute(apiUrl),
       loginData
+    );
+  }
+  forget(emailData: Email){
+    let apiUrl="/api/guest/forgot-password";
+    console.log(emailData);
+    return this.http.post(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      emailData
     );
   }
 
@@ -43,12 +52,5 @@ export class AuthService {
     ).toPromise();
     
   }
-  forget(EmailData: any){
-    let apiUrl="/api/guest/forgot-password";
-    console.log(EmailData);
-    return this.http.post(
-      this.apiService.createCompleteApiRoute(apiUrl),
-      EmailData
-    ).toPromise();
-  }
+
 }

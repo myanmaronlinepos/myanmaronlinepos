@@ -1,3 +1,16 @@
-<p>
-  comfirm-code works!
-</p>
+<div class="card">
+  <div class="card-header text-center"><h3><strong>Forget Password</strong></h3>
+  </div>
+  <div class="card-body">
+      <form [formGroup]="ComfirmForm" (ngSubmit)="onSubmit()">
+         <p class="content"> Enter comfirm code we sent to your email</p>
+        <mat-form-field class="textbox">
+        <input matInput placeholder="Enter comfirm code" formControlName="email" type="email">
+        <mat-error *ngIf="ComfirmForm.hasError('required')">Please enter your comfirm code</mat-error>
+   </mat-form-field>
+<button mat-button class="btn" type="submit" >Cancel</button>
+<button mat-button class="btn1" type="submit" [disabled]="!ComfirmForm.valid">Next
+</button>
+</form>
+  </div>
+</div>

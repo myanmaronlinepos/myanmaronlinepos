@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/share/services/authentication.service';
+import { Router,RouterLink } from '@angular/router';
+// import { AuthService } from 'src/app/share/services/authentication.service';
 import { FormBuilder, FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { EmitterService } from 'src/app/share/services/emitter.service';
-
-
+import { Email } from 'src/app/share/models/email';
 @Component({
   selector: 'app-email-form',
   templateUrl: './email-form.component.html',
@@ -12,10 +11,10 @@ import { EmitterService } from 'src/app/share/services/emitter.service';
 })
 export class EmailFormComponent implements OnInit {
   EmailForm: FormGroup;
-  EmailData:any;
-
-  constructor(private router: Router,
-    private authService:AuthService,
+  EmailData:Email;
+  constructor(
+    private router: Router,
+    // private authService:AuthService,
     private emitterService:EmitterService,
     private formBuilder: FormBuilder) { }
 
@@ -31,20 +30,9 @@ export class EmailFormComponent implements OnInit {
       this.EmailData = {
         user_email:formValue.email,
       }
-    }
-    console.log(formValue);
-    this.authService.login(this.EmailData).subscribe(
-      response => {
-        console.log(response);
-        if(response){
-          this.router.navigate(['/home/comfirm-code'])
-        }else{
-          return
-        }
-},
-error => {
-  console.log(error);
+      this.router.navigate(['/home/forget/email']);
+    } else {
+    return;
+  }
 }
-)
-     }
-    }
+}
