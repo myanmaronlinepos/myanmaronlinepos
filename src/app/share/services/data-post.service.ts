@@ -21,7 +21,7 @@ export class DataPostService {
     );
   }
 
-  postCategory(category:Category):Observable<any>{
+  postCategory(category:any):Observable<any>{
     let apiUrl = "/api/user/post/category";
     return this.http.post<any>(
       this.apiService.createCompleteApiRoute(apiUrl),
@@ -29,7 +29,7 @@ export class DataPostService {
     );
   }
 
-  postTag(tag:ItemTag):Observable<any>{
+  postTag(tag:any):Observable<any>{
     let apiUrl = "/api/user/post/tag";
     return this.http.post<any>(
       this.apiService.createCompleteApiRoute(apiUrl),
