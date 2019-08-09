@@ -3,9 +3,13 @@
     <div class="subcheck1">
       <mat-form-field class="ltr1">
         <mat-label class="arrow1">Category</mat-label>
-        <mat-select [value]="selected" (OnChange)="log($event)">
-          <mat-option *ngFor="let cat of category">
-            <mat-checkbox>{{cat}}</mat-checkbox>
+        <mat-select>  
+          <mat-option *ngFor="let category of categories | filter: searchText">
+              <mat-checkbox (change)="getSelected()" 
+                type="category" value="{{category.category_id}}" 
+                [(ngModel)]="category.selected">
+                    {{category.category_name}}
+              </mat-checkbox>
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -33,20 +37,26 @@
   </div>
   <div class="btn">
     <div class="btn1">
-      <a href="#" id='feynman'><img src="assets/login/import.png" class="Logo"></a>
+      <a id='feynman'>
+        <img src="assets/login/import.png" class="Logo">
+      </a>
       <div id='feynman_text'> Import Product </div>
     </div>
-    <div class="btn2">
-      <a href="#" id='feynman'><img src="assets/login/export.png" class="Logo"></a>
-      <div id='feynman_text'> Export Product </div>
 
-      <a href="#" id='feynman' routerLink="/dashboard/products/addproduct"><img src="assets/login/AddProduct.png"
-          class="Logo"></a>
+    <div class="btn2">
+      <a id='feynman'>
+        <img src="assets/login/export.png" class="Logo">
+      </a>
+      <div id='feynman_text'> Export Product </div>
     </div>
-    <!-- <div class="btn3">
-          <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
-          <div id='feynman_text'>  Add Product </div>
-        </div> -->
+
+    <div class="btn3">
+      <a id='feynman' routerLink="/dashboard/products/addproduct">
+        <img src="assets/login/AddProduct.png"  class="Logo">
+      </a>
+      <div id='feynman_text'>  Add Product </div>
+    </div>
+    
   </div>
 </div>
 
@@ -70,7 +80,7 @@
             <img src="assets/sharp-edit(1).svg" width="25px" height="25px">
           </a>
 
-          <a routerLink="/dashboard/products/detailproduct">
+          <a (click)="productDetail(element.product_id)">
             <img src="assets/details.svg" width="25px" height="25px">
           </a>
           <!-- <a (click)="onEdit('Edit',element)">

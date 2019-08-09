@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
-import { ItemCategory } from './share/models/ItemCategory';
+import { Category } from '../models/Category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
   
-  categories: ItemCategory[]  = [
-    { category_id:1, categoryname:'Cigaretees'},
-    { category_id:2, categoryname: 'Beer'},
-    { category_id:3, categoryname: 'Rum'},
-    { category_id:4, categoryname: 'Wisky'},
-    { category_id:5, categoryname: 'Snack'}
+  categories: Category[]  = [
+    { category_id: 1, category_name:'Snack'},
+    { category_id: 2, category_name:'Sunflower-Seed'},
+    { category_id: 3, category_name:'Book'},
+    { category_id: 4, category_name:'Bag'},
+    { category_id: 5, category_name:'Mobile'},
+    
   ];
 
-  category:ItemCategory;
+  category: Category;
   constructor() { }
 
   getCategory() {
     return this.categories;
   }
 
-  setCategory(category:ItemCategory){
+  setCategory(category: Category){
     this.category=category;
     console.log("service");
     console.log(this.category);

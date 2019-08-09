@@ -14,17 +14,33 @@
                         <mat-error *ngIf="!productForm.get('productName').valid && productForm.get('productName').touched" class="help-block">
                           {{productNameError}}</mat-error>
                       </mat-form-field>
+
                       <mat-form-field>
-                        <textarea matInput placeholder="Category" formControlName="category"></textarea>
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName="category" id="category_name">
+                          <mat-option *ngFor="let category of categories" [value]="category.category_id">
+                            {{category.category_name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!productForm.get('category').valid && productForm.get('category').touched" class="help-block">{{categoryError}}</mat-error>
                       </mat-form-field>
+ 
                       <mat-form-field>
-                        <input matInput placeholder="Tag" formControlName="tag">
+                        <mat-label>Tag</mat-label>
+                        <mat-select formControlName="tag" id="tag_name">
+                          <mat-option *ngFor="let tag of tags" [value]="tag.id">
+                            {{tag.tag_name}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="!productForm.get('tag').valid && productForm.get('tag').touched" class="help-block">{{tagError}}</mat-error>
                       </mat-form-field>
+
                       <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">
                         <mat-error *ngIf="!productForm.get('cost').valid && productForm.get('cost').touched" class="help-block">
                           {{costError}}</mat-error>
                       </mat-form-field>
+                      
                       <mat-form-field>
                         <input matInput placeholder="Sale price" formControlName="sale">
                         <mat-error *ngIf="!productForm.get('sale').valid && productForm.get('sale').touched" class="help-block">

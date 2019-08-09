@@ -1,5 +1,7 @@
 export interface Inventory {
-    product_name:string;
+    inventory_id:number;
+    product_name:number;
     category_name:string;
     quantity:number;
+    // updated_at:string;
 }

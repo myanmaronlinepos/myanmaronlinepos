@@ -20,10 +20,10 @@
  <table mat-table [dataSource]="dataSource">
          <ng-container matColumnDef="No">
             <mat-header-cell *matHeaderCellDef>No</mat-header-cell>
-            <mat-cell *matCellDef="let element; let i=index;"> {{i+1}} </mat-cell>
+            <mat-cell *matCellDef="let element;let i=index"> {{i+1}} </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="product_name">
-              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> ProductName </mat-header-cell>
               <mat-cell *matCellDef="let element"> {{element.product_name}} </mat-cell>
             </ng-container>
             <ng-container matColumnDef="category_name">

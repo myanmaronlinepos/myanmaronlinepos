@@ -7,6 +7,7 @@ import { EmitterService } from 'src/app/share/services/emitter.service';
 import { SignupModel } from '../signupModel';
 import { CityService } from 'src/app/share/services/city.service';
 import { City } from 'src/app/share/models/City';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 @Component({
   selector: 'app-detail-form',
@@ -21,7 +22,7 @@ showStore: boolean = false;
 detailForm: FormGroup;
 mainFormData:SignupModel;
 signupData: User;
-items: City[] =[];
+items:any;
 
 	
 loadData(){
@@ -29,14 +30,14 @@ loadData(){
 }
   
   constructor(
-    private cityservice: CityService,
+    private dataFetchService:DataFetchService,
     private authService: AuthService,
     private router: Router,
     private emitterService: EmitterService) {
     }
     
     ngOnInit() {
-      this.items=this.cityservice.getItems();
+       this.fetchData();
        this.detailForm = new FormGroup({
         'firstname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
         'lastname': new FormControl(null, [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
@@ -55,7 +56,17 @@ loadData(){
       }
     
     }
-
+    fetchData() {
+      this.dataFetchService.getAllCity().subscribe(
+        response => {
+          this.items= response;
+          console.log(this.items);
+        },
+        error => {
+            console.log(error);
+        }
+      )
+    }
   onSubmit() {
     const formValue = this.detailForm.value;
     const user_name = formValue.firstname + formValue.lastname;
@@ -70,6 +81,8 @@ loadData(){
         storename: formValue.storename,
         city_id: formValue.city,
       }
+
+      console.log(this.signupData);
   
       this.authService.signup(this.signupData)
         .then((registered: boolean) => {
@@ -84,9 +97,6 @@ loadData(){
         });
       
     }
-     else {
-			return;
-		}
 	}
 onSelect(event: any) {
     this.showStore = true;

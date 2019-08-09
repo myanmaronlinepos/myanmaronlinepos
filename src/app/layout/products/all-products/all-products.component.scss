@@ -22,7 +22,15 @@
   text-align:center;
   opacity:0;
   //left: 5%;
-  
+}
+
+.mat-header-cell{
+  font-size:16px;
+  text-transform:none;
+}
+.mat-cell{
+  font-size:16px;
+  text-transform:initial;
 }
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
   margin-left: 0px;
@@ -127,6 +135,12 @@ a > img {
 @media screen and (max-width: 991px) {
   .btn {
       margin-left: 32%;
+  }
+  .mat-header-cell {
+    font-size: 14px; 
+  }
+  .mat-cell {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 800px) {

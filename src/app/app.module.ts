@@ -53,6 +53,11 @@ import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.co
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
 import { FilterPipe } from './filter.pipe';
 import { PasswordComponent } from './forgot-password/password/password.component';
+import { FilteredcategoryPipe } from './filteredcategory.pipe';
+import { CategoryFilterPipe } from './category-filter.pipe';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +100,9 @@ import { PasswordComponent } from './forgot-password/password/password.component
     SellHistoryComponent,
     EditTagComponent,
     FilterPipe,
-    PasswordComponent    
+    PasswordComponent,    
+    FilteredcategoryPipe,
+    CategoryFilterPipe    
   ],
   imports: [
     BrowserModule,

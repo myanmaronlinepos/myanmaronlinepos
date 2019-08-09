@@ -9,6 +9,8 @@ import { Product } from 'src/app/share/models/Product';
 import { EditProductComponent } from '../all-products/edit-product/edit-product.component'
 import { DeleteTagService } from 'src/app/delete-tag.service';
 import { ItemTag } from './deletetag/deletetag.component';
+import { Category } from 'src/app/share/models/Category';
+
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
@@ -19,26 +21,37 @@ import { ItemTag } from './deletetag/deletetag.component';
 export class AllProductsComponent implements OnInit {
   
   displayedColumns: string[] = ['product_id', 'product_name', 'category_id','tag_id','price_sell'];
-  tags:ItemTag[]=[];
+  
   dataSource:any;
-  category: string[]=['coffee','cookie','juices','bread','medicine','sugar','chips','oil','cake'];
+  categories:any;
+  selected_category:any;
   tag: string[]=['3 buy 1 gift','for all','for 18+'];
   quantity: string[]=['less than 10','less than 20','less than 30','more than 50'];
-  datas: MatTableDataSource<ItemTag>;
+  selected:boolean=false;
+  
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private router: Router,private dataFetchService : DataFetchService,
-      public dialog: MatDialog,
-      public edit:DeleteTagService
-      ){   }
+  constructor(
+    private router: Router,
+    private dataFetchService : DataFetchService,
+    public dialog: MatDialog,
+    public edit:DeleteTagService
+    ){ }
 
   ngOnInit() {
-   
     this.fetchData();
-    
-    }
-    
+    this.selected_category=this.fetchData();
+  }
+  
+
+  getSelected() {
+    this.selected_category = this.dataSource.filter(s => {
+      return s.selected;
+    });
+    console.log(this.selected_category);
+  }
+
     onEdit(action, obj):void {
     
       // this.categoryservice.setCategory(row);
@@ -70,6 +83,7 @@ export class AllProductsComponent implements OnInit {
       this.dataFetchService.getAllProduct().subscribe(
         response => {
           console.log(response);
+          this.categories=response;
           this.dataSource = new MatTableDataSource<Product>(response);
           this.dataSource.paginator = this.paginator;
         },
@@ -77,6 +91,10 @@ export class AllProductsComponent implements OnInit {
 
         }
       )
+    }
+
+    productDetail(id: number) {
+      this.router.navigate(['/dashboard/products/detailproduct',id]);
     }
   
 }

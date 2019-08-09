@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/Product';
 import { Category } from '../models/Category';
 import { City } from '../models/City';
+import { User } from '../models/User';
 import { Inventory } from '../models/Inventory';
+import { SellProduct } from '../models/SellProduct';
+import { ItemTag } from '../models/ItemTag';
 
 @Injectable({
   providedIn: "root"
@@ -19,6 +22,13 @@ getInventory():Observable<Inventory[]>{
   );
 
 }
+  getUserData():Observable<User>{
+    let apiUrl = "/api/user/get/userData";
+    return this.http.get<User>(
+      this.apiService.createCompleteApiRoute(apiUrl)
+    );
+  }
+
   getAllProduct():Observable<Product[]>{
     let apiUrl = "/api/user/get/products";
     return this.http.get<Product[]>(
@@ -45,6 +55,21 @@ getInventory():Observable<Inventory[]>{
    );
  }
 
+ getAllTag():Observable<ItemTag[]> {
+  let apiUrl="api/user/get/tags";
+  return this.http.get<ItemTag[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
+getAllInventory():Observable<Inventory[]> {
+  let apiUrl="api/user/get/inventory";
+  return this.http.get<Inventory[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
+
 getAllCity():Observable<City[]> {
   let apiUrl="api/guest/allcity";
   return this.http.get<City[]>(
@@ -52,11 +77,18 @@ getAllCity():Observable<City[]> {
   );
 }
 
+
 getCity():Observable<City> {
   let apiUrl="api/user/get/city";
   return this.http.get<City>(
     this.apiService.createCompleteApiRoute(apiUrl)
   )
+}
+getAllSell():Observable<SellProduct[]> {
+  let apiUrl="api/user/get/sellProduct";
+  return this.http.get<SellProduct[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
 }
   
 }

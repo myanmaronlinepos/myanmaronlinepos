@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatPaginator} from '@angular/material';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { Inventory } from 'src/app/share/models/Inventory';
 import { ActivatedRoute } from '@angular/router';
+import { InventoryService } from 'src/app/share/services/inventory.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
-import { Product } from 'src/app/share/models/Product';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -12,45 +12,48 @@ import { Product } from 'src/app/share/models/Product';
 })
 export class InventoryComponent implements OnInit {
 
-displayedColumns: string[] = ['No', 'product_name','category_name','quantity','actions'];
-items: Inventory[]=[];
-dataSource: MatTableDataSource<Inventory>;
-@ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns: string[] = ['product_id', 'name', 'category', 'quantity', 'actions'];
+  items: any;
+  dataSource: MatTableDataSource<Inventory>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-Updatequantity='';
-// savequantity='';
-fileToUpload: File = null;
+  Updatequantity = '';
+  savequantity = '';
+  fileToUpload: File = null;
 
-handleFileInput(files: FileList) {
-  this.fileToUpload = files.item(0);
-}
-constructor(
-  private route: ActivatedRoute,
-  private activatedRoute: ActivatedRoute,
-  private dataFetchService : DataFetchService
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+  constructor(
+    private dataFetchService:DataFetchService,
+    private inventoryservice: InventoryService
   ) { }
 
-ngOnInit() {
-  this.fetchData();
-   }
-onUpdatequantity(){
-     this.Updatequantity=(<HTMLInputElement>event.target).value;
-     }
-Onaddvalue(row){
-    row.quantity=this.Updatequantity;
+  ngOnInit() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    this.dataFetchService.getAllInventory().subscribe(
+      response => {
+        console.log(response);
+        this.items = response;
+        this.dataSource = new MatTableDataSource<Inventory>(this.items);
+        this.dataSource.paginator = this.paginator;
+      },
+      error => {
+          console.log(error);
       }
-     
-      fetchData() {
-        this.dataFetchService.getInventory().subscribe(
-          response => {
-            console.log(response);
-            this.dataSource = new MatTableDataSource<Inventory>(response);
-            this.dataSource.paginator = this.paginator;
-          },
-          error => {
-  
-          }
-        )
-      }
+    )
+  }
+
+  onUpdatequantity() {
+    this.Updatequantity = (<HTMLInputElement>event.target).value;
+  }
+  Onaddvalue(row) {
+    row.savequantity = this.Updatequantity;
+  }
+
+
 }
 

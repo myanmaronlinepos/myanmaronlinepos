@@ -4,6 +4,10 @@ import { DataPostService } from 'src/app/share/services/data-post.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/share/models/Product';
 import { NewProduct } from 'src/app/share/models/NewProduct';
+import { Category } from 'src/app/share/models/Category';
+import { CategoryService } from 'src/app/share/services/category.service';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+
 
 
 class ImageSnippet {
@@ -22,7 +26,11 @@ export class AddProductComponent implements OnInit {
   productNameError:string="Please enter a valid product name";
   costError:string="Please enter a valid cost";
   saleError:string="Please enter a valid sale";
+  categoryError:string="Please choose category";
+  tagError:string="Please choose tag";
   enableSave:boolean=false;
+  categories: any;
+  tags:any;
 
   selectedFile: ImageSnippet;
 
@@ -39,19 +47,48 @@ export class AddProductComponent implements OnInit {
   }
 
   constructor(
+    private dataFetchService:DataFetchService,
     private datapostService: DataPostService,
-    private router: Router
+    private router: Router,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
+    this.fetchData();
+    this.fetchTagData();
     this.productForm = new FormGroup ({
       'productName':new FormControl(null, Validators.required),
-      'category':new FormControl(null),
+      'category':new FormControl(null, Validators.required),
       'tag':new FormControl(null, Validators.required),
       'cost':new FormControl(null, Validators.required),
       'sale':new FormControl(null, Validators.required),
     });
     this.formValid();
+    
+  }
+
+  fetchData() {
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        console.log(response);
+        this.categories=response;
+      },
+      error => {
+          console.log(error);
+      }
+    )
+  }
+
+  fetchTagData() {
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        console.log(response);
+        this.tags=response;
+      },
+      error => {
+          console.log(error);
+      }
+    )
   }
 
   formValid() {
@@ -70,8 +107,8 @@ export class AddProductComponent implements OnInit {
     this.addproductData= {
       product_id: 1,
       product_name: formValue.productName,
-      category_id: 1,
-      tag_id: 1,
+      category_id: formValue.category,
+      tag_id: formValue.tag,
       price_cost: formValue.cost,
       price_sell: formValue.sale,
       imageurl:' ',

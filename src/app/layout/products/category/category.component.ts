@@ -6,9 +6,12 @@ import { MatPaginator } from '@angular/material';
 
 import { AssignproductComponent } from '../../assignproduct/assignproduct.component';
 import { EditCategoryComponent } from '../edit-category/edit-category.component';
-import { ItemCategory } from 'src/app/share/models/itemCategory';
-import { CategoryService } from 'src/app/category.service';
+// import { ItemCategory } from 'src/app/share/models/itemCategory';
+import { Product } from 'src/app/share/models/Product';
+// import { CategoryService } from 'src/app/category.service';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { DeleteCategoryComponent } from '../delete-category/delete-category.component';
+import { Category } from 'src/app/share/models/Category';
 
 
 @Component({
@@ -20,20 +23,21 @@ import { DeleteCategoryComponent } from '../delete-category/delete-category.comp
 export class CategoryComponent implements OnInit {
 
   displayedColumns: string[] = ['categoryname','assignproduct','action'];
-  categories:ItemCategory[]=[];
-  dataSource: MatTableDataSource<ItemCategory>;
+  categories:Category[]=[];
+  dataSource: any;
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     public dialog: MatDialog,
-    public categoryservice:CategoryService
+    public dataFetchService:DataFetchService
     ) {}
 
   ngOnInit() {
-    this.categories=this.categoryservice.getCategory();
-    this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
-    this.dataSource.paginator = this.paginator;
+    // this.categories=this.categoryservice.getCategory();
+    // this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
+    // this.dataSource.paginator = this.paginator;
+    this.fetchData();
   }
   
   createCategory(action, obj) {
@@ -98,18 +102,19 @@ export class CategoryComponent implements OnInit {
 
   addRowData(row_obj) {
     
-    this.categories.push({
-      id:this.categoryservice.getId()+1,
-      categoryname:row_obj.categoryname
-    });
-    this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
+    // this.categories.push({
+    //   id:this.dataFetchService.getId()+1,
+    //   categoryname:row_obj.category_name
+    // });
+    
+    this.dataSource=new MatTableDataSource<Category>(this.categories);
     this.table.renderRows();
   }
 
   editRowData(row_obj) {
     this.categories = this.categories.filter((value,key)=>{
-      if(value.id == row_obj.id){
-        value.categoryname = row_obj.categoryname;
+      if(value.category_id == row_obj.id){
+        value.category_name = row_obj.categoryname;
       }
       return true;
     });
@@ -117,9 +122,23 @@ export class CategoryComponent implements OnInit {
 
   deleteRowData(row_obj) {
     this.categories=this.categories.filter((value,key)=>{
-      return value.id != row_obj.id;
+      return value.category_id != row_obj.id;
     });
-    this.dataSource=new MatTableDataSource<ItemCategory>(this.categories);
+    this.dataSource=new MatTableDataSource<Category>(this.categories);
+  }
+
+  fetchData() {
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        console.log(response);
+        this.dataSource = new MatTableDataSource<Category>(response);
+        this.dataSource.paginator = this.paginator;
+        console.log(this.dataSource);
+      },
+      error => {
+
+      }
+    )
   }
 }
 

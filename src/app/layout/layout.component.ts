@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataFetchService } from '../share/services/data-fetch.service';
+import { User } from '../share/models/User';
 
 
 @Component({
@@ -10,10 +12,15 @@ export class LayoutComponent implements OnInit {
 
   viewmenu=false;
   showmenu=false;
-  constructor() { }
+  constructor(
+    private dataFetchService:DataFetchService
+  ) { }
 
   ngOnInit() {
+
   }
+
+  
 
   viewMenu() {
     this.viewmenu=!this.viewmenu;  
