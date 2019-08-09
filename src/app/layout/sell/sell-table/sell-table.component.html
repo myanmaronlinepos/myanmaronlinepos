@@ -4,13 +4,14 @@
               <!-- For Categoty -->
               <mat-form-field class="ltr1">
                 <mat-label class="arrow1 select">Category</mat-label>
-                <mat-select>  
-                  <mat-option *ngFor="let checkbox of checkboxes | filter: searchText">
-                      <mat-checkbox (change)="getSelected()" 
-                        type="checkbox" value="{{checkbox.number}}" 
-                        [(ngModel)]="checkbox.selected">
-                            {{checkbox.category}}
-                      </mat-checkbox>
+                <mat-select formControlName="category" id="category_name">
+                  <mat-option *ngFor="let category of categories">
+                      <mat-checkbox [value]="category.category_id"
+                      [(ngModel)]="checkbox.selected">
+                          
+                      {{category.category_name}}
+
+                    </mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>

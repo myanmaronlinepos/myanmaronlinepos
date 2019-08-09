@@ -69,15 +69,24 @@ export class SellTableComponent implements OnInit {
   ngOnInit() {
 
     this.fetchData();
-
     // this.selectedRow=this.sellservice.sellProduct;
     // this.checkboxes=this.sellservice.getItems();
     // this.items=this.sellservice.getItems();
     // this.dataSource=new MatTableDataSource<SellItem>(this.selected_products);
     // this.dataSource.paginator = this.paginator;
-    
     // this.selected_products=this.items;
-    
+  }
+  fetchData() {
+    this.dataFetchService.getAllSell().subscribe(
+      response => {
+        console.log(response);
+        this.dataSource = new MatTableDataSource<SellProduct>(response);
+        this.dataSource.paginator = this.paginator;
+      },
+      error => {
+
+      }
+    )
   }
   
 
@@ -121,17 +130,6 @@ export class SellTableComponent implements OnInit {
   //     this.dataSource=new MatTableDataSource<SellItem>(this.items);
   // }
 
-  fetchData() {
-    this.dataFetchService.getAllSell().subscribe(
-      response => {
-        console.log(response);
-        this.dataSource = new MatTableDataSource<SellProduct>(response);
-        this.dataSource.paginator = this.paginator;
-      },
-      error => {
-
-      }
-    )
-  }
+ 
 
 }
