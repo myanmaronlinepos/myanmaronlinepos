@@ -26,8 +26,8 @@
         <i class="fa fa-spinner fa-spin" *ngIf="Progressing" ></i>
       </button>
     </div>
-      <a href="./home/forget">Forgot Password</a>
-      <a href="./home/signup"> Sign up</a>
+      <a [routerLink]="['/home/forget']">Forgot Password</a>
+      <a [routerLink]="['/home/signup']"> Sign up</a>
   </form>
   </div>
 </div>
