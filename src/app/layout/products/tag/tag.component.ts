@@ -8,6 +8,7 @@ import { DeleteTagService } from 'src/app/delete-tag.service';
 import {MatTableDataSource, MatTable} from '@angular/material/table';
 import {EditTagComponent } from '../all-products/edit-tag/edit-tag.component';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { DataPostService } from 'src/app/share/services/data-post.service';
 
 @Component({
   selector: 'app-tag',
@@ -24,6 +25,7 @@ export class TagComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<any>;
   constructor(
     private dataFetchService:DataFetchService,
+    private dataPostService:DataPostService,
     public dialog: MatDialog,
     public deleteservice:DeleteTagService,
    ) {}
@@ -60,18 +62,24 @@ export class TagComponent implements OnInit {
     });
   }
   addRowData(row_obj) {
-    var d = new Date();
-    this.tags.push({
-      id: this.deleteservice.getId()+1,
-      tag_name: row_obj.tagname,
-      
-    });
-    this.dataSource=new MatTableDataSource<ItemTag>(this.tags);
-     this.table.renderRows();
+    console.log(row_obj);
+    const tag:any={
+     tag_name:row_obj.tag_name
+   };
+
+   this.dataPostService.postTag(tag).subscribe(
+     response => {
+       this.fetchData()
+     },
+     error => {
+       console.log(error);
+     }
+   );
   }
 
   onEdit(action, obj){
     obj.action=action;
+    console.log(obj);
     const dialogRef=this.dialog.open(EditTagComponent,{
        width: '300px',
        height: '180px',
