@@ -12,6 +12,7 @@ import { Product } from 'src/app/share/models/Product';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { DeleteCategoryComponent } from '../delete-category/delete-category.component';
 import { Category } from 'src/app/share/models/Category';
+import { DataPostService } from 'src/app/share/services/data-post.service';
 
 
 @Component({
@@ -22,15 +23,17 @@ import { Category } from 'src/app/share/models/Category';
 
 export class CategoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['categoryname','assignproduct','action'];
+  displayedColumns: string[] = ['category_name','assignproduct','action'];
   categories:Category[]=[];
+  category:any;
   dataSource: any;
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     public dialog: MatDialog,
-    public dataFetchService:DataFetchService
+    public dataFetchService:DataFetchService,
+    private dataPostService:DataPostService
     ) {}
 
   ngOnInit() {
@@ -101,14 +104,20 @@ export class CategoryComponent implements OnInit {
   }
 
   addRowData(row_obj) {
-    
-    // this.categories.push({
-    //   id:this.dataFetchService.getId()+1,
-    //   categoryname:row_obj.category_name
-    // });
-    
-    this.dataSource=new MatTableDataSource<Category>(this.categories);
-    this.table.renderRows();
+
+    console.log(row_obj);
+     this.category={
+      category_name:row_obj.category_name
+    };
+
+    this.dataPostService.postCategory(this.category).subscribe(
+      response => {
+        this.fetchData()
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   editRowData(row_obj) {
