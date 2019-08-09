@@ -25,16 +25,15 @@
                         <mat-error *ngIf="!productForm.get('category').valid && productForm.get('category').touched" class="help-block">{{categoryError}}</mat-error>
                       </mat-form-field>
  
-                      <!-- <mat-form-field>
+                      <mat-form-field>
                         <mat-label>Tag</mat-label>
-                        <mat-select formControlName="tag" id="city_name">
-                          <mat-option *ngFor="let city of items" [value]="city.city_id">
-                            {{city.city_name}}
+                        <mat-select formControlName="tag" id="tag_name">
+                          <mat-option *ngFor="let tag of tags" [value]="tag.id">
+                            {{tag.tag_name}}
                           </mat-option>
                         </mat-select>
-                        <mat-hint i18n>Please select city</mat-hint>
-                        <mat-error *ngIf="!detailForm.get('city').valid && detailForm.get('city').touched" class="help-block"> City required.</mat-error>
-                      </mat-form-field> -->
+                        <mat-error *ngIf="!productForm.get('tag').valid && productForm.get('tag').touched" class="help-block">{{tagError}}</mat-error>
+                      </mat-form-field>
 
                       <mat-form-field>
                         <input matInput placeholder="Price per cost" formControlName="cost">

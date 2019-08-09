@@ -37,19 +37,19 @@ export class AllProductsComponent implements OnInit {
     private dataFetchService : DataFetchService,
     public dialog: MatDialog,
     public edit:DeleteTagService
-    ){   }
+    ){ }
 
   ngOnInit() {
     this.fetchData();
     this.selected_category=this.fetchData();
   }
-    
+  
+
   getSelected() {
     this.selected_category = this.dataSource.filter(s => {
       return s.selected;
     });
     console.log(this.selected_category);
-    
   }
 
     onEdit(action, obj):void {
