@@ -23,9 +23,11 @@ export class AllProductsComponent implements OnInit {
   displayedColumns: string[] = ['product_id', 'product_name', 'category_id','tag_id','price_sell'];
   
   dataSource:any;
-  category: string[]=['coffee','cookie','juices','bread','medicine','sugar','chips','oil','cake'];
+  categories:any;
+  selected_category:any;
   tag: string[]=['3 buy 1 gift','for all','for 18+'];
   quantity: string[]=['less than 10','less than 20','less than 30','more than 50'];
+  selected:boolean=false;
   
   
   @ViewChild(MatTable) table: MatTable<any>;
@@ -39,8 +41,17 @@ export class AllProductsComponent implements OnInit {
 
   ngOnInit() {
     this.fetchData();
+    this.selected_category=this.fetchData();
   }
     
+  getSelected() {
+    this.selected_category = this.dataSource.filter(s => {
+      return s.selected;
+    });
+    console.log(this.selected_category);
+    
+  }
+
     onEdit(action, obj):void {
     
       // this.categoryservice.setCategory(row);
@@ -72,6 +83,7 @@ export class AllProductsComponent implements OnInit {
       this.dataFetchService.getAllProduct().subscribe(
         response => {
           console.log(response);
+          this.categories=response;
           this.dataSource = new MatTableDataSource<Product>(response);
           this.dataSource.paginator = this.paginator;
         },
