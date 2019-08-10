@@ -10,6 +10,9 @@ mat-button-toggle-group.report {
     margin-left: 90px;
 }
 
+mat-button-toggle-group.lang {
+    margin-left: 106px;
+}
 p {
     margin-top: 40px;
     margin-bottom: 1rem;
@@ -18,4 +21,7 @@ p {
 
 ::ng-deep .mat-button-toggle-label-content {
     color: black;
+}
+@media screen and (max-length: 660px) {
+    
 }

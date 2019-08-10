@@ -93,21 +93,10 @@ mat-form-field{
   display: flex;
   width: 50%;
 }
-.subcheck1, .subcheck2, .subcheck3 {
-  display: flex;
-  width: 10%;
-}
-.subcheck2 {
-  margin-left: 30px;
-// margin-right: 10px;
-}
-.subcheck3{
-  margin-left: 40px;
-}
 
 .btn {
   display: flex;
-  width: 50%;
+  width: 20%;
   margin-top: 10px;
   margin-left: 37%;
   }
@@ -126,11 +115,15 @@ a > img {
 }
 
 
-@media screen and (max-width: 1200px) {
- 
-  // .btn {
-  //     margin-left: 20%;
-  // }
+@media screen and (min-width: 1370px) {
+  .btn {
+    margin-left: 45%;
+  }
+  .btn1, .btn2,.btn3{
+    width: 30%;
+    padding-left: 40px;
+  }
+  
 }
 @media screen and (max-width: 991px) {
   .btn {

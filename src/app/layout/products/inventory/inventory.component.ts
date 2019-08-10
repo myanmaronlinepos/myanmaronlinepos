@@ -5,6 +5,7 @@ import { Inventory } from 'src/app/share/models/Inventory';
 import { ActivatedRoute } from '@angular/router';
 import { InventoryService } from 'src/app/share/services/inventory.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { ExcelService } from 'src/app/excel.service';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -14,6 +15,7 @@ export class InventoryComponent implements OnInit {
 
   displayedColumns: string[] = ['product_id', 'name', 'category_name', 'quantity', 'actions'];
   items: any;
+  data: any;
   dataSource: MatTableDataSource<Inventory>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -26,7 +28,8 @@ export class InventoryComponent implements OnInit {
   }
   constructor(
     private dataFetchService:DataFetchService,
-    private inventoryservice: InventoryService
+    private inventoryservice: InventoryService,
+    private excelService: ExcelService
   ) { }
 
   ngOnInit() {
@@ -38,6 +41,7 @@ export class InventoryComponent implements OnInit {
       response => {
         console.log(response);
         this.items = response;
+        this.data = response;
         this.dataSource = new MatTableDataSource<Inventory>(this.items);
         this.dataSource.paginator = this.paginator;
       },
@@ -54,6 +58,9 @@ export class InventoryComponent implements OnInit {
     row.savequantity = this.Updatequantity;
   }
 
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.data, 'inventory');
+  }
 
 }
 
