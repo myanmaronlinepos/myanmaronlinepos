@@ -5,7 +5,7 @@
         <mat-label class="arrow1">Category</mat-label>
         <mat-select>  
           <mat-option *ngFor="let category of categories | filter: searchText">
-              <mat-checkbox (change)="getSelected()" 
+              <mat-checkbox #checkbox (change)="getSelected(category)" 
                 type="category" value="{{category.category_id}}" 
                 [(ngModel)]="category.selected">
                     {{category.category_name}}
