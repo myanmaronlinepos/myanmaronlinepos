@@ -35,6 +35,9 @@ import { ComfirmCodeComponent } from './forgot-password/comfirm-code/comfirm-cod
 import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.component';
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
 import { PasswordComponent } from './forgot-password/password/password.component';
+import { ConfirmationdialogComponent } from './forgot-password/confirmationdialog/confirmationdialog.component';
+
+
 
 
 
@@ -53,7 +56,8 @@ const routes: Routes = [
             path: "forget", component: ForgotPasswordComponent, children: [
                 {path: "", component: EmailFormComponent },
                 {path: "email", component: ComfirmCodeComponent },
-                {path: "password", component: PasswordComponent } 
+                {path: "password", component: PasswordComponent },
+                {path: "confirmation", component: ConfirmationdialogComponent},
             ]
         },
     ] },

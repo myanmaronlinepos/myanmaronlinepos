@@ -23,7 +23,9 @@ export class EmailFormComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     })
   }
-
+  onBack(){
+    this.router.navigate(['/home/login']);
+  }
   onSubmit() {
     const formValue=this.EmailForm.value;
 		if (this.EmailForm.valid) {

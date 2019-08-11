@@ -26,9 +26,10 @@ constructor(
       email: ['', [Validators.required, Validators.email]]
     })
   }
-
-  
-    onSubmit() {
+  onBack(){
+    this.router.navigate(['/home/forget']);
+  }
+ onSubmit() {
       const formValue=this.ComfirmForm.value;
 		if (this.ComfirmForm.valid) {
       this.EmailData = {
