@@ -8,6 +8,7 @@ import { ItemCategory } from 'src/app/share/models/ItemCategory';
 import { SellService } from 'src/app/share/services/sell.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { SellProduct } from 'src/app/share/models/SellProduct';
+import { AngularMaterialModule } from 'src/app/share/angular-material.module';
 
 
 @Component({
@@ -17,14 +18,17 @@ import { SellProduct } from 'src/app/share/models/SellProduct';
 })
 export class SellTableComponent implements OnInit {
 
-  selectedRow=[];
+  selectedRow= [];
   displayedColumns: string[] = ['number', 'product_name', 'category_name', 'tag_name', 'quantity', 'price_sell'];
-  tags:string[]=["3 buy 1 get", "for 18+", "for all"];
+  dataSource: any;
+  categories: any;
+  tags: any;
+
   // categories:ItemCategory[]=[];
   // category:string;
   // items:SellItem[]=[];
   // checkboxes:SellItem[]=[];
-  dataSource:any;
+  
   // selected_products:SellItem[]=[];
   // selected:boolean=false;
 
@@ -69,6 +73,8 @@ export class SellTableComponent implements OnInit {
   ngOnInit() {
 
     this.fetchData();
+    this.fetchCategoryData();
+    this.fetchTagData();
     // this.selectedRow=this.sellservice.sellProduct;
     // this.checkboxes=this.sellservice.getItems();
     // this.items=this.sellservice.getItems();
@@ -82,6 +88,30 @@ export class SellTableComponent implements OnInit {
         console.log(response);
         this.dataSource = new MatTableDataSource<SellProduct>(response);
         this.dataSource.paginator = this.paginator;
+      },
+      error => {
+
+      }
+    )
+  }
+
+  fetchCategoryData() {
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        console.log(response);
+        this.categories = response;
+      },
+      error => {
+
+      }
+    )
+  }
+
+  fetchTagData() {
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        console.log(response);
+        this.tags = response;
       },
       error => {
 

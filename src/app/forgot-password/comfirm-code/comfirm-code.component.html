@@ -8,7 +8,7 @@
         <input matInput placeholder="Enter comfirm code" formControlName="email" type="email">
         <mat-error *ngIf="ComfirmForm.hasError('required')">Please enter your comfirm code</mat-error>
    </mat-form-field>
-<button mat-button class="btn" type="submit" >Cancel</button>
+<button mat-button class="btn" type="submit" (click)="onBack()" >Cancel</button>
 <button mat-button class="btn1" type="submit" [disabled]="!ComfirmForm.valid">Next
 </button>
 </form>

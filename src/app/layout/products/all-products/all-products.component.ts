@@ -10,6 +10,7 @@ import { EditProductComponent } from '../all-products/edit-product/edit-product.
 import { DeleteTagService } from 'src/app/delete-tag.service';
 import { ItemTag } from './deletetag/deletetag.component';
 import { Category } from 'src/app/share/models/Category';
+import { ExcelService } from 'src/app/excel.service';
 
 @Component({
   selector: 'app-all-products',
