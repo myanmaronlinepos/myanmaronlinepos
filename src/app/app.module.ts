@@ -55,6 +55,7 @@ import { FilterPipe } from './filter.pipe';
 import { PasswordComponent } from './forgot-password/password/password.component';
 import { FilteredcategoryPipe } from './filteredcategory.pipe';
 import { CategoryFilterPipe } from './category-filter.pipe';
+import { ConfirmationdialogComponent } from './forgot-password/confirmationdialog/confirmationdialog.component';
 
 
 
@@ -102,7 +103,8 @@ import { CategoryFilterPipe } from './category-filter.pipe';
     FilterPipe,
     PasswordComponent,    
     FilteredcategoryPipe,
-    CategoryFilterPipe    
+    CategoryFilterPipe,
+    ConfirmationdialogComponent    
   ],
   imports: [
     BrowserModule,
