@@ -23,10 +23,11 @@ export class SellTableComponent implements OnInit {
   dataSource: any;
   categories: any;
   tags: any;
+  items:SellProduct[]=[];
 
   // categories:ItemCategory[]=[];
   // category:string;
-  // items:SellItem[]=[];
+  
   // checkboxes:SellItem[]=[];
   
   // selected_products:SellItem[]=[];
@@ -63,7 +64,7 @@ export class SellTableComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    // private sellservice: SellService,
+    private sellservice: SellService,
     private dataFetchService: DataFetchService,
     private router:Router
     ) {}
@@ -82,6 +83,31 @@ export class SellTableComponent implements OnInit {
     // this.dataSource.paginator = this.paginator;
     // this.selected_products=this.items;
   }
+
+  sellItem() {
+    if(this.selectedRow.length > 0){
+      this.sellservice.sellProduct=this.selectedRow;
+      this.router.navigate(['/dashboard/sell/sell-stock'])
+    }
+    else{
+      alert("Please select at least one product to sell!");
+    }
+  }
+
+  onClickRow(row) {
+  
+    if(!this.selectedRow.includes(row)){
+      this.selectedRow.push(row);
+      console.log(this.selectedRow);
+    }else {
+
+     const index=this.selectedRow.indexOf(row);
+     this.selectedRow.splice(index,1);
+    }
+    
+    row.highlighted = !row.highlighted; 
+  }
+
   fetchData() {
     this.dataFetchService.getAllSell().subscribe(
       response => {
@@ -128,31 +154,10 @@ export class SellTableComponent implements OnInit {
     
   // }
 
-  // sellItem() {
-  //   if(this.selectedRow.length > 0){
-  //     this.sellservice.sellProduct=this.selectedRow;
-  //     this.router.navigate(['/dashboard/sell/sell-stock'])
-  //   }
-  //   else{
-  //     alert("Please select at least one product to sell!");
-  //   }
-  // }
-
+ 
   
 
-  // onClickRow(row) {
-  
-  //   if(!this.selectedRow.includes(row)){
-  //     this.selectedRow.push(row);
-  //     console.log(this.selectedRow);
-  //   }else {
-
-  //    const index=this.selectedRow.indexOf(row);
-  //    this.selectedRow.splice(index,1);
-  //   }
-    
-  //   row.highlighted = !row.highlighted; 
-  // }
+ 
   
   // checkedCategory(event) {
   //     const filter= event? event.source.value : null;
