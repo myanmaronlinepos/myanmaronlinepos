@@ -27,6 +27,7 @@ h3 {
     display: flex;
     width: 40%;
     margin-top: 20px;
+    flex-direction: column;
 }
 .ppbody {
     display: flex;
@@ -96,22 +97,18 @@ label > input {
 .image-upload-container {
     cursor: pointer;
 }
-.img-preview-container {
-    position: relative;
-
-    .img-preview {
-        background: center center no-repeat;
-        background-size: 300px 200px;
-        width: 70%;
-        height: 200px;
-        border-radius: 10px;
-        margin-left: 15%;
-    }
+.subimg > img {
+    width: 70%;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 15%;
 }
 
 .subbtn1 {
     width: 100px;
-    background: darkcyan;
+    background: #337ae9;
+    color: white;
+    margin-left: 132px;
 }
 
 @media screen and (min-width: 993px) {

@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/share/services/authentication.service';
 import { Router } from '@angular/router';
 
-class ImageSnippet {
-  constructor(public src: string, public file: File){}
-}
 
 @Component({
   selector: 'app-profile',
@@ -13,19 +10,22 @@ class ImageSnippet {
 })
 export class ProfileComponent implements OnInit {
 
-  selectedFile: ImageSnippet;
+  imgSrc: string = 'assets/placeholder.jpg';
+  selectedImage: any = null;
 
-  processFile(imageInput: any) {
-    const file: File= imageInput.files[0];
-    const reader= new FileReader();
-
-    reader.addEventListener('load',(event: any)=> {
-      this.selectedFile=new ImageSnippet(event.target.result, file);
-      // console.log(event);
-      // console.log(this.selectedFile.src);
-    });
-    reader.readAsDataURL(file);
+  processFile( event: any ) {
+    if( event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => this.imgSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    }
+    else {
+      this.imgSrc = 'assets/placeholder.jpg';
+      this.selectedImage = null;
+    }
   }
+  
   changepwd=false;
 
   constructor(private authService:AuthService,private router:Router) { }

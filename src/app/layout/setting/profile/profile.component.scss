@@ -58,22 +58,17 @@ label > input {
 .image-upload-container {
     cursor: pointer;
 }
-.img-preview-container {
-    position: relative;
 
-    .img-preview {
-        background: center center no-repeat;
-        background-size: 320px 280px;
-        width: 320px;
-        height: 280px;
-        border-radius: 10px;
-    }
-}
 .subbtn1, .pwdbtn1 {
     margin-right: 3px;
 }
 .subbtn2, .pwdbtn2 {
     margin-left: 3px;
+}
+img {
+    width: 320px;
+    height: 280px;
+    border-radius: 10px;
 }
 
 a {
