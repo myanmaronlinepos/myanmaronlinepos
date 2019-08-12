@@ -22,7 +22,6 @@ export class AddProductComponent implements OnInit {
   costError:string="Please enter a valid cost";
   saleError:string="Please enter a valid sale";
   categoryError:string="Please choose category";
-  tagError:string="Please choose tag";
   enableSave:boolean=false;
   categories: any;
   tags:any;
@@ -56,7 +55,7 @@ export class AddProductComponent implements OnInit {
     this.productForm = new FormGroup ({
       'productName':new FormControl(null, Validators.required),
       'category':new FormControl(null, Validators.required),
-      'tag':new FormControl(null, Validators.required),
+      'tag':new FormControl(null),
       'cost':new FormControl(null, Validators.required),
       'sale':new FormControl(null, Validators.required),
       'imageurl':new FormControl(null, Validators.required)

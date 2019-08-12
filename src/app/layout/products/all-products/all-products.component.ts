@@ -25,14 +25,15 @@ export class AllProductsComponent implements OnInit {
 
   dataSource: any;
   categories: any;
+  tags: any;
   allproduct:any;
   selected_category: any=[];
   category_filtr:any=[];
-  tag: string[] = ['3 buy 1 gift', 'for all', 'for 18+'];
+  selected_tag: any=[];
+  tag_filtr: any=[];
+  
   quantity: string[] = ['less than 10', 'less than 20', 'less than 30', 'more than 50'];
-  selected: boolean = false;
-
-
+  
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
@@ -47,7 +48,7 @@ export class AllProductsComponent implements OnInit {
   }
 
 
-  getSelected(checkbox) {
+  getSelectedCategory(checkbox) {
     if (!this.selected_category.includes(checkbox)) {
       this.selected_category.push(checkbox);
       console.log(this.selected_category);
@@ -80,6 +81,41 @@ export class AllProductsComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Product>(this.allproduct);
     this.dataSource.paginator = this.paginator;
   }
+
+  getSelectedTag(tag) {
+    if (!this.selected_tag.includes(tag)) {
+      this.selected_tag.push(tag);
+      console.log(this.selected_tag);
+    } else {
+
+      const index = this.selected_tag.indexOf(tag);
+      this.selected_tag.splice(index, 1);
+    }
+    this.bindTagData();
+  }
+
+  bindTagData() {
+    this.tag_filtr=[];
+    this.selected_tag.forEach(item => {
+       const result = this.allproduct.filter(element => {
+       return element.tag_name === item.tag_name;
+       });
+       console.log("result.....");
+       console.log(result);
+       this.tag_filtr=this.tag_filtr.concat(result);
+    });
+
+    console.log("length="+this.selected_tag.length);
+    if(this.selected_tag.length>0) {
+      this.dataSource = new MatTableDataSource<Product>(this.tag_filtr);
+      this.dataSource.paginator = this.paginator;
+      return;
+    }
+    
+    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource.paginator = this.paginator;
+  }
+
   onEdit(action, obj): void {
 
     // this.categoryservice.setCategory(row);
@@ -113,6 +149,16 @@ export class AllProductsComponent implements OnInit {
     this.dataFetchService.getAllCategory().subscribe(
       response => {
         this.categories=response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
+    //fetch all tag data
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        this.tags= response;
       },
       error => {
         console.log(error);

@@ -14,7 +14,7 @@
               </mat-form-field> 
 
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="shopName"placeholder="Address:">
+                <input matInput formControlName="address"placeholder="Address:">
               </mat-form-field>
            
               <mat-form-field class="subsubdetail">
@@ -37,7 +37,7 @@
             <div class="btn">
               <label class="subbtn1 form-control image-upload-container">
                   <span>Upload</span>
-                  <input type="file"  #imageInput accept="image/*" formControlName="imgUrl" (change)="processFile($event)" name="change">
+                  <input type="file"  #imageInput accept="image/*" formControlName="imageurl" (change)="processFile($event)" name="change">
               </label>
 
               <a (click)="logout()" class="subbtn2 form-control">Logout?</a>

@@ -108,7 +108,7 @@ label > input {
     width: 100px;
     background: #337ae9;
     color: white;
-    margin-left: 132px;
+    margin-left: 35%;
 }
 
 @media screen and (min-width: 993px) {
@@ -127,6 +127,15 @@ label > input {
     .main {
         left: 0px;
     }
+    .pimg2 > img {
+        width: 40%;
+        height: 200px;
+        border-radius: 10px;
+        margin-left: 15%;
+    }
+    .subbtn1 {
+        margin-left: 45%;
+    }
 }
 @media screen and (max-width: 600px) {
     .pimg2 > img {
@@ -136,6 +145,6 @@ label > input {
         margin-left: 15%;
     }
     .subbtn1 {
-        margin-left: 30%;
+        margin-left: 33%;
     }
 }
