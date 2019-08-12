@@ -56,13 +56,13 @@ export class SellTableComponent implements OnInit {
     // this.selected_products=this.items;
   }
 
-  getSelectedCategory(checkbox) {
-    if (!this.selected_category.includes(checkbox)) {
-      this.selected_category.push(checkbox);
+  getSelectedCategory(category) {
+    if (!this.selected_category.includes(category)) {
+      this.selected_category.push(category);
       console.log(this.selected_category);
     } else {
 
-      const index = this.selected_category.indexOf(checkbox);
+      const index = this.selected_category.indexOf(category);
       this.selected_category.splice(index, 1);
     }
     this.bindData();
@@ -173,7 +173,8 @@ export class SellTableComponent implements OnInit {
     this.dataFetchService.getAllSell().subscribe(
       response => {
         console.log(response);
-        this.dataSource = new MatTableDataSource<SellProduct>(response);
+        this.allproduct= response;
+        this.dataSource = new MatTableDataSource<SellProduct>(this.allproduct);
         this.dataSource.paginator = this.paginator;
       },
       error => {
@@ -206,26 +207,4 @@ export class SellTableComponent implements OnInit {
     )
   }
   
-
-  // getSelected() {
-  //   this.selected_products = this.items.filter(s => {
-  //     return s.selected;
-  //   });
-  //   console.log(this.selected_products);
-    
-  // }
-
- 
-  
-
- 
-  
-  // checkedCategory(event) {
-  //     const filter= event? event.source.value : null;
-  //     this.items=this.items.filter(element =>  element.category == filter);
-  //     this.dataSource=new MatTableDataSource<SellItem>(this.items);
-  // }
-
- 
-
 }
