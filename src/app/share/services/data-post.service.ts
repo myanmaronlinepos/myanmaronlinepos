@@ -77,4 +77,12 @@ export class DataPostService {
       category
     );
   }
+
+  updateUserData(user:any):Observable<any> {
+    let apiUrl="api/user/post/update_user_data";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      user
+    );
+  }
 }
