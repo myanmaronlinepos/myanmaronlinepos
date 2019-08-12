@@ -12,13 +12,12 @@ import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 })
 export class InventoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['product_id', 'name', 'category', 'quantity', 'actions'];
+  displayedColumns: string[] = ['No', 'product_name', 'categoryname', 'quantity', 'actions'];
   items: any;
   dataSource: MatTableDataSource<Inventory>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   Updatequantity = '';
-  savequantity = '';
   fileToUpload: File = null;
 
   handleFileInput(files: FileList) {
@@ -51,7 +50,7 @@ export class InventoryComponent implements OnInit {
     this.Updatequantity = (<HTMLInputElement>event.target).value;
   }
   Onaddvalue(row) {
-    row.savequantity = this.Updatequantity;
+    row.quantity = this.Updatequantity;
   }
 
 

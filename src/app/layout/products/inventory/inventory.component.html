@@ -22,11 +22,11 @@
             <mat-header-cell *matHeaderCellDef>No</mat-header-cell>
             <mat-cell *matCellDef="let element;let i=index"> {{i+1}} </mat-cell>
           </ng-container>
-          <ng-container matColumnDef="name">
+          <ng-container matColumnDef="product_name">
               <mat-header-cell *matHeaderCellDef> ProductName </mat-header-cell>
               <mat-cell *matCellDef="let element"> {{element.product_name}} </mat-cell>
             </ng-container>
-            <ng-container matColumnDef="category_name">
+            <ng-container matColumnDef="categoryname">
                 <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.category_name}} </mat-cell>
               </ng-container>
@@ -38,14 +38,14 @@
                     <mat-header-cell *matHeaderCellDef> Updatequantity</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
                         <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style" class='btngp'>
-                            <input type="number" value="001" min="000" class="quantity-field" (input)="onUpdatequantity($event)">
+                            <input type="number" value={{row.quantity}} min="000" class="quantity-field" (input)="onUpdatequantity($event)">
                             <mat-button-toggle value="save" class="btn-primary"(click)="Onaddvalue(row)">save</mat-button-toggle>
                           </mat-button-toggle-group>    
                     </mat-cell>
                   </ng-container>
                   
                   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="rowClicked(row)"></mat-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
    </table>
    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
