@@ -53,7 +53,6 @@ import { SellHistoryComponent } from './layout/sell/sell-history/sell-history.co
 import { EditTagComponent } from './layout/products/all-products/edit-tag/edit-tag.component';
 import { FilterPipe } from './filter.pipe';
 import { PasswordComponent } from './forgot-password/password/password.component';
-import { FilteredcategoryPipe } from './filteredcategory.pipe';
 import { CategoryFilterPipe } from './category-filter.pipe';
 import { ConfirmationdialogComponent } from './forgot-password/confirmationdialog/confirmationdialog.component';
 
@@ -102,7 +101,6 @@ import { ConfirmationdialogComponent } from './forgot-password/confirmationdialo
     EditTagComponent,
     FilterPipe,
     PasswordComponent,    
-    FilteredcategoryPipe,
     CategoryFilterPipe,
     ConfirmationdialogComponent    
   ],

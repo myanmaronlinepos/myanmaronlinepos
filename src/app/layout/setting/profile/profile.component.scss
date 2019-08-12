@@ -62,12 +62,15 @@ label > input {
 .subbtn1, .pwdbtn1 {
     margin-right: 3px;
 }
+.pwdbtn1 {
+    margin-right: 10px;
+}
 .subbtn2, .pwdbtn2 {
     margin-left: 3px;
 }
 img {
-    width: 320px;
-    height: 280px;
+    width: 280px;
+    height: 220px;
     border-radius: 10px;
 }
 
@@ -89,6 +92,7 @@ a {
     width: 50%;
     flex-direction: row;
     justify-content: center;
+    margin-top: 25px;
 }
 button {
     width: 90px;

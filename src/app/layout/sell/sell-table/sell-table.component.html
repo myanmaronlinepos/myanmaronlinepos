@@ -6,7 +6,8 @@
                 <mat-label class="arrow1 select">Category</mat-label>
                 <mat-select>
                   <mat-option *ngFor="let category of categories">
-                    <mat-checkbox value="{{category.category_id}}"> 
+                    <mat-checkbox (change)="getSelectedCategory(category)" 
+                      value="{{category.category_id}}"> 
                       {{category.category_name}}
                     </mat-checkbox>
                   </mat-option>
@@ -20,7 +21,8 @@
                 <mat-label class="arrow2 select">Tag</mat-label>
                 <mat-select>
                   <mat-option *ngFor="let tag of tags">
-                    <mat-checkbox value="{{tag.tag_id}}">
+                    <mat-checkbox (change)="getSelectedTag(tag)"
+                      value="{{tag.tag_id}}">
                       {{tag.tag_name}}
                     </mat-checkbox>
                   </mat-option>

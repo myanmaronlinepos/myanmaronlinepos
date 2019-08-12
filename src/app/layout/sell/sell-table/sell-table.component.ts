@@ -9,6 +9,7 @@ import { SellService } from 'src/app/share/services/sell.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { SellProduct } from 'src/app/share/models/SellProduct';
 import { AngularMaterialModule } from 'src/app/share/angular-material.module';
+import { Product } from 'src/app/share/models/Product';
 
 
 @Component({
@@ -23,42 +24,13 @@ export class SellTableComponent implements OnInit {
   dataSource: any;
   categories: any;
   tags: any;
+  allproduct:any;
+  selected_category: any=[];
+  category_filtr:any=[];
+  selected_tag: any=[];
+  tag_filtr: any=[];
   items:SellProduct[]=[];
 
-  // categories:ItemCategory[]=[];
-  // category:string;
-  
-  // checkboxes:SellItem[]=[];
-  
-  // selected_products:SellItem[]=[];
-  // selected:boolean=false;
-
-  // private _filteredValue ='';
-      
-  // get filteredValue(): string {
-  //   return this._filteredValue;
-  // }
-  // set filteredValue(value:string) {
-  //   this._filteredValue=value;
-  //   this.products=this.filtereproducts(value);
-  // }
-
-  // filtereproducts(searchproduct: string) {
-  //   return this.products.filter(products=>
-  //     products.category.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
-  // }
-  // checkedCategory (searchproduct) {
-  //   return this.items.filter(products=>
-  //     products.category.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
-  // }
-
-  // getSelected() {
-  //   this.selected_products = this.items.filter(s => {
-  //     return s.selected;
-  //   });
-  // }
-
-  
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -82,6 +54,74 @@ export class SellTableComponent implements OnInit {
     // this.dataSource=new MatTableDataSource<SellItem>(this.selected_products);
     // this.dataSource.paginator = this.paginator;
     // this.selected_products=this.items;
+  }
+
+  getSelectedCategory(checkbox) {
+    if (!this.selected_category.includes(checkbox)) {
+      this.selected_category.push(checkbox);
+      console.log(this.selected_category);
+    } else {
+
+      const index = this.selected_category.indexOf(checkbox);
+      this.selected_category.splice(index, 1);
+    }
+    this.bindData();
+  }
+
+  bindData() {
+    this.category_filtr=[];
+    this.selected_category.forEach(item => {
+       const result = this.allproduct.filter(element => {
+       return element.category_name === item.category_name;
+       });
+       console.log("result.....");
+       console.log(result);
+       this.category_filtr=this.category_filtr.concat(result);
+    });
+
+    console.log("length="+this.selected_category.length);
+    if(this.selected_category.length>0) {
+      this.dataSource = new MatTableDataSource<Product>(this.category_filtr);
+      this.dataSource.paginator = this.paginator;
+      return;
+    }
+    
+    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource.paginator = this.paginator;
+  }
+
+  getSelectedTag(tag) {
+    if (!this.selected_tag.includes(tag)) {
+      this.selected_tag.push(tag);
+      console.log(this.selected_tag);
+    } else {
+
+      const index = this.selected_tag.indexOf(tag);
+      this.selected_tag.splice(index, 1);
+    }
+    this.bindTagData();
+  }
+
+  bindTagData() {
+    this.tag_filtr=[];
+    this.selected_tag.forEach(item => {
+       const result = this.allproduct.filter(element => {
+       return element.tag_name === item.tag_name;
+       });
+       console.log("result.....");
+       console.log(result);
+       this.tag_filtr=this.tag_filtr.concat(result);
+    });
+
+    console.log("length="+this.selected_tag.length);
+    if(this.selected_tag.length>0) {
+      this.dataSource = new MatTableDataSource<Product>(this.tag_filtr);
+      this.dataSource.paginator = this.paginator;
+      return;
+    }
+    
+    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource.paginator = this.paginator;
   }
 
   sellItem() {
@@ -109,6 +149,27 @@ export class SellTableComponent implements OnInit {
   }
 
   fetchData() {
+
+    //fetch all category data
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        this.categories=response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
+    //fetch all tag data
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        this.tags= response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+    
     this.dataFetchService.getAllSell().subscribe(
       response => {
         console.log(response);
