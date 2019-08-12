@@ -1,32 +1,32 @@
 
-<form [formGroup]="profileForm" (submit)= "onSubmit(profileForm.value)">
+<form (submit)= "onSubmit(profileForm.value)">
       <div class="mainprofile">
         <div class="maindetail">
           <div class="detail">
             <div class="subdetail">
               <div class="subdetail1">
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="name" placeholder="Name:">
+                <input matInput placeholder="Name:" value={{data.user_name}}>
               </mat-form-field>
 
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="shopName" placeholder="Shop Name:">
+                <input matInput placeholder="Shop Name:" value={{data.storename}}>
               </mat-form-field> 
 
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="address"placeholder="Address:">
+                <input matInput placeholder="Address:" value={{data.address}}>
               </mat-form-field>
            
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="city" placeholder="City:">
+                <input matInput formControlName="city_name" placeholder="City:" value={{data.city_name}}>
               </mat-form-field>
             
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="email" placeholder="Email:">
+                <input matInput formControlName="user_email" placeholder="Email:" value={{data.user_email}}>
               </mat-form-field> 
             
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="ph" placeholder="Phone-No:">
+                <input matInput formControlName="user_phone" placeholder="Phone-No:" value={{data.user_phone}}>
               </mat-form-field>
             </div>
 
