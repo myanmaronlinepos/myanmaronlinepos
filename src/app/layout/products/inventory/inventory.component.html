@@ -38,7 +38,7 @@
                     <mat-header-cell *matHeaderCellDef> Updatequantity</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
                         <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style" class='btngp'>
-                            <input type="number" value="001" min="000" class="quantity-field" (input)="onUpdatequantity($event)">
+                            <input type="number" [(ngModel)]="row.quantity" min="000" class="quantity-field" (input)="onUpdatequantity($event)">
                             <mat-button-toggle value="save" class="btn-primary"(click)="Onaddvalue(row)">save</mat-button-toggle>
                           </mat-button-toggle-group>    
                     </mat-cell>

@@ -20,7 +20,7 @@ export class InventoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   Updatequantity = '';
-  savequantity = '';
+  // savequantity = ;
   fileToUpload: File = null;
 
   handleFileInput(files: FileList) {
@@ -55,7 +55,7 @@ export class InventoryComponent implements OnInit {
     this.Updatequantity = (<HTMLInputElement>event.target).value;
   }
   Onaddvalue(row) {
-    row.savequantity = this.Updatequantity;
+    row.quantity = this.Updatequantity;
   }
 
   exportAsXLSX():void {
