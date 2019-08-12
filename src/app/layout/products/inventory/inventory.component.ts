@@ -20,10 +20,7 @@ export class InventoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   Updatequantity = '';
-<<<<<<< HEAD
   // savequantity = ;
-=======
->>>>>>> 0db884f32fbfd1561e551c19ac9c21b56a1029e0
   fileToUpload: File = null;
 
   handleFileInput(files: FileList) {
