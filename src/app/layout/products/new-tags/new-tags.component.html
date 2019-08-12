@@ -1,18 +1,13 @@
 <div class="flex-container">
   <div mat-dialog-title>
-    <h3>Tag product what you want</h3>
+    <h5>Tag product what you want</h5>
   </div>
    <div mat-dialog-content>
-    <!-- <div>
-      <span>Product:</span>
-      <mat-form-field >
-        <input matInput [(ngModel)]="local_data.productname">
-      </mat-form-field>
-    </div>  -->
+  
     <div>
       <span>Tag &nbsp;&nbsp;:</span>
       <mat-form-field >
-        <input matInput [(ngModel)]="local_data.tagname">
+        <input matInput placeholder="create new tag" [(ngModel)]="local_data.tag_name">
       </mat-form-field>
     </div>
   </div>

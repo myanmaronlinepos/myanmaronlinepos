@@ -9,7 +9,7 @@
           <input matInput placeholder="Enter your email" formControlName="email" type="email">
           <mat-error *ngIf="EmailForm.hasError('required','email')">Please enter a valid email</mat-error>
      </mat-form-field>
-  <button mat-button class="btn" type="submit" >Cancel</button>
+  <button mat-button class="btn" type="submit" (click)="onBack(event)" >Cancel</button>
   <button mat-button class="btn1" type="submit" [disabled]="!EmailForm.valid">Next
   </button>
   </form>

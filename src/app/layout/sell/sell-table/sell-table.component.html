@@ -4,27 +4,26 @@
               <!-- For Categoty -->
               <mat-form-field class="ltr1">
                 <mat-label class="arrow1 select">Category</mat-label>
-                <mat-select>  
-                  <mat-option *ngFor="let checkbox of checkboxes | filter: searchText">
-                      <mat-checkbox (change)="getSelected()" 
-                        type="checkbox" value="{{checkbox.number}}" 
-                        [(ngModel)]="checkbox.selected">
-                            {{checkbox.category}}
-                      </mat-checkbox>
+                <mat-select>
+                  <mat-option *ngFor="let category of categories">
+                    <mat-checkbox (change)="getSelectedCategory(category)" 
+                      value="{{category.category_id}}"> 
+                      {{category.category_name}}
+                    </mat-checkbox>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
+
             <div class="subcheck2">
               <!-- For Tag -->
               <mat-form-field class="ltr2">
                 <mat-label class="arrow2 select">Tag</mat-label>
                 <mat-select>
-                  <mat-option *ngFor="let tag of tags | filter: searchText">
-                    <mat-checkbox (change)="getSelected()"
-                      type="tag" value="{{tag.tag_id}}"
-                      [(ngModel)]="tag.selected">
-                        {{tag.tag_name}}
+                  <mat-option *ngFor="let tag of tags">
+                    <mat-checkbox (change)="getSelectedTag(tag)"
+                      value="{{tag.tag_id}}">
+                      {{tag.tag_name}}
                     </mat-checkbox>
                   </mat-option>
                 </mat-select>
@@ -45,7 +44,7 @@
 
 <!-- For table -->
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="selected_products" #table>
+  <table mat-table [dataSource]="dataSource" #table>
 
     <!-- Number Column -->
     <ng-container matColumnDef="number">

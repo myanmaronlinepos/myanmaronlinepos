@@ -8,7 +8,7 @@
   <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"></a>
   <div id='feynman_text'> Import Product</div>
 
-  <a href="#" id='feynman'><img src="assets/login/export.png"  class="Logo"></a>
+  <a href="#" id='feynman' (click)="exportAsXLSX()"><img src="assets/login/export.png"  class="Logo"></a>
   <div id='feynman_text'>   Export Product </div>
 
   <!-- <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
@@ -18,7 +18,7 @@
 <div class="covertable">
   <div class="mat-elevation-z8">
  <table mat-table [dataSource]="dataSource">
-         <ng-container matColumnDef="No">
+         <ng-container matColumnDef="product_id">
             <mat-header-cell *matHeaderCellDef>No</mat-header-cell>
             <mat-cell *matCellDef="let element;let i=index"> {{i+1}} </mat-cell>
           </ng-container>
