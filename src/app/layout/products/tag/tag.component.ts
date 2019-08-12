@@ -88,6 +88,14 @@ export class TagComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result=> {
       if(result.event=='Edit') {
         this.editRowData(result.data);
+        this.dataPostService.updateTag(result.data).subscribe(
+          response => {
+            this.fetchData()
+          },
+          error => {
+            console.log(error);
+          }
+        );
       }
     });
   }
@@ -110,6 +118,14 @@ export class TagComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result =>{
       if(result.event=='Delete'){
         this.deleteRowData(result.data);
+        this.dataPostService.deleteTag(result.data).subscribe(
+          response => {
+            this.fetchData()
+          },
+          error => {
+            console.log(error);
+          }
+        );
       }
     });
   }

@@ -83,6 +83,15 @@ export class CategoryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result=> {
       if(result.event=='Edit') {
         this.editRowData(result.data);
+        this.dataPostService.updateCategory(result.data).subscribe(
+          response => {
+            this.fetchData();
+            console.log(result.data);
+          },
+          error => {
+            console.log(error);
+          }
+        );
       }
     });
   }
@@ -99,6 +108,15 @@ export class CategoryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result.event=='Delete') {
         this.deleteRowData(result.data);
+        this.dataPostService.deleteCategory(result.data).subscribe(
+          response => {
+            this.fetchData();
+            console.log(result.data);
+          },
+          error => {
+            console.log(error);
+          }
+        );
       }
     });
   }
@@ -122,8 +140,8 @@ export class CategoryComponent implements OnInit {
 
   editRowData(row_obj) {
     this.categories = this.categories.filter((value,key)=>{
-      if(value.category_id == row_obj.id){
-        value.category_name = row_obj.categoryname;
+      if(value.category_id == row_obj.category_id){
+        value.category_name = row_obj.category_name;
       }
       return true;
     });

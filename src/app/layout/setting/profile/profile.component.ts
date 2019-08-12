@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   addProfieData: User;
   imgSrc: string = 'assets/placeholder.jpg';
   selectedImage: any = null;
+  data: any;
 
   processFile( event: any ) {
     if( event.target.files && event.target.files[0]) {
@@ -39,31 +40,25 @@ export class ProfileComponent implements OnInit {
     private dataFetchService: DataFetchService) { }
 
   ngOnInit() {
+    this.fetchData();
     // this.profileForm = new FormGroup ({
-    //   'name':new FormControl(null, Validators.required),
-    //   'shopName':new FormControl(null, Validators.required),
+    //   'user_name':new FormControl(null, Validators.required),
+    //   'storename':new FormControl(null, Validators.required),
     //   'address':new FormControl(null),
-    //   'city':new FormControl(null, Validators.required),
-    //   'email':new FormControl(null, Validators.required),
-    //   'ph':new FormControl(null, Validators.required),
+    //   'city_name':new FormControl(null, Validators.required),
+    //   'user_email':new FormControl(null, Validators.required),
+    //   'user_phone':new FormControl(null, Validators.required),
     //   'imageurl':new FormControl(null, Validators.required)
 
     // });
   }
-  // onSubmit() {
-  //   const formValue = this.profileForm.value;
+  onSubmit() {
+    // const formValue = this.profileForm.value;
 
-  //   this.addProfieData= {
-  //     product_id: 1,
-  //     product_name: formValue.productName,
-  //     category_id: formValue.category,
-  //     tag_id: formValue.tag,
-  //     price_cost: formValue.cost,
-  //     price_sell: formValue.sale,
-  //     imageurl: formValue.imageurl,
-  //     created_at: '',
-  //     updated_at: '',
-  // }
+    // this.addProfieData= {
+    //   user_name: formValue.user_name,
+    //   storename: formValue.storename,
+    // }
 
 
     // this.dataFetchService.(this.addProfieData)
@@ -76,11 +71,25 @@ export class ProfileComponent implements OnInit {
     //   },
     //   error => {
     //     console.log(error);
-    //     this.productNameError=error.error.product_name;
+       
     //   }
 
     //   )
-  // }
+  }
+
+  fetchData() {
+    this.dataFetchService.getUserData().subscribe(
+      response => {
+        this.data= response;
+        console.log(this.data.user_email);
+        console.log(this.data);
+      },
+      error => {
+          console.log(error);
+      }
+    )
+  }
+
 
   changePassword():void {
     this.changepwd=!this.changepwd;
