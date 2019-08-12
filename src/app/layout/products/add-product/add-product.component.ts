@@ -9,11 +9,6 @@ import { CategoryService } from 'src/app/share/services/category.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 
-
-class ImageSnippet {
-  constructor(public src: string, public file: File){}
-}
-
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -27,23 +22,24 @@ export class AddProductComponent implements OnInit {
   costError:string="Please enter a valid cost";
   saleError:string="Please enter a valid sale";
   categoryError:string="Please choose category";
-  tagError:string="Please choose tag";
   enableSave:boolean=false;
   categories: any;
   tags:any;
 
-  selectedFile: ImageSnippet;
+  imgSrc: string = 'assets/placeholder.jpg';
+  selectedImage: any = null;
 
-  processFile(imageInput: any) {
-    const file: File= imageInput.files[0];
-    const reader= new FileReader();
-
-    reader.addEventListener('load',(event: any)=> {
-      this.selectedFile=new ImageSnippet(event.target.result, file);
-      // console.log(event);
-      // console.log(this.selectedFile.src);
-    });
-    reader.readAsDataURL(file);
+  processFile( event: any ) {
+    if( event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => this.imgSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    }
+    else {
+      this.imgSrc = 'assets/placeholder.jpg';
+      this.selectedImage = null;
+    }
   }
 
   constructor(
@@ -59,9 +55,10 @@ export class AddProductComponent implements OnInit {
     this.productForm = new FormGroup ({
       'productName':new FormControl(null, Validators.required),
       'category':new FormControl(null, Validators.required),
-      'tag':new FormControl(null, Validators.required),
+      'tag':new FormControl(null),
       'cost':new FormControl(null, Validators.required),
       'sale':new FormControl(null, Validators.required),
+      'imageurl':new FormControl(null, Validators.required)
     });
     this.formValid();
     
@@ -111,7 +108,7 @@ export class AddProductComponent implements OnInit {
       tag_id: formValue.tag,
       price_cost: formValue.cost,
       price_sell: formValue.sale,
-      imageurl:' ',
+      imageurl: formValue.imageurl,
       created_at: '',
       updated_at: '',
     }

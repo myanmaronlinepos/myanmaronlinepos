@@ -4,10 +4,9 @@
       <mat-form-field class="ltr1">
         <mat-label class="arrow1">Category</mat-label>
         <mat-select>  
-          <mat-option *ngFor="let category of categories | filter: searchText">
-              <mat-checkbox #checkbox (change)="getSelected(category)" 
-                type="category" value="{{category.category_id}}" 
-                [(ngModel)]="category.selected">
+          <mat-option *ngFor="let category of categories">
+              <mat-checkbox (change)="getSelectedCategory(category)" 
+                  value="{{category.category_id}}">
                     {{category.category_name}}
               </mat-checkbox>
           </mat-option>
@@ -19,7 +18,8 @@
         <mat-label class="arrow2">Tags</mat-label>
         <mat-select>  
           <mat-option *ngFor="let tag of tags">
-              <mat-checkbox value="{{tag.tag_id}}" >
+              <mat-checkbox (change)="getSelectedTag(tag)" 
+                  value="{{tag.tag_id}}" >
                     {{tag.tag_name}}
               </mat-checkbox>
           </mat-option>
@@ -29,12 +29,6 @@
   </div>
   
   <div class="btn">
-    <div class="btn1">
-      <a id='feynman'>
-        <img src="assets/login/import.png" class="Logo">
-      </a>
-      <div id='feynman_text'> Import Product </div>
-    </div>
 
     <div class="btn2">
       <a id='feynman' (click)="exportAsXLSX()">
