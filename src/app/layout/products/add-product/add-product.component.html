@@ -32,7 +32,6 @@
                             {{tag.tag_name}}
                           </mat-option>
                         </mat-select>
-                        <mat-error *ngIf="!productForm.get('tag').valid && productForm.get('tag').touched" class="help-block">{{tagError}}</mat-error>
                       </mat-form-field>
 
                       <mat-form-field>
@@ -49,7 +48,15 @@
                 </div>
             </div>
             <div class="pimg form-group">
-                  <img src="assets/laptop.jpg">
+              <div class="subimg img-preview-container">
+                <img [src]= "imgSrc" (click)= "imageInput.click()">
+              </div>
+              <div class="btn">
+                <label class="subbtn1 form-control image-upload-container">
+                  <span>Upload</span>
+                  <input type="file"  #imageInput accept="image/*" formControlName="imageurl" (change)="processFile($event)" name="change">
+                </label>
+              </div>
             </div>
           </div>
         
@@ -72,41 +79,58 @@
         
           <div class="body2 form-group">
             <div class="pimg2">
-              <div *ngIf="selectedFile" class="subimg img-preview-container">
-                <div class="img-preview"
-                    [ngStyle]="{'background-image': 'url('+selectedFile.src+')'}">
-                </div>
+              <div class="subimg img-preview-container">
+                <img [src]= "imgSrc" (click)= "imageInput.click()">
               </div>
               <div class="btn">
                 <label class="subbtn1 form-control image-upload-container">
                   <span>Upload</span>
-                  <input type="file"  #imageInput accept="image/*" (change)="processFile(imageInput)" name="change">
+                  <input type="file"  #imageInput accept="image/*" formControlName="imageurl" (change)="processFile($event)" name="change">
                 </label>
               </div>
             </div>
 
             <div class="pbody2 form-group">
                 <div class="ppbody2">
-                    <mat-form-field>
-                        <input matInput placeholder="Product Name:" formControlName="productName">
-                      </mat-form-field>
-                      <mat-form-field class="example-full-width">
-                        <textarea matInput placeholder="Category" formControlName="category"></textarea>
-                      </mat-form-field>
-                      <!-- <mat-form-field>
-                        <select id="tag" name="tag" [(ngModel)]="tag" formControlName="tag">
-                          <option *ngFor="let tag of tags" [value]="tag.id">
-                            {{ tag.name }}
-                          </option>
-                        </select>
-                      </mat-form-field> -->
-                     
-                      <mat-form-field>
-                        <input matInput placeholder="Price per cost" formControlName="cost">
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input matInput placeholder="Sale price" formControlName="sale">
-                      </mat-form-field>
+                    
+                  <mat-form-field>
+                    <input matInput placeholder="Product Name:" formControlName="productName">
+                    <mat-error *ngIf="!productForm.get('productName').valid && productForm.get('productName').touched" class="help-block">
+                      {{productNameError}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category" id="category_name">
+                      <mat-option *ngFor="let category of categories" [value]="category.category_id">
+                        {{category.category_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="!productForm.get('category').valid && productForm.get('category').touched" class="help-block">{{categoryError}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Tag</mat-label>
+                    <mat-select formControlName="tag" id="tag_name">
+                      <mat-option *ngFor="let tag of tags" [value]="tag.tag_id">
+                        {{tag.tag_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="!productForm.get('tag').valid && productForm.get('tag').touched" class="help-block">{{tagError}}</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput placeholder="Price per cost" formControlName="cost">
+                    <mat-error *ngIf="!productForm.get('cost').valid && productForm.get('cost').touched" class="help-block">
+                      {{costError}}</mat-error>
+                  </mat-form-field>
+                  
+                  <mat-form-field>
+                    <input matInput placeholder="Sale price" formControlName="sale">
+                    <mat-error *ngIf="!productForm.get('sale').valid && productForm.get('sale').touched" class="help-block">
+                      {{saleError}}</mat-error>
+                  </mat-form-field>
+
                 </div>
             </div>
           </div>

@@ -26,9 +26,10 @@ export class SellStockComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.items = this.convert(this.sellservice.getSellProduct());
+    this.items = this.convert(this.sellservice.getSellProduct());
     this.dataSource = new MatTableDataSource<SellProduct>(this.items);
     this.dataSource.paginator = this.paginator;
+    console.log(this.items);
   }
 
   increaseQuantity(product) {
@@ -41,21 +42,23 @@ export class SellStockComponent implements OnInit {
     return product.quantity--;
   }
   
-  // convert(args: SellItem[]): SellProduct[] {
-  //   const sell_product: SellProduct[] = [];
+  convert(args: SellProduct[]): SellProduct[] {
+    const sell_product: SellProduct[] = [];
 
-  //   for(var i=0;i<args.length;i++) {
-  //     const element=args[i];
-  //     const tmp: SellProduct = {
-  //             product_name: element.name,
-  //             quantity: 1,
-  //             price: element.price,
-  //             total_price: element.price
-  //           };
-  //           sell_product.push(tmp);
-  //         };
-  //    return sell_product;
-  //   }
+    for(var i=0;i<args.length;i++) {
+      const element=args[i];
+      const tmp: SellProduct = {
+              product_name: element.product_name,
+              tag_name:'',
+              quantity: 1,
+              price_sell: element.price_sell,
+              price_cost: element.price_cost,
+              category_name: ''
+            };
+            sell_product.push(tmp);
+          };
+     return sell_product;
+    }
 }
 
 

@@ -36,4 +36,45 @@ export class DataPostService {
       tag
     );
   }
+
+
+  updateInventory(inventory:any):Observable<any> {
+    let apiUrl="api/user/post/update_inventory";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      inventory
+    );
+  }
+
+  updateCategory(category:any):Observable<any> {
+    let apiUrl="api/user/post/update_category";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      category
+    );
+  }
+
+  updateTag(tag:any):Observable<any> {
+    let apiUrl="api/user/post/update_tag";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      tag
+    );
+  }
+
+  deleteTag(tag:any):Observable<any> {
+    let apiUrl="api/user/post/delete_tag";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      tag
+    );
+  }
+  
+  deleteCategory(category:any):Observable<any> {
+    let apiUrl="api/user/post/delete_category";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      category
+    );
+  }
 }

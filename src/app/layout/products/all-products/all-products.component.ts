@@ -1,7 +1,7 @@
-import { Component, OnInit ,ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material';
-import {MatTableDataSource, MatTable} from '@angular/material/table';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatTable } from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
@@ -20,103 +20,167 @@ import { ExcelService } from 'src/app/excel.service';
   ]
 })
 export class AllProductsComponent implements OnInit {
-  
-  displayedColumns: string[] = ['product_id', 'product_name', 'category_id','tag_id','price_sell'];
-  
+
+  displayedColumns: string[] = ['product_id', 'product_name', 'category_id', 'tag_id', 'price_sell'];
+
   dataSource: any;
   categories: any;
   tags: any;
-  data: any;
-  tag: string[]=['3 buy 1 gift','for all','for 18+'];
-  quantity: string[]=['less than 10','less than 20','less than 30','more than 50'];  
+  allproduct:any;
+  selected_category: any=[];
+  category_filtr:any=[];
+  selected_tag: any=[];
+  tag_filtr: any=[];
+  
+  quantity: string[] = ['less than 10', 'less than 20', 'less than 30', 'more than 50'];
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private router: Router,
-    private dataFetchService : DataFetchService,
+    private dataFetchService: DataFetchService,
     public dialog: MatDialog,
-    public edit:DeleteTagService,
-    private excelService: ExcelService
-    ){ }
+    public edit: DeleteTagService
+  ) { }
 
   ngOnInit() {
     this.fetchData();
-    this.fetchCategoryData();
-    this.fetchTagData();
   }
 
-    onEdit(action, obj):void {
-    
-      // this.categoryservice.setCategory(row);
-      obj.action=action;
-      const dialogRef=this.dialog.open(EditProductComponent,{
-         width: '900px',
-         height: '1300px',
-         data: obj
-      });
-      dialogRef.afterClosed().subscribe(result=> {
-        if(result.event=='Edit') {
-          this.editRowData(result.data);
-        }
-      });
+
+  getSelectedCategory(checkbox) {
+    if (!this.selected_category.includes(checkbox)) {
+      this.selected_category.push(checkbox);
+      console.log(this.selected_category);
+    } else {
+
+      const index = this.selected_category.indexOf(checkbox);
+      this.selected_category.splice(index, 1);
     }
-    editRowData(row_obj) {
-      this.dataSource = this.dataSource.filter((value,key)=>{
-       if(value.id == row_obj.id){
-         value.product_name=row_obj.product-name;
-         value.category_id =row_obj.category_id;
-         value.tag_id=row_obj.tag_id;
-    
-       }
-       return true;
-      });
-    }
+    this.bindData();
+  }
 
-    fetchData() {
-      this.dataFetchService.getAllProduct().subscribe(
-        response => {
-          console.log(response);
-          this.data = response;
-          this.dataSource = new MatTableDataSource<Product>(response);
-          this.dataSource.paginator = this.paginator;
-        },
-        error => {
+  bindData() {
+    this.category_filtr=[];
+    this.selected_category.forEach(item => {
+       const result = this.allproduct.filter(element => {
+       return element.category_name === item.category_name;
+       });
+       console.log("result.....");
+       console.log(result);
+       this.category_filtr=this.category_filtr.concat(result);
+    });
 
-        }
-      )
-    }
-
-    fetchCategoryData() {
-      this.dataFetchService.getAllCategory().subscribe(
-        response => {
-          console.log(response);
-          this.categories = response;
-        },
-        error => {
-
-        }
-      )
-    }
-
-    fetchTagData() {
-      this.dataFetchService.getAllTag().subscribe(
-        response => {
-          console.log(response);
-          this.tags = response;
-        },
-        error => {
-
-        }
-      )
-    }
-
-    exportAsXLSX():void {
-      this.excelService.exportAsExcelFile(this.data, 'products');
+    console.log("length="+this.selected_category.length);
+    if(this.selected_category.length>0) {
+      this.dataSource = new MatTableDataSource<Product>(this.category_filtr);
+      this.dataSource.paginator = this.paginator;
+      return;
     }
     
-    productDetail(id: number) {
-      this.router.navigate(['/dashboard/products/detailproduct',id]);
+    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource.paginator = this.paginator;
+  }
+
+  getSelectedTag(tag) {
+    if (!this.selected_tag.includes(tag)) {
+      this.selected_tag.push(tag);
+      console.log(this.selected_tag);
+    } else {
+
+      const index = this.selected_tag.indexOf(tag);
+      this.selected_tag.splice(index, 1);
     }
-  
+    this.bindTagData();
+  }
+
+  bindTagData() {
+    this.tag_filtr=[];
+    this.selected_tag.forEach(item => {
+       const result = this.allproduct.filter(element => {
+       return element.tag_name === item.tag_name;
+       });
+       console.log("result.....");
+       console.log(result);
+       this.tag_filtr=this.tag_filtr.concat(result);
+    });
+
+    console.log("length="+this.selected_tag.length);
+    if(this.selected_tag.length>0) {
+      this.dataSource = new MatTableDataSource<Product>(this.tag_filtr);
+      this.dataSource.paginator = this.paginator;
+      return;
+    }
+    
+    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource.paginator = this.paginator;
+  }
+
+  onEdit(action, obj): void {
+
+    // this.categoryservice.setCategory(row);
+    obj.action = action;
+    const dialogRef = this.dialog.open(EditProductComponent, {
+      width: '900px',
+      height: '1300px',
+      data: obj
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.event == 'Edit') {
+        this.editRowData(result.data);
+      }
+    });
+  }
+  editRowData(row_obj) {
+    this.dataSource = this.dataSource.filter((value, key) => {
+      if (value.id == row_obj.id) {
+        value.product_name = row_obj.product - name;
+        value.category_id = row_obj.category_id;
+        value.tag_id = row_obj.tag_id;
+
+      }
+      return true;
+    });
+  }
+
+  fetchData() {
+
+    //fetch all category data
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        this.categories=response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
+    //fetch all tag data
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        this.tags= response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
+    // fetch all product data
+    this.dataFetchService.getAllProduct().subscribe(
+      response => {
+    
+        this.allproduct=response;
+        this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+        this.dataSource.paginator = this.paginator;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  productDetail(id: number) {
+    this.router.navigate(['/dashboard/products/detailproduct', id]);
+  }
+
 }
