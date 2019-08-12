@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { InventoryService } from 'src/app/share/services/inventory.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { ExcelService } from 'src/app/excel.service';
+import { DataPostService } from 'src/app/share/services/data-post.service';
+
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
@@ -20,8 +22,8 @@ export class InventoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   Updatequantity = '';
-  // savequantity = ;
   fileToUpload: File = null;
+  inventory:any;
 
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
@@ -29,7 +31,8 @@ export class InventoryComponent implements OnInit {
   constructor(
     private dataFetchService:DataFetchService,
     private inventoryservice: InventoryService,
-    private excelService: ExcelService
+    private excelService: ExcelService,
+    private dataPostService:DataPostService
   ) { }
 
   ngOnInit() {
@@ -56,6 +59,23 @@ export class InventoryComponent implements OnInit {
   }
   Onaddvalue(row) {
     row.quantity = this.Updatequantity;
+    this.savequantity(row.quantity);
+  }
+  savequantity(row_obj) {
+
+    console.log(row_obj);
+     this.inventory={
+      quantity:row_obj.quantity
+    };
+
+    this.dataPostService.updateInventory(this.inventory).subscribe(
+      response => {
+        this.fetchData()
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   exportAsXLSX():void {

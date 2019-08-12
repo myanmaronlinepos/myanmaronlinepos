@@ -6,6 +6,8 @@ import { Product } from '../models/Product';
 import { NewProduct } from '../models/NewProduct';
 import { Category } from '../models/Category';
 import { ItemTag } from '../models/ItemTag';
+import { Inventory } from '../models/Inventory';
+
 
 @Injectable({
   providedIn: "root"
