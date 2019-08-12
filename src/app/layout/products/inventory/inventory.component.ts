@@ -13,13 +13,14 @@ import { ExcelService } from 'src/app/excel.service';
 })
 export class InventoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['No', 'product_name', 'categoryname', 'quantity', 'actions'];
+  displayedColumns: string[] = ['product_id', 'name', 'category_name', 'quantity', 'actions'];
   items: any;
   data: any;
   dataSource: MatTableDataSource<Inventory>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   Updatequantity = '';
+  savequantity = '';
   fileToUpload: File = null;
 
   handleFileInput(files: FileList) {
@@ -54,7 +55,7 @@ export class InventoryComponent implements OnInit {
     this.Updatequantity = (<HTMLInputElement>event.target).value;
   }
   Onaddvalue(row) {
-    row.quantity = this.Updatequantity;
+    row.savequantity = this.Updatequantity;
   }
 
   exportAsXLSX():void {
