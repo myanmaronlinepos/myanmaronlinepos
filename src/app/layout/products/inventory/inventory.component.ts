@@ -13,14 +13,17 @@ import { ExcelService } from 'src/app/excel.service';
 })
 export class InventoryComponent implements OnInit {
 
-  displayedColumns: string[] = ['product_id', 'name', 'category_name', 'quantity', 'actions'];
+  displayedColumns: string[] = ['No', 'product_name', 'categoryname', 'quantity', 'actions'];
   items: any;
   data: any;
   dataSource: MatTableDataSource<Inventory>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   Updatequantity = '';
+<<<<<<< HEAD
   // savequantity = ;
+=======
+>>>>>>> 0db884f32fbfd1561e551c19ac9c21b56a1029e0
   fileToUpload: File = null;
 
   handleFileInput(files: FileList) {
