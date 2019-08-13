@@ -57,18 +57,12 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  assignProduct(): void {
+  assignProduct(element): void {
     const dialogRef=this.dialog.open(AssignproductComponent,{
-      width: '500px'
+      width: '500px',
+      data:element
     });
 
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if(result=='save')
-        window.alert("Save Successful!");
-
-    });
   }
 
   onEdit(action, obj):void {
