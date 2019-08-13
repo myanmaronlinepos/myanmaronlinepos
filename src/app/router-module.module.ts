@@ -72,8 +72,8 @@ const routes: Routes = [
                     { path: "discount", component: DiscountComponent },
                     { path: "inventory", component: InventoryComponent },
                     { path: "addproduct", component: AddProductComponent},
-                    { path: "detailproduct", component: DetailProductComponent},
-                    {path:"editproduct", component: EditProductComponent},
+                    { path: "detailproduct/:product_id", component: DetailProductComponent},
+                    {path: "editproduct/:product_id", component: EditProductComponent},
                     { path: "editcategory", component: EditCategoryComponent },
                     {path: "tag", component: TagComponent},
                     {path:"edittag", component:EditTagComponent}

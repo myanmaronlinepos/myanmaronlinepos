@@ -5,6 +5,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormStyle } from '@angular/common';
 import { element } from '@angular/core/src/render3';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 
 
 @Component({
@@ -15,8 +16,8 @@ import { element } from '@angular/core/src/render3';
 export class AssignproductComponent implements OnInit {
 
   // displayedColumns: string[] = ['assignproducts'];
-  assignproducts =ELEMENT_DATA;
-  filteredproducts=ELEMENT_DATA;
+  assignproducts: any;
+  filteredproducts: any;
   selectedArray=[];
   myform:FormGroup;
   private _filteredValue ='';
@@ -31,16 +32,33 @@ export class AssignproductComponent implements OnInit {
 
   filtereproducts(searchproduct: string) {
     return this.assignproducts.filter(products=>
-      products.assignproduct.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
+      products.assignproducts.product_name.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
   }
 
 
-  constructor() { }
+  constructor(
+    private dataFetchService: DataFetchService
+  ) { }
 
   ngOnInit() {
-   this.filteredproducts=this.assignproducts;
+    this.fetchData();
+    this.filteredproducts=this.assignproducts;
   }
 
+  
+  fetchData() {
+    this.dataFetchService.getAllProduct().subscribe(
+      response => {
+        this.assignproducts= response;
+        this.filteredproducts= response;
+        console.log(this.assignproducts);
+        
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
   
   
   showOptions($event) {
@@ -65,26 +83,3 @@ export class AssignproductComponent implements OnInit {
   // }
 
 }
-
-export interface PeriodicElement {
-  assignproduct: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-{ assignproduct: 'Ruby' },
-{ assignproduct: 'Lucky Strike' },
-{ assignproduct: 'Kent' },
-{ assignproduct: 'ESSE' },
-{ assignproduct: 'Myanmar' },
-{ assignproduct: 'Grand Royal' },
-{ assignproduct: 'Ruby' },
-{ assignproduct: 'Lucky Strike' },
-{ assignproduct: 'Kent' },
-{ assignproduct: 'ESSE' },
-{ assignproduct: 'Coffee' },
-{ assignproduct: 'Strawberry Ice-Cream' },
-{ assignproduct: 'chocolate Ice-Cream' },
-{ assignproduct: 'Grape Ice-Cream' },
-{ assignproduct: 'Milk Ice-Cream' },
-{ assignproduct: 'Cake' },
-];

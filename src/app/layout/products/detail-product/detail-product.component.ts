@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator } from '@angular/material';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-detail-product',
@@ -13,10 +14,17 @@ export class DetailProductComponent implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor() {}
+  constructor(
+    private route:ActivatedRoute
+  ) {}
  
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+    this.route.params.subscribe(
+      (param:Params) => {
+        console.log(param['product_id']);
+      }
+    )
   }
 
 }
