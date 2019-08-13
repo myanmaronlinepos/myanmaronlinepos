@@ -170,6 +170,7 @@ export class AllProductsComponent implements OnInit {
       response => {
     
         this.allproduct=response;
+        console.log(response);
         this.dataSource = new MatTableDataSource<Product>(this.allproduct);
         this.dataSource.paginator = this.paginator;
       },

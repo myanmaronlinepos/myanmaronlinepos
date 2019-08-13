@@ -46,8 +46,8 @@ export class SellTableComponent implements OnInit {
   ngOnInit() {
 
     this.fetchData();
-    this.fetchCategoryData();
-    this.fetchTagData();
+    // this.fetchCategoryData();
+    // this.fetchTagData();
     // this.selectedRow=this.sellservice.sellProduct;
     // this.checkboxes=this.sellservice.getItems();
     // this.items=this.sellservice.getItems();
@@ -153,6 +153,7 @@ export class SellTableComponent implements OnInit {
     //fetch all category data
     this.dataFetchService.getAllCategory().subscribe(
       response => {
+        console.log(response);
         this.categories=response;
       },
       error => {
@@ -163,6 +164,7 @@ export class SellTableComponent implements OnInit {
     //fetch all tag data
     this.dataFetchService.getAllTag().subscribe(
       response => {
+        console.log(response);
         this.tags= response;
       },
       error => {
@@ -178,33 +180,33 @@ export class SellTableComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
       },
       error => {
-
+        console.log(error);
       }
     )
   }
 
-  fetchCategoryData() {
-    this.dataFetchService.getAllCategory().subscribe(
-      response => {
-        console.log(response);
-        this.categories = response;
-      },
-      error => {
+  // fetchCategoryData() {
+  //   this.dataFetchService.getAllCategory().subscribe(
+  //     response => {
+  //       console.log(response);
+  //       this.categories = response;
+  //     },
+  //     error => {
 
-      }
-    )
-  }
+  //     }
+  //   )
+  // }
 
-  fetchTagData() {
-    this.dataFetchService.getAllTag().subscribe(
-      response => {
-        console.log(response);
-        this.tags = response;
-      },
-      error => {
+  // fetchTagData() {
+  //   this.dataFetchService.getAllTag().subscribe(
+  //     response => {
+  //       console.log(response);
+  //       this.tags = response;
+  //     },
+  //     error => {
 
-      }
-    )
-  }
+  //     }
+  //   )
+  // }
   
 }

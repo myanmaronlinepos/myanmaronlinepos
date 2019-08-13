@@ -7,7 +7,13 @@
   </div>
       
 <mat-dialog-content>
-    <mat-checkbox (change)="showOptions($event)" *ngFor="let data of filteredproducts">{{data.assignproduct}}</mat-checkbox>
+    
+        <mat-checkbox  *ngFor="let assignproduct of filteredproducts" (change)="showOptions($event)" 
+            value="{{assignproduct.product_id}}">
+              {{assignproduct.product_name}}
+        </mat-checkbox>
+    
+    <!-- <mat-checkbox (change)="showOptions($event)" *ngFor="let data of filteredproducts">{{data.assignproduct}}</mat-checkbox> -->
 </mat-dialog-content>
 
 <mat-dialog-actions>

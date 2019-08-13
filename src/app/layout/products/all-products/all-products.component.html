@@ -13,6 +13,7 @@
         </mat-select>
       </mat-form-field>
     </div>
+
     <div class="subcheck2">
       <mat-form-field class="ltr2">
         <mat-label class="arrow2">Tags</mat-label>
@@ -29,21 +30,21 @@
   </div>
   
   <div class="btn">
-
-    <div class="btn2">
-      <a id='feynman' (click)="exportAsXLSX()">
-        <img src="assets/login/export.png" class="Logo">
-      </a>
-      <div id='feynman_text'> Export Product </div>
+    <div class="btn1">
+      <div class="btn2">
+        <a id='feynman' (click)="exportAsXLSX()">
+          <img src="assets/login/export.png" class="Logo exportimg">
+        </a>
+        <div id='feynman_text'> Export Product </div>
+      </div>
+  
+      <div class="btn3">
+        <a id='feynman' routerLink="/dashboard/products/addproduct">
+          <img src="assets/login/AddProduct.png"  class="Logo addimg">
+        </a>
+        <div id='feynman_text'>  Add Product </div>
+      </div>
     </div>
-
-    <div class="btn3">
-      <a id='feynman' routerLink="/dashboard/products/addproduct">
-        <img src="assets/login/AddProduct.png"  class="Logo">
-      </a>
-      <div id='feynman_text'>  Add Product </div>
-    </div>
-    
   </div>
 </div>
 
@@ -63,11 +64,11 @@
       <td mat-cell *matCellDef="let element" class="imagehover">{{element.product_name}}
         <span class="only-show-on-hover">
 
-          <a routerLink="/dashboard/products/editproduct">
+          <a >
             <img src="assets/sharp-edit(1).svg" width="25px" height="25px">
           </a>
 
-          <a (click)="productDetail(element.product_id)">
+          <a [routerLink]="['../detailproduct/',element.product_id]">
             <img src="assets/details.svg" width="25px" height="25px">
           </a>
           <!-- <a (click)="onEdit('Edit',element)">

@@ -108,10 +108,12 @@ export class AddProductComponent implements OnInit {
       tag_id: formValue.tag,
       price_cost: formValue.cost,
       price_sell: formValue.sale,
-      imageurl: formValue.imageurl,
+      imageurl: '',
       created_at: '',
       updated_at: '',
     }
+
+    console.log(this.addproductData);
 
     this.datapostService.postProduct(this.addproductData)
       .subscribe(

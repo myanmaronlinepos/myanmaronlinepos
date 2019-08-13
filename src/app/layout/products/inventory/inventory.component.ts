@@ -59,20 +59,20 @@ export class InventoryComponent implements OnInit {
   }
   Onaddvalue(row) {
     row.quantity = this.Updatequantity;
-    if(row.event=='Add'){
-      this.savequantity(row.quantity);
-    }
+    this.savequantity(row);
     
   }
   savequantity(row_obj) {
 
     console.log(row_obj);
      this.inventory={
+      inventory_id:row_obj.inventory_id,
       quantity:row_obj.quantity
     };
 
     this.dataPostService.updateInventory(this.inventory).subscribe(
       response => {
+        console.log(response);
         this.fetchData()
       },
       error => {

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/share/models/User';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { DataPostService } from 'src/app/share/services/data-post.service';
+import { MAT_DIALOG_SCROLL_STRATEGY_PROVIDER } from '@angular/material';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
-  addProfieData: User;
+  addProfileData: User;
   imgSrc: string = 'assets/placeholder.jpg';
   selectedImage: any = null;
   data: any;
@@ -37,44 +39,47 @@ export class ProfileComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private dataFetchService: DataFetchService) { }
+    private dataFetchService: DataFetchService,
+    private dataPostService: DataPostService
+  ) { }
 
   ngOnInit() {
     this.fetchData();
-    // this.profileForm = new FormGroup ({
-    //   'user_name':new FormControl(null, Validators.required),
-    //   'storename':new FormControl(null, Validators.required),
-    //   'address':new FormControl(null),
-    //   'city_name':new FormControl(null, Validators.required),
-    //   'user_email':new FormControl(null, Validators.required),
-    //   'user_phone':new FormControl(null, Validators.required),
-    //   'imageurl':new FormControl(null, Validators.required)
-
-    // });
+    this.profileForm = new FormGroup ({
+      'user_name':new FormControl(null, Validators.required),
+      'storename':new FormControl(null, Validators.required),
+      'address':new FormControl(null),
+      'city_name':new FormControl(null),
+      'user_email':new FormControl(null, Validators.required),
+      'user_phone':new FormControl(null, Validators.required),
+      'imageurl':new FormControl(null, Validators.required)
+    });
   }
   onSubmit() {
-    // const formValue = this.profileForm.value;
+    const formValue = this.profileForm.value;
 
-    // this.addProfieData= {
-    //   user_name: formValue.user_name,
-    //   storename: formValue.storename,
+    this.addProfileData= {
+      user_name: formValue.user_name,
+      storename: formValue.storename,
+      user_email: formValue.user_email,
+      user_password: '',
+      user_role: 1,
+      user_phone: formValue.user_phone,
+      address: formValue.address,
+      city_id: 1
+    }
+
+    // if(save) {
+      this.dataPostService.updateUserData(this.addProfileData)
+      .subscribe(
+        response => {
+
+        },
+        error => {
+        console.log(error);
+        }
+      )
     // }
-
-
-    // this.dataFetchService.(this.addProfieData)
-    //   .subscribe(
-    //     response => {
-    //     if(response) {
-    //       this.router.navigate(['/dashboard/products/allproducts']);
-    //     }
-
-    //   },
-    //   error => {
-    //     console.log(error);
-       
-    //   }
-
-    //   )
   }
 
   fetchData() {
