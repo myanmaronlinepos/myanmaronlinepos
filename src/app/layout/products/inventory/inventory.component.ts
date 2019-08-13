@@ -60,7 +60,7 @@ export class InventoryComponent implements OnInit {
   Onaddvalue(row) {
     row.quantity = this.Updatequantity;
     if(row.event=='Add'){
-      this.savequantity(this.Updatequantity);
+      this.savequantity(row.quantity);
     }
     
   }
