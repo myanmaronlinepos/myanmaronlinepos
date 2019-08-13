@@ -5,14 +5,14 @@
 </div> -->
 <div class="img">
   <div class="subimg">
-  <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"></a>
-  <div id='feynman_text'> Import Product</div>
+  <!-- <a href="#"  id='feynman'><img src="assets/login/import.png"  class="Logo"></a>
+  <div id='feynman_text'> Import Product</div> -->
 
-  <a href="#" id='feynman' (click)="exportAsXLSX()"><img src="assets/login/export.png"  class="Logo"></a>
-  <div id='feynman_text'>   Export Product </div>
+   <a href="#" id='feynman' (click)="exportAsXLSX()"><img src="assets/login/export.png"  class="Logo"></a>
+  <div id='feynman_text'>   Export Product </div> 
 
-  <!-- <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
-  <div id='feynman_text'>    Add Product </div> -->
+  <a href="#" id='feynman'><img src="assets/login/AddProduct.png"  class="Logo"></a>
+  <div id='feynman_text'>    Add Product </div>
 </div>
 </div>
 <div class="covertable">
@@ -39,7 +39,7 @@
                     <mat-cell *matCellDef="let row" >
                         <mat-button-toggle-group name="fontStyle" appearance="legacy"  aria-label="Font Style" class='btngp'>
                             <input type="number" value={{row.quantity}} min="000" class="quantity-field" (input)="onUpdatequantity($event)">
-                            <mat-button-toggle value="save" class="btn-primary"(click)="Onaddvalue(row)">save</mat-button-toggle>
+                            <mat-button-toggle value="save" class="btn-primary"(click)="Onaddvalue(row,'Add')">save</mat-button-toggle>
                           </mat-button-toggle-group>    
                     </mat-cell>
                   </ng-container>
