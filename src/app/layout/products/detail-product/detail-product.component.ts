@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator } from '@angular/material';
 import { ActivatedRoute, Params } from '@angular/router';
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { Product } from 'src/app/share/models/Product';
 
 @Component({
   selector: 'app-detail-product',
@@ -12,17 +14,41 @@ export class DetailProductComponent implements OnInit {
 
   displayedColumns: string[] = ['date', 'before', 'addQuantity', 'sellQuantity', 'after','cost','sale'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  id: string;
+  allproduct: any;
+  products: any;
+  product: Product;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private dataFetchService: DataFetchService
   ) {}
  
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.route.params.subscribe(
       (param:Params) => {
-        console.log(param['product_id']);
+        this.id = param['product_id'];
+       this.fetchData();
+      }
+    )
+  }
+
+  fetchData() {
+    this.dataFetchService.getAllProduct().subscribe(
+      response => {
+        this.products=response;
+        console.log(this.products);
+        const product_id=parseInt(this.id);
+        this.products.forEach((p: Product) => {
+          if (p.product_id == product_id ) {
+            this.product = p;
+          }
+        });
+      },
+      error => {
+        console.log(error);
       }
     )
   }
