@@ -1,11 +1,10 @@
 export interface EditProduct {
-    id:number
-    productName:string;
-    category:string;
-    tag:string;
+    product_id:number
+    product_name:string;
+    category_name:string;
+    tag_name:string;
     quantity:number;
     cost:number;
-    sale:number;
-    note:string;
+    price_sell:number;
     
 }
