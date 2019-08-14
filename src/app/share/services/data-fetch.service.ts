@@ -29,9 +29,9 @@ getInventory():Observable<Inventory[]>{
     );
   }
 
-  getAllProduct():Observable<Product[]>{
+  getAllProduct():Observable<any[]>{
     let apiUrl = "/api/user/get/products";
-    return this.http.get<Product[]>(
+    return this.http.get<any[]>(
       this.apiService.createCompleteApiRoute(apiUrl)
     );
   }
@@ -87,6 +87,13 @@ getCity():Observable<City> {
 getAllSell():Observable<SellProduct[]> {
   let apiUrl="api/user/get/sellProduct";
   return this.http.get<SellProduct[]>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
+getSellHistory():Observable<any[]> {
+  let apiUrl="api/user/get/sellitems";
+  return this.http.get<any[]>(
     this.apiService.createCompleteApiRoute(apiUrl)
   );
 }

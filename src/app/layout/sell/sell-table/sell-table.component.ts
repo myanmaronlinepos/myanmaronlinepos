@@ -20,7 +20,7 @@ import { Product } from 'src/app/share/models/Product';
 export class SellTableComponent implements OnInit {
 
   selectedRow= [];
-  displayedColumns: string[] = ['number', 'product_name', 'category_name', 'tag_name', 'quantity', 'price_sell'];
+  displayedColumns: string[] = ['number', 'product_name', 'category_name', 'tag_name', 'quantity', 'sell_price'];
   dataSource: any;
   categories: any;
   tags: any;
@@ -135,7 +135,12 @@ export class SellTableComponent implements OnInit {
   }
 
   onClickRow(row) {
-  
+
+    if(row.quantity <= 0 ) {
+      console.log("quantity is too low");
+      return;
+    }
+
     if(!this.selectedRow.includes(row)){
       this.selectedRow.push(row);
       console.log(this.selectedRow);

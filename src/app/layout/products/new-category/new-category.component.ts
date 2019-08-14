@@ -18,7 +18,9 @@ export class NewCategoryComponent implements OnInit {
   local_data: any;
   constructor(
     public dialogRef: MatDialogRef<NewCategoryComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: ItemCategory) { 
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: ItemCategory
+    ) 
+    { 
       console.log(data);
       this.local_data= {...data};
       this.action= this.local_data.action;

@@ -7,6 +7,7 @@ import { NewProduct } from '../models/NewProduct';
 import { Category } from '../models/Category';
 import { ItemTag } from '../models/ItemTag';
 import { Inventory } from '../models/Inventory';
+import { SellHistoryService } from './sell-history.service';
 
 
 @Injectable({
@@ -20,6 +21,13 @@ export class DataPostService {
     return this.http.post<any>(
       this.apiService.createCompleteApiRoute(apiUrl),
       product
+    );
+  }
+  editProduct(editProduct:any):Observable<any>{
+    let apiUrl="api/user/post/editProduct";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      editProduct
     );
   }
 
@@ -87,4 +95,21 @@ export class DataPostService {
       user
     );
   }
+
+  storeSellData(sell:any):Observable<any> {
+    let apiUrl="api/user/post/sell/store";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      sell
+    );
+  }
+
+  assignProduct(product:any):Observable<any> {
+    let apiUrl="api/user/post/assignProduct";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      product
+    );
+  }
+
 }
