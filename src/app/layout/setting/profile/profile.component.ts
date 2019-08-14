@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   imgSrc: string = 'assets/placeholder.jpg';
   selectedImage: any = null;
   data: any;
+  // enableSave: boolean=false;
 
   processFile( event: any ) {
     if( event.target.files && event.target.files[0]) {
@@ -50,11 +51,23 @@ export class ProfileComponent implements OnInit {
       'storename':new FormControl(null, Validators.required),
       'address':new FormControl(null),
       'city_name':new FormControl(null),
-      'user_email':new FormControl(null, Validators.required),
+      'user_email':new FormControl(null),
       'user_phone':new FormControl(null, Validators.required),
-      'imageurl':new FormControl(null, Validators.required)
+      'imageurl':new FormControl(null)
     });
+    // this.formValid();
   }
+
+  // formValid() {
+  //   this.profileForm.valueChanges.subscribe(result => {
+  //     if (this.profileForm.status == "INVALID") {
+  //       this.enableSave=false;
+  //     } else if (this.profileForm.status == "VALID") {
+  //       this.enableSave=true;
+  //     }
+  //   });
+  // }
+
   onSubmit() {
     const formValue = this.profileForm.value;
 
@@ -68,25 +81,23 @@ export class ProfileComponent implements OnInit {
       address: formValue.address,
       city_id: 1
     }
-
-    // if(save) {
-      this.dataPostService.updateUserData(this.addProfileData)
+    console.log(this.addProfileData);
+    this.dataPostService.updateUserData(this.addProfileData)
       .subscribe(
         response => {
-
-        },
-        error => {
+  
+      },
+      error => {
         console.log(error);
-        }
-      )
-    // }
+      }
+    )
   }
 
   fetchData() {
     this.dataFetchService.getUserData().subscribe(
       response => {
         this.data= response;
-        console.log(this.data.user_email);
+        console.log(this.data.user_name);
         console.log(this.data);
       },
       error => {
