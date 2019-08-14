@@ -67,17 +67,19 @@ export class AssignproductComponent implements OnInit {
         (element: any) => {
 
           const each_product = {
-            product_id: element.product_id,
-            category_id: this.category_id
+            'product_id': element.product_id,
+            'category_id': this.category_id
           };
 
           this.assignedProduct.push(each_product);
         });
     }
-    const assign = {
-      'assignProductList': this.assignedProduct
+    
+    const assign={
+      'assignProductList':this.assignedProduct
     };
-    console.log(assign)
+
+    console.log(assign);
     this.dataPostService.assignProduct(assign).subscribe(
       response => {
         console.log(response);
