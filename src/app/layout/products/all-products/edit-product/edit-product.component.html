@@ -14,7 +14,7 @@
                   <mat-label class="col-sm-3 col-form-label">Product Name:</mat-label>
                 </div>
                 <mat-form-field>
-                  <input matInput type="text" id="productName" formControlName="productname" [(ngModel)]="local_data.product_name">
+                  <input matInput type="text" id="productName" formControlName="productname">
                 </mat-form-field>
               </div>
             </div>
@@ -27,7 +27,7 @@
                   </mat-label>
                 </div>
                 <mat-form-field>
-                  <textarea matInput id="category" formControlName="category">{{local_data.category_id}}</textarea>
+                  <textarea matInput id="category" formControlName="category"></textarea>
                 </mat-form-field>
               </div>
             </div>
@@ -40,7 +40,7 @@
                   </mat-label>
                 </div>
                 <mat-form-field>
-                  <input matInput type="text" id="tag" formControlName="tag" [(ngModel)]="local_data.tag_id">
+                  <input matInput type="text" id="tag" formControlName="tag">
                 </mat-form-field>
               </div>
             </div>
