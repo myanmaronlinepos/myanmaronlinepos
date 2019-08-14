@@ -32,7 +32,7 @@ export class AllProductsComponent implements OnInit {
   selected_tag: any=[];
   tag_filtr: any=[];
   
-  quantity: string[] = ['less than 10', 'less than 20', 'less than 30', 'more than 50'];
+  // quantity: string[] = ['less than 10', 'less than 20', 'less than 30', 'more than 50'];
   
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -114,34 +114,35 @@ export class AllProductsComponent implements OnInit {
     
     this.dataSource = new MatTableDataSource<Product>(this.allproduct);
     this.dataSource.paginator = this.paginator;
+  
   }
 
-  onEdit(action, obj): void {
+  // onEdit(action, obj): void {
 
-    // this.categoryservice.setCategory(row);
-    obj.action = action;
-    const dialogRef = this.dialog.open(EditProductComponent, {
-      width: '900px',
-      height: '1300px',
-      data: obj
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result.event == 'Edit') {
-        this.editRowData(result.data);
-      }
-    });
-  }
-  editRowData(row_obj) {
-    this.dataSource = this.dataSource.filter((value, key) => {
-      if (value.id == row_obj.id) {
-        value.product_name = row_obj.product - name;
-        value.category_id = row_obj.category_id;
-        value.tag_id = row_obj.tag_id;
+  //   // this.categoryservice.setCategory(row);
+  //   obj.action = action;
+  //   const dialogRef = this.dialog.open(EditProductComponent, {
+  //     width: '900px',
+  //     height: '1300px',
+  //     data: obj
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result.event == 'Edit') {
+  //       this.editRowData(result.data);
+  //     }
+  //   });
+  // }
+  // editRowData(row_obj) {
+  //   this.dataSource = this.dataSource.filter((value, key) => {
+  //     if (value.id == row_obj.id) {
+  //       value.product_name = row_obj.product - name;
+  //       value.category_id = row_obj.category_id;
+  //       value.tag_id = row_obj.tag_id;
 
-      }
-      return true;
-    });
-  }
+  //     }
+  //     return true;
+  //   });
+  // }
 
   fetchData() {
 

@@ -23,6 +23,13 @@ export class DataPostService {
       product
     );
   }
+  editProduct(editProduct:any):Observable<any>{
+    let apiUrl="api/user/post/editProduct";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      editProduct
+    );
+  }
 
   postCategory(category:any):Observable<any>{
     let apiUrl = "/api/user/post/category";
