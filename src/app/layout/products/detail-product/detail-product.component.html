@@ -6,10 +6,10 @@
   
       <div class="bodypart">
         <div class="part1">
-              <span>Product Name: Phone</span>
-              <span>Category: Device</span>
-              <span>Tag: for all</span>
-              <span>Note: Arrive</span>
+              <span>Product Name: {{product ? product.product_name:" "}}</span>
+              <span>Category: {{product ? product.category_name:" "}}</span>
+              <span>Tag: {{product ? product.tag_name: " "}}</span>
+              <span>Note: </span>
         </div>
         <div class="img">
           <div class="subimg">

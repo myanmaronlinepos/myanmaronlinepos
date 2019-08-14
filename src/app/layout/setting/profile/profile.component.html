@@ -1,5 +1,5 @@
 
-<form (submit)= "onSubmit(profileForm.value)">
+<form [formGroup]="productForm" (ngSubmit)= "onSubmit()">
       <div class="mainprofile">
         <div class="maindetail">
           <div class="detail">
