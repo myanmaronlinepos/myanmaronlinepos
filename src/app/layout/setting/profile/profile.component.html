@@ -1,32 +1,32 @@
 
-<form [formGroup]="productForm" (ngSubmit)= "onSubmit()">
+<form [formGroup]="profileForm" (ngSubmit)= "onSubmit()">
       <div class="mainprofile">
         <div class="maindetail">
           <div class="detail">
             <div class="subdetail">
               <div class="subdetail1">
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="user_name" placeholder="Name:" value={{data.user_name}}>
+                <input matInput formControlName="user_name" placeholder="Name:" value="{{data?data.user_name:null}}">
               </mat-form-field>
 
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="storename" placeholder="Shop Name:" value={{data.storename}}>
+                <input matInput formControlName="storename" placeholder="Shop Name:" value="{{data?data.storename:null}}">
               </mat-form-field> 
 
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="address" placeholder="Address:" value={{data.address}}>
+                <input matInput formControlName="address" placeholder="Address:" value="{{data?data.address:null}}">
               </mat-form-field>
            
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="city_name" placeholder="City:" value={{data.city_name}}>
+                <input matInput formControlName="city_name" placeholder="City:" value="{{data?data.city_name:null}}">
               </mat-form-field>
             
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="user_email" placeholder="Email:" value={{data.user_email}}>
+                <input matInput formControlName="user_email" placeholder="Email:" value="{{data?data.user_email:null}}">
               </mat-form-field> 
             
               <mat-form-field class="subsubdetail">
-                <input matInput formControlName="user_phone" placeholder="Phone-No:" value={{data.user_phone}}>
+                <input matInput formControlName="user_phone" placeholder="Phone-No:" value="{{data?data.user_phone:null}}">
               </mat-form-field>
             </div>
 

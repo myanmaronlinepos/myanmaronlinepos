@@ -1,7 +1,7 @@
 
-table.mat-table {
-  margin-top: 30px;
-}
+// table.mat-table {
+//   margin-top: 30px;
+// }
 td.mat-cell {
   border:0;
 }
@@ -65,12 +65,12 @@ img {
     width: 100%;
     flex-direction: column;
 }
-td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
-    padding-right: 0px;
-}
-td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
-    padding-left: 6px;
-}
+// td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type {
+//     padding-right: 0px;
+// }
+// td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+//     padding-left: 6px;
+// }
 
 @media screen and (max-width: 992px) {
     .txt-card {
