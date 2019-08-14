@@ -50,7 +50,6 @@ export class EditProductComponent implements OnInit{
     }
     
     onSubmit() {
-      console.log(this.editForm);   
     }
     onUpdatequantity(row: Event){
       this.Updatequantity=(<HTMLInputElement>event.target).value;

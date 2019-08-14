@@ -114,6 +114,7 @@ export class AllProductsComponent implements OnInit {
     
     this.dataSource = new MatTableDataSource<Product>(this.allproduct);
     this.dataSource.paginator = this.paginator;
+  
   }
 
   // onEdit(action, obj): void {
