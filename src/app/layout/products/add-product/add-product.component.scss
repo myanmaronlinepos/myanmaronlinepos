@@ -104,11 +104,15 @@ label > input {
     margin-left: 15%;
 }
 
+// .subbtn1 {
+//     width: 100px;
+//     background: #337ae9;
+//     color: white;
+//     margin-left: 35%;
+// }
+
 .subbtn1 {
-    width: 100px;
-    background: #337ae9;
-    color: white;
-    margin-left: 35%;
+    display: none;
 }
 
 @media screen and (min-width: 993px) {
@@ -134,7 +138,7 @@ label > input {
         margin-left: 15%;
     }
     .subbtn1 {
-        margin-left: 45%;
+       display: none;
     }
 }
 @media screen and (max-width: 600px) {
@@ -144,7 +148,7 @@ label > input {
         border-radius: 10px;
         margin-left: 15%;
     }
-    .subbtn1 {
-        margin-left: 33%;
-    }
+    // .subbtn1 {
+    //     display: none;
+    // }
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { History } from 'src/app/share/models/History';
 import { SellHistoryService } from 'src/app/share/services/sell-history.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
@@ -10,10 +10,11 @@ import { DataFetchService } from 'src/app/share/services/data-fetch.service';
   styleUrls: ['./sell-history.component.scss']
 })
 export class SellHistoryComponent implements OnInit {
-
+ 
   displayedColumns: string[] = ['number', 'name', 'quantity', 'cost', 'sale','total','sellprice','profit'];
   sellHistory:any[]=[];
   dataSource: MatTableDataSource<any>;
+  @ViewChild (MatPaginator) paginator: MatPaginator;
 
   constructor(
     private sellhistory: SellHistoryService,
@@ -32,6 +33,7 @@ export class SellHistoryComponent implements OnInit {
         console.log(response);
         this.sellHistory=response;
         this.dataSource=new MatTableDataSource<any>(this.sellHistory);
+        this.dataSource.paginator = this.paginator;
       },
       error => {
         console.log(error);

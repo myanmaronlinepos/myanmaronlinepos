@@ -6,10 +6,10 @@
   
       <div class="bodypart">
         <div class="part1">
-              <span>Product Name: {{product ? product.product_name:" "}}</span>
-              <span>Category: {{product ? product.category_name:" "}}</span>
-              <span>Tag: {{product ? product.tag_name: " "}}</span>
-              <span>Note: </span>
+              <span>Product Name &nbsp;: {{product ? product.product_name:" "}}</span>
+              <span>Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{product ? product.category_name:" "}}</span>
+              <span>Tag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{product ? product.tag_name: " "}}</span>
+              <span>Note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </span>
         </div>
         <div class="img">
           <div class="subimg">
@@ -64,7 +64,7 @@
                 </ng-container>
 
                 <ng-container matColumnDef="profit">
-                    <th mat-header-cell *matHeaderCellDef></th>
+                    <th mat-header-cell *matHeaderCellDef>Profit</th>
                     <td mat-cell *matCellDef="let product"> {{product.profit}} </td>
                   </ng-container>
             

@@ -29,18 +29,18 @@ export class AssignproductComponent implements OnInit {
   myform: FormGroup;
   private _filteredValue = '';
 
-  // get filteredValue(): string {
-  //   return this._filteredValue;
-  // }
-  // set filteredValue(value:string) {
-  //   this._filteredValue=value;
-  //   this.filteredproducts=this.filtereproducts(value);
-  // }
+  get filteredValue(): string {
+    return this._filteredValue;
+  }
+  set filteredValue(value:string) {
+    this._filteredValue=value;
+    this.filteredproducts=this.filtereproducts(value);
+  }
 
-  // filtereproducts(searchproduct: string) {
-  //   return this.assignproducts.filter(products=>
-  //     products.assignproducts.product_name.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
-  // }
+  filtereproducts(searchproduct: string) {
+    return this.assignproducts.filter(products=>
+      products.product_name.toLowerCase().indexOf(searchproduct.toLowerCase())!==-1);
+  }
 
 
   constructor(

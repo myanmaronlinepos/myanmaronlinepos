@@ -5,6 +5,14 @@
 td.mat-cell {
   border:0;
 }
+.mat-header-cell{
+    font-size:16px;
+    text-transform:none;
+}
+.mat-cell{
+    font-size:16px;
+    text-transform:initial;
+}
 
 .all {
     display: flex;
@@ -14,8 +22,11 @@ td.mat-cell {
 .header, .part2{
     display: flex;
     width: 100%;
-    justify-content: center;
 }    
+.header span {
+    font-size: 28px;
+    justify-content: center;
+}
 .bodypart {
     display: flex;
     width: 100%!important;
@@ -26,11 +37,13 @@ td.mat-cell {
     display: flex;
     width: 60%;
     flex-direction: column;
+    margin-left: 15%;
 }
 span {
     display: flex;
     width: 100%; 
     margin-bottom: 20px;
+    font-size: 18px;
 }
 .img {
     display: flex;
@@ -56,6 +69,9 @@ img {
     display: flex;
     width:50%;
 }
+.subtxt span {
+    font-size: 20px;
+}
 .imgpart > img {
     width: 30px;
     height: 30px;
@@ -73,11 +89,40 @@ img {
 // }
 
 @media screen and (max-width: 992px) {
+    td.mat-cell, th.mat-header-cell {
+        padding-right: 20px;
+    }
     .txt-card {
         position: relative;
         width: 100%!important;
         padding: 10px;
         z-index: 1010;
     }
-   
+    .mat-header-cell{
+        font-size:14px;
+      }
+      .mat-cell{
+        font-size:14px;
+      }
+}
+@media screen and (max-width: 600px) {
+    .header span {
+        font-size: 22px;
+    }
+    .subtxt span {
+        font-size: 18px;
+    }
+    .span {
+        font-size: 16px;
+    }
+    .part1 {
+        margin-left: 5%;
+    }
+    td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+        padding-left: 5px;
+    }
+    td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+        padding-right: 10px;
+    }
+
 }
