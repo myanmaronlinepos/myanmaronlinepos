@@ -5,7 +5,6 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Router } from '@angular/router';
 import { DataSource } from '@angular/cdk/table';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
-import { Product } from 'src/app/share/models/Product';
 import { EditProductComponent } from '../all-products/edit-product/edit-product.component'
 import { DeleteTagService } from 'src/app/delete-tag.service';
 import { ItemTag } from './deletetag/deletetag.component';
@@ -73,12 +72,12 @@ export class AllProductsComponent implements OnInit {
 
     console.log("length="+this.selected_category.length);
     if(this.selected_category.length>0) {
-      this.dataSource = new MatTableDataSource<Product>(this.category_filtr);
+      this.dataSource = new MatTableDataSource<any>(this.category_filtr);
       this.dataSource.paginator = this.paginator;
       return;
     }
     
-    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource = new MatTableDataSource<any>(this.allproduct);
     this.dataSource.paginator = this.paginator;
   }
 
@@ -107,12 +106,12 @@ export class AllProductsComponent implements OnInit {
 
     console.log("length="+this.selected_tag.length);
     if(this.selected_tag.length>0) {
-      this.dataSource = new MatTableDataSource<Product>(this.tag_filtr);
+      this.dataSource = new MatTableDataSource<any>(this.tag_filtr);
       this.dataSource.paginator = this.paginator;
       return;
     }
     
-    this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+    this.dataSource = new MatTableDataSource<any>(this.allproduct);
     this.dataSource.paginator = this.paginator;
   
   }
@@ -172,7 +171,7 @@ export class AllProductsComponent implements OnInit {
     
         this.allproduct=response;
         console.log(response);
-        this.dataSource = new MatTableDataSource<Product>(this.allproduct);
+        this.dataSource = new MatTableDataSource<any>(this.allproduct);
         this.dataSource.paginator = this.paginator;
       },
       error => {
