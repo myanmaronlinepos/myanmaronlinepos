@@ -13,7 +13,8 @@
 
   <!-- account profile div -->
   <div class="account-profile">
-    <img src="assets/shop1.jpg">
+    <img [src]="imgSrc">
+
     <span (click)="Shopkeeper()">
       {{ userData?userData.user_name:""}}
     </span>

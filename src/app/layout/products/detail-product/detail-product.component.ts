@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { Product } from 'src/app/share/models/Product';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detail-product',
@@ -18,15 +19,25 @@ export class DetailProductComponent implements OnInit {
   allproduct: any;
   products: any;
   product: Product;
+  imgSrc:any;
 
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private route:ActivatedRoute,
-    private dataFetchService: DataFetchService
+    private dataFetchService: DataFetchService,
+    private sanitizer:DomSanitizer
   ) {}
  
   ngOnInit() {
+    this.id=this.route.snapshot.params['product_id'];
+    this.imgSrc="assets/product.jpg";
+    
+    if(this.id) {
+      this.fetchData();
+      this.fetchImage();
+    }
+
     this.route.params.subscribe(
       (param:Params) => {
         this.id = param['product_id'];
@@ -34,6 +45,18 @@ export class DetailProductComponent implements OnInit {
       }
     );
     this.fetchProductData();
+  }
+
+  fetchImage() {
+    this.dataFetchService.getProductImage(this.id).subscribe(
+      response => {
+        let objectURL = URL.createObjectURL(response);       
+        this.imgSrc = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
   fetchData() {
