@@ -1,79 +1,81 @@
+<div class="mainprofile">
+  <div class="maindetail">
+    <div class="detail">
+      <div class="subdetail">
+        <div class="subdetail1">
+          <form [formGroup]="profileForm">
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="user_name" placeholder="Name:" value="{{data?data.user_name:null}}">
+            </mat-form-field>
 
-<form [formGroup]="profileForm" (ngSubmit)= "onSubmit()">
-      <div class="mainprofile">
-        <div class="maindetail">
-          <div class="detail">
-            <div class="subdetail">
-              <div class="subdetail1">
-              <mat-form-field class="subsubdetail">
-                <input matInput formControlName="user_name" placeholder="Name:" value="{{data?data.user_name:null}}">
-              </mat-form-field>
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="storename" placeholder="Shop Name:" value="{{data?data.storename:null}}">
+            </mat-form-field>
 
-              <mat-form-field class="subsubdetail">
-                <input matInput formControlName="storename" placeholder="Shop Name:" value="{{data?data.storename:null}}">
-              </mat-form-field> 
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="address" placeholder="Address:" value="{{data?data.address:null}}">
+            </mat-form-field>
 
-              <mat-form-field class="subsubdetail">
-                <input matInput formControlName="address" placeholder="Address:" value="{{data?data.address:null}}">
-              </mat-form-field>
-           
-              <mat-form-field class="subsubdetail">
-                <input matInput formControlName="city_name" placeholder="City:" value="{{data?data.city_name:null}}">
-              </mat-form-field>
-            
-              <mat-form-field class="subsubdetail">
-                <input matInput formControlName="user_email" placeholder="Email:" value="{{data?data.user_email:null}}">
-              </mat-form-field> 
-            
-              <mat-form-field class="subsubdetail">
-                <input matInput formControlName="user_phone" placeholder="Phone-No:" value="{{data?data.user_phone:null}}">
-              </mat-form-field>
-            </div>
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="city_name" placeholder="City:" value="{{data?data.city_name:null}}">
+            </mat-form-field>
 
-          <div class="shopimg">
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="user_email" placeholder="Email:" value="{{data?data.user_email:null}}">
+            </mat-form-field>
+
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="user_phone" placeholder="Phone-No:"
+                value="{{data?data.user_phone:null}}">
+            </mat-form-field>
+          </form>
+        </div>
+
+        <div class="shopimg">
+          <form [formGroup]="user_image">
             <div class="subimg">
-                <img [src]= "imgSrc" (click)= "imageInput.click()">
+              <img [src]="imgSrc" (click)="imageInput.click()">
             </div>
             <div class="btn">
               <label class="subbtn1 form-control image-upload-container">
-                  <span>Upload</span>
-                  <input type="file"  #imageInput accept="image/*" formControlName="imageurl" (change)="processFile($event)" name="change">
+                <span>Upload</span>
+                <input type="file" name="user_image" accept="image/*" formControlName="imageurl"
+                  (change)="processFile($event)">
               </label>
 
               <a (click)="logout()" class="subbtn2 form-control">Logout?</a>
             </div>
-          </div>
-
-        </div>
+          </form>
         </div>
 
-       
-            <div>
-              <a (click)="changePassword()">Do you want to change your password?<span class="forgetpwd" [routerLink]="['/home/forget/email']"> Forget Password? </span></a>
-            </div>
-  
-              
-              <div class="pwd">
-                <div class="subpwd" *ngIf="changepwd">
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Current Password:">
-                      </mat-form-field>
-                  
-                      <mat-form-field class="example-full-width">
-                        <input matInput placeholder="New Password:">
-                      </mat-form-field>
-                    
-                      <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Retype Password:">
-                      </mat-form-field>
-                </div>
-                
-                <div class="pwdbtn">
-                  <button class="pwdbtn1 form-control">Cancel</button>
-                  <button class="pwdbtn2 form-control">Save</button>
-                </div>
-            </div>
-        </div> 
-      </div>    
-      
-    </form>  
+      </div>
+    </div>
+
+    <div>
+      <a (click)="changePassword()">Do you want to change your password?<span class="forgetpwd"
+          [routerLink]="['/home/forget/email']"> Forget Password? </span></a>
+    </div>
+    <div class="pwd">
+      <div class="subpwd" *ngIf="changepwd">
+        <form [formGroup]="change_password">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Current Password:" formControlName="current_password">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="New Password:" formControlName="new_password">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Retype Password:" formControlName="new_password_retype">
+          </mat-form-field>
+        </form>
+      </div>
+
+      <div class="pwdbtn">
+        <button class="pwdbtn1 form-control" >Cancel</button>
+        <button class="pwdbtn2 form-control" (click)="onSave()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
