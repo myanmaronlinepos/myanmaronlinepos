@@ -30,13 +30,13 @@ export class EditProductComponent implements OnInit {
   selectedImage: any = null;
   imageformData: any;
 
-  @ViewChild('image') private image: ElementRef;
   constructor(
     private route: ActivatedRoute,
     private dataFetchService: DataFetchService,
     private dataPostService: DataPostService,
-    private sanitizer:DomSanitizer
+    private sanitizer: DomSanitizer
   ) { }
+  
   ngOnInit() {
 
     this.editForm = new FormGroup({
@@ -51,7 +51,7 @@ export class EditProductComponent implements OnInit {
 
     this.id = this.route.snapshot.paramMap.get('product_id');
     if (this.id)
-      this.fetchData();
+        this.fetchData();
 
     this.route.params.subscribe(
       (param: Params) => {
@@ -102,40 +102,37 @@ export class EditProductComponent implements OnInit {
       error => {
         console.log(error);
       }
-    )
+    );
 
   }
 
   onSubmit() {
-      if(this.imageformData!=null) {
-        this.updateProductImage();
-      }
-   }
+    if (this.imageformData != null) {
+       this.updateProductImage();
+    }
+  }
 
   updateProductImage() {
-
     var formData = new FormData();
     formData.append("product_image", this.imageformData);
-    formData.append("product_id",this.id);
+    formData.append("product_id", this.id);
     this.dataPostService.updateProductImage(formData).subscribe(
       response => {
-        // console.log(response);
+        console.log(response);
         let objectURL = URL.createObjectURL(response);
         this.imgSrc = this.sanitizer.bypassSecurityTrustUrl(objectURL);
       },
       error => {
         console.log(error);
       }
-    )
+    );
   }
 
   onUpdatequantity(row: Event) {
     this.Updatequantity = (<HTMLInputElement>event.target).value;
   }
+
   Onaddvalue(row) {
     row.quantity = this.Updatequantity;
   }
-
-
-
 }

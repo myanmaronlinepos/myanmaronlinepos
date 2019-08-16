@@ -21,7 +21,7 @@
         <div class="part2">
           <div class="subpart2">
             <div class="subtxt">
-                <span>Changes of Quantity and Price</span>
+                <span> Product sell history</span>
             </div>
           </div>
           
@@ -30,7 +30,7 @@
 
                 <ng-container matColumnDef="date">
                   <th mat-header-cell *matHeaderCellDef>Date</th>
-                  <td mat-cell *matCellDef="let product"> {{product.date}} </td>
+                  <td mat-cell *matCellDef="let product"> {{product.created_at}} </td>
                 </ng-container>
     
                 <ng-container matColumnDef="product_name">

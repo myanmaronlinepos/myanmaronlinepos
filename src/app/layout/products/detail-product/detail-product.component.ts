@@ -16,9 +16,6 @@ export class DetailProductComponent implements OnInit {
   displayedColumns: string[] = ['date', 'product_name', 'quantity', 'price_cost', 'price_sell', 'total_cost', 'total_sell', 'profit'];
   dataSource: any;
   id: string;
-  allproduct: any;
-  products: any;
-  product: Product;
   imgSrc:any;
 
   @ViewChild(MatTable) table: MatTable<any>;
@@ -34,17 +31,16 @@ export class DetailProductComponent implements OnInit {
     this.imgSrc="assets/product.jpg";
     
     if(this.id) {
-      this.fetchData();
+      this.fetchProductData();
       this.fetchImage();
     }
 
     this.route.params.subscribe(
       (param:Params) => {
         this.id = param['product_id'];
-       this.fetchData();
+        this.fetchProductData();
       }
     );
-    this.fetchProductData();
   }
 
   fetchImage() {
@@ -59,28 +55,17 @@ export class DetailProductComponent implements OnInit {
     )
   }
 
-  fetchData() {
-    this.dataFetchService.getAllProduct().subscribe(
-      response => {
-        this.products=response;
-        console.log(this.products);
-        const product_id=parseInt(this.id);
-        this.products.forEach((p: Product) => {
-          if (p.product_id == product_id ) {
-            this.product = p;
-          }
-        });
-      },
-      error => {
-        console.log(error);
-      }
-    )
-  }
 
   fetchProductData() {
     this.dataFetchService.getSellHistory().subscribe(
       response => {
-        this.dataSource = new MatTableDataSource<any>(response);
+        console.log(response);
+
+        const result = response.filter(element => {
+          return element.product_id == this.id;
+          });
+
+        this.dataSource = new MatTableDataSource<any>(result);
         this.dataSource.paginator = this.paginator;
       },
       error => {
