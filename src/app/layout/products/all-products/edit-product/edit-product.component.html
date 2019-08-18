@@ -12,8 +12,8 @@
               <div class="col-sm-12">
                   <mat-label class="labelname">Product Name:&nbsp;&nbsp;&nbsp;</mat-label>
                 <mat-form-field>
-                  <input matInput type="text"  formControlName="productname" value="{{product ? product.product_name:' ' }}">
-                   <mat-error *ngIf="!editForm.get('productname').valid" class="help-block">
+                  <input matInput type="text"  formControlName="product_name" [(ngModel)]="product.product_name">
+                   <mat-error *ngIf="!editForm.get('product_name').valid" class="help-block">
                             ####</mat-error>
                 </mat-form-field>
               </div>
@@ -23,8 +23,8 @@
               <div class="col-sm-12">
                   <mat-label class="labelname">Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="category" value="{{product ? product.category_name:  ''}}">
-                  <mat-error *ngIf="!editForm.get('category').valid" class="help-block">
+                  <input matInput type="text" formControlName="category_name" [(ngModel)]="product.category_name">
+                  <mat-error *ngIf="!editForm.get('category_name').valid" class="help-block">
                      ###</mat-error>
                 </mat-form-field>
               </div>
@@ -34,8 +34,8 @@
               <div class="col-sm-12">
                   <mat-label class="labelname">Tags:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="tag" value="{{product ? product.tag_name: ''}}">
-                  <mat-error *ngIf="!editForm.get('tag').valid && editForm.get('tag').touched" class="help-block">
+                  <input matInput type="text" formControlName="tag_name" [(ngModel)]="product.tag_name">
+                  <mat-error *ngIf="!editForm.get('tag_name').valid && editForm.get('tag_name').touched" class="help-block">
                       ###</mat-error>
                 </mat-form-field>
               </div>
@@ -45,8 +45,8 @@
               <div class="col-sm-12">
                   <mat-label class="labelname">Price per cost:&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="price_cost"  value="{{product ? product.cost_price: ''}}">
-                  <mat-error *ngIf="!editForm.get('price_cost').valid" class="help-block">
+                  <input matInput type="text" formControlName="cost_price" [(ngModel)]="product.cost_price">
+                  <mat-error *ngIf="!editForm.get('cost_price').valid" class="help-block">
                       ##</mat-error>
                 </mat-form-field>
               </div>
@@ -56,8 +56,8 @@
               <div class="col-sm-12">
                   <mat-label class="labelname">Sale Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="price_sell" value="{{product ? product.sell_price: ''}}">
-                  <mat-error *ngIf="!editForm.get('price_sell').valid" class="help-block">
+                  <input matInput type="text" formControlName="sell_price" [(ngModel)]="product.sell_price">
+                  <mat-error *ngIf="!editForm.get('sell_price').valid" class="help-block">
                      ##</mat-error>
                 </mat-form-field>
               </div>
@@ -80,7 +80,7 @@
       <div class="btn form-group">
       <div class="subbtn">
           <button type="reset" class="cancel">Cancel</button>
-          <button class="save">Save</button>
+          <button class="save" (click)="Onaddvalue(row)">Save</button>
         </div>
       </div>
     </div>

@@ -20,6 +20,7 @@ export class EditProductComponent implements OnInit {
   editForm: FormGroup;
   Updatequantity = '';
   Savebuttonwork = '';
+  editformData:any;
   dataSource: any;
   id: string;
   allproduct: any;
@@ -31,22 +32,22 @@ export class EditProductComponent implements OnInit {
   imageformData: any;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private dataFetchService: DataFetchService,
-    private dataPostService: DataPostService,
+    private datapostService: DataPostService,
     private sanitizer: DomSanitizer
   ) { }
   
   ngOnInit() {
 
     this.editForm = new FormGroup({
-      'productname': new FormControl(null, Validators.required),
-      'quantity': new FormControl(null, Validators.required),
-      'category': new FormControl(null, Validators.required),
-      'tag': new FormControl(null),
-      'price_cost': new FormControl(null, Validators.required),
-      'price_sell': new FormControl(null, Validators.required),
-      'imageurl': new FormControl(null, Validators.required)
+      'product_name': new FormControl(null),
+      'category_name': new FormControl(null),
+      'tag_name': new FormControl(null),
+      'cost_price': new FormControl(null),
+      'sell_price': new FormControl(null),
+      // 'imageurl': new FormControl(null)
     });
 
     this.id = this.route.snapshot.paramMap.get('product_id');
@@ -107,8 +108,35 @@ export class EditProductComponent implements OnInit {
   }
 
   onSubmit() {
+    const formValue = this.editForm.value;
+		if (this.editForm.valid) {
+      this.editformData = {
+       product_name: formValue.product_name,
+       category_name: formValue.category_name,
+       tag_name: formValue.tag_name,
+       cost_price: formValue.cost_price,
+       sell_price: formValue.sell_price,
+      }
+
+      console.log(this.editformData);
+
+      this.datapostService.editProduct(this.editformData)
+        .subscribe(
+          response => {
+          if(response) {
+            this.router.navigate(['/dashboard/products/allproducts']);
+          }
+  
+        },
+        error => {
+          console.log(error);
+         
+        }
+        );
+      
     if (this.imageformData != null) {
        this.updateProductImage();
+    }
     }
   }
 
@@ -116,7 +144,7 @@ export class EditProductComponent implements OnInit {
     var formData = new FormData();
     formData.append("product_image", this.imageformData);
     formData.append("product_id", this.id);
-    this.dataPostService.updateProductImage(formData).subscribe(
+    this.datapostService.updateProductImage(formData).subscribe(
       response => {
         console.log(response);
         let objectURL = URL.createObjectURL(response);
@@ -125,14 +153,10 @@ export class EditProductComponent implements OnInit {
       error => {
         console.log(error);
       }
-    );
+    )
   }
 
-  onUpdatequantity(row: Event) {
-    this.Updatequantity = (<HTMLInputElement>event.target).value;
-  }
-
-  Onaddvalue(row) {
+Onaddvalue(row) {
     row.quantity = this.Updatequantity;
   }
 }
