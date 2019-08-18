@@ -37,6 +37,12 @@ export class AuthService {
       this.apiService.createCompleteApiRoute(apiUrl),'');
   }
 
+  changePassword(password) {
+    let apiUrl="/change_password";
+    return this.http.post(
+      this.apiService.createCompleteApiRoute(apiUrl),password);
+  }
+
   check() {
     let apiUrl="/api/check";
     return this.http.get(

@@ -112,4 +112,22 @@ export class DataPostService {
     );
   }
 
+  updateUserImage(image:any):Observable<Blob> {
+    let apiUrl="/api/user/post/userImage";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      image,
+      {responseType: 'blob' as 'json'}
+    )
+  }
+
+  updateProductImage(image:any):Observable<Blob> {
+    let apiUrl="/api/user/post/product/image";
+    return this.http.post<any>(
+      this.apiService.createCompleteApiRoute(apiUrl),
+      image,
+      {responseType: 'blob' as 'json'}
+    )
+  }
+
 }

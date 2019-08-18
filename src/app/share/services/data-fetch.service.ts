@@ -97,5 +97,21 @@ getSellHistory():Observable<any[]> {
     this.apiService.createCompleteApiRoute(apiUrl)
   );
 }
+
+getProductImage(product_id:string):Observable<Blob> {
+  let apiUrl="/api/user/get/product/image/"+product_id;
+  return this.http.get<any>(
+    this.apiService.createCompleteApiRoute(apiUrl),
+    { responseType: 'blob' as 'json' }
+  )
+}
+
+getUserImage():Observable<Blob> {
+  let apiUrl="/api/user/get/userImage";
+  return this.http.get<any>(
+    this.apiService.createCompleteApiRoute(apiUrl),
+    { responseType: 'blob' as 'json'}
+  )
+}
   
 }
