@@ -69,6 +69,7 @@ export class SellStockComponent implements OnInit {
     this.dataPostService.storeSellData(productList).subscribe(
       response => {
         console.log(response);
+        alert("The product is successfully sold out");
       },
       error => {
         console.log(error);
