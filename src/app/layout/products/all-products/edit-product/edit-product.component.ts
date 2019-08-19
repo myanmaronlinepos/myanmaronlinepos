@@ -31,6 +31,13 @@ export class EditProductComponent implements OnInit {
   selectedImage: any = null;
   imageformData: any;
 
+  categories:any;
+  categorySelectOption=1;
+
+  tags:any;
+  tagSelectOpton=1;
+
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -43,8 +50,8 @@ export class EditProductComponent implements OnInit {
 
     this.editForm = new FormGroup({
       'product_name': new FormControl(null),
-      'category_name': new FormControl(null),
-      'tag_name': new FormControl(null),
+      'category': new FormControl(null),
+      'tag': new FormControl(null),
       'cost_price': new FormControl(null),
       'sell_price': new FormControl(null),
       // 'imageurl': new FormControl(null)
@@ -109,18 +116,19 @@ export class EditProductComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.editForm.value;
+    
 		if (this.editForm.valid) {
       this.editformData = {
        product_name: formValue.product_name,
-       category_name: formValue.category_name,
-       tag_name: formValue.tag_name,
+       category_id: this.categorySelectOption,
+       tag_id: this.tagSelectOpton,
        cost_price: formValue.cost_price,
        sell_price: formValue.sell_price,
       }
 
       console.log(this.editformData);
 
-      this.datapostService.editProduct(this.editformData)
+      this.datapostService.updateProduct(this.editformData)
         .subscribe(
           response => {
           if(response) {

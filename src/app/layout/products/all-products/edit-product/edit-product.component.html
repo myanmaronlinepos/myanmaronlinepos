@@ -7,78 +7,93 @@
       <div class="body form-group">
         <div class="pbody">
           <div class="ppbody">
-          
+
             <div class="form-group row">
-              <div class="col-sm-12">
-                  <mat-label class="labelname">Product Name:&nbsp;&nbsp;&nbsp;</mat-label>
+              <div class="col-sm-12" *ngIf="product">
+                <mat-label class="labelname">Product Name:&nbsp;&nbsp;&nbsp;</mat-label>
                 <mat-form-field>
-                  <input matInput type="text"  formControlName="product_name" [(ngModel)]="product.product_name">
-                   <mat-error *ngIf="!editForm.get('product_name').valid" class="help-block">
-                            ####</mat-error>
+                  <input matInput type="text" formControlName="product_name" [(ngModel)]="product.product_name">
+                  <mat-error *ngIf="!editForm.get('product_name').valid" class="help-block">
+                    ####</mat-error>
                 </mat-form-field>
               </div>
             </div>
-           
+
             <div class="form-group row">
-              <div class="col-sm-12">
-                  <mat-label class="labelname">Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
+              <div class="col-sm-12" *ngIf="categories">
+                <mat-label class="labelname">
+                  Category:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="category_name" [(ngModel)]="product.category_name">
-                  <mat-error *ngIf="!editForm.get('category_name').valid" class="help-block">
-                     ###</mat-error>
+
+                  <mat-label>Category</mat-label>
+                  <mat-select formControlName="category" [(ngModel)]="categorySelectOption">
+                    <mat-option *ngFor="let category of categories" [value]="category.category_id">
+                      {{category.category_name}}
+                    </mat-option>
+                  </mat-select>
+
                 </mat-form-field>
               </div>
             </div>
-            
+
             <div class="form-group row">
-              <div class="col-sm-12">
-                  <mat-label class="labelname">Tags:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
+              <div class="col-sm-12" *ngIf="tags">
+                <mat-label class="labelname">
+                  Tags:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="tag_name" [(ngModel)]="product.tag_name">
-                  <mat-error *ngIf="!editForm.get('tag_name').valid && editForm.get('tag_name').touched" class="help-block">
-                      ###</mat-error>
+                  
+                    <mat-label>Tag</mat-label>
+                    <mat-select formControlName="tag" [(ngModel)]="tagSelectOption">
+                      <mat-option *ngFor="let tag of tags" [value]="tag.tag_id">
+                        {{tag.tag_name}}
+                      </mat-option>
+                    </mat-select>
+
                 </mat-form-field>
               </div>
             </div>
-            
-           <div class="form-group row">
-              <div class="col-sm-12">
-                  <mat-label class="labelname">Price per cost:&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
+
+            <div class="form-group row">
+              <div class="col-sm-12" *ngIf="product">
+                <mat-label class="labelname">Price per cost:&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <mat-form-field>
                   <input matInput type="text" formControlName="cost_price" [(ngModel)]="product.cost_price">
                   <mat-error *ngIf="!editForm.get('cost_price').valid" class="help-block">
-                      ##</mat-error>
+                    ##</mat-error>
                 </mat-form-field>
               </div>
             </div>
-            
+
             <div class="form-group row">
-              <div class="col-sm-12">
-                  <mat-label class="labelname">Sale Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </mat-label>
+              <div class="col-sm-12" *ngIf="product">
+                <mat-label class="labelname">Sale Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </mat-label>
                 <mat-form-field>
                   <input matInput type="text" formControlName="sell_price" [(ngModel)]="product.sell_price">
                   <mat-error *ngIf="!editForm.get('sell_price').valid" class="help-block">
-                     ##</mat-error>
+                    ##</mat-error>
                 </mat-form-field>
               </div>
             </div>
-           </div>
+          </div>
         </div>
         <div class="pimg form-group">
           <div class="subimg img-preview-container">
-            <img [src]= "imgSrc" (click)= "imageInput.click()">
+            <img [src]="imgSrc" (click)="imageInput.click()">
           </div>
           <div class="btn">
             <label class="subbtn1 form-control image-upload-container">
               <span>Upload</span>
-              <input type="file" accept="image/*" formControlName="imageurl" (change)="processFile($event)" name="change">
+              <input type="file" accept="image/*" formControlName="imageurl" (change)="processFile($event)"
+                name="change">
             </label>
           </div>
         </div>
       </div>
-     
+
       <div class="btn form-group">
-      <div class="subbtn">
+        <div class="subbtn">
           <button type="reset" class="cancel">Cancel</button>
           <button class="save" (click)="Onaddvalue(row)">Save</button>
         </div>
@@ -86,5 +101,3 @@
     </div>
   </form>
 </mat-card>
-
-  
