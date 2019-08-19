@@ -6,6 +6,9 @@ import { User } from 'src/app/share/models/User';
 import { useAnimation } from '@angular/animations';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import {startWith, map} from 'rxjs/operators';
 
 
 @Component({
@@ -20,6 +23,10 @@ export class NavBarComponent implements OnInit {
   imgSrc:any;
   viewList=false;
   userData:any;
+  searchForm = new FormControl();
+  searchData: string[]=['product','inventory','category','sell'];
+  filteredData: Observable<string[]>;
+
   constructor(
     private authService:AuthService,
     private router:Router,
@@ -31,6 +38,19 @@ export class NavBarComponent implements OnInit {
     this.imgSrc="assets/shop1.jpg";
     this.fetchData();
     this.fetchImage();
+    this.filteredData = this.searchForm.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = this._normalizeValue(value);
+    return this.searchData.filter(street => this._normalizeValue(street).includes(filterValue));
+  }
+
+  private _normalizeValue(value: string): string {
+    return value.toLowerCase().replace(/\s/g, '');
   }
 
   fetchImage() {
