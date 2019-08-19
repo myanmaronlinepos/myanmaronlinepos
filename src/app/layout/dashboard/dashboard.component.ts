@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart} from 'chart.js';
 import  dayGridPlugin  from "@fullcalendar/daygrid";
+import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { CdkTreeModule } from '@angular/cdk/tree';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,233 +16,85 @@ export class DashboardComponent implements OnInit {
   PieChart:any=[];
   RadarChart:any=[];
   AreaChart:any=[];
-constructor() { }
-ngOnInit() {
-   
-    this.RadarChart=new Chart('radarChart',{
-      type:'radar',
-      data:{
-       labels:["January","February","March","April", "May"],
-        datasets:[
-          {
-          label:'Cost',
-          data:[1,2,2,4,2],
-            backgroundColor:"#A9A9A9",
-            borderColor:'#A9A9A9',
-            borderWidth:[1,1,1,1,1]
-          
-        },
-        {
-          label:'Profit',
-          data:[3,0,1,1,2],
-           backgroundColor:"#F4A460",
-          //  ["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:'#F4A460',
-          borderWidth:[1,1,1,1,1]
-          
-        },
-        {
-          label:'Income',
-          data:[4,2,3,5,4],
-          backgroundColor:'#2E8B57',
-          // ["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:'#2E8B57',
-          borderWidth:[1,1,1,1,1]
-          
-        }
-      ]
-      },
-      options:{
-        title:{
-          text:" ",
-          display:true
-        },
-// scales:{
-//   yAxes:[{
-//     ticks:{
-//       beginAtZero:true
-//     }
-//   }]
-// }
-}
-    });
-    this.PieChart=new Chart('pieChart',{
-      type:'pie',
-      data:{
-        labels:["Qtr1","Qtr2","Qtr3","Qtr4", "Qtr5"],
-        datasets:[{
-          label:'Cost',
-          data:[40,10,20,0,30],
-          backgroundColor:["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:["#CDA776","#989898","#CB252B","#E39371","1D7A46"],
-          borderWidth:[1,1,1,1,1]
-          
-        }]
-      },
-      options:{
-        title:{
-          text:" Cost",
-          display:true
-        },
-// scales:{
-//   yAxes:[{
-//     ticks:{
-//       beginAtZero:true
-//     }
-//   }]
-// }
-}
-    });
-    this.PieChart=new Chart('pieChart1',{
-      type:'pie',
-      data:{
-        labels:["Qtr1","Qtr2","Qtr3","Qtr4", "Qtr5"],
-        datasets:[{
-          label:'Income',
-          data:[20,10,20,40,30],
-          backgroundColor:["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:["#CDA776","#989898","#CB252B","#E39371","1D7A46"],
-          borderWidth:[1,1,1,1,1]
-          
-        }]
-      },
-      options:{
-        title:{
-          text:"Income",
-          display:true
-        },
-// scales:{
-//   yAxes:[{
-//     ticks:{
-//       beginAtZero:true
-//     }
-//   }]
-// }
-}
-    });
-    this.PieChart=new Chart('pieChart2',{
-      type:'pie',
-      data:{
-        labels:["Qtr1","Qtr2","Qtr3","Qtr4", "Qtr5"],
-        datasets:[{
-          label:'Profit',
-          data:[20,10,20,40,30],
-          backgroundColor:["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57"],
-          borderColor:["#CDA776","#989898","#CB252B","#E39371","1D7A46"],
-          borderWidth:[1,1,1,1,1]
-          
-        }]
-      },
-      options:{
-        title:{
-          text:"Profit",
-          display:true
-        },
-// scales:{
-//   yAxes:[{
-//     ticks:{
-//       beginAtZero:true
-//     }
-//   }]
-// }
-}
-    });
-    // this is barchrt
-    this.BarChart=new Chart('barChart',{
-      type:'bar',
-      data:{
-        labels:["January","February","March","April", "May"],
-        datasets:[
-          {
-          label:'Cost',
-          data:   [ 5,3,1,2,4],
-          backgroundColor:'#A9A9A9',
-          borderColor:'#A9A9A9',
-          borderWidth:1
-      },  
-      {
-        label:'Income',
-        data:[4,1,2,3,5],
-        backgroundColor:'#2E8B57',
-        borderColor:'#2E8B57',
-        borderWidth:[1,1,1,1,1]
-        
-      },
-      {
-        label:'Profit',
-        data:[4,4,2,5,1],
-        backgroundColor:'#F4A460',
-        borderColor:'#F4A460',
-        borderWidth:[1,1,1,1,1]
-        
-      }
-    ]
-    },
-      options:{
-        title:{
-          text:" ",
-          display:true
-        },
-scales:{
-  yAxes:[{
-    ticks:{
-      beginAtZero:true
-    }
-  }]
-}
-}
-    });
+  labels=["January","February","March","April", "May","June","July"];
 
-    this.LineChart=new Chart('lineChart',{
-      type:'line',
-      data:{
-        labels:["January", "Febuary", "Merch", "April" , "May" ],
-        datasets:[
-          {
-          label:'Income',
-          data:[3,2,7,4,9],
-          // fill:false,
-          // lineTension:0.2,
-          borderColor:"#2E8B57",
-          backgroundColor:"#2E8B57",
-          borderWidth:1
-        },
-        {
-          label:'Cost',
-          data:[5,3,8,6,7],
-          // fill:false,
-          // lineTension:0.2,
-          borderColor:"#A9A9A9",
-          backgroundColor:"#A9A9A9",
-          borderWidth:1
-        },
-        {
-          label:'Profit',
-          data:[5,6,3,7,3],
-          // fill:false,
-          // lineTension:0.2,
-          borderColor:"#F4A460",
-          backgroundColor:"#F4A460",
-          borderWidth:1
-        },
-      ]
-      },
-      options:{
-        title:{
-          text:" ",
-          display:true
-        },
-        scales:{
-          yAxes:[{
-            ticks:{
-              beginAtZero:true
-            }
-          }]
-        }
-      }
-    });
-   
+  costData=[2,9,3,1,2,7,9];
+  profitData=[5,8,2,7,2,7,5];
+  sellData=[3,8,6,4,9,1,8];
+
+  eachDataColor=[
+    {
+      backgroundColor:["#DEB887","#A9A9A9","#DC143C","#F4A460", "#2E8B57","#F4A360", "#2E8257"]
+    }
+  ]
+
+  pieChartType="pie";
+
+
+compareData=[{data:this.sellData,label:"sell"},
+            {data:this.costData ,label:"Cost"},
+            {data:this.profitData,label:"Profit"}];
+
+ compareBarChartType = "bar";
+ compareLineChartType="line";
+ compareRadarChartType="radar";
+ compareChartLegend = true;
+
+ compareCharColor=[
+   {
+    backgroundColor:'#A9A9A9'
+   },
+   {
+    backgroundColor:'#2E8B57'
+   },
+   {
+    backgroundColor:'#F4A460'
+   }
+ ];
+
+ chartOption = {
+  responsive: true,
+};
   
+constructor(
+  private dataFetchData:DataFetchService
+) { }
+ngOnInit() {
+   this.fetchData();
+   
+  }
+
+  fetchData() {
+    this.dataFetchData.getDashBoardLabels().subscribe(
+      response => {
+        console.log(response);
+        
+        this.labels=response;
+        // this.compareData=[{data:[2,3,1,5,3,7,2]}];
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    const start_date="2019-08-11";
+    const end_date="2019-08-17";
+    this.dataFetchData.getDashBoardData(start_date,end_date).subscribe(
+      response => {
+        console.log(response);
+        this.costData=response.costData;
+        this.sellData=response.sellData;
+        this.profitData=response.profitData;
+        this.compareData=[
+                        {data:this.sellData,label:"sell"},
+                        {data:this.costData ,label:"Cost"},
+                        {data:this.profitData,label:"Profit"}
+                      ];
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }
 

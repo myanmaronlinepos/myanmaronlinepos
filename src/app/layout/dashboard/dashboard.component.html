@@ -5,16 +5,20 @@
               <!-- <mat-card-header>
                 <mat-card-title>Calendar</mat-card-title>
               </mat-card-header> -->
-              <full-calendar [plugins]="calendarPlugins" class="chartheight"></full-calendar>
+              <full-calendar [plugins]="calendarPlugins"  class="chartheight"></full-calendar>
        </mat-card>
      </div> 
 
      <div class="chart1">
         <mat-card class="chart2">
-                <!-- <mat-card-header class="barchart">
-                  <mat-card-title>Bar Chart</mat-card-title>
-                </mat-card-header> -->
-                <canvas id="barChart" ></canvas> 
+               
+                <canvas baseChart
+                [datasets]="compareData" 
+                [labels]="labels"
+                [options]="chartOption" 
+                [legend]="compareChartLegend" 
+                [chartType]="compareBarChartType" 
+                [colors]="compareCharColor" ></canvas> 
          </mat-card>
        </div> 
   </div> 
@@ -23,48 +27,74 @@
   <div  class="chart">
       <div class="chart1">
       <mat-card class="chart4">
-              <!-- <mat-card-header>
-                <mat-card-title>Line Chart</mat-card-title>
-              </mat-card-header> -->
-              <canvas id="lineChart" class="chartheight"></canvas>
+        <canvas baseChart
+        [datasets]="compareData" 
+        [labels]="labels"
+        [options]="chartOption" 
+        [legend]="compareChartLegend" 
+        [chartType]="compareLineChartType" 
+        [colors]="compareCharColor" ></canvas>         
        </mat-card>
      </div> 
 
      <div class="chart1">
         <mat-card class="chart4">
-                <!-- <mat-card-header>
-                  <mat-card-title>Radar Chart</mat-card-title>
-                </mat-card-header> -->
-                <canvas id="radarChart" class="chartheight"></canvas>  
+          <canvas baseChart
+          [datasets]="compareData" 
+          [labels]="labels"
+          [options]="chartOption" 
+          [legend]="compareChartLegend" 
+          [chartType]="compareRadarChartType" 
+          [colors]="compareCharColor" ></canvas> 
          </mat-card>
        </div> 
   </div> 
 
   <div  class="chart">
       <div class="chart1">
+        <mat-card-header>
+          <mat-card-title>Cost</mat-card-title>
+        </mat-card-header>
       <mat-card class="chart4">
-              <!-- <mat-card-header>
-                <mat-card-title>Pie Chart</mat-card-title>
-              </mat-card-header> -->
-              <canvas id="pieChart" class="chartheight"></canvas>
+        <canvas baseChart
+        [data]="costData" 
+        [labels]="labels"
+        [options]="chartOption" 
+        [legend]="compareChartLegend" 
+        [chartType]="pieChartType" 
+        [colors]="eachDataColor" ></canvas>
        </mat-card>
      </div> 
 
      <div class="chart1">
         <mat-card class="chart4">
-                <!-- <mat-card-header>
-                  <mat-card-title>Pie Chart</mat-card-title>
-                </mat-card-header> -->
-                <canvas id="pieChart1" class="chartheight"></canvas>
+         <mat-card-header>
+            <mat-card-title>Sell</mat-card-title>
+          </mat-card-header>
+          <canvas baseChart
+          [data]="sellData" 
+          [labels]="labels"
+          [options]="chartOption" 
+          [legend]="compareChartLegend" 
+          [chartType]="pieChartType" 
+          [colors]="eachDataColor" ></canvas>
          </mat-card>
        </div> 
   </div>
   <div class="chart5">
     <mat-card class="chart4">
-            <!-- <mat-card-header>
-              <mat-card-title>Pie Chart</mat-card-title>
-            </mat-card-header> -->
-            <canvas id="pieChart2" class="chartheight"></canvas>
+      <mat-card class="chart4">
+       <mat-card-header>
+          <mat-card-title>Profit</mat-card-title>
+        </mat-card-header>
+        <canvas baseChart
+        [data]="profitData" 
+        [labels]="labels"
+        [options]="chartOption" 
+        [legend]="compareChartLegend" 
+        [chartType]="pieChartType" 
+        [colors]="eachDataColor" ></canvas>
+       </mat-card>
      </mat-card>
   </div> 
 </div>

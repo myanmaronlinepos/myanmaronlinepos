@@ -98,6 +98,20 @@ getSellHistory():Observable<any[]> {
   );
 }
 
+getDashBoardLabels():Observable<any> {
+  let apiUrl="api/user/get/dashboard_labels";
+  return this.http.get<any>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
+getDashBoardData(start_date,end_date):Observable<any> {
+  let apiUrl="api/user/get/dashboard_data/"+start_date+"/"+end_date;
+  return this.http.get<any>(
+    this.apiService.createCompleteApiRoute(apiUrl)
+  );
+}
+
 getProductImage(product_id:string):Observable<Blob> {
   let apiUrl="/api/user/get/product/image/"+product_id;
   return this.http.get<any>(
