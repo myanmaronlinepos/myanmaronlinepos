@@ -3,8 +3,7 @@ export interface EditProduct {
     product_name:string;
     category_name:string;
     tag_name:string;
-    quantity:number;
-    cost:number;
-    price_sell:number;
+    cost_price:number;
+    sell_price:number;
     
 }
