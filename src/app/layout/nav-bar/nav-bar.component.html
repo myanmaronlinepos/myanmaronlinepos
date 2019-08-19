@@ -6,10 +6,17 @@
   </div>
 
   <!-- search bar div -->
-  <div class="fake-input">
-    <input type="search" class="form-control" name="search" placeholder="Search">
-    <i class="fas fa-search"></i>
-  </div>
+  <form class="fake-input">
+    <div> 
+        <input type="search" class="form-control" name="search" placeholder="Search" [formControl]="searchForm" [matAutocomplete]="auto">
+        <i class="fas fa-search"></i>
+        <mat-autocomplete class="list" #auto="matAutocomplete">
+          <mat-option *ngFor="let data of filteredData | async" [value]="data">
+            {{data}}
+          </mat-option>
+        </mat-autocomplete>
+    </div>
+  </form>
 
   <!-- account profile div -->
   <div class="account-profile">
