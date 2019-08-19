@@ -44,7 +44,7 @@
                 <mat-form-field>
                   
                     <mat-label>Tag</mat-label>
-                    <mat-select formControlName="tag" [(ngModel)]="tagSelectOption">
+                    <mat-select formControlName="tag" [(ngModel)]="tagSelectOpton">
                       <mat-option *ngFor="let tag of tags" [value]="tag.tag_id">
                         {{tag.tag_name}}
                       </mat-option>
@@ -58,7 +58,7 @@
               <div class="col-sm-12" *ngIf="product">
                 <mat-label class="labelname">Price per cost:&nbsp;&nbsp;&nbsp;&nbsp;</mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="cost_price" [(ngModel)]="product.cost_price">
+                  <input matInput type="text" formControlName="cost_price" [(ngModel)]="product.price_cost">
                   <mat-error *ngIf="!editForm.get('cost_price').valid" class="help-block">
                     ##</mat-error>
                 </mat-form-field>
@@ -70,7 +70,7 @@
                 <mat-label class="labelname">Sale Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </mat-label>
                 <mat-form-field>
-                  <input matInput type="text" formControlName="sell_price" [(ngModel)]="product.sell_price">
+                  <input matInput type="text" formControlName="sell_price" [(ngModel)]="product.price_sell">
                   <mat-error *ngIf="!editForm.get('sell_price').valid" class="help-block">
                     ##</mat-error>
                 </mat-form-field>
@@ -94,8 +94,8 @@
 
       <div class="btn form-group">
         <div class="subbtn">
-          <button type="reset" class="cancel">Cancel</button>
-          <button class="save" (click)="Onaddvalue(row)">Save</button>
+          <button type="reset" class="cancel btn btn-primary">Cancel</button>
+          <button type="submit" class="save btn btn-primary">Save</button>
         </div>
       </div>
     </div>

@@ -8,11 +8,21 @@
   <!-- search bar div -->
   <form class="fake-input">
     <div> 
-        <input type="search" class="form-control" name="search" placeholder="Search" [formControl]="searchForm" [matAutocomplete]="auto">
+        <input 
+        type="search" 
+        class="form-control" 
+        name="search" 
+        placeholder="Search" 
+        [formControl]="searchForm" 
+        [matAutocomplete]="auto"
+        >
         <i class="fas fa-search"></i>
-        <mat-autocomplete class="list" #auto="matAutocomplete">
+        <mat-autocomplete class="list" #auto="matAutocomplete" [displayWith]="displayValue"
+        (optionSelected)="routeSelectedItem($event)">
           <mat-option *ngFor="let data of filteredData | async" [value]="data">
-            {{data}}
+            <mat-label>
+              {{data.name}}
+            </mat-label>
           </mat-option>
         </mat-autocomplete>
     </div>

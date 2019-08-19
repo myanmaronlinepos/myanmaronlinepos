@@ -4,6 +4,15 @@
     margin-top: 4%;
     flex-direction: row; 
 }
+
+.special-date {
+    background-color: blue;
+  }
+
+.calendar {
+    width:400px;
+    height:420px;
+}
  .chart{
     width:100%;
     display: flex;
@@ -20,6 +29,7 @@
     width:470px;
     align-items: center;
     height:420px;
+    cursor: hand;
  }
 .chart4{
     width: 470px;

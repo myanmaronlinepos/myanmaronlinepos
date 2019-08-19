@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart} from 'chart.js';
 import  dayGridPlugin  from "@fullcalendar/daygrid";
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
-import { CdkTreeModule } from '@angular/cdk/tree';
+import interactionPlugin from '@fullcalendar/interaction';
+import { MatCalendarCellCssClasses } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +10,12 @@ import { CdkTreeModule } from '@angular/cdk/tree';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  calendarPlugins=[dayGridPlugin];
+
+  start_date="2019-08-11";
+  end_date="2019-08-17";
+  selectedDate:any;
+  selectionStatus=0;
+
   LineChart:any=[];
   BarChart:any=[];
   PieChart:any=[];
@@ -77,9 +82,8 @@ ngOnInit() {
       }
     );
 
-    const start_date="2019-08-11";
-    const end_date="2019-08-17";
-    this.dataFetchData.getDashBoardData(start_date,end_date).subscribe(
+
+    this.dataFetchData.getDashBoardData(this.start_date,this.end_date).subscribe(
       response => {
         console.log(response);
         this.costData=response.costData;
@@ -96,6 +100,31 @@ ngOnInit() {
       }
     );
   }
+
+  onSelect(event){
+    console.log(event);
+    this.selectedDate=event;
+    console.log(this.selectionStatus);
+
+    switch(this.selectionStatus) {
+      case 0:
+        this.selectionStatus++;
+        const startTime=new Date(event);
+        this.start_date=startTime.toISOString();
+        break;
+      case 1:
+        const endTime=new Date(event);
+        this.end_date=endTime.toISOString();
+        console.log("start_date="+this.start_date);
+        console.log("end_date="+this.end_date);
+        this.selectionStatus=0;
+        this.fetchData();
+        break;
+    }
+
+  }
+
+
 }
 
  

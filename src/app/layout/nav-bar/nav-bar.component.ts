@@ -9,7 +9,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import {startWith, map} from 'rxjs/operators';
+import { MatAutocompleteSelectedEvent } from '@angular/material';
 
+export interface Item {
+  name: string;
+  link:string;
+}
 
 @Component({
   selector: 'app-nav-bar',
@@ -24,12 +29,21 @@ export class NavBarComponent implements OnInit {
   viewList=false;
   userData:any;
   searchForm = new FormControl();
-  searchData: string[]=['product','inventory','category','sell'];
-  filteredData: Observable<string[]>;
+  searchData: Item[]=[
+    {name:'allproduct',link:'/dashboard/products/allproducts'},
+    {name:'inventory',link:'/dashboard/products/inventory'},
+    {name:'category',link:'/dashboard/products/category'},
+    {name:'sell',link:'/dashboard/sell/sell-table'}
+  ];
+  
+  detailBaseLink="/dashboard/products/detailproduct/";
+  editBaseLink="/dashboard/products/editproduct/";
+  
+  filteredData: Observable<Item[]>;
 
   constructor(
     private authService:AuthService,
-    private router:Router,
+    public router:Router,
     private dataFetchService:DataFetchService,
     private sanitizer:DomSanitizer
     ) { }
@@ -40,17 +54,26 @@ export class NavBarComponent implements OnInit {
     this.fetchImage();
     this.filteredData = this.searchForm.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value))
+      map(value => typeof value === 'string' ? value : value.name),
+      map(name => name ? this._filter(name) : this.searchData.slice())
     );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = this._normalizeValue(value);
-    return this.searchData.filter(street => this._normalizeValue(street).includes(filterValue));
+  private _filter(name: string): Item[] {
+    const filterValue = name.toLowerCase();
+    return this.searchData.filter(option => option.name.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  private _normalizeValue(value: string): string {
-    return value.toLowerCase().replace(/\s/g, '');
+  routeSelectedItem(event: MatAutocompleteSelectedEvent) {
+    console.log(event.option.value);
+    const item=event.option.value;
+    if(item) {
+      this.router.navigate([item.link]);
+    }
+  }
+
+  displayValue(item?: Item): string | undefined {
+    return item ? item.name : undefined;
   }
 
   fetchImage() {
@@ -74,7 +97,37 @@ export class NavBarComponent implements OnInit {
       error => {
           console.log(error);
       }
+    );
+
+    this.dataFetchService.getAllProduct().subscribe(
+      response => {
+          console.log(response);
+          this.concatData(response);
+      },
+      error => {
+        console.log(error);
+      }
     )
+  }
+
+  concatData(productList) {
+
+    if(productList) {
+      productList.forEach(element => {
+        const product_id=element.product_id;
+        const product_name=element.product_name;
+        const detail={
+          name:product_name+"(Detail)",
+          link:this.detailBaseLink+product_id
+        }
+        const edit={
+          name:product_name+"(Edit)",
+          link:this.editBaseLink+product_id
+        }
+        this.searchData.push(detail);
+        this.searchData.push(edit);
+      });
+    }
   }
 
   logout() {

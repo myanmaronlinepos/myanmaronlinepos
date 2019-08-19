@@ -1,11 +1,11 @@
    <div class="cover">
     <div  class="chart">
       <div class="chart1">
-      <mat-card class="chart2">
-              <!-- <mat-card-header>
-                <mat-card-title>Calendar</mat-card-title>
-              </mat-card-header> -->
-              <full-calendar [plugins]="calendarPlugins"  class="chartheight"></full-calendar>
+      <mat-card class="calendar">
+              <mat-calendar 
+              [selected]="selectedDate" 
+              (selectedChange)="onSelect($event)"
+              ></mat-calendar>
        </mat-card>
      </div> 
 

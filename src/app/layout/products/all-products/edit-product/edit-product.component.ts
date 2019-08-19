@@ -54,12 +54,12 @@ export class EditProductComponent implements OnInit {
       'tag': new FormControl(null),
       'cost_price': new FormControl(null),
       'sell_price': new FormControl(null),
-      // 'imageurl': new FormControl(null)
+      'imageurl': new FormControl(null)
     });
 
-    this.id = this.route.snapshot.paramMap.get('product_id');
-    if (this.id)
-        this.fetchData();
+    // this.id = this.route.snapshot.paramMap.get('product_id');
+    // if (this.id)
+    //     this.fetchData();
 
     this.route.params.subscribe(
       (param: Params) => {
@@ -77,6 +77,11 @@ export class EditProductComponent implements OnInit {
 
       const file = event.target.files[0];
       this.imageformData = file;
+      var reader = new FileReader();
+      reader.readAsDataURL(file); 
+      reader.onload = (_event) => { 
+        this.imgSrc = reader.result; 
+      }
     }
     else {
       this.imgSrc = 'assets/placeholder.jpg';
@@ -96,39 +101,68 @@ export class EditProductComponent implements OnInit {
   }
 
   fetchData() {
-    this.dataFetchService.getAllProduct().subscribe(
+    this.dataFetchService.getProduct(this.id).subscribe(
       response => {
-        this.products = response;
-        console.log(this.products);
-        const product_id = parseInt(this.id);
-        this.products.forEach((p: any) => {
-          if (p.product_id == product_id) {
-            this.product = p;
-          }
-        });
+            this.product=response;
+            console.log(this.product);
+            this.categorySelectOption=this.product.category_id;
+            this.tagSelectOpton=this.product.tag_id;
       },
       error => {
         console.log(error);
       }
     );
 
+    this.dataFetchService.getAllCategory().subscribe(
+      response => {
+        console.log(response);
+        this.categories=response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    this.dataFetchService.getAllTag().subscribe(
+      response => {
+        console.log(response);
+        this.tags=response;
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
   }
 
   onSubmit() {
-    const formValue = this.editForm.value;
+    const formValue = this.product;
     
 		if (this.editForm.valid) {
       this.editformData = {
+       product_id:this.id,
        product_name: formValue.product_name,
        category_id: this.categorySelectOption,
        tag_id: this.tagSelectOpton,
-       cost_price: formValue.cost_price,
-       sell_price: formValue.sell_price,
+       price_cost: formValue.price_cost,
+       price_sell: formValue.price_sell,
       }
 
       console.log(this.editformData);
 
-      this.datapostService.updateProduct(this.editformData)
+      
+      if (this.imageformData != null) {
+        this.updateProductImage();
+      }
+
+      if(this.editformData!=null) {
+        this.updateProductData();
+      }
+    }
+  }
+
+  updateProductData() {
+    this.datapostService.updateProduct(this.editformData)
         .subscribe(
           response => {
           if(response) {
@@ -141,11 +175,6 @@ export class EditProductComponent implements OnInit {
          
         }
         );
-      
-    if (this.imageformData != null) {
-       this.updateProductImage();
-    }
-    }
   }
 
   updateProductImage() {

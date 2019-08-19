@@ -36,15 +36,10 @@ getInventory():Observable<Inventory[]>{
     );
   }
 
-  getProduct(productId:string):Observable<Product> {
-    let apiUrl="api/user/get/product";
+  getProduct(product_id:string):Observable<Product> {
+    let apiUrl="api/user/get/products/"+product_id;
     return this.http.get<Product>(
       this.apiService.createCompleteApiRoute(apiUrl),
-      {
-        params: {
-          product_id: productId
-        }
-      }
     );
   }
 
