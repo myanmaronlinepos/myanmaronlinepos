@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "http://myanmaronlinepos.com:8081"
+  baseUrl: "http://myanmaronlinepos.com:80"
 };

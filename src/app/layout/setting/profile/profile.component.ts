@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   imageformData: any;
   imgSrc: any = 'assets/placeholder.jpg';
   selectedImage: any = null;
+  selectedOption=1;
   data: any;
   cities: any;
   changepwd = false;
@@ -41,7 +42,7 @@ export class ProfileComponent implements OnInit {
       'user_name': new FormControl(null),
       'storename': new FormControl(null),
       'address': new FormControl(null),
-      'city_name': new FormControl(null),
+      'city': new FormControl(null),
       'user_email': new FormControl(null),
       'user_phone': new FormControl(null),
     });
@@ -90,7 +91,7 @@ export class ProfileComponent implements OnInit {
     }
   }
   onSave() {
-    const formValue = this.profileForm.value;
+    const formValue = this.data;
 
     this.addProfileData = {
       user_name: formValue.user_name,
@@ -100,10 +101,10 @@ export class ProfileComponent implements OnInit {
       user_role: 1,
       user_phone: formValue.user_phone,
       address: formValue.address,
-      city_id: formValue.city_name
+      city_id: this.selectedOption
     }
 
-    alert("User data save successfully");
+    
     console.log(this.addProfileData);
 
     if (this.addProfileData) {
@@ -138,6 +139,7 @@ export class ProfileComponent implements OnInit {
     this.dataPostService.updateUserImage(formData).subscribe(
       response => {
         console.log(response);
+        alert("User data save successfully");
         let objectURL = URL.createObjectURL(response);
         this.imgSrc = this.sanitizer.bypassSecurityTrustUrl(objectURL);
       },
@@ -166,7 +168,8 @@ export class ProfileComponent implements OnInit {
     this.dataFetchService.getUserData().subscribe(
       response => {
         this.data = response;
-        console.log(this.data.user_name);
+        this.selectedOption=this.data.city_id;
+        console.log(this.selectedOption);
         console.log(this.data);
       },
       error => {

@@ -3,7 +3,7 @@
     <div class="detail">
       <div class="subdetail">
         <div class="subdetail1">
-          <form [formGroup]="profileForm">
+          <form [formGroup]="profileForm" *ngIf="data">
             <mat-form-field class="subsubdetail">
               <input matInput formControlName="user_name" placeholder="Name:" [(ngModel)]="data.user_name">
             </mat-form-field>
@@ -22,7 +22,7 @@
 
             <mat-form-field class="subsubdetail">
               <mat-label>City</mat-label>
-              <mat-select formControlName="city" id="city_name">
+              <mat-select formControlName="city" [(ngModel)]="selectedOption">
                 <mat-option *ngFor="let city of cities" [value]="city.city_id">
                   {{city.city_name}}
                 </mat-option>

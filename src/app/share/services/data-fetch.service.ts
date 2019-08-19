@@ -71,7 +71,7 @@ getAllInventory():Observable<Inventory[]> {
 
 
 getAllCity():Observable<City[]> {
-  let apiUrl="api/guest/allcity";
+  let apiUrl="/allcity";
   return this.http.get<City[]>(
     this.apiService.createCompleteApiRoute(apiUrl)
   );
