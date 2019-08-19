@@ -7,6 +7,7 @@ import { NewProduct } from 'src/app/share/models/NewProduct';
 import { Category } from 'src/app/share/models/Category';
 import { CategoryService } from 'src/app/share/services/category.service';
 import { DataFetchService } from 'src/app/share/services/data-fetch.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -25,28 +26,18 @@ export class AddProductComponent implements OnInit {
   enableSave:boolean=false;
   categories: any;
   tags:any;
+  product_id:string;
 
-  imgSrc: string = 'assets/placeholder.jpg';
+  imageformData: any;
+  imgSrc: any = 'assets/placeholder.jpg';
   selectedImage: any = null;
-
-  processFile( event: any ) {
-    if( event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => this.imgSrc = e.target.result;
-      reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
-    }
-    else {
-      this.imgSrc = 'assets/placeholder.jpg';
-      this.selectedImage = null;
-    }
-  }
 
   constructor(
     private dataFetchService:DataFetchService,
     private datapostService: DataPostService,
     private router: Router,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -62,6 +53,24 @@ export class AddProductComponent implements OnInit {
     });
     this.formValid();
     
+  }
+
+  processFile(event: any) {
+ 
+    if (event.target.files && event.target.files[0]) {
+
+      const file = event.target.files[0];
+      this.imageformData = file;
+      var reader = new FileReader();
+      reader.readAsDataURL(file); 
+      reader.onload = (_event) => { 
+        this.imgSrc = reader.result; 
+      }
+    }
+    else {
+      this.imgSrc = 'assets/placeholder.jpg';
+      this.selectedImage = null;
+    }
   }
 
   fetchData() {
@@ -113,22 +122,46 @@ export class AddProductComponent implements OnInit {
       updated_at: '',
     }
 
+    
     console.log(this.addproductData);
-
+    
     this.datapostService.postProduct(this.addproductData)
-      .subscribe(
-        response => {
+    .subscribe(
+      response => {
         if(response) {
+          console.log(response);
+          this.product_id=response;
+
+          if (this.imageformData != null) {
+            this.updateProductImage();
+         }
           this.router.navigate(['/dashboard/products/allproducts']);
         }
-
+        
       },
       error => {
         console.log(error);
         this.productNameError=error.error.product_name;
       }
+      
+      );
 
-      )
+    }
+    
+    updateProductImage() {
+    var formData = new FormData();
+    formData.append("product_image", this.imageformData);
+    formData.append("product_id", this.product_id);
+    this.datapostService.updateProductImage(formData).subscribe(
+      response => {
+        console.log(response);
+        let objectURL = URL.createObjectURL(response);
+        this.imgSrc = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

@@ -24,9 +24,7 @@ export class ProfileComponent implements OnInit {
   imgSrc: any = 'assets/placeholder.jpg';
   selectedImage: any = null;
   data: any;
-
-
-
+  cities: any;
   changepwd = false;
 
   constructor(
@@ -38,13 +36,14 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.fetchCity();
     this.profileForm = new FormGroup({
-      'user_name': new FormControl(null, Validators.required),
-      'storename': new FormControl(null, Validators.required),
+      'user_name': new FormControl(null),
+      'storename': new FormControl(null),
       'address': new FormControl(null),
       'city_name': new FormControl(null),
       'user_email': new FormControl(null),
-      'user_phone': new FormControl(null, Validators.required),
+      'user_phone': new FormControl(null),
     });
 
     this.user_image = new FormGroup({
@@ -59,6 +58,7 @@ export class ProfileComponent implements OnInit {
     });
 
     this.fetchData();
+    
     // this.formValid();
   }
 
@@ -78,6 +78,11 @@ export class ProfileComponent implements OnInit {
 
       const file = event.target.files[0];
       this.imageformData = file;
+      var reader = new FileReader();
+      reader.readAsDataURL(file); 
+      reader.onload = (_event) => { 
+        this.imgSrc = reader.result; 
+      }
     }
     else {
       this.imgSrc = 'assets/placeholder.jpg';
@@ -95,9 +100,10 @@ export class ProfileComponent implements OnInit {
       user_role: 1,
       user_phone: formValue.user_phone,
       address: formValue.address,
-      city_id: 1
+      city_id: formValue.city_name
     }
 
+    alert("User data save successfully");
     console.log(this.addProfileData);
 
     if (this.addProfileData) {
@@ -131,7 +137,7 @@ export class ProfileComponent implements OnInit {
     formData.append("user_image", this.imageformData);
     this.dataPostService.updateUserImage(formData).subscribe(
       response => {
-        // console.log(response);
+        console.log(response);
         let objectURL = URL.createObjectURL(response);
         this.imgSrc = this.sanitizer.bypassSecurityTrustUrl(objectURL);
       },
@@ -195,6 +201,18 @@ export class ProfileComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  fetchCity() {
+    this.dataFetchService.getAllCity().subscribe(
+      response => {
+        this.cities= response;
+        console.log(this.cities);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

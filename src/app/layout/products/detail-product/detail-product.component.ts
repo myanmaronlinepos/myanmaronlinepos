@@ -17,6 +17,8 @@ export class DetailProductComponent implements OnInit {
   dataSource: any;
   id: string;
   imgSrc:any;
+  products:any;
+  product:Product;
 
   @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,9 +40,24 @@ export class DetailProductComponent implements OnInit {
     this.route.params.subscribe(
       (param:Params) => {
         this.id = param['product_id'];
-        this.fetchProductData();
+        this.fetchData();
       }
     );
+  }              
+
+  fetchData() {
+    this.dataFetchService.getAllProduct().subscribe(
+      response => {
+        this.products=response;
+        console.log(this.products);
+        const product_id=parseInt(this.id);
+        this.products.forEach((p: Product) => {
+          if(p.product_id == product_id) {
+            this.product = p;
+          }
+        })
+      }
+    )
   }
 
   fetchImage() {
@@ -65,6 +82,7 @@ export class DetailProductComponent implements OnInit {
           return element.product_id == this.id;
           });
 
+        console.log(result);
         this.dataSource = new MatTableDataSource<any>(result);
         this.dataSource.paginator = this.paginator;
       },

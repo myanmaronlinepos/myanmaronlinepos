@@ -5,28 +5,37 @@
         <div class="subdetail1">
           <form [formGroup]="profileForm">
             <mat-form-field class="subsubdetail">
-              <input matInput formControlName="user_name" placeholder="Name:" value="{{data?data.user_name:null}}">
+              <input matInput formControlName="user_name" placeholder="Name:" [(ngModel)]="data.user_name">
             </mat-form-field>
 
             <mat-form-field class="subsubdetail">
-              <input matInput formControlName="storename" placeholder="Shop Name:" value="{{data?data.storename:null}}">
+              <input matInput formControlName="storename" placeholder="Shop Name:" [(ngModel)]="data.storename">
             </mat-form-field>
 
             <mat-form-field class="subsubdetail">
-              <input matInput formControlName="address" placeholder="Address:" value="{{data?data.address:null}}">
+              <input matInput formControlName="address" placeholder="Address:" [(ngModel)]="data.address">
             </mat-form-field>
 
-            <mat-form-field class="subsubdetail">
-              <input matInput formControlName="city_name" placeholder="City:" value="{{data?data.city_name:null}}">
-            </mat-form-field>
+            <!-- <mat-form-field class="subsubdetail">
+              <input matInput formControlName="city_name" placeholder="City:" [(ngModel)]="data.city_name">
+            </mat-form-field> -->
 
             <mat-form-field class="subsubdetail">
-              <input matInput formControlName="user_email" placeholder="Email:" value="{{data?data.user_email:null}}">
+              <mat-label>City</mat-label>
+              <mat-select formControlName="city" id="city_name">
+                <mat-option *ngFor="let city of cities" [value]="city.city_id">
+                  {{city.city_name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>      
+
+            <mat-form-field class="subsubdetail">
+              <input matInput formControlName="user_email" placeholder="Email:" [(ngModel)]="data.user_email">
             </mat-form-field>
 
             <mat-form-field class="subsubdetail">
               <input matInput formControlName="user_phone" placeholder="Phone-No:"
-                value="{{data?data.user_phone:null}}">
+              [(ngModel)]="data.user_phone">
             </mat-form-field>
           </form>
         </div>

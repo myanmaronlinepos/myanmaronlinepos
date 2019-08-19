@@ -64,7 +64,10 @@
 
     <div class="second-btn">
       <button class="cancel-btn btn btn-primary">Cancel</button>
-      <button class="save-btn btn btn-primary" (click)="sell()">Sell</button>
+      <button class="save-btn btn btn-primary" (click)="sell()">
+        Sell
+        <i class="fa fa-spinner fa-spin" *ngIf="Progressing" ></i>
+      </button>
     </div>
   </div>
 </div> 

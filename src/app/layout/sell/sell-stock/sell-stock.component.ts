@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { SellService } from 'src/app/share/services/sell.service';
 import { SellProduct } from 'src/app/share/models/SellProduct';
@@ -17,13 +17,15 @@ export class SellStockComponent implements OnInit {
 
   displayedColumns: string[] = ['number', 'name', 'quantity', 'price', 'totalprice', 'action'];
   items: any;
+  Progressing: boolean= false;
   quantity:any=[];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private dataPostService:DataPostService,
-    private sellservice: SellService
+    private sellservice: SellService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -69,7 +71,9 @@ export class SellStockComponent implements OnInit {
     this.dataPostService.storeSellData(productList).subscribe(
       response => {
         console.log(response);
+        this.Progressing=true;
         alert("The product is successfully sold out");
+        this.router.navigate(['/dashboard/sell/sell-history'])
       },
       error => {
         console.log(error);

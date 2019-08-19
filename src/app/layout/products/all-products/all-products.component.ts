@@ -30,6 +30,7 @@ export class AllProductsComponent implements OnInit {
   category_filtr:any=[];
   selected_tag: any=[];
   tag_filtr: any=[];
+  data: any;
   
   // quantity: string[] = ['less than 10', 'less than 20', 'less than 30', 'more than 50'];
   
@@ -39,7 +40,8 @@ export class AllProductsComponent implements OnInit {
     private router: Router,
     private dataFetchService: DataFetchService,
     public dialog: MatDialog,
-    public edit: DeleteTagService
+    public edit: DeleteTagService,
+    private excelService: ExcelService
   ) { }
 
   ngOnInit() {
@@ -116,33 +118,6 @@ export class AllProductsComponent implements OnInit {
   
   }
 
-  // onEdit(action, obj): void {
-
-  //   // this.categoryservice.setCategory(row);
-  //   obj.action = action;
-  //   const dialogRef = this.dialog.open(EditProductComponent, {
-  //     width: '900px',
-  //     height: '1300px',
-  //     data: obj
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result.event == 'Edit') {
-  //       this.editRowData(result.data);
-  //     }
-  //   });
-  // }
-  // editRowData(row_obj) {
-  //   this.dataSource = this.dataSource.filter((value, key) => {
-  //     if (value.id == row_obj.id) {
-  //       value.product_name = row_obj.product - name;
-  //       value.category_id = row_obj.category_id;
-  //       value.tag_id = row_obj.tag_id;
-
-  //     }
-  //     return true;
-  //   });
-  // }
-
   fetchData() {
 
     //fetch all category data
@@ -170,6 +145,7 @@ export class AllProductsComponent implements OnInit {
       response => {
     
         this.allproduct=response;
+        this.data= response;
         console.log(response);
         this.dataSource = new MatTableDataSource<any>(this.allproduct);
         this.dataSource.paginator = this.paginator;
@@ -182,6 +158,10 @@ export class AllProductsComponent implements OnInit {
 
   productDetail(id: number) {
     this.router.navigate(['/dashboard/products/detailproduct', id]);
+  }
+
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.data, 'products');
   }
 
 }
