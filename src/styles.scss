@@ -3,3 +3,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~@fullcalendar/core/main.css";
 @import "~@fullcalendar/daygrid/main.css";
+
+@media print {
+    @page {
+        size: 5cm 8cm;
+        
+    }
+
+  }

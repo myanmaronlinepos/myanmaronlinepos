@@ -71,3 +71,21 @@
     </div>
   </div>
 </div> 
+
+<div id="print_screen">
+      
+  <div *ngFor="let item of items">
+    <table border="0">
+      <tr>
+        <td>product_name</td>
+        <td>quantity</td>
+        <td>cost</td>
+      </tr>
+      <tr>
+        <td>{{item.product_name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.total_sell}}</td>
+      </tr>
+    </table>    
+  </div>
+</div>

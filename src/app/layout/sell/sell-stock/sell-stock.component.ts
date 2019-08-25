@@ -72,7 +72,7 @@ export class SellStockComponent implements OnInit {
       response => {
         console.log(response);
         this.Progressing=true;
-        alert("The product is successfully sold out");
+        this.print();
         this.router.navigate(['/dashboard/sell/sell-history'])
       },
       error => {
@@ -82,6 +82,16 @@ export class SellStockComponent implements OnInit {
     
   }
   
+  print() {
+    const printContent = document.getElementById("print_screen");
+    const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+    WindowPrt.document.write('<html><head><title>Print it!</title><link rel="stylesheet" type="text/css" href="styles.scss"></head><body>');
+    WindowPrt.document.write(printContent.innerHTML);
+    WindowPrt.document.close();
+    WindowPrt.focus();
+    WindowPrt.print();
+    WindowPrt.close();
+  }
   convert(args: SellProduct[]): SellProduct[] {
     const sell_product: any = [];
 
